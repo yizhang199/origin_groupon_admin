@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import ProductCard from "./ProductCard";
+
 const ProductList = props => {
   return (
     <div className="ui relaxed divided list">
@@ -15,6 +17,7 @@ const ProductList = props => {
           </div>
         );
       })}
+      <ProductCard />
     </div>
   );
 };
