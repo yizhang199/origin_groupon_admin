@@ -1,4 +1,7 @@
 import checkPropTypes from "check-prop-types";
+import { createStore } from "redux";
+
+import rootReducer from "../../reducers";
 
 /**
  * @function findByTestAttribute - find an html dom element by data-test attribute
@@ -19,4 +22,8 @@ export const checkProps = (component, conformingProps) => {
   );
 
   expect(propError).toBeUndefined();
+};
+
+export const storeFactory = initialState => {
+  return createStore(rootReducer, initialState);
 };
