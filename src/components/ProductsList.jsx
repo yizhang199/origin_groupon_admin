@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 const ProductList = props => {
   return (
@@ -13,6 +14,10 @@ const ProductList = props => {
 
 const mapStateToProps = ({ products }) => {
   return { products };
+};
+
+ProductList.propTypes = {
+  products: PropTypes.Object.isRequired
 };
 
 export default connect(mapStateToProps)(ProductList);
