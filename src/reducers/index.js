@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-const productsReducer = (products, actions) => {
+const productsReducer = (products = [], actions) => {
   return [
     {
       category_id: 1,
