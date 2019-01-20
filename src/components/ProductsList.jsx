@@ -11,6 +11,8 @@ class ProductList extends React.Component {
   render() {
     return (
       <div className="ui relaxed divided list">
+        <h1>Products List</h1>
+
         {this.props.products.map(category => {
           return (
             <div
@@ -18,7 +20,7 @@ class ProductList extends React.Component {
               key={`category${category.category_id}`}
               className="item"
             >
-              {category.category_name}
+              {category.name}
             </div>
           );
         })}

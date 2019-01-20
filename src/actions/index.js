@@ -3,12 +3,11 @@ import types from "./actionTypes";
 import kidsnParty from "../apis/kidsnParty";
 
 export const getProducts = () => {
-  return function(dispatch, getState) {
-    const promise = kidsnParty.get("/products/1");
+  return async function(dispatch, getState) {
+    const response = await kidsnParty.get("/products/1");
 
-    return {
-      type: types.getProducts,
-      payload: promise
-    };
+    dispatch({ type: types.getProducts, payload: response });
   };
 };
+
+export const actionTypes = types;
