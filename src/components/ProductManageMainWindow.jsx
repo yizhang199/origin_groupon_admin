@@ -1,7 +1,7 @@
 import React from "react";
 
 import ProductList from "./ProductsList";
-import ControlPanel from "./ControlPanel";
+import EditForm from "./EditForm";
 
 const ProductManageMainWindow = () => {
   return (
@@ -26,8 +26,12 @@ const ProductManageMainWindow = () => {
           <input type="text" placeholder="按商品名搜索" />
         </div>
       </div>
-      <ProductList />
-      <ControlPanel />
+
+      <div style={{ display: `flex` }}>
+        <ProductList />
+
+        <EditForm />
+      </div>
     </div>
   );
 };

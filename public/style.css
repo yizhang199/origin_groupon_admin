@@ -47,6 +47,8 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100px;
+  color: white;
+  text-decoration: none;
 }
 
 .left-side-menu .menu .item .material-icons {
@@ -140,7 +142,7 @@ body {
 .category-list {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 87vh;
   overflow: scroll;
 }
 .category-list {
@@ -242,4 +244,11 @@ body {
   background-color: #ffba2d;
   font-size: 14px;
   font-weight: bold;
+}
+/* edit form */
+.product-manage-main-window .edit-form {
+  color: white;
+  background-color: #a5a5a5;
+  width: 44vw;
+  height: 87vh;
 }

@@ -12,10 +12,10 @@ const LeftSideMenu = () => {
           <i className="material-icons">assignment</i>
           订单管理
         </a>
-        <a className="item">
+        <Link to={`/products`} className="item">
           <i className="material-icons">fastfood</i>
           商品管理
-        </a>
+        </Link>
         <a className="item">
           <i className="material-icons">store_mall_directory</i>
           店面管理
