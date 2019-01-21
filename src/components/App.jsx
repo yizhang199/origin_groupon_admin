@@ -1,11 +1,12 @@
 import React from "react";
-import ProductList from "./ProductsList";
-import ControlPanel from "./ControlPanel";
+
+import LeftSideMenu from "./LeftSideMenu";
+import ProductManageMainWindow from "./ProductManageMainWindow";
 const App = () => {
   return (
-    <div className="ui container">
-      <ProductList data-test="product-list" />
-      <ControlPanel data-test="control-panel" />
+    <div className="app">
+      <LeftSideMenu />
+      <ProductManageMainWindow />
     </div>
   );
 };
