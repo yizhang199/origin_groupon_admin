@@ -102,8 +102,9 @@ body {
   font-size: 16px;
 }
 .product-manage-main-window .sub-menu .input-container input {
-  font-size: 16px;
+  font-size: 14px;
   width: 80%;
+  height: 30px;
   border-radius: 5px;
   border: 1px solid #d8d8d8;
 }
@@ -176,8 +177,6 @@ body {
   flex: 3;
   padding: 0 10px;
 }
-.product-list h3 {
-}
 
 /* product card */
 .product-card {
@@ -247,8 +246,28 @@ body {
 }
 /* edit form */
 .product-manage-main-window .edit-form {
-  color: white;
-  background-color: #a5a5a5;
   width: 44vw;
   height: 87vh;
+  padding: 10px 20px;
+}
+.product-manage-main-window .edit-form .form-field {
+  display: flex;
+  flex-direction: column;
+}
+.product-manage-main-window .edit-form .form-field .form-label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+.product-manage-main-window .edit-form .form-field .form-input {
+  font-size: 16px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #a5a5a5;
+  outline: none;
+}
+.product-manage-main-window .edit-form .form-field .form-error-message {
+  color: red;
+  font-size: 12px;
+  padding: 5px 0px;
 }

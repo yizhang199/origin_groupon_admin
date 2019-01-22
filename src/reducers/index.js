@@ -1,5 +1,7 @@
 import { combineReducers } from "redux";
 import { actionTypes } from "../actions";
+import { reducer as formReducer } from "redux-form";
+
 const productsReducer = (products = [], action) => {
   if (action.type === actionTypes.getProducts) {
     return action.payload.data;
@@ -8,5 +10,6 @@ const productsReducer = (products = [], action) => {
 };
 
 export default combineReducers({
-  products: productsReducer
+  products: productsReducer,
+  form: formReducer
 });
