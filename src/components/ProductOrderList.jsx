@@ -2,19 +2,24 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { getProducts } from "../actions";
+import ProductOrderCard from "./ProductOrderCard";
 class ProductOrderList extends React.Component {
   componentDidMount() {
     this.props.getProducts();
   }
 
   renderProducts = () => {
-    return this.props.products.map(product => {
+    return this.props.products.map(productGroup => {
       return (
-        <div
-          key={`product${product.product_id}`}
-          className="component-product-order-list__product-name"
-        >
-          {product.name}
+        <div key={`product${productGroup.category_id}`}>
+          {productGroup.products.map(product => {
+            return (
+              <ProductOrderCard
+                key={`productCard${product.product_id}`}
+                product={product}
+              />
+            );
+          })}
         </div>
       );
     });
