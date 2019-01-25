@@ -13,17 +13,18 @@ const ProductManageMainWindow = () => {
         <a href="">分类管理</a>
       </div>
       <div className="sub-menu">
-        <div className="button-container">
-          <button>新建商品</button>
+        <div className="input-container">
+          <input type="text" placeholder="按商品名搜索" />
         </div>
+
         <div className="link-container">
           <a className="active" href="">
             已上架商品
           </a>
           <a href="">未上架商品</a>
         </div>
-        <div className="input-container">
-          <input type="text" placeholder="按商品名搜索" />
+        <div className="button-container">
+          <button>新建商品</button>
         </div>
       </div>
 

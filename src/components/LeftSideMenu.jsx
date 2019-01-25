@@ -8,22 +8,22 @@ const LeftSideMenu = () => {
         <img src="favicon.ico" alt="" />
       </div>
       <div className="menu">
-        <a className="item">
+        <Link to={`/orders`} className="item">
           <i className="material-icons">assignment</i>
           订单管理
-        </a>
+        </Link>
         <Link to={`/products`} className="item">
           <i className="material-icons">fastfood</i>
           商品管理
         </Link>
-        <a className="item">
+        <Link to={`/shops`} className="item">
           <i className="material-icons">store_mall_directory</i>
           店面管理
-        </a>
-        <a className="item">
+        </Link>
+        <Link to={`/charts`} className="item">
           <i className="material-icons">insert_chart_outlined</i>
           经营分析
-        </a>
+        </Link>
       </div>
     </div>
   );
