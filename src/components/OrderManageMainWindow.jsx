@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, Router, Switch } from "react-router-dom";
+import { history } from "../history.js";
 
 import { getProducts } from "../actions";
 import ProductOrderList from "./ProductOrderList";
@@ -14,7 +15,7 @@ class OrderManageMainWindow extends React.Component {
   render() {
     return (
       <div className="component-order-manange-main-window">
-        <Router>
+        <Router history={history}>
           <React.Fragment>
             <TopNav />
             <Switch>

@@ -1,5 +1,6 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, Router, Switch } from "react-router-dom";
+import { history } from "../history";
 
 import LeftSideMenu from "./LeftSideMenu";
 import ProductManageMainWindow from "./ProductManageMainWindow";
@@ -10,7 +11,7 @@ import ShopManageMainWindow from "./ShopManageMainWindow";
 const App = () => {
   return (
     <div className="app">
-      <Router>
+      <Router history={history}>
         <React.Fragment>
           <LeftSideMenu />
           <Switch>
