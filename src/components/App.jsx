@@ -22,7 +22,6 @@ const App = () => {
             />
           </Switch>
           <Route
-            exact
             path="/orders"
             render={props => <OrderManageMainWindow {...props} />}
           />

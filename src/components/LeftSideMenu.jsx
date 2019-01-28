@@ -1,26 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { history } from "../history";
+
+import "../css/LeftSideMenu.css";
+
 const LeftSideMenu = () => {
+  const getClass = path => {
+    if (path === history.location.pathname) {
+      return "component-left-side-menu__item active";
+    } else {
+      return "component-left-side-menu__item";
+    }
+  };
   return (
-    <div className="left-side-menu">
-      <div className="icon">
+    <div className="component-left-side-menu">
+      <div className="component-left-side-menu__icon">
         <img src="favicon.ico" alt="" />
       </div>
-      <div className="menu">
-        <Link to={`/orders`} className="item">
+      <div className="component-left-side-menu__menu">
+        <Link to={`/orders`} className={getClass("/orders")}>
           <i className="material-icons">assignment</i>
           订单管理
         </Link>
-        <Link to={`/products`} className="item">
+        <Link to={`/products`} className={getClass("/products")}>
           <i className="material-icons">fastfood</i>
           商品管理
         </Link>
-        <Link to={`/shops`} className="item">
+        <Link to={`/shops`} className={getClass("/shops")}>
           <i className="material-icons">store_mall_directory</i>
           店面管理
         </Link>
-        <Link to={`/charts`} className="item">
+        <Link to={`/charts`} className={getClass("/charts")}>
           <i className="material-icons">insert_chart_outlined</i>
           经营分析
         </Link>

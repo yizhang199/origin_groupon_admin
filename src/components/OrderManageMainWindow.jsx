@@ -22,7 +22,7 @@ class OrderManageMainWindow extends React.Component {
               <Route
                 exact
                 path="/orders/products"
-                render={props => <ProductOrderList {...props} />}
+                Component={ProductOrderList}
               />
               <Route
                 exact
