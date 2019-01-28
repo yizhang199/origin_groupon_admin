@@ -1,5 +1,7 @@
 .component-edit-form {
   background-color: #f5f6f8;
+  height: 87vh;
+  overflow: scroll;
 }
 .component-edit-form__header {
   display: flex;
