@@ -3,6 +3,8 @@ import React from "react";
 import ProductList from "./ProductsList";
 import EditForm from "./EditForm";
 
+import "../css/ProductManageMainWindow.css";
+
 const ProductManageMainWindow = () => {
   return (
     <div className="product-manage-main-window">

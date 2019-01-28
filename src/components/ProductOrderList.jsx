@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import { getProducts } from "../actions";
 import ProductOrderCard from "./ProductOrderCard";
+
+import "../css/ProductOrderList.css";
 class ProductOrderList extends React.Component {
   componentDidMount() {
     this.props.getProducts();
@@ -11,7 +13,10 @@ class ProductOrderList extends React.Component {
   renderProducts = () => {
     return this.props.products.map(productGroup => {
       return (
-        <div key={`product${productGroup.category_id}`}>
+        <div
+          className="product-order-list__product-group"
+          key={`product${productGroup.category_id}`}
+        >
           {productGroup.products.map(product => {
             return (
               <ProductOrderCard

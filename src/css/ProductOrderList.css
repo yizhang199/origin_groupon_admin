@@ -1,0 +1,13 @@
+.component-product-order-list {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  height: 90vw;
+  overflow: scroll;
+}
+.product-order-list__product-group {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
