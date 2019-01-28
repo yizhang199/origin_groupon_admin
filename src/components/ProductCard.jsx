@@ -5,7 +5,7 @@ const ProductCard = ({ product }) => {
     <div className="product-card" data-test="component-product-card">
       <div className="product-card-header">
         <div className="product-image-container">
-          <img src={`images/products/default.jpeg`} alt="" />
+          <img src={product.image} alt="" />
         </div>
         <div className="product-info">
           <div className="product-name" data-test="product-name">

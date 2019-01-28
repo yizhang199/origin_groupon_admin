@@ -9,5 +9,4 @@ export const getProducts = () => {
     dispatch({ type: types.getProducts, payload: response });
   };
 };
-
 export const actionTypes = types;

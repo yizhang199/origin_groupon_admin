@@ -25,7 +25,6 @@
 .component-product-order-card__bar {
   background-color: green;
   height: 35px;
-  width: 20%;
 }
 .component-product-order-card__quantity {
   position: absolute;
