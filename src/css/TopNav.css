@@ -1,0 +1,7 @@
+.component-top-nav {
+  height: 10vh;
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

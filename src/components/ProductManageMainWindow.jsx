@@ -1,7 +1,7 @@
 import React from "react";
 
 import ProductList from "./ProductsList";
-import EditForm from "./EditForm";
+import EditProduct from "./EditProduct";
 
 import "../css/ProductManageMainWindow.css";
 
@@ -33,7 +33,7 @@ const ProductManageMainWindow = () => {
       <div style={{ display: `flex` }}>
         <ProductList />
 
-        <EditForm />
+        <EditProduct />
       </div>
     </div>
   );

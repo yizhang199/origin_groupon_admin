@@ -7,6 +7,7 @@ import ProductManageMainWindow from "./ProductManageMainWindow";
 import OrderManageMainWindow from "./OrderManageMainWindow";
 import ChartManageMainWindow from "./ChartManageMainWindow";
 import ShopManageMainWindow from "./ShopManageMainWindow";
+import Example from "./demoDatepicker";
 
 const App = () => {
   return (
@@ -20,26 +21,28 @@ const App = () => {
               path="/products"
               render={props => <ProductManageMainWindow {...props} />}
             />
+
+            <Route
+              path="/orders"
+              render={props => <OrderManageMainWindow {...props} />}
+            />
+            <Route
+              exact
+              path="/shops"
+              render={props => <ShopManageMainWindow {...props} />}
+            />
+            <Route
+              exact
+              path="/charts"
+              render={props => <ChartManageMainWindow {...props} />}
+            />
+            <Route exact path="/example" component={Example} />
+            <Route
+              exact
+              path="/"
+              render={props => <ProductManageMainWindow {...props} />}
+            />
           </Switch>
-          <Route
-            path="/orders"
-            render={props => <OrderManageMainWindow {...props} />}
-          />
-          <Route
-            exact
-            path="/shops"
-            render={props => <ShopManageMainWindow {...props} />}
-          />
-          <Route
-            exact
-            path="/charts"
-            render={props => <ChartManageMainWindow {...props} />}
-          />
-          <Route
-            exact
-            path="/"
-            render={props => <ProductManageMainWindow {...props} />}
-          />
         </React.Fragment>
       </Router>
     </div>

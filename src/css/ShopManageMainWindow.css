@@ -1,0 +1,4 @@
+.shop-manage-main-window__main-content {
+  display: flex;
+  justify-content: space-between;
+}

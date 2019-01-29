@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+import "../css/TopNav.css";
 class TopNav extends React.Component {
   render() {
     return (

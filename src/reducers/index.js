@@ -9,7 +9,32 @@ const productsReducer = (products = [], action) => {
   return products;
 };
 
+const productReducer = (product = {}, action) => {
+  if (action.type === actionTypes.getProduct) {
+    return action.payload;
+  }
+  return product;
+};
+
+const appSettingReducer = (appSetting = {}, action) => {
+  if (action.type === actionTypes.initApp) {
+    return action.payload;
+  }
+  return appSetting;
+};
+
+const shopsReducer = (shops = [], action) => {
+  if (action.type === actionTypes.getShops) {
+    return action.payload;
+  }
+
+  return shops;
+};
+
 export default combineReducers({
   products: productsReducer,
-  form: formReducer
+  form: formReducer,
+  product: productReducer,
+  appSetting: appSettingReducer,
+  shops: shopsReducer
 });
