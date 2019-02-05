@@ -4,7 +4,9 @@ import kidsnParty from "../apis/kidsnParty";
 
 export const getProducts = () => {
   return async function(dispatch, getState) {
-    const response = await kidsnParty.get("/products/2");
+    const response = await kidsnParty.get("/products", {
+      params: { language_id: 2 }
+    });
 
     dispatch({ type: types.getProducts, payload: response });
   };

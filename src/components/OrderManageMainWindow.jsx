@@ -7,6 +7,8 @@ import { getProducts } from "../actions";
 import ProductOrderList from "./ProductOrderList";
 import CustomerOrderList from "./CustomerOrderList";
 import TopNav from "./TopNav";
+
+import "../css/OrderManageMainWindow.css";
 class OrderManageMainWindow extends React.Component {
   componentDidMount() {
     this.props.getProducts();
@@ -22,7 +24,7 @@ class OrderManageMainWindow extends React.Component {
               <Route
                 exact
                 path="/orders/products"
-                Component={ProductOrderList}
+                component={ProductOrderList}
               />
               <Route
                 exact

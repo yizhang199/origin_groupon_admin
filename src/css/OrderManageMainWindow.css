@@ -20,7 +20,3 @@ body {
   width: 100vw;
   height: 100vh;
 }
-.shop-manage-main-window__main-content {
-  display: flex;
-  justify-content: space-between;
-}
