@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { getOrders } from "../actions";
 import CustomerOrderCard from "./CustomerOrderCard";
+import OrderDetail from "./OrderDetail";
 
 import "../css/CustomerOrderList.css";
 class CustomerOrderList extends React.Component {
@@ -11,13 +12,16 @@ class CustomerOrderList extends React.Component {
   }
   render() {
     return (
-      <div className="component-customer-order-list">
-        {this.props.orders.map((order, index) => {
-          return (
-            <CustomerOrderCard key={`customerOrder${index}`} order={order} />
-          );
-        })}
-      </div>
+      <React.Fragment>
+        <div className="component-customer-order-list">
+          {this.props.orders.map((order, index) => {
+            return (
+              <CustomerOrderCard key={`customerOrder${index}`} order={order} />
+            );
+          })}
+        </div>
+        <OrderDetail />
+      </React.Fragment>
     );
   }
 }

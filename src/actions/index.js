@@ -42,4 +42,12 @@ export const getOrders = () => {
     dispatch({ type: types.getOrders, payload: response.data.orders });
   };
 };
+
+export const selectOrder = order_id => {
+  return async function(dispatch, getState) {
+    const { orders } = getState();
+
+    dispatch({ type: types.selectOrder, payload: orders[0] });
+  };
+};
 export const actionTypes = types;
