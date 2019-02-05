@@ -1,0 +1,11 @@
+.component-customer-order-list {
+  width: 45vw;
+  padding: 10px;
+  background-color: #f5f6f8;
+  height: 90vh;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

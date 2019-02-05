@@ -3,8 +3,9 @@ import React from "react";
 import "../css/ProductOrderCard.css";
 
 const ProductOrderCard = ({ product }) => {
+  const productRemaining = product.stock_status_id - product.quantity;
   const cardStyle = {
-    width: `${(product.quantity * 100) / product.stock_status_id}%`
+    width: `${(productRemaining * 100) / product.stock_status_id}%`
   };
   const containerStyle = {
     backgroundImage: `url(${product.image})`
@@ -17,7 +18,7 @@ const ProductOrderCard = ({ product }) => {
         <span className="component-product-order-card__bar" style={cardStyle} />
         <span className="component-product-order-card__quantity-container">
           <span className="component-product-order-card__quantity">
-            {product.quantity}/{product.stock_status_id}
+            {productRemaining}/{product.stock_status_id}
           </span>
         </span>
       </div>

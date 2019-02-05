@@ -31,10 +31,18 @@ const shopsReducer = (shops = [], action) => {
   return shops;
 };
 
+const ordersReducer = (orders = [], action) => {
+  if (action.type === actionTypes.getOrders) {
+    return action.payload;
+  }
+  return orders;
+};
+
 export default combineReducers({
   products: productsReducer,
   form: formReducer,
   product: productReducer,
   appSetting: appSettingReducer,
-  shops: shopsReducer
+  shops: shopsReducer,
+  orders: ordersReducer
 });

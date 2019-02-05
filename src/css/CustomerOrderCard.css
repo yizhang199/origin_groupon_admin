@@ -1,0 +1,95 @@
+.component-customer-order-card {
+  width: 95%;
+  background-color: #fff;
+  height: 150px;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px #a5a5a5;
+}
+.component-customer-order-card__user-name {
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 3px 10px;
+  text-align: right;
+}
+
+.component-customer-order-card__tab {
+  left: -17px;
+  top: 10px;
+  margin-right: -1.2em;
+  padding-left: 10px;
+  padding-right: 1.2em;
+
+  color: #fff;
+  position: relative;
+  margin: 0;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  min-width: max-content;
+  border-radius: 0 0.28571429rem 0.28571429rem 0;
+}
+
+.component-customer-order-card__tab::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 0 1em 1.2em 0;
+  border-color: transparent;
+  border-right-color: inherit;
+  width: 0;
+  height: 0;
+}
+.component-customer-order-card__details {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+.component-customer-order-card__pickup-info,
+.component-customer-order-card__payment-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.component-customer-order-card__store-name,
+.component-customer-order-card__picked-date,
+.component-customer-order-card__payment-method,
+.component-customer-order-card__total {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 3px;
+}
+.component-customer-order-card__store-name__title,
+.component-customer-order-card__picked-date__title,
+.component-customer-order-card__payment-method__title,
+.component-customer-order-card__total__title {
+  color: #a5a5a5;
+  font-weight: bold;
+  flex: 1;
+  border-left: 3px solid;
+  padding-left: 2px;
+}
+.component-customer-order-card__store-name__value,
+.component-customer-order-card__picked-date__value,
+.component-customer-order-card__payment-method__value,
+.component-customer-order-card__total__value {
+  color: #5a5a5a;
+  flex: 2;
+}
+.component-customer-order-card__order-items {
+  font-size: 12px;
+  padding: 10px;
+  color: #a5a5a5;
+  height: 30px;
+  border-top: 1px solid;
+  margin-top: 8px;
+  overflow: scroll;
+}

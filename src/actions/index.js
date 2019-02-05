@@ -35,4 +35,11 @@ export const getShops = () => {
     dispatch({ type: types.getShops, payload: response.data.locations });
   };
 };
+
+export const getOrders = () => {
+  return async function(dispatch) {
+    const response = await kidsnParty.get(`/allorders`);
+    dispatch({ type: types.getOrders, payload: response.data.orders });
+  };
+};
 export const actionTypes = types;

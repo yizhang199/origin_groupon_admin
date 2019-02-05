@@ -4,9 +4,10 @@ import { Route, Router, Switch } from "react-router-dom";
 import { history } from "../history.js";
 
 import { getProducts } from "../actions";
+
 import ProductOrderList from "./ProductOrderList";
 import CustomerOrderList from "./CustomerOrderList";
-import TopNav from "./TopNav";
+import OrderTopNav from "./OrderTopNav";
 
 import "../css/OrderManageMainWindow.css";
 class OrderManageMainWindow extends React.Component {
@@ -19,7 +20,7 @@ class OrderManageMainWindow extends React.Component {
       <div className="component-order-manange-main-window">
         <Router history={history}>
           <React.Fragment>
-            <TopNav />
+            <OrderTopNav />
             <Switch>
               <Route
                 exact
