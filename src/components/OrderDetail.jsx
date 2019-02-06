@@ -15,8 +15,6 @@ class OrderDetail extends React.Component {
    *
    */
   renderList = () => {
-    console.log(this.props.selectedOrder.order_items);
-
     return (
       <tbody>
         {this.props.selectedOrder.order_items.map((orderItem, index) => {

@@ -4,14 +4,14 @@ import { Field, reduxForm } from "redux-form";
 import "../css/EditForm.css";
 
 class EditForm extends React.Component {
-  renderInput = ({ input, label, meta }) => {
+  renderInput = ({ input, placeholder, meta }) => {
     return (
       <div className="form-field">
         <input
           type="text"
           {...input}
           className="form-input"
-          placeholder={label}
+          placeholder={placeholder}
         />
         {this.renderError(meta)}
       </div>
@@ -48,17 +48,15 @@ class EditForm extends React.Component {
           <Field
             name="chinese_name"
             component={this.renderInput}
-            label="中文名"
+            placeholder="中文名"
           />
           <Field
             name="english_name"
             component={this.renderInput}
-            label="英文名"
+            placeholder="英文名"
           />
-          <Field name="price" component={this.renderInput} label="单价" />
 
           {/* Todo::How to add options to a new product (user friendly) */}
-          <Field name="option" component={this.renderInput} label="规格" />
 
           <div className="component-edit-form__subtitle">
             商品单价保留小数点后2位.
@@ -68,10 +66,11 @@ class EditForm extends React.Component {
           </div>
           <div className="component-edit-form__button-group">
             <label className="component-edit-form__button-group__wrapper">
-              <input
-                type="text"
+              <Field
+                name="price"
+                component={this.renderInput}
+                placeholder="单价"
                 className="component-edit-form__button-group__input"
-                placeholder="商品单价,如10.50"
               />
               <span className="component-edit-form__button-group__label">
                 澳元
@@ -103,8 +102,9 @@ class EditForm extends React.Component {
           </div>
           <div className="component-edit-form__button-group">
             <label className="component-edit-form__button-group__wrapper">
-              <input
-                type="text"
+              <Field
+                name="quantity"
+                component={this.renderInput}
                 className="component-edit-form__button-group__input"
                 placeholder="商品库存数量"
               />

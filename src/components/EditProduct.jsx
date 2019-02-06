@@ -7,8 +7,6 @@ import ProductForm from "./ProductForm";
 import { history } from "../history";
 class EditProduct extends React.Component {
   componentDidMount() {
-    console.log(history);
-
     // const id = history.match.param.id;
     // this.props.getProduct(id);
   }
