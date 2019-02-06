@@ -1,5 +1,5 @@
 import React from "react";
-
+import { history } from "../history";
 import "../css/CustomerOrderCard.css";
 class CustomerOrderCard extends React.Component {
   componentDidMount() {}
@@ -69,11 +69,18 @@ class CustomerOrderCard extends React.Component {
       );
     }
   };
+  /**
+   * nav to select order detail
+   *
+   */
+  selectOrder = () => {
+    history.push(`/orders/customers/${this.props.order.order_id}`);
+  };
   render() {
     const myStyle = this.getStyle();
     const user = this.props.order.user ? this.props.order.user : {};
     return (
-      <div className="component-customer-order-card">
+      <div className="component-customer-order-card" onClick={this.selectOrder}>
         <div
           className="component-customer-order-card__tab"
           style={myStyle.orderCard_tab}

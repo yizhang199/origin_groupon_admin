@@ -38,7 +38,7 @@ const ordersReducer = (orders = [], action) => {
   return orders;
 };
 
-const selectedOrderReducer = (selectedOrder = {}, action) => {
+const selectedOrderReducer = (selectedOrder = { order_items: [] }, action) => {
   if (action.type === actionTypes.selectOrder) {
     return action.payload;
   }

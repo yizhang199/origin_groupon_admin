@@ -44,10 +44,10 @@ export const getOrders = () => {
 };
 
 export const selectOrder = order_id => {
-  return async function(dispatch, getState) {
-    const { orders } = getState();
-
-    dispatch({ type: types.selectOrder, payload: orders[0] });
+  return async function(dispatch) {
+    const response = await kidsnParty.get(`/orders/${order_id}`);
+    console.log(response.data);
+    dispatch({ type: types.selectOrder, payload: response.data.order });
   };
 };
 export const actionTypes = types;

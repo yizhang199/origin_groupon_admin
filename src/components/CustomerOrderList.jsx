@@ -20,7 +20,6 @@ class CustomerOrderList extends React.Component {
             );
           })}
         </div>
-        <OrderDetail />
       </React.Fragment>
     );
   }
