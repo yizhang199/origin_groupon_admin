@@ -1,5 +1,6 @@
 import React from "react";
-import { history } from "../history";
+import { connect } from "react-redux";
+import { selectOrder } from "../actions";
 import "../css/CustomerOrderCard.css";
 class CustomerOrderCard extends React.Component {
   componentDidMount() {}
@@ -74,7 +75,7 @@ class CustomerOrderCard extends React.Component {
    *
    */
   selectOrder = () => {
-    history.push(`/orders/customers/${this.props.order.order_id}`);
+    this.props.selectOrder(this.props.order.order_id);
   };
   render() {
     const myStyle = this.getStyle();
@@ -149,4 +150,7 @@ class CustomerOrderCard extends React.Component {
   }
 }
 
-export default CustomerOrderCard;
+export default connect(
+  null,
+  { selectOrder }
+)(CustomerOrderCard);

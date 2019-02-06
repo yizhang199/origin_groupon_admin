@@ -7,10 +7,6 @@ import { makeDate } from "../helpers";
 
 import "../css/OrderDetail.css";
 class OrderDetail extends React.Component {
-  componentDidMount() {
-    const order_id = 2;
-    this.props.selectOrder(order_id);
-  }
   /**
    *
    */
@@ -48,10 +44,19 @@ class OrderDetail extends React.Component {
       });
     }
   };
-  render() {
-    return (
-      <React.Fragment>
-        <CustomerOrderList />
+  /**
+   * conditionally render component if selectedOrder is not empty render full list and head, else render a text info only
+   *
+   */
+  renderComponent = () => {
+    if (!this.props.selectedOrder.store_name) {
+      return (
+        <div className="component-order-detail">
+          {"Select an order to see details"}
+        </div>
+      );
+    } else {
+      return (
         <div className="component-order-detail">
           <div className="component-order-detail__header__field">
             <span>下单日期</span>
@@ -89,8 +94,11 @@ class OrderDetail extends React.Component {
             {this.renderList()}
           </table>
         </div>
-      </React.Fragment>
-    );
+      );
+    }
+  };
+  render() {
+    return <React.Fragment>{this.renderComponent()}</React.Fragment>;
   }
 }
 
@@ -98,7 +106,4 @@ const mapStateToProps = ({ selectedOrder }) => {
   return { selectedOrder };
 };
 
-export default connect(
-  mapStateToProps,
-  { selectOrder }
-)(OrderDetail);
+export default connect(mapStateToProps)(OrderDetail);

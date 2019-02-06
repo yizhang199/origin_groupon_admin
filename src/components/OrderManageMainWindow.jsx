@@ -10,7 +10,7 @@ import CustomerOrderList from "./CustomerOrderList";
 import OrderTopNav from "./OrderTopNav";
 
 import "../css/OrderManageMainWindow.css";
-import OrderDetail from "./OrderDetail.jsx";
+
 class OrderManageMainWindow extends React.Component {
   componentDidMount() {
     this.props.getProducts();
@@ -33,11 +33,6 @@ class OrderManageMainWindow extends React.Component {
                   exact
                   path="/orders/customers"
                   render={props => <CustomerOrderList {...props} />}
-                />
-                <Route
-                  exact
-                  path="/orders/customers/:order_id"
-                  render={props => <OrderDetail {...props} />}
                 />
                 <Route
                   exact
