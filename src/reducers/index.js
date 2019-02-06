@@ -44,7 +44,13 @@ const selectedOrderReducer = (selectedOrder = { order_items: [] }, action) => {
   }
   return selectedOrder;
 };
+const optionsReducer = (options = [], action) => {
+  if (action.type === actionTypes.fetchOptions) {
+    return action.payload;
+  }
 
+  return options;
+};
 export default combineReducers({
   products: productsReducer,
   form: formReducer,
@@ -52,5 +58,6 @@ export default combineReducers({
   appSetting: appSettingReducer,
   shops: shopsReducer,
   orders: ordersReducer,
-  selectedOrder: selectedOrderReducer
+  selectedOrder: selectedOrderReducer,
+  options: optionsReducer
 });

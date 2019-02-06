@@ -50,4 +50,11 @@ export const selectOrder = order_id => {
     dispatch({ type: types.selectOrder, payload: response.data.order });
   };
 };
+
+export const fetchOptions = () => {
+  return async function(dispatch) {
+    const response = await kidsnParty.get("/options");
+    dispatch({ type: types.fetchOptions, payload: response.data.options });
+  };
+};
 export const actionTypes = types;

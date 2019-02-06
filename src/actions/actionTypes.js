@@ -4,7 +4,8 @@ const actionTypes = {
   initApp: "INIT_APP_SETTING",
   getShops: "GET_SHOPS",
   getOrders: "GET_ORDERS",
-  selectOrder: "SELECT_ORDER"
+  selectOrder: "SELECT_ORDER",
+  fetchOptions: "FETCH_OPTIONS"
 };
 
 export default actionTypes;
