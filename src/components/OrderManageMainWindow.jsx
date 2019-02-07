@@ -32,13 +32,9 @@ class OrderManageMainWindow extends React.Component {
                 <Route
                   exact
                   path="/orders/customers"
-                  render={props => <CustomerOrderList {...props} />}
+                  component={CustomerOrderList}
                 />
-                <Route
-                  exact
-                  path="/orders/"
-                  render={props => <ProductOrderList {...props} />}
-                />
+                <Route exact path="/orders/" component={ProductOrderList} />
               </Switch>
             </div>
           </React.Fragment>

@@ -17,7 +17,6 @@ const App = () => {
           <LeftSideMenu />
           <Switch>
             <Route
-              exact
               path="/products"
               render={props => <ProductManageMainWindow {...props} />}
             />
@@ -27,12 +26,10 @@ const App = () => {
               render={props => <OrderManageMainWindow {...props} />}
             />
             <Route
-              exact
               path="/shops"
               render={props => <ShopManageMainWindow {...props} />}
             />
             <Route
-              exact
               path="/charts"
               render={props => <ChartManageMainWindow {...props} />}
             />

@@ -1,15 +1,20 @@
 import React from "react";
+
+import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 
 import "../css/EditForm.css";
+import { fetchOptions } from "../actions";
 
 class EditForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { options: [] };
+    this.state = { productOptions: [] };
   }
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.fetchOptions();
+  }
   renderInput = ({ input, placeholder, meta }) => {
     return (
       <div className="form-field">
@@ -31,6 +36,23 @@ class EditForm extends React.Component {
   };
   onSubmit = formValues => {
     console.log(formValues);
+  };
+
+  renderOptionValues = option => {};
+  renderOptions = () => {
+    return this.state.productOptions.map(productOption => {
+      return (
+        <div>
+          <select
+            value={productOption.value}
+            data-option-id={productOption.option_id}
+            onChange={this.handleSelectChange}
+          >
+            {this.renderOptionValues(productOption)}
+          </select>
+        </div>
+      );
+    });
   };
   render() {
     return (
@@ -130,19 +152,7 @@ class EditForm extends React.Component {
             <span style={{ color: "red" }}>可不填.</span>
           </div>
           <div className="component-edit-form__button-group">
-            <select name="option_1" id="">
-              <option value="1">辣度</option>
-              <option value="2">甜度</option>
-              <option value="3">配料</option>
-              <option value="4">分量</option>
-            </select>
-            <br />
-            <select name="option_1" id="">
-              <option value="1">辣度</option>
-              <option value="2">甜度</option>
-              <option value="3">配料</option>
-              <option value="4">分量</option>
-            </select>
+            {this.renderOptions()}
           </div>
           <div className="component-edit-form__button-wrapper">
             <button className="component-edit-form__submit-button">
@@ -166,4 +176,12 @@ const validate = formValues => {
   return errors;
 };
 
-export default reduxForm({ form: "productForm", validate })(EditForm);
+const mapStateToProps = ({ options }) => {
+  return { options };
+};
+
+const formWrapper = reduxForm({ form: "productForm", validate })(EditForm);
+export default connect(
+  null,
+  { fetchOptions }
+)(formWrapper);
