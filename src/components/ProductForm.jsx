@@ -10,7 +10,7 @@ class EditForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { productOptions: [] };
+    this.state = { productOptions: [], isShowAddOptionForm: false };
   }
   componentDidMount() {
     this.props.fetchOptions();
@@ -38,20 +38,93 @@ class EditForm extends React.Component {
     console.log(formValues);
   };
 
-  renderOptionValues = option => {};
-  renderOptions = () => {
-    return this.state.productOptions.map(productOption => {
+  handleSelectChange = e => {
+    if (e.target.value === "new") {
+      this.setState({ isShowAddOptionForm: true });
+      return;
+    }
+
+    const i = parseInt(e.target.dataset.stateProductOptionIndex);
+    const option_id = parseInt(e.target.value);
+
+    const newArray = this.state.productOptions.map((option, index) => {
+      if (index === i) {
+        let newOption;
+        this.props.options.map(ele => {
+          if (ele.option_id === option_id) {
+            newOption = ele;
+            newOption.value = ele.option_id;
+          }
+        });
+        return newOption;
+      }
+      return option;
+    });
+    this.setState({
+      productOptions: newArray
+    });
+  };
+
+  renderSelectInputOptions = () => {
+    return this.props.options.map(ele => {
       return (
-        <div>
-          <select
-            value={productOption.value}
-            data-option-id={productOption.option_id}
-            onChange={this.handleSelectChange}
-          >
-            {this.renderOptionValues(productOption)}
-          </select>
-        </div>
+        <option value={ele.option_id} key={`eleOption${ele.option_id}`}>
+          {ele.name}
+        </option>
       );
+    });
+  };
+  handleProductOptionValueChange = e => {};
+  renderOptionValues = (option, position) => {
+    if (option.values) {
+      return (
+        <select
+          value={this.state.productOptions[position].values[0].value}
+          onChange={this.handleProductOptionValueChange}
+        >
+          {option.values.map((value, index) => {
+            return (
+              <option key={`values${index}`} value={value.option_value_id}>
+                {value.name}
+              </option>
+            );
+          })}
+        </select>
+      );
+    }
+  };
+  renderOptionsJSX = () => {
+    console.log("state productOptions", this.state.productOptions);
+
+    return this.state.productOptions.map((productOption, index) => {
+      if (productOption) {
+        console.log("product option value: ", productOption.value);
+        return (
+          <div key={`productOption${index}`}>
+            <select
+              value={productOption.value}
+              data-state-product-option-index={index}
+              data-option-id={productOption.option_id}
+              onChange={this.handleSelectChange}
+            >
+              {this.renderSelectInputOptions()}
+              <option value="new">add ...</option>
+            </select>
+            {this.renderOptionValues(productOption, index)}
+          </div>
+        );
+      }
+    });
+  };
+  handleCreateNewProductOption = e => {
+    console.log(e.target.value);
+  };
+  addNewProductOption = () => {
+    this.setState({
+      productOptions: [
+        ...this.state.productOptions,
+        { option_id: 0, value: "" }
+      ]
     });
   };
   render() {
@@ -150,9 +223,10 @@ class EditForm extends React.Component {
           <div className="component-edit-form__subtitle">
             添加产品规格.
             <span style={{ color: "red" }}>可不填.</span>
+            <div onClick={this.addNewProductOption}>add option</div>
           </div>
           <div className="component-edit-form__button-group">
-            {this.renderOptions()}
+            {this.renderOptionsJSX()}
           </div>
           <div className="component-edit-form__button-wrapper">
             <button className="component-edit-form__submit-button">
@@ -182,6 +256,6 @@ const mapStateToProps = ({ options }) => {
 
 const formWrapper = reduxForm({ form: "productForm", validate })(EditForm);
 export default connect(
-  null,
+  mapStateToProps,
   { fetchOptions }
 )(formWrapper);
