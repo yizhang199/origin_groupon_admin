@@ -34,9 +34,7 @@ class EditForm extends React.Component {
       return <div className="form-error-message">{error}</div>;
     }
   };
-  onSubmit = formValues => {
-    console.log(formValues);
-  };
+  onSubmit = formValues => {};
 
   handleSelectChange = e => {
     if (e.target.value === "new") {
@@ -74,13 +72,28 @@ class EditForm extends React.Component {
       );
     });
   };
-  handleProductOptionValueChange = e => {};
+  handleProductOptionValueChange = e => {
+    console.log("dataset: ", e.target.dataset);
+
+    const option_id = parseInt(e.target.dataset.optionId);
+    console.log("option_id", option_id);
+
+    this.setState({
+      productOptions: this.state.productOptions.map(productOption => {
+        if (productOption.option_id === option_id) {
+          productOption.option_value = e.target.value;
+        }
+        return productOption;
+      })
+    });
+  };
   renderOptionValues = (option, position) => {
     if (option.values) {
       return (
         <select
           value={this.state.productOptions[position].values[0].value}
           onChange={this.handleProductOptionValueChange}
+          data-option-id={option.option_id}
         >
           {option.values.map((value, index) => {
             return (
@@ -94,11 +107,10 @@ class EditForm extends React.Component {
     }
   };
   renderOptionsJSX = () => {
-    console.log("state productOptions", this.state.productOptions);
+    console.log("state", this.state.productOptions);
 
     return this.state.productOptions.map((productOption, index) => {
       if (productOption) {
-        console.log("product option value: ", productOption.value);
         return (
           <div key={`productOption${index}`}>
             <select
@@ -116,9 +128,7 @@ class EditForm extends React.Component {
       }
     });
   };
-  handleCreateNewProductOption = e => {
-    console.log(e.target.value);
-  };
+  handleCreateNewProductOption = e => {};
   addNewProductOption = () => {
     this.setState({
       productOptions: [
