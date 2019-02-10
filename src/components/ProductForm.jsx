@@ -6,6 +6,7 @@ import { Field, reduxForm } from "redux-form";
 import "../css/EditForm.css";
 import { fetchOptions } from "../actions";
 import ProductFormCategorySelector from "./ProductFormCategorySelector";
+import AddOptionToNewProductForm from "./AddOptionToNewProductForm";
 class EditForm extends React.Component {
   constructor(props) {
     super(props);
@@ -86,10 +87,7 @@ class EditForm extends React.Component {
     });
   };
   handleProductOptionValueChange = e => {
-    console.log("dataset: ", e.target.dataset);
-
     const option_id = parseInt(e.target.dataset.optionId);
-    console.log("option_id", option_id);
 
     this.setState({
       productOptions: this.state.productOptions.map(productOption => {
@@ -119,36 +117,10 @@ class EditForm extends React.Component {
       );
     }
   };
-  renderOptionsJSX = () => {
-    console.log("state", this.state.productOptions);
 
-    return this.state.productOptions.map((productOption, index) => {
-      if (productOption) {
-        return (
-          <div key={`productOption${index}`}>
-            <select
-              value={productOption.value}
-              data-state-product-option-index={index}
-              data-option-id={productOption.option_id}
-              onChange={this.handleSelectChange}
-            >
-              {this.renderSelectInputOptions()}
-              <option value="new">add ...</option>
-            </select>
-            {this.renderOptionValues(productOption, index)}
-          </div>
-        );
-      }
-    });
-  };
   handleCreateNewProductOption = e => {};
-  addNewProductOption = () => {
-    this.setState({
-      productOptions: [
-        ...this.state.productOptions,
-        { option_id: 0, value: "" }
-      ]
-    });
+  toggleAddOptionToNewProductForm = () => {
+    this.setState({ isShowAddOptionForm: !this.state.isShowAddOptionForm });
   };
   render() {
     return (
@@ -240,11 +212,18 @@ class EditForm extends React.Component {
           <div className="component-edit-form__subtitle">
             添加产品规格.
             <span style={{ color: "red" }}>可不填.</span>
-            <div onClick={this.addNewProductOption}>add option</div>
+            <div onClick={this.toggleAddOptionToNewProductForm}>add option</div>
           </div>
           <div className="component-edit-form__button-group">
-            {this.renderOptionsJSX()}
+            {/* {this.renderOptionsJSX()} */}
           </div>
+          {this.state.isShowAddOptionForm ? (
+            <AddOptionToNewProductForm
+              toggleAddOptionToNewProductForm={
+                this.toggleAddOptionToNewProductForm
+              }
+            />
+          ) : null}
           <div className="component-edit-form__button-wrapper">
             <button className="component-edit-form__submit-button">
               Submit

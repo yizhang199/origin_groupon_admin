@@ -1,10 +1,20 @@
 import { actionTypes } from "../actions";
 
 const newProductReducer = (newProduct = {}, action) => {
-  if (action.type === actionTypes.setNewProductCategory) {
-    return { ...newProduct, category: action.payload };
+  switch (action.type) {
+    case actionTypes.setNewProductCategory:
+      return { ...newProduct, category: action.payload };
+    case actionTypes.setNewProductOptions:
+      let newOptions = [];
+      if (newProduct.options) {
+        newOptions = [...newProduct.options, action.payload];
+      } else {
+        newOptions = [...newOptions, action.payload];
+      }
+      return { ...newProduct, options: newOptions };
+    default:
+      return newProduct;
   }
-  return newProduct;
 };
 
 export default newProductReducer;

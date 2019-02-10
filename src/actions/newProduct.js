@@ -8,3 +8,10 @@ export const setCategory = category => {
     payload: category
   };
 };
+
+export const setOptions = option => {
+  return {
+    type: types.setNewProductOptions,
+    payload: option
+  };
+};
