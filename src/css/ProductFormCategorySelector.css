@@ -1,0 +1,25 @@
+.component-product-form-category-selector {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.component-product-form-category-selector__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.component-product-form-category-selector__header__selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.component-product-form-category-selector__body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

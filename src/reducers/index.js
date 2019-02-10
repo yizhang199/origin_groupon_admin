@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import { actionTypes } from "../actions";
 import { reducer as formReducer } from "redux-form";
+import newProductReducer from "./newProductReducer";
 
 const productsReducer = (products = [], action) => {
   if (action.type === actionTypes.getProducts) {
@@ -51,6 +52,13 @@ const optionsReducer = (options = [], action) => {
 
   return options;
 };
+const avaliableCategoriesReducer = (avaliableCategories = [], action) => {
+  if (action.type === actionTypes.fetchAvaliableCategories) {
+    return action.payload;
+  }
+  return avaliableCategories;
+};
+
 export default combineReducers({
   products: productsReducer,
   form: formReducer,
@@ -59,5 +67,7 @@ export default combineReducers({
   shops: shopsReducer,
   orders: ordersReducer,
   selectedOrder: selectedOrderReducer,
-  options: optionsReducer
+  options: optionsReducer,
+  avaliableCategories: avaliableCategoriesReducer,
+  newProduct: newProductReducer
 });

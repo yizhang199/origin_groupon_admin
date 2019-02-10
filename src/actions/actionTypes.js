@@ -5,7 +5,9 @@ const actionTypes = {
   getShops: "GET_SHOPS",
   getOrders: "GET_ORDERS",
   selectOrder: "SELECT_ORDER",
-  fetchOptions: "FETCH_OPTIONS"
+  fetchOptions: "FETCH_OPTIONS",
+  fetchAvaliableCategories: "FETCH_AVALIABLE_CATEGORIES",
+  setNewProductCategory: "SET_NEW_PRODUCT_CATEGORY"
 };
 
 export default actionTypes;

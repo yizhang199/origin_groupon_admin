@@ -5,16 +5,25 @@ import { Field, reduxForm } from "redux-form";
 
 import "../css/EditForm.css";
 import { fetchOptions } from "../actions";
-
+import ProductFormCategorySelector from "./ProductFormCategorySelector";
 class EditForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { productOptions: [], isShowAddOptionForm: false };
+    this.state = {
+      productOptions: [],
+      isShowAddOptionForm: false,
+      isShowAddCategoryForm: false
+    };
   }
   componentDidMount() {
     this.props.fetchOptions();
   }
+  /**
+   * render input JSX from redux form field
+   * @param {Object} {input,placeholder,meta}
+   * @returns {JSX}
+   */
   renderInput = ({ input, placeholder, meta }) => {
     return (
       <div className="form-field">
@@ -29,6 +38,10 @@ class EditForm extends React.Component {
     );
   };
 
+  /**
+   * render form validation errors
+   *
+   */
   renderError = ({ error, touched }) => {
     if (touched && error) {
       return <div className="form-error-message">{error}</div>;
@@ -141,13 +154,7 @@ class EditForm extends React.Component {
     return (
       <div className="component-edit-form">
         <div className="component-edit-form__header">
-          <div className="component-edit-form__bar">
-            <span>商品分类</span>
-            <span className="component-edit-form__selector">
-              <span>全部</span>
-              <i className="material-icons">keyboard_arrow_right</i>
-            </span>
-          </div>
+          <ProductFormCategorySelector />
         </div>
         <form
           onSubmit={this.props.handleSubmit(this.onSubmit)}
