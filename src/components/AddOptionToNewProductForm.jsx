@@ -54,7 +54,10 @@ class AddOptionToNewProductForm extends React.Component {
   renderOptionValues = () => {
     return this.state.productOptionValues.map(value => {
       return (
-        <div key={`optionValue${value.option_value_id}`}>{value.name}</div>
+        <label key={`optionValue${value.option_value_id}`}>
+          <input type="checkbox" />
+          <span>{value.name}</span>
+        </label>
       );
     });
   };
@@ -62,7 +65,8 @@ class AddOptionToNewProductForm extends React.Component {
     this.props.toggleAddOptionToNewProductForm();
   };
   saveOption = () => {
-    this.props.setNewProductOptions("abc");
+    const newOption = {};
+    this.props.setNewProductOptions(newOption);
   };
   render() {
     return (
