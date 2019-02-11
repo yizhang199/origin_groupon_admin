@@ -7,7 +7,7 @@ import ProductManageMainWindow from "./ProductManageMainWindow";
 import OrderManageMainWindow from "./OrderManageMainWindow";
 import ChartManageMainWindow from "./ChartManageMainWindow";
 import ShopManageMainWindow from "./ShopManageMainWindow";
-import Example from "./demoDatepicker";
+import Example from "./demo/withHighcharts";
 
 const App = () => {
   return (

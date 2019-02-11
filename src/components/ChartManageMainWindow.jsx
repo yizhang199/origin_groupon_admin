@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { fetchReportsSummary } from "../actions";
 import { makeDate } from "../helpers";
+import SalesByPaymentMethodChart from "./SalesByPaymentMethodChart";
 
 class ChartManageMainWindow extends React.Component {
   componentDidMount() {
@@ -34,20 +35,7 @@ class ChartManageMainWindow extends React.Component {
     if (!data) {
       return null;
     }
-    return (
-      <table>
-        <tbody>
-          {data.map(element => {
-            return (
-              <tr key={`payment${element.payment_method}`}>
-                <td>{element.payment_method}</td>
-                <td>{element.total}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    );
+    return <SalesByPaymentMethodChart data={data} />;
   };
   renderSalesByCustomer = () => {
     const data = this.props.reportSummary.sales_by_custmer;
