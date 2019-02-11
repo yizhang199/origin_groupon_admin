@@ -7,7 +7,7 @@ import ProductManageMainWindow from "./ProductManageMainWindow";
 import OrderManageMainWindow from "./OrderManageMainWindow";
 import ChartManageMainWindow from "./ChartManageMainWindow";
 import ShopManageMainWindow from "./ShopManageMainWindow";
-import Example from "./demo/withHighcharts";
+import Example from "./demo/propsFunctionalComponent";
 
 const App = () => {
   return (
@@ -33,7 +33,7 @@ const App = () => {
               path="/charts"
               render={props => <ChartManageMainWindow {...props} />}
             />
-            <Route exact path="/example" component={Example} />
+            <Route exact path="/example" name="roben" component={Example} />
             <Route
               exact
               path="/"

@@ -18,15 +18,15 @@ const plotOptions = {
   }
 };
 
-const renderLines = props => {
-  if (!props.data) {
-    return null;
-  }
-  let line_data;
-  props.data.map(ele => {
-    line_data = [...line_data, ele.total];
-  });
-};
+// const renderLines = props => {
+//   if (!props.data) {
+//     return null;
+//   }
+//   let line_data;
+//   props.data.map(ele => {
+//     line_data = [...line_data, ele.total];
+//   });
+// };
 
 const App = () => (
   <div className="app">
@@ -45,7 +45,7 @@ const App = () => (
 
       <YAxis>
         <YAxis.Title>Number of employees</YAxis.Title>
-        {renderLines()}
+        {/* {renderLines()} */}
         <LineSeries
           name="Installation"
           data={[43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]}

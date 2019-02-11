@@ -6,6 +6,7 @@ import { setNewProductCategory } from "../actions";
 import "../css/CategoryCard.css";
 
 const CategoryCard = props => {
+  console.log("category card props: ", props);
   const setCategory = () => {
     props.setNewProductCategory(props.category);
     props.toggleBody();
