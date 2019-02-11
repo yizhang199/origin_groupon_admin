@@ -59,6 +59,13 @@ const avaliableCategoriesReducer = (avaliableCategories = [], action) => {
   return avaliableCategories;
 };
 
+const selectedShopReducer = (selectedShop = {}, action) => {
+  if (action.type === actionTypes.fetchSingleShop) {
+    return action.payload;
+  }
+  return selectedShop;
+};
+
 export default combineReducers({
   products: productsReducer,
   form: formReducer,
@@ -69,5 +76,6 @@ export default combineReducers({
   selectedOrder: selectedOrderReducer,
   options: optionsReducer,
   avaliableCategories: avaliableCategoriesReducer,
-  newProduct: newProductReducer
+  newProduct: newProductReducer,
+  selectedShop: selectedShopReducer
 });

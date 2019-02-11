@@ -1,0 +1,33 @@
+.component-shop-card {
+  width: 90%;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px #a5a5a5;
+}
+
+.component-shop-card__information {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  height: 80%;
+  overflow: scroll;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a5a5a5;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.component-shop-card__information div {
+  margin-bottom: 10px;
+}
+.component-shop-card__button {
+  background-color: #daa14e;
+  width: 100px;
+  height: 40px;
+}

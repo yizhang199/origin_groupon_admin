@@ -67,6 +67,7 @@ class EditForm extends React.Component {
             newOption = ele;
             newOption.value = ele.option_id;
           }
+          return ele;
         });
         return newOption;
       }

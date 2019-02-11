@@ -1,8 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { selectOrder } from "../actions";
-import CustomerOrderList from "./CustomerOrderList";
 import { makeDate } from "../helpers";
 
 import "../css/OrderDetail.css";

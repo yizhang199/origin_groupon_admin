@@ -1,5 +1,6 @@
 import types from "./actionTypes";
 import { setCategory, setOptions } from "./newProduct";
+import { fetchShop } from "./shop";
 import kidsnParty from "../apis/kidsnParty";
 
 export const getProducts = () => {
@@ -72,4 +73,5 @@ export const fetchAvaliableCategories = () => {
 
 export const setNewProductCategory = setCategory;
 export const setNewProductOptions = setOptions;
+export const fetchSingleShop = fetchShop;
 export const actionTypes = types;

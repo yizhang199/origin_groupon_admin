@@ -8,7 +8,8 @@ const actionTypes = {
   fetchOptions: "FETCH_OPTIONS",
   fetchAvaliableCategories: "FETCH_AVALIABLE_CATEGORIES",
   setNewProductCategory: "SET_NEW_PRODUCT_CATEGORY",
-  setNewProductOptions: "SET_NEW_PRODUCT_OPTIONS"
+  setNewProductOptions: "SET_NEW_PRODUCT_OPTIONS",
+  fetchSingleShop: "FETCH_SINGLE_SHOP"
 };
 
 export default actionTypes;

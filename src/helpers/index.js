@@ -18,7 +18,7 @@ export const makeDate = value => {
   const month = dt.getMonth();
   const year = dt.getFullYear();
   const formatDay = day > 9 ? day : `0${day}`;
-  const formatMonth = months[dt.getMonth()];
+  const formatMonth = months[month];
 
   return `${formatDay} ${formatMonth}, ${year}`;
 };

@@ -46,6 +46,7 @@ class AddOptionToNewProductForm extends React.Component {
       if (option.option_id === option_id) {
         this.setState({ productOptionValues: option.values });
       }
+      return option;
     });
   };
   handleOptionValuesChange = e => {
