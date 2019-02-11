@@ -66,6 +66,13 @@ const selectedShopReducer = (selectedShop = {}, action) => {
   return selectedShop;
 };
 
+const reportSummaryReducer = (reportSummary = {}, action) => {
+  if (action.type === actionTypes.fetchSummary) {
+    return action.payload;
+  }
+  return reportSummary;
+};
+
 export default combineReducers({
   products: productsReducer,
   form: formReducer,
@@ -77,5 +84,6 @@ export default combineReducers({
   options: optionsReducer,
   avaliableCategories: avaliableCategoriesReducer,
   newProduct: newProductReducer,
-  selectedShop: selectedShopReducer
+  selectedShop: selectedShopReducer,
+  reportSummary: reportSummaryReducer
 });

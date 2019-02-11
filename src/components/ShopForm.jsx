@@ -12,12 +12,12 @@ class ShopForm extends React.Component {
     this.state = { avaliableDates: [], openDates: [] };
   }
   componentDidMount() {
-    if (this.props.shop.open) {
+    if (this.props.shop) {
       this.setState({ openDates: this.props.shop.open });
     }
   }
   componentWillReceiveProps(newProps) {
-    if (this.props.shop.open) {
+    if (this.props.shop) {
       this.setState({ openDates: newProps.shop.open });
     }
   }

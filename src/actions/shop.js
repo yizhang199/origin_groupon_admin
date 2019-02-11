@@ -10,3 +10,14 @@ export const fetchShop = location_id => {
     });
   };
 };
+
+export const createNewShop = shop => {
+  return async function(dispatch) {
+    const response = await kidsnParty.post(`/locations`, shop);
+    console.log("location: ", response.data.location);
+
+    dispatch({
+      type: "abc"
+    });
+  };
+};
