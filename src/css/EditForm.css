@@ -75,3 +75,12 @@
 .component-edit-form__button-group__wrapper {
   display: flex;
 }
+.component-eidt-form__subtitle__button {
+  float: right;
+  background-color: #daae14;
+  padding: 5px 10px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px #a5a5a5;
+}

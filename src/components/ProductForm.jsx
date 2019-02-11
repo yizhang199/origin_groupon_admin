@@ -118,6 +118,34 @@ class EditForm extends React.Component {
     }
   };
 
+  renderOptionsJSX = () => {
+    if (this.props.newProduct.options) {
+      return this.props.newProduct.options.map(option => {
+        return (
+          <div
+            key={`newProductOption${option.option_id}`}
+            className="component-edit-form__options"
+          >
+            <span>{option.option_name}: </span>
+            {this.renderOptionValues(option)}
+          </div>
+        );
+      });
+    } else {
+      return null;
+    }
+  };
+
+  renderOptionValues = option => {
+    return option.values.map(value => {
+      return (
+        <span key={`newProductOptionValue${value.option_value_id}`}>
+          {value.option_value_name}
+        </span>
+      );
+    });
+  };
+
   handleCreateNewProductOption = e => {};
   toggleAddOptionToNewProductForm = () => {
     this.setState({ isShowAddOptionForm: !this.state.isShowAddOptionForm });
@@ -210,12 +238,17 @@ class EditForm extends React.Component {
             />
           </div>
           <div className="component-edit-form__subtitle">
-            添加产品规格.
+            <span>添加产品规格.</span>
             <span style={{ color: "red" }}>可不填.</span>
-            <div onClick={this.toggleAddOptionToNewProductForm}>add option</div>
+            <div
+              onClick={this.toggleAddOptionToNewProductForm}
+              className="component-eidt-form__subtitle__button"
+            >
+              <span>add option</span>
+            </div>
           </div>
           <div className="component-edit-form__button-group">
-            {/* {this.renderOptionsJSX()} */}
+            {this.renderOptionsJSX()}
           </div>
           {this.state.isShowAddOptionForm ? (
             <AddOptionToNewProductForm
@@ -246,8 +279,8 @@ const validate = formValues => {
   return errors;
 };
 
-const mapStateToProps = ({ options }) => {
-  return { options };
+const mapStateToProps = ({ options, newProduct }) => {
+  return { options, newProduct };
 };
 
 const formWrapper = reduxForm({ form: "productForm", validate })(EditForm);

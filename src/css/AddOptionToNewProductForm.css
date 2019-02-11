@@ -20,11 +20,29 @@
   align-items: center;
 }
 .component-add-option-to-new-product-form__save-button {
-  background-color: #dee14b;
+  background-color: #daae14;
   width: 120px;
   height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+}
+.component-add-option-to-new-product-form__body__select-panel {
+  background-color: #a5a5a5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  height: 70%;
+  flex-direction: column;
+}
+.component-add-option-to-new-product-form__body__option-values {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 70%;
 }
