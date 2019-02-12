@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 
 import { setSelectedCategory } from "../actions";
 import "../css/CategoryGridItem.css";
+import { history } from "../history";
 
 const CategoryGridItem = ({ category, setSelectedCategory }) => {
   const selectCategory = () => {
     setSelectedCategory(category);
+    history.push("/categories/update");
   };
   return (
     <div onClick={selectCategory} className="component-category-grid-item">

@@ -1,0 +1,16 @@
+.component-update-category {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.component-update-category__header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #8c8c8c;
+}

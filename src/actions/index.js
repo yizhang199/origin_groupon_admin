@@ -16,6 +16,7 @@ export const createNewProduct = Product.create;
 
 export const setSelectedCategory = Category.select;
 export const createNewCategory = Category.create;
+export const updateCategory = Category.update;
 export const initApp = () => {
   return async function(dispatch) {
     const language_id = localStorage.getItem("Aupos_language_id");

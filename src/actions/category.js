@@ -31,10 +31,26 @@ export const select = category => {
   };
 };
 
+const update = category_id => {
+  return async function(dispatch, getState) {
+    const requestBody = getState().form.categoryForm.values;
+    const response = await kidsnParty.put(
+      `/categories/${category_id}`,
+      requestBody
+    );
+
+    dispatch({
+      type: types.fetchAvaliableCategories,
+      payload: response.data
+    });
+  };
+};
+
 const Category = {
   create,
   index,
-  select
+  select,
+  update
 };
 
 export default Category;
