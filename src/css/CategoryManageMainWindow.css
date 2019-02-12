@@ -1,0 +1,5 @@
+.component-catalog-manage-main-window {
+  width: 90vw;
+  height: 100vh;
+  overflow: scroll;
+}
