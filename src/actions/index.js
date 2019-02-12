@@ -2,6 +2,7 @@ import types from "./actionTypes";
 import { setCategory, setOptions } from "./newProduct";
 import { fetchShop, createNewShop } from "./shop";
 import { fetchSummary } from "./report";
+import Category from "./category";
 import kidsnParty from "../apis/kidsnParty";
 
 export const getProducts = () => {
@@ -60,22 +61,13 @@ export const fetchOptions = () => {
   };
 };
 
-export const fetchAvaliableCategories = () => {
-  return async function(dispatch) {
-    const response = await kidsnParty.get("/categories", {
-      params: { language_id: 2 }
-    });
-    dispatch({
-      type: types.fetchAvaliableCategories,
-      payload: response.data.categories
-    });
-  };
-};
-
+export const fetchAvaliableCategories = Category.index;
 export const setNewProductCategory = setCategory;
 export const setNewProductOptions = setOptions;
 export const fetchSingleShop = fetchShop;
 export const createShop = createNewShop;
 
 export const fetchReportsSummary = fetchSummary;
+
+export const createNewCategory = Category.create;
 export const actionTypes = types;

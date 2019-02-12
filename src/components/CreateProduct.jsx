@@ -9,7 +9,7 @@ class CreateProduct extends React.Component {
   render() {
     return (
       <div className="component-create-product">
-        <div className="component-create-product__title">Create Product</div>
+        <div className="component-create-product__title">添加新产品</div>
         <ProductForm />
       </div>
     );

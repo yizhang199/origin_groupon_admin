@@ -1,0 +1,32 @@
+.component-add-category-form {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a5a5a5a5;
+}
+
+.component-add-category-form__main-container {
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+  height: 80%;
+  overflow: scroll;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px;
+}
+
+.component-add-category-form__title {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  color: #5a5a5a;
+  font-weight: bold;
+}

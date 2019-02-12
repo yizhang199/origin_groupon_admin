@@ -10,7 +10,8 @@ const actionTypes = {
   setNewProductCategory: "SET_NEW_PRODUCT_CATEGORY",
   setNewProductOptions: "SET_NEW_PRODUCT_OPTIONS",
   fetchSingleShop: "FETCH_SINGLE_SHOP",
-  fetchSummary: "FETCH_SUMMARY"
+  fetchSummary: "FETCH_SUMMARY",
+  createNewCategory: "CREATE_NEW_CATEGORY"
 };
 
 export default actionTypes;

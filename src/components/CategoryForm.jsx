@@ -1,11 +1,27 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import { connect } from "react-redux";
+
+import "../css/CategoryForm.css";
 class CategoryForm extends React.Component {
+  onSubmit = () => {
+    this.props.onSubmit();
+  };
+  renderInput = ({ input, placeholder }) => {
+    return (
+      <input
+        {...input}
+        placeholder={placeholder}
+        className="component-category-form__input"
+      />
+    );
+  };
   render() {
     return (
       <div className="component-category-form">
-        <form className="component-category-form__form">
+        <form
+          className="component-category-form__form"
+          onSubmit={this.props.handleSubmit(this.onSubmit)}
+        >
           <Field
             name="chinese_name"
             component={this.renderInput}
@@ -16,6 +32,7 @@ class CategoryForm extends React.Component {
             component={this.renderInput}
             placeholder="请输入英文名"
           />
+          <button className="component-category-form__button">Submit</button>
         </form>
       </div>
     );
@@ -33,8 +50,8 @@ const validate = formValues => {
   return errors;
 };
 
-const reduxFormWrapper = reduxForm({ form: "productForm", validate })(EditForm);
-const mapStateToProps = ({ newCategory }) => {
-  return { newCategory };
-};
-export default connect(mapStateToProps)(reduxFormWrapper);
+const reduxFormWrapper = reduxForm({ form: "categoryForm", validate })(
+  CategoryForm
+);
+
+export default reduxFormWrapper;

@@ -2,11 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchAvaliableCategories } from "../actions";
 import CategoryCard from "./CategoryCard";
+import AddCategoryForm from "./AddCategoryForm";
 import "../css/ProductFormCategorySelector.css";
 class ProductFormCategorySelector extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { expand: false };
+    this.state = { expand: false, showAddCategoryForm: false };
   }
   componentDidMount() {
     this.props.fetchAvaliableCategories();
@@ -14,6 +15,9 @@ class ProductFormCategorySelector extends React.Component {
 
   toggleBody = () => {
     this.setState({ expand: !this.state.expand });
+  };
+  toggleAddCategoryForm = () => {
+    this.setState({ showAddCategoryForm: !this.state.showAddCategoryForm });
   };
 
   /**
@@ -37,6 +41,15 @@ class ProductFormCategorySelector extends React.Component {
             </CategoryCard>
           );
         })}
+        <div
+          onClick={this.toggleAddCategoryForm}
+          className="component-product-form-category-selector__body__add-button"
+        >
+          <i className="material-icons">add_circle_outline</i>
+          <span className="component-produt-form-category-selector__body__add-button-label">
+            添加新产品分类
+          </span>
+        </div>
       </div>
     );
   };
@@ -57,6 +70,9 @@ class ProductFormCategorySelector extends React.Component {
           </span>
         </div>
         {this.renderBody()}
+        {this.state.showAddCategoryForm ? (
+          <AddCategoryForm toggleForm={this.toggleAddCategoryForm} />
+        ) : null}
       </div>
     );
   }

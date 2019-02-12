@@ -245,7 +245,7 @@ class EditForm extends React.Component {
               onClick={this.toggleAddOptionToNewProductForm}
               className="component-eidt-form__subtitle__button"
             >
-              <span>add option</span>
+              <span>添加新规格</span>
             </div>
           </div>
           <div className="component-edit-form__button-group">

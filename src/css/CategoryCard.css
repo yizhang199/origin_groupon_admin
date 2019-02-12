@@ -1,6 +1,21 @@
 .component-category-card {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin: 10px auto;
+  border: 1px solid #a5a5a5;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #5a5a5a;
+}
+.component-category-card__name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.component-category-card__number {
+  font-size: 14px;
+  align-self: flex-end;
+  color: #a5a5a5;
 }
