@@ -87,14 +87,21 @@ class AddOptionToNewProductForm extends React.Component {
   renderOptionValues = () => {
     return this.state.productOptionValues.map(value => {
       return (
-        <label key={`optionValue${value.option_value_id}`}>
+        <label
+          key={`optionValue${value.option_value_id}`}
+          className="component-add-option-to-new-product-form__option-value-wrapper"
+        >
           <input
             type="checkbox"
             value={value.option_value_id}
             data-option-value-name={value.name}
             onChange={this.handleOptionValuesChange}
           />
-          <span>{value.name}</span>
+          <span className="component-add-option-to-new-product-form__option-value-info">
+            <span className="component-add-option-to-new-product-form__option-name">
+              {value.name}
+            </span>
+          </span>
         </label>
       );
     });
@@ -121,6 +128,9 @@ class AddOptionToNewProductForm extends React.Component {
           className="component-add-option-to-new-product-form__body"
           onClick={e => e.stopPropagation()}
         >
+          <div className="component-add-option-to-new-product-form__title">
+            <span>请选择要添加的规格</span>
+          </div>
           {this.renderOptionsJSX()}
           <span
             className="component-add-option-to-new-product-form__save-button"

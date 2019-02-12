@@ -84,3 +84,20 @@
   border-radius: 5px;
   box-shadow: 0px 0px 2px #a5a5a5;
 }
+.component-edit-form__button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 6px;
+  margin-top: 10px;
+}
+.component-edit-form__submit-button {
+  background-color: #ffba2b;
+  border: 1px solid #ffba2b;
+  padding: 10px 15px;
+  box-shadow: 0px 0px 5px #a5a5a5;
+  color: white;
+  font-weight: bold;
+  border-radius: 3px;
+}

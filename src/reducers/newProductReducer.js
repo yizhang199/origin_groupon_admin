@@ -12,6 +12,8 @@ const newProductReducer = (newProduct = {}, action) => {
         newOptions = [...newOptions, action.payload];
       }
       return { ...newProduct, options: newOptions };
+    case actionTypes.refreshNewProduct:
+      return {};
     default:
       return newProduct;
   }

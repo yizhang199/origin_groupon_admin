@@ -8,6 +8,7 @@ import OrderManageMainWindow from "./OrderManageMainWindow";
 import ChartManageMainWindow from "./ChartManageMainWindow";
 import ShopManageMainWindow from "./ShopManageMainWindow";
 import Example from "./demo/propsFunctionalComponent";
+import CatalogManageMainWindow from "./CatalogManageMainWindow";
 
 const App = () => {
   return (
@@ -18,9 +19,10 @@ const App = () => {
           <Switch>
             <Route
               path="/products"
-              render={props => <ProductManageMainWindow {...props} />}
+              render={props => <CatalogManageMainWindow {...props} />}
             />
-
+            <Route path="/categories" component={CatalogManageMainWindow} />
+            <Route path="/options" component={CatalogManageMainWindow} />
             <Route
               path="/orders"
               render={props => <OrderManageMainWindow {...props} />}
@@ -37,7 +39,7 @@ const App = () => {
             <Route
               exact
               path="/"
-              render={props => <ProductManageMainWindow {...props} />}
+              render={props => <CatalogManageMainWindow {...props} />}
             />
           </Switch>
         </React.Fragment>

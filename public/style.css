@@ -61,24 +61,7 @@ body {
   flex-direction: column;
   width: 90vw;
 }
-.product-manage-main-window .top-menu {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: 7vh;
-  border-bottom: 3px solid #d8d8d8;
-}
-.product-manage-main-window .top-menu a {
-  text-decoration: none;
-  color: #030303;
-  font-weight: bold;
-  margin: 1px 5px;
-}
-.product-manage-main-window .top-menu a.active {
-  margin: -3px 5px;
-  border-bottom: 3px solid #ffba2d;
-}
+
 .product-manage-main-window .sub-menu {
   display: flex;
   justify-content: space-between;

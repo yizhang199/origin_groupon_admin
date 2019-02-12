@@ -1,5 +1,6 @@
 import types from "./actionTypes";
 import kidsnParty from "../apis/kidsnParty";
+import { history } from "../history";
 
 const index = product_status => {
   return async function(dispatch) {
@@ -38,9 +39,25 @@ const switchProductStatus = product => {
   };
 };
 
+const create = () => {
+  return async function(dispatch, getState) {
+    const product = getState().form.productForm.values;
+    const { options, category } = getState().newProduct;
+    const response = await kidsnParty.post("/products", {
+      product,
+      category,
+      options
+    });
+
+    dispatch({ type: types.refreshNewProduct });
+    history.push("/");
+  };
+};
+
 export default {
   index,
   show,
   update,
-  switchProductStatus
+  switchProductStatus,
+  create
 };

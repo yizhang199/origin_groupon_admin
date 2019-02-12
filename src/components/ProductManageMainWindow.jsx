@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch, Link } from "react-router-dom";
 
 import ProductList from "./ProductsList";
 import EditProduct from "./EditProduct";
@@ -46,12 +46,6 @@ class ProductManageMainWindow extends React.Component {
       <div className="product-manage-main-window">
         <Router history={history}>
           <React.Fragment>
-            <div className="top-menu">
-              <a className="active" href="#">
-                商品管理
-              </a>
-              <a href="#">分类管理</a>
-            </div>
             <div className="sub-menu">
               <div className="input-container">
                 <input type="text" placeholder="按商品名搜索" />
@@ -81,17 +75,11 @@ class ProductManageMainWindow extends React.Component {
                 </button>
               </div>
             </div>
-
             <div style={{ display: `flex` }}>
               <ProductList />
               <Switch>
-                <Route exact path="/products/edit" component={EditProduct} />
-                <Route
-                  exact
-                  path="/products/create"
-                  component={CreateProduct}
-                />
-                <Route exact path="/products/" component={CreateProduct} />
+                <Route path="/products/edit" component={EditProduct} />
+                <Route path="/products/create" component={CreateProduct} />
               </Switch>
             </div>
           </React.Fragment>

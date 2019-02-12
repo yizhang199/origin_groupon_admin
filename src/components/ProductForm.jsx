@@ -48,7 +48,6 @@ class EditForm extends React.Component {
       return <div className="form-error-message">{error}</div>;
     }
   };
-  onSubmit = formValues => {};
 
   handleSelectChange = e => {
     if (e.target.value === "new") {
@@ -158,7 +157,7 @@ class EditForm extends React.Component {
           <ProductFormCategorySelector />
         </div>
         <form
-          onSubmit={this.props.handleSubmit(this.onSubmit)}
+          onSubmit={this.props.handleSubmit(this.props.onSubmit)}
           className="edit-form"
         >
           <div className="component-edit-form__subtitle">
@@ -200,7 +199,7 @@ class EditForm extends React.Component {
           <div className="component-edit-form__button-group">
             <label className="component-edit-form__button-group__wrapper">
               <Field
-                name="sort_id"
+                name="sort_order"
                 component={this.renderInput}
                 className="component-edit-form__button-group__input"
                 placeholder="商品显示优先级,如1,2..."
@@ -233,7 +232,7 @@ class EditForm extends React.Component {
           </div>
           <div className="component-edit-form__button-group">
             <Field
-              name="stock_level_id"
+              name="stock_status_id"
               component={this.renderInput}
               placeholder="设置MaxNumber"
             />
@@ -260,7 +259,7 @@ class EditForm extends React.Component {
           ) : null}
           <div className="component-edit-form__button-wrapper">
             <button className="component-edit-form__submit-button">
-              Submit
+              确认添加新产品
             </button>
           </div>
         </form>

@@ -12,6 +12,7 @@ export const getProduct = Product.show;
 
 export const updateProduct = Product.update;
 export const switchProductStatus = Product.switchProductStatus;
+export const createNewProduct = Product.create;
 
 export const initApp = () => {
   return async function(dispatch) {
