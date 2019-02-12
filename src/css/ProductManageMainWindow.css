@@ -25,3 +25,23 @@ body {
   width: 90vw;
   overflow: scroll;
 }
+.product-manage-main-window .sub-menu .link-container span {
+  text-decoration: none;
+  color: #030303;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  justify-content: center;
+}
+
+.product-manage-main-window .sub-menu .link-container span.active {
+  text-decoration: none;
+  color: #030303;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  justify-content: center;
+  background-color: #ffba2d;
+}

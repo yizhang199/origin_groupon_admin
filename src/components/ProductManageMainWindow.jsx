@@ -14,7 +14,10 @@ class ProductManageMainWindow extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { product_status: 0 };
+    this.state = {
+      product_status: 0,
+      className: { activeProduct: "active", inactiveProduct: "" }
+    };
   }
   componentDidMount() {
     this.props.getProducts(this.state.product_status);
@@ -23,9 +26,19 @@ class ProductManageMainWindow extends React.Component {
     const content = e.target.innerText;
     if (content === "已上架商品") {
       this.props.getProducts(0);
+      this.setState({
+        className: { activeProduct: "active", inactiveProduct: "" }
+      });
     } else {
       this.props.getProducts(1);
+      this.setState({
+        className: { activeProduct: "", inactiveProduct: "active" }
+      });
     }
+  };
+
+  getLinkClassName = value => {
+    return value === this.state.product_status ? "active" : "";
   };
 
   render() {
@@ -45,10 +58,18 @@ class ProductManageMainWindow extends React.Component {
               </div>
 
               <div className="link-container">
-                <span onClick={this.changeProductStatus} className="active">
+                <span
+                  onClick={this.changeProductStatus}
+                  className={this.state.className.activeProduct}
+                >
                   已上架商品
                 </span>
-                <span onClick={this.changeProductStatus}>未上架商品</span>
+                <span
+                  onClick={this.changeProductStatus}
+                  className={this.state.className.inactiveProduct}
+                >
+                  未上架商品
+                </span>
               </div>
               <div className="button-container">
                 <button
