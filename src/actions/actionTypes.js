@@ -12,7 +12,8 @@ const actionTypes = {
   fetchSingleShop: "FETCH_SINGLE_SHOP",
   fetchSummary: "FETCH_SUMMARY",
   createNewCategory: "CREATE_NEW_CATEGORY",
-  refreshNewProduct: "REFRESH_NEW_PRODUCT"
+  refreshNewProduct: "REFRESH_NEW_PRODUCT",
+  selectCategory: "SELECT_CATEGORY"
 };
 
 export default actionTypes;

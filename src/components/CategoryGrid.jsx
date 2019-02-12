@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import CategoryGridItem from "./CategoryGridItem";
 import { fetchAvaliableCategories } from "../actions";
+import "../css/CategoryGrid.css";
+
 class CategoryGrid extends React.Component {
   componentDidMount() {
     this.props.fetchAvaliableCategories();
@@ -13,7 +16,10 @@ class CategoryGrid extends React.Component {
     }
     return this.props.categories.map(category => {
       return (
-        <div key={`categoryGrid${category.category_id}`}>{category.name}</div>
+        <CategoryGridItem
+          category={category}
+          key={`categoryGrid${category.category_id}`}
+        />
       );
     });
   };

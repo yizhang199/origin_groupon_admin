@@ -1,5 +1,6 @@
-.component-catalog-manage-main-window {
-  width: 90vw;
-  height: 100vh;
+.component-category-manage-main-window {
+  width: 100%;
+  height: 93vh;
   overflow: scroll;
+  background-color: #f5f6f8;
 }

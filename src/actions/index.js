@@ -14,6 +14,8 @@ export const updateProduct = Product.update;
 export const switchProductStatus = Product.switchProductStatus;
 export const createNewProduct = Product.create;
 
+export const setSelectedCategory = Category.select;
+export const createNewCategory = Category.create;
 export const initApp = () => {
   return async function(dispatch) {
     const language_id = localStorage.getItem("Aupos_language_id");
@@ -60,5 +62,4 @@ export const createShop = createNewShop;
 
 export const fetchReportsSummary = fetchSummary;
 
-export const createNewCategory = Category.create;
 export const actionTypes = types;

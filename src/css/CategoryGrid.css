@@ -1,0 +1,12 @@
+.component-category-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  height: 50vh;
+  overflow: scroll;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px 0px;
+  border-bottom: 2px solid #a5a5a5;
+}

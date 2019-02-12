@@ -17,6 +17,7 @@ const CategoryManageMainWindow = () => {
           <Switch>
             <Route path="/categories/create" component={CreateCategory} />
             <Route path="/categories/update" component={UpdateCategory} />
+            <Route path="/categories" component={CreateCategory} />
           </Switch>
         </React.Fragment>
       </Router>

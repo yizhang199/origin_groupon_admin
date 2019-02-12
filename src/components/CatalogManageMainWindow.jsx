@@ -5,6 +5,8 @@ import CatalogTopNav from "./CatalogTopNav";
 import { history } from "../history";
 import ProductManageMainWindow from "./ProductManageMainWindow";
 import CategoryManageMainWindow from "./CategoryManageMainWindow";
+
+import "../css/CatalogManageMainWindow.css";
 class CatalogManageMainWindow extends React.Component {
   render() {
     return (

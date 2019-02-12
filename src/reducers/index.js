@@ -72,6 +72,12 @@ const reportSummaryReducer = (reportSummary = {}, action) => {
   }
   return reportSummary;
 };
+const selectedCategoryReducer = (selectedCategory = {}, action) => {
+  if (action.type === actionTypes.selectCategory) {
+    return action.payload;
+  }
+  return selectedCategory;
+};
 
 export default combineReducers({
   products: productsReducer,
@@ -85,5 +91,6 @@ export default combineReducers({
   avaliableCategories: avaliableCategoriesReducer,
   newProduct: newProductReducer,
   selectedShop: selectedShopReducer,
-  reportSummary: reportSummaryReducer
+  reportSummary: reportSummaryReducer,
+  selectedCategory: selectedCategoryReducer
 });

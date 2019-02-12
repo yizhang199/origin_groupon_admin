@@ -24,9 +24,17 @@ export const index = () => {
   };
 };
 
+export const select = category => {
+  return {
+    type: types.selectCategory,
+    payload: category
+  };
+};
+
 const Category = {
   create,
-  index
+  index,
+  select
 };
 
 export default Category;
