@@ -4,24 +4,11 @@ import { fetchShop, createNewShop } from "./shop";
 import { fetchSummary } from "./report";
 import Category from "./category";
 import kidsnParty from "../apis/kidsnParty";
+import Product from "./product";
 
-export const getProducts = () => {
-  return async function(dispatch, getState) {
-    const response = await kidsnParty.get("/products", {
-      params: { language_id: 2 }
-    });
+export const getProducts = Product.index;
 
-    dispatch({ type: types.getProducts, payload: response });
-  };
-};
-
-export const getProduct = () => {
-  return async function(dispatch, id) {
-    const response = await kidsnParty.get(`/product/${id}`);
-
-    dispatch({ type: types.getProduct, payload: response.data });
-  };
-};
+export const getProduct = Product.show;
 
 export const initApp = () => {
   return async function(dispatch) {

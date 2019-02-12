@@ -2,13 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link, Element } from "react-scroll";
 
-import { getProducts } from "../actions";
 import ProductCard from "./ProductCard";
 
 class ProductList extends React.Component {
-  componentDidMount() {
-    this.props.getProducts();
-  }
   render() {
     return (
       <div className="products-list" data-test="component-products-list">
@@ -64,7 +60,4 @@ const mapStateToProps = ({ products }) => {
   return { products };
 };
 
-export default connect(
-  mapStateToProps,
-  { getProducts }
-)(ProductList);
+export default connect(mapStateToProps)(ProductList);
