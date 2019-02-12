@@ -10,6 +10,9 @@ export const getProducts = Product.index;
 
 export const getProduct = Product.show;
 
+export const updateProduct = Product.update;
+export const switchProductStatus = Product.switchProductStatus;
+
 export const initApp = () => {
   return async function(dispatch) {
     const language_id = localStorage.getItem("Aupos_language_id");

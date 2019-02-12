@@ -5,7 +5,7 @@ import newProductReducer from "./newProductReducer";
 
 const productsReducer = (products = [], action) => {
   if (action.type === actionTypes.getProducts) {
-    return action.payload.data;
+    return action.payload;
   }
   return products;
 };

@@ -1,6 +1,24 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const ProductCard = ({ product }) => {
+import { switchProductStatus } from "../actions";
+
+const ProductCard = ({ product, switchProductStatus }) => {
+  const renderChangeStatusButton = ({ status }) => {
+    if (status === 1) {
+      return <button onClick={activeProduct}>上架</button>;
+    } else {
+      return <button onClick={inactiveProduct}>下架</button>;
+    }
+  };
+
+  const activeProduct = () => {
+    switchProductStatus({ ...product, status: 0 });
+  };
+
+  const inactiveProduct = () => {
+    switchProductStatus({ ...product, status: 1 });
+  };
   return (
     <div className="product-card" data-test="component-product-card">
       <div className="product-card-header">
@@ -16,11 +34,14 @@ const ProductCard = ({ product }) => {
         </div>
       </div>
       <div className="product-card-footer">
-        <button>下架</button>
+        {renderChangeStatusButton(product)}
         <button className="active">编辑</button>
       </div>
     </div>
   );
 };
 
-export default ProductCard;
+export default connect(
+  null,
+  { switchProductStatus }
+)(ProductCard);
