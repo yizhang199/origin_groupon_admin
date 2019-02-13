@@ -14,7 +14,9 @@ const actionTypes = {
   createNewCategory: "CREATE_NEW_CATEGORY",
   refreshNewProduct: "REFRESH_NEW_PRODUCT",
   selectCategory: "SELECT_CATEGORY",
-  selectOption: "SELECT_OPTION"
+  selectOption: "SELECT_OPTION",
+  createNewOption: "CREATE_NEW_OPTION",
+  updateOption: "UPDATE_OPTION"
 };
 
 export default actionTypes;

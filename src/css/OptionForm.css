@@ -1,0 +1,70 @@
+.component-option-form {
+  height: calc(67vh - 45px);
+  overflow: scroll;
+  width: 100%;
+}
+.component-option-form form {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.component-option-form form .form-input,
+.component-option-form form .form-select {
+  height: 35px;
+  width: 60%;
+  margin-bottom: 10px;
+  border: 1px solid #5a5a5a;
+  border-radius: 5px;
+  padding: 0px 10px;
+  outline: none;
+}
+
+.component-option-form form .form-input::placeholder,
+.component-option-form form .form-select::placeholder {
+  color: #a5a5a5;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.component-option-form form .form-select {
+  color: #5a5a5a;
+  font-weight: bold;
+  font-size: 16px;
+}
+.component-option-form__option-value-group {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+}
+.component-option-form__option-value-group__input {
+  height: 35px;
+  width: 40%;
+  border-radius: 3px;
+  border: 1px solid #a5a5a5;
+  padding: 0px 10px;
+}
+.component-option-form__add-new-row {
+  background-color: #ffba2d;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  box-shadow: 0px 0px 10px #a5a5a5;
+  font-weight: bold;
+}
+.component-option-form__button {
+  background-color: #5a5a5a;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  border: 1px solid #5a5a5a;
+  box-shadow: 0px 0px 10px #a5a5a5;
+  font-weight: bold;
+  outline: none;
+  margin-top: 30px;
+}

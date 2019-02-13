@@ -25,6 +25,8 @@ export const fetchAvaliableCategories = Category.index;
 //options actions
 export const fetchOptions = Option.index;
 export const selectOption = Option.select;
+export const createNewOption = Option.create;
+export const updateOption = Option.update;
 
 export const initApp = () => {
   return async function(dispatch) {

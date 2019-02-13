@@ -1,0 +1,16 @@
+.component-create-option {
+  width: 100%;
+
+  height: 67vh;
+  overflow: scroll;
+}
+.component-create-option__title {
+  width: 100%;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: #8c8c8c;
+  font-size: 22px;
+  font-weight: bold;
+}
