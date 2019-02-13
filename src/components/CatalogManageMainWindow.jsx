@@ -5,6 +5,7 @@ import CatalogTopNav from "./CatalogTopNav";
 import { history } from "../history";
 import ProductManageMainWindow from "./ProductManageMainWindow";
 import CategoryManageMainWindow from "./CategoryManageMainWindow";
+import OptionManageMainWindow from "./OptionManageMainWindow";
 
 import "../css/CatalogManageMainWindow.css";
 class CatalogManageMainWindow extends React.Component {
@@ -16,6 +17,7 @@ class CatalogManageMainWindow extends React.Component {
           <Switch>
             <Route component={ProductManageMainWindow} path="/products" />
             <Route component={CategoryManageMainWindow} path="/categories" />
+            <Route component={OptionManageMainWindow} path="/options" />
             <Route exact component={ProductManageMainWindow} path="/" />
           </Switch>
         </Router>

@@ -20,6 +20,9 @@ const CatalogTopNav = () => {
       <Link className={getClassName("/categories")} to="/categories">
         分类管理
       </Link>
+      <Link className={getClassName("/options")} to="/options">
+        分类管理
+      </Link>
     </div>
   );
 };

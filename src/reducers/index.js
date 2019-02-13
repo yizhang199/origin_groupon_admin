@@ -79,6 +79,13 @@ const selectedCategoryReducer = (selectedCategory = {}, action) => {
   return selectedCategory;
 };
 
+const selectedOptionReducer = (selectedOption = { values: [] }, action) => {
+  if (action.type === actionTypes.selectOption) {
+    return action.payload;
+  }
+  return selectedOption;
+};
+
 export default combineReducers({
   products: productsReducer,
   form: formReducer,
@@ -92,5 +99,6 @@ export default combineReducers({
   newProduct: newProductReducer,
   selectedShop: selectedShopReducer,
   reportSummary: reportSummaryReducer,
-  selectedCategory: selectedCategoryReducer
+  selectedCategory: selectedCategoryReducer,
+  selectedOption: selectedOptionReducer
 });

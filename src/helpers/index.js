@@ -22,3 +22,14 @@ export const makeDate = value => {
 
   return `${formatDay} ${formatMonth}, ${year}`;
 };
+
+export const makeType = value => {
+  switch (value) {
+    case "radio":
+      return "单选";
+    case "checkbox":
+      return "多选";
+    default:
+      return "";
+  }
+};

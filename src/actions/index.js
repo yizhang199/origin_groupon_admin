@@ -5,18 +5,27 @@ import { fetchSummary } from "./report";
 import Category from "./category";
 import kidsnParty from "../apis/kidsnParty";
 import Product from "./product";
+import Option from "./option";
 
+// produt actions
 export const getProducts = Product.index;
-
 export const getProduct = Product.show;
-
 export const updateProduct = Product.update;
 export const switchProductStatus = Product.switchProductStatus;
 export const createNewProduct = Product.create;
+export const setNewProductCategory = setCategory; //support create product
+export const setNewProductOptions = setOptions; //support create product
 
+//category actions
 export const setSelectedCategory = Category.select;
 export const createNewCategory = Category.create;
 export const updateCategory = Category.update;
+export const fetchAvaliableCategories = Category.index;
+
+//options actions
+export const fetchOptions = Option.index;
+export const selectOption = Option.select;
+
 export const initApp = () => {
   return async function(dispatch) {
     const language_id = localStorage.getItem("Aupos_language_id");
@@ -47,17 +56,6 @@ export const selectOrder = order_id => {
     dispatch({ type: types.selectOrder, payload: response.data.order });
   };
 };
-
-export const fetchOptions = () => {
-  return async function(dispatch) {
-    const response = await kidsnParty.get("/options");
-    dispatch({ type: types.fetchOptions, payload: response.data.options });
-  };
-};
-
-export const fetchAvaliableCategories = Category.index;
-export const setNewProductCategory = setCategory;
-export const setNewProductOptions = setOptions;
 export const fetchSingleShop = fetchShop;
 export const createShop = createNewShop;
 

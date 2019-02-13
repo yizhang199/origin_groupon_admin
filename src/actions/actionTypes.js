@@ -13,7 +13,8 @@ const actionTypes = {
   fetchSummary: "FETCH_SUMMARY",
   createNewCategory: "CREATE_NEW_CATEGORY",
   refreshNewProduct: "REFRESH_NEW_PRODUCT",
-  selectCategory: "SELECT_CATEGORY"
+  selectCategory: "SELECT_CATEGORY",
+  selectOption: "SELECT_OPTION"
 };
 
 export default actionTypes;
