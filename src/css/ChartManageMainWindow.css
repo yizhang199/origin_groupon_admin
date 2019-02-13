@@ -1,0 +1,28 @@
+.component-chart-manage-main-window {
+  width: 90vw;
+  height: 100vh;
+  overflow: scroll;
+}
+.component-chart-manage-main-window__dashboard {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.component-chart-manage-main-window__dashboard__sales {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 50px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #8c8c8c;
+  text-shadow: 0 0 2px #a5a5a5;
+}
+.component-chart-manage-main-window__dashboard__sales-by-date {
+  flex: 1;
+  padding: 50px;
+}
