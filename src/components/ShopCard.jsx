@@ -1,12 +1,13 @@
 import React from "react";
-import { makeDate } from "../helpers";
+import { connect } from "react-redux";
 
-import { history } from "../history";
+import { makeDate } from "../helpers";
+import { fetchSingleShop } from "../actions";
 import "../css/ShopCard.css";
 class ShopCard extends React.Component {
   componentDidMount() {}
   selectShop = () => {
-    history.push(`/shops/${this.props.shop.location_id}`);
+    this.props.fetchSingleShop(this.props.shop.location_id);
   };
   renderOpenDates = () => {
     return this.props.shop.open.map(dateString => {
@@ -22,7 +23,7 @@ class ShopCard extends React.Component {
       <div className="component-shop-card">
         <div
           className="component-shop-card__information"
-          style={{ backgroundImage: `url("images/${this.props.shop.image}")` }}
+          style={{ backgroundImage: `url("/images/${this.props.shop.image}")` }}
         >
           <div>{this.props.shop.name}</div>
           <div>{this.props.shop.address}</div>
@@ -41,4 +42,7 @@ class ShopCard extends React.Component {
   }
 }
 
-export default ShopCard;
+export default connect(
+  null,
+  { fetchSingleShop }
+)(ShopCard);

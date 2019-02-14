@@ -6,6 +6,7 @@ import Category from "./category";
 import kidsnParty from "../apis/kidsnParty";
 import Product from "./product";
 import Option from "./option";
+import Shop from "./shop";
 
 // produt actions
 export const getProducts = Product.index;
@@ -61,7 +62,8 @@ export const selectOrder = order_id => {
   };
 };
 export const fetchSingleShop = fetchShop;
-export const createShop = createNewShop;
+export const createShop = Shop.create;
+export const updateShop = Shop.update;
 
 export const fetchReportsSummary = fetchSummary;
 

@@ -12,14 +12,18 @@ class ShopManageMainWindow extends React.Component {
   render() {
     return (
       <div className="shop-manage-main-window">
-        <ShopTopNav />
+        <ShopTopNav {...this.props} />
         <div className="shop-manage-main-window__main-content">
           <ShopList />
           <Router history={history}>
             <Switch>
-              <Route path={`/shops/:location_id`} component={EditShopForm} />
-              <Route path={`/shops/:location_id`} component={CreateShopForm} />
-              <Route path={`/shops`} component={CreateShopForm} />
+              <Route
+                exact
+                path={`/shops/update/:location_id`}
+                component={EditShopForm}
+              />
+              <Route exact patch={`/shops/create`} component={CreateShopForm} />
+              <Route exact path={`/shops`} component={CreateShopForm} />
             </Switch>
           </Router>
         </div>

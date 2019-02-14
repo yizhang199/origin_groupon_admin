@@ -9,8 +9,9 @@ import "../css/CreateShop.css";
 
 class CreateShop extends React.Component {
   componentDidMount() {
-    const id = history.match.param.id;
-    this.props.getShop(id);
+    console.log("create shop: ", this.props);
+    // const id = history.match.param.id;
+    // this.props.getShop(id);
   }
 
   render() {

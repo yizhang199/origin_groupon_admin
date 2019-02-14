@@ -23,4 +23,8 @@ body {
 .shop-manage-main-window__main-content {
   display: flex;
   justify-content: space-between;
+  height: 93vh;
+  overflow: scroll;
+  padding-top: 20px;
+  width: 90vw;
 }

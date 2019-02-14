@@ -23,9 +23,7 @@ class EditForm extends React.Component {
       return <div className="form-error-message">{error}</div>;
     }
   };
-  onSubmit = formValues => {
-    console.log(formValues);
-  };
+  onSubmit = formValues => {};
   render() {
     return (
       <div className="component-edit-form">

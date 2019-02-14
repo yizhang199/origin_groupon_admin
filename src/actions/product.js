@@ -20,12 +20,15 @@ const show = id => {
   };
 };
 
-const update = product => {
-  return async function(dispatch) {
-    const response = await kidsnParty.put(`/products/${product.product_id}`, {
-      product
+const update = product_id => {
+  return async function(dispatch, getState) {
+    const product = getState().form.productForm.values;
+    const { options, category } = getState().newProduct;
+    const response = await kidsnParty.put(`/products/${product_id}`, {
+      product,
+      category,
+      options
     });
-
     dispatch({ type: types.getProducts, payload: response.data });
   };
 };
@@ -49,7 +52,7 @@ const create = () => {
       options
     });
 
-    dispatch({ type: types.refreshNewProduct });
+    dispatch({ type: types.getProducts, payload: response.data });
     history.push("/");
   };
 };

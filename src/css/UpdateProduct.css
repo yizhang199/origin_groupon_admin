@@ -1,0 +1,11 @@
+.component-update-product {
+  height: 87vh;
+  overflow: scroll;
+}
+
+.component-update-product__title {
+  font-size: 22px;
+  margin: 15px 0px;
+  font-weight: bold;
+  color: #5a5a5a;
+}

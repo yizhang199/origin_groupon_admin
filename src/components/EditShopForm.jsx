@@ -1,23 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchSingleShop } from "../actions";
+import { fetchSingleShop, updateShop } from "../actions";
 import ShopForm from "./ShopForm";
 
 class EditShopForm extends React.Component {
   componentDidMount() {
-    const location_id = this.props.match.params.location_id;
-
-    this.props.fetchSingleShop(location_id);
+    const id = this.props.match.params.location_id;
+    this.props.fetchSingleShop(id);
   }
   onSubmit = formValues => {
-    console.log("edit shop form onSubmit: ", formValues);
+    this.props.updateShop(formValues);
   };
   render() {
-    console.log(this.props.selectedShop);
+    if (!this.props.selectedShop.name) {
+      return <div className="component-edit-shop-form">"loading..."</div>;
+    }
+
     return (
-      <div>
-        edit shop form
+      <div className="component-edit-shop-form">
+        编辑店面信息
         <ShopForm
           shop={this.props.selectedShop}
           initialValues={this.props.selectedShop}
@@ -29,7 +31,7 @@ class EditShopForm extends React.Component {
 }
 
 const mapStateToProps = ({ selectedShop }) => {
-  return { selectedShop };
+  return { selectedShop, updateShop };
 };
 
 export default connect(

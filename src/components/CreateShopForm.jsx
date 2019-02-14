@@ -12,7 +12,7 @@ class CreateShopForm extends React.Component {
   render() {
     return (
       <div>
-        Create Shop Form
+        创建新店面
         <ShopForm onSubmit={this.onSubmit} />
       </div>
     );

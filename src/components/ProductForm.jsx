@@ -300,11 +300,18 @@ const validate = formValues => {
   return errors;
 };
 
-const mapStateToProps = ({ options, newProduct }) => {
-  return { options, newProduct };
+const mapStateToProps = ({ options, newProduct, product }) => {
+  return {
+    options,
+    newProduct
+  };
 };
 
-const formWrapper = reduxForm({ form: "productForm", validate })(EditForm);
+const formWrapper = reduxForm({
+  form: "productForm",
+  validate,
+  enableReinitialize: true
+})(EditForm);
 export default connect(
   mapStateToProps,
   { fetchOptions, removeOptionsFromNewProduct }

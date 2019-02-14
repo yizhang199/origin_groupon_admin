@@ -16,11 +16,7 @@ class ShopForm extends React.Component {
       this.setState({ openDates: this.props.shop.open });
     }
   }
-  componentWillReceiveProps(newProps) {
-    if (this.props.shop) {
-      this.setState({ openDates: newProps.shop.open });
-    }
-  }
+
   renderInput = ({ input, placeholder }) => {
     return <input {...input} type="text" placeholder={placeholder} />;
   };
@@ -29,6 +25,9 @@ class ShopForm extends React.Component {
     this.setState({ openDates: [...this.state.openDates, newDate] });
   };
   renderOpenDates = () => {
+    if (!this.state.openDates) {
+      return null;
+    }
     return this.state.openDates.map((openDate, index) => {
       return (
         <span
@@ -57,7 +56,6 @@ class ShopForm extends React.Component {
     this.props.onSubmit({ ...formValues, open: this.state.openDates });
   };
   render() {
-    console.log("initvalues", this.props);
     return (
       <div className="component-shop-form">
         <form
@@ -94,4 +92,7 @@ class ShopForm extends React.Component {
   }
 }
 
-export default reduxForm({ form: "shop-form" })(ShopForm);
+export default reduxForm({
+  form: "shopForm",
+  enableReinitialize: true
+})(ShopForm);

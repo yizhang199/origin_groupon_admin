@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { switchProductStatus } from "../actions";
+import { history } from "../history";
 
 const ProductCard = ({ product, switchProductStatus }) => {
   const renderChangeStatusButton = ({ status }) => {
@@ -14,6 +15,10 @@ const ProductCard = ({ product, switchProductStatus }) => {
 
   const activeProduct = () => {
     switchProductStatus({ ...product, status: 0 });
+  };
+
+  const editProduct = () => {
+    history.push(`/products/edit/${product.product_id}`);
   };
 
   const inactiveProduct = () => {
@@ -35,7 +40,9 @@ const ProductCard = ({ product, switchProductStatus }) => {
       </div>
       <div className="product-card-footer">
         {renderChangeStatusButton(product)}
-        <button className="active">编辑</button>
+        <button onClick={editProduct} className="active">
+          编辑
+        </button>
       </div>
     </div>
   );

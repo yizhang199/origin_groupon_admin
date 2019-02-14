@@ -86,7 +86,11 @@ class ProductManageMainWindow extends React.Component {
             <div style={{ display: `flex` }}>
               <ProductList />
               <Switch>
-                <Route path="/products/edit" component={EditProduct} />
+                <Route
+                  exact
+                  path="/products/edit/:product_id"
+                  component={EditProduct}
+                />
                 <Route path="/products/create" component={CreateProduct} />
               </Switch>
             </div>

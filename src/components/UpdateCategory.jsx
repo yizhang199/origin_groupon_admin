@@ -6,9 +6,7 @@ import CategoryForm from "./CategoryForm";
 
 import "../css/UpdateCategory.css";
 class UpdateCategory extends React.Component {
-  componentDidMount() {
-    console.log(this.props.selectedCategory);
-  }
+  componentDidMount() {}
 
   onSubmit = () => {
     this.props.updateCategory(this.props.selectedCategory.category_id);
