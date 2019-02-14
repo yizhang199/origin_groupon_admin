@@ -20,7 +20,10 @@ class ShopCard extends React.Component {
   render() {
     return (
       <div className="component-shop-card">
-        <div className="component-shop-card__information">
+        <div
+          className="component-shop-card__information"
+          style={{ backgroundImage: `url("images/${this.props.shop.image}")` }}
+        >
           <div>{this.props.shop.name}</div>
           <div>{this.props.shop.address}</div>
           <div>{this.props.shop.telephone}</div>

@@ -22,12 +22,20 @@
   background-color: #a5a5a5;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  background-size: cover;
+  color: white;
+  text-shadow: 1px 1px 2px #000;
+  font-weight: bold;
 }
 .component-shop-card__information div {
   margin-bottom: 10px;
 }
 .component-shop-card__button {
-  background-color: #daa14e;
+  background-color: #ffba2d;
   width: 100px;
-  height: 40px;
+  height: 35px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  box-shadow: 0 0 5px #a5a5a5;
 }
