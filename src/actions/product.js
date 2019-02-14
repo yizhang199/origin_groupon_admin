@@ -57,11 +57,22 @@ const create = () => {
 const removeOption = option_id => {
   return { type: types.removeOption, payload: parseInt(option_id) };
 };
+
+const search = (value, product_status) => {
+  return async function(dispatch) {
+    const response = await kidsnParty.get("products", {
+      params: { language_id: 2, product_status, search_string: value }
+    });
+
+    dispatch({ type: types.getProducts, payload: response.data });
+  };
+};
 export default {
   index,
   show,
   update,
   switchProductStatus,
   create,
-  removeOption
+  removeOption,
+  search
 };

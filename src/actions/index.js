@@ -16,6 +16,7 @@ export const createNewProduct = Product.create;
 export const setNewProductCategory = setCategory; //support create product
 export const setNewProductOptions = setOptions; //support create product
 export const removeOptionsFromNewProduct = Product.removeOption; //support create product
+export const searchByName = Product.search; // search
 
 //category actions
 export const setSelectedCategory = Category.select;

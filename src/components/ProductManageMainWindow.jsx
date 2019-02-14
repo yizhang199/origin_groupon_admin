@@ -1,12 +1,12 @@
 import React from "react";
-import { Router, Route, Switch, Link } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 
 import ProductList from "./ProductsList";
 import EditProduct from "./EditProduct";
 import CreateProduct from "./CreateProduct";
 import { history } from "../history";
 import { connect } from "react-redux";
-import { getProducts } from "../actions";
+import { getProducts, searchByName } from "../actions";
 
 import "../css/ProductManageMainWindow.css";
 
@@ -41,6 +41,11 @@ class ProductManageMainWindow extends React.Component {
     return value === this.state.product_status ? "active" : "";
   };
 
+  handleInputChange = e => {
+    const value = e.target.value;
+    this.props.searchByName(value, this.state.product_status);
+  };
+
   render() {
     return (
       <div className="product-manage-main-window">
@@ -48,9 +53,12 @@ class ProductManageMainWindow extends React.Component {
           <React.Fragment>
             <div className="sub-menu">
               <div className="input-container">
-                <input type="text" placeholder="按商品名搜索" />
+                <input
+                  type="text"
+                  onChange={this.handleInputChange}
+                  placeholder="按商品名搜索"
+                />
               </div>
-
               <div className="link-container">
                 <span
                   onClick={this.changeProductStatus}
@@ -91,5 +99,5 @@ class ProductManageMainWindow extends React.Component {
 
 export default connect(
   null,
-  { getProducts }
+  { getProducts, searchByName }
 )(ProductManageMainWindow);
