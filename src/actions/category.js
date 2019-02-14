@@ -7,8 +7,8 @@ const create = () => {
 
     const response = await kidsnParty.post("/categories", requestBody);
     dispatch({
-      type: types.createNewCategory,
-      payload: response.data.category
+      type: types.fetchAvaliableCategories,
+      payload: response.data
     });
   };
 };
