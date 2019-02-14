@@ -16,7 +16,8 @@ const actionTypes = {
   selectCategory: "SELECT_CATEGORY",
   selectOption: "SELECT_OPTION",
   createNewOption: "CREATE_NEW_OPTION",
-  updateOption: "UPDATE_OPTION"
+  updateOption: "UPDATE_OPTION",
+  removeOption: "REMOVE_OPTION"
 };
 
 export default actionTypes;

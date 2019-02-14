@@ -14,6 +14,12 @@ const newProductReducer = (newProduct = {}, action) => {
       return { ...newProduct, options: newOptions };
     case actionTypes.refreshNewProduct:
       return {};
+    case actionTypes.removeOption:
+      newOptions = [];
+      newOptions = newProduct.options.filter(
+        element => element.option_id !== action.payload
+      );
+      return { ...newProduct, options: newOptions };
     default:
       return newProduct;
   }

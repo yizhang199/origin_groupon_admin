@@ -54,10 +54,14 @@ const create = () => {
   };
 };
 
+const removeOption = option_id => {
+  return { type: types.removeOption, payload: parseInt(option_id) };
+};
 export default {
   index,
   show,
   update,
   switchProductStatus,
-  create
+  create,
+  removeOption
 };

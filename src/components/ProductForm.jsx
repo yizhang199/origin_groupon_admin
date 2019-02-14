@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 
 import "../css/EditForm.css";
-import { fetchOptions } from "../actions";
+import { fetchOptions, removeOptionsFromNewProduct } from "../actions";
 import ProductFormCategorySelector from "./ProductFormCategorySelector";
 import AddOptionToNewProductForm from "./AddOptionToNewProductForm";
 class EditForm extends React.Component {
@@ -118,6 +118,11 @@ class EditForm extends React.Component {
     }
   };
 
+  removeProductOptions = e => {
+    const option_id = e.target.dataset.optionId;
+    this.props.removeOptionsFromNewProduct(option_id);
+  };
+
   renderOptionsJSX = () => {
     if (this.props.newProduct.options) {
       return this.props.newProduct.options.map(option => {
@@ -126,8 +131,21 @@ class EditForm extends React.Component {
             key={`newProductOption${option.option_id}`}
             className="component-edit-form__options"
           >
-            <span>{option.option_name}: </span>
-            {this.renderOptionValues(option)}
+            <div>
+              <span className="component-edit-form__options__name">
+                {option.option_name}:{" "}
+              </span>
+              {this.renderOptionValues(option)}
+            </div>
+            <div
+              onClick={this.removeProductOptions}
+              data-option-id={option.option_id}
+              className="component-edit-form__options_remove-button"
+            >
+              <i data-option-id={option.option_id} className="material-icons">
+                remove_circle_outline
+              </i>
+            </div>
           </div>
         );
       });
@@ -139,7 +157,10 @@ class EditForm extends React.Component {
   renderOptionValues = option => {
     return option.values.map(value => {
       return (
-        <span key={`newProductOptionValue${value.option_value_id}`}>
+        <span
+          className="component-edit-form__options__value-name"
+          key={`newProductOptionValue${value.option_value_id}`}
+        >
           {value.option_value_name}
         </span>
       );
@@ -286,5 +307,5 @@ const mapStateToProps = ({ options, newProduct }) => {
 const formWrapper = reduxForm({ form: "productForm", validate })(EditForm);
 export default connect(
   mapStateToProps,
-  { fetchOptions }
+  { fetchOptions, removeOptionsFromNewProduct }
 )(formWrapper);

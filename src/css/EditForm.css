@@ -101,3 +101,28 @@
   font-weight: bold;
   border-radius: 3px;
 }
+
+.component-edit-form__options {
+  padding: 5px;
+  font-size: 12px;
+  color: #a5a5a5;
+  font-weight: bold;
+  margin: 5px 0px;
+  border-bottom: 1px solid #a5a5a5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.component-edit-form__options__value-name {
+  padding-right: 20px;
+}
+.component-edit-form__options_remove-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+.component-edit-form__options_remove-button .material-icons {
+  font-size: 20px;
+}
