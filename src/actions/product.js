@@ -53,7 +53,7 @@ const create = () => {
       options
     });
 
-    dispatch({ type: types.getProducts, payload: response.data });
+    dispatch({ type: types.getProducts, payload: response.data.products });
     history.push("/");
   };
 };

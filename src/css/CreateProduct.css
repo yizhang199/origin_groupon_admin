@@ -4,8 +4,11 @@
 }
 
 .component-create-product__title {
-  font-size: 22px;
-  margin: 15px 0px;
+  height: 60px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  color: #8c8c8c;
   font-weight: bold;
-  color: #5a5a5a;
+  font-size: 22px;
 }

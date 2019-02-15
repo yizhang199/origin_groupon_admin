@@ -9,3 +9,12 @@
   font-weight: bold;
   color: #5a5a5a;
 }
+.component-edit-product__title {
+  height: 60px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  color: #8c8c8c;
+  font-weight: bold;
+  font-size: 22px;
+}

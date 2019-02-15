@@ -6,6 +6,9 @@ import ProductCard from "./ProductCard";
 
 class ProductList extends React.Component {
   render() {
+    if (!this.props.products) {
+      return <div className="product-list">Loading...</div>;
+    }
     return (
       <div className="products-list" data-test="component-products-list">
         <div className="category-list">
