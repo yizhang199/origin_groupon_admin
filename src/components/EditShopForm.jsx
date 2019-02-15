@@ -11,6 +11,7 @@ class EditShopForm extends React.Component {
       this.props.fetchSingleShop(id);
     }
   }
+
   onSubmit = formValues => {
     this.props.updateShop(formValues);
   };
@@ -26,6 +27,7 @@ class EditShopForm extends React.Component {
           shop={this.props.selectedShop}
           initialValues={this.props.selectedShop}
           onSubmit={this.onSubmit}
+          button_label={`确认保存`}
         />
       </div>
     );

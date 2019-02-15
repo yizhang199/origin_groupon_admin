@@ -21,7 +21,7 @@ class EditProduct extends React.Component {
 
   render() {
     if (!this.props.product.descriptions) {
-      return <div>loading</div>;
+      return <div>loading...</div>;
     }
     return (
       <div className="component-eidt-product">

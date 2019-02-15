@@ -21,7 +21,7 @@ class OrderManageMainWindow extends React.Component {
       <div className="component-order-manange-main-window">
         <Router history={history}>
           <React.Fragment>
-            <OrderTopNav />
+            <OrderTopNav {...this.props} />
             <div className="main-window">
               <Switch>
                 <Route

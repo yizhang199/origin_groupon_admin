@@ -80,7 +80,11 @@ class ShopForm extends React.Component {
             component={this.renderInput}
             placeholder="请输入联系电话"
           />
-          <button>Submit</button>
+          <div className="component-shop-form__button-container">
+            <button className="component-shop-form__button-submit">
+              {this.props.button_label}
+            </button>
+          </div>
         </form>
         <label className="component-shop-form__date-picker__label">
           <DatePicker onChange={this.handleDateChange} />

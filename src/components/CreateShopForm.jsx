@@ -13,7 +13,7 @@ class CreateShopForm extends React.Component {
     return (
       <div>
         创建新店面
-        <ShopForm onSubmit={this.onSubmit} />
+        <ShopForm onSubmit={this.onSubmit} button_label={`确认添加`} />
       </div>
     );
   }

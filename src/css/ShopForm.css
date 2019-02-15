@@ -126,3 +126,19 @@
 .component-shop-form__button-group__wrapper {
   display: flex;
 }
+.component-shop-form__button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 60px;
+  padding: 0px 20px;
+}
+.component-shop-form__button-submit {
+  background-color: #ffba2d;
+  border: 1px solid #fff;
+  height: 35px;
+  width: 75px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #a5a5a5;
+}
