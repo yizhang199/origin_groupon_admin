@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { switchProductStatus } from "../actions";
-import { history } from "../history";
+import { switchProductStatus, getProduct } from "../actions";
 
-const ProductCard = ({ product, switchProductStatus }) => {
+const ProductCard = ({ product, switchProductStatus, getProduct }) => {
   const renderChangeStatusButton = ({ status }) => {
     if (status === 1) {
       return <button onClick={activeProduct}>上架</button>;
@@ -18,7 +17,8 @@ const ProductCard = ({ product, switchProductStatus }) => {
   };
 
   const editProduct = () => {
-    history.push(`/products/edit/${product.product_id}`);
+    getProduct(product.product_id);
+    // history.push(`/products/edit/${product.product_id}`);
   };
 
   const inactiveProduct = () => {
@@ -50,5 +50,5 @@ const ProductCard = ({ product, switchProductStatus }) => {
 
 export default connect(
   null,
-  { switchProductStatus }
+  { switchProductStatus, getProduct }
 )(ProductCard);

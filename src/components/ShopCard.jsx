@@ -8,7 +8,6 @@ import "../css/ShopCard.css";
 class ShopCard extends React.Component {
   componentDidMount() {}
   selectShop = () => {
-    // history.push(`/shops/update/${this.props.shop.location_id}`);
     this.props.fetchSingleShop(this.props.shop.location_id);
   };
   renderOpenDates = () => {

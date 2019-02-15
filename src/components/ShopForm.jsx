@@ -1,7 +1,6 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import DatePicker from "react-datepicker";
-import { withRouter } from "react-router-dom";
 
 import { makeDate } from "../helpers";
 import "react-datepicker/dist/react-datepicker.css";
@@ -24,13 +23,6 @@ class ShopForm extends React.Component {
   handleDateChange = e => {
     const newDate = new Date(e);
     this.setState({ openDates: [...this.state.openDates, newDate] });
-  };
-  handleInputChange = e => {
-    const value = e.target.value;
-    this.props.changeSelectedShop({
-      ...this.props.shop,
-      ["image"]: e.target.value
-    });
   };
   renderOpenDates = () => {
     if (!this.state.openDates) {
@@ -100,9 +92,7 @@ class ShopForm extends React.Component {
   }
 }
 
-export default withRouter(
-  reduxForm({
-    form: "shopForm",
-    enableReinitialize: true
-  })(ShopForm)
-);
+export default reduxForm({
+  form: "shopForm",
+  enableReinitialize: true
+})(ShopForm);

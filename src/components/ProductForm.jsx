@@ -312,6 +312,7 @@ const formWrapper = reduxForm({
   validate,
   enableReinitialize: true
 })(EditForm);
+
 export default connect(
   mapStateToProps,
   { fetchOptions, removeOptionsFromNewProduct }

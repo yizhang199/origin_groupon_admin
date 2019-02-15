@@ -17,6 +17,7 @@ const show = id => {
     const response = await kidsnParty.get(`/product/${id}`);
 
     dispatch({ type: types.getProduct, payload: response.data });
+    history.push(`/products/edit/${id}`);
   };
 };
 

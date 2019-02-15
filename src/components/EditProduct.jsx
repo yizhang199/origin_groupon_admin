@@ -8,8 +8,10 @@ import "../css/UpdateProduct.css";
 
 class EditProduct extends React.Component {
   componentDidMount() {
-    const id = parseInt(this.props.match.params.product_id);
-    this.props.getProduct(id);
+    if (!this.props.product.product_id) {
+      const id = parseInt(this.props.match.params.product_id);
+      this.props.getProduct(id);
+    }
   }
 
   onSubmit = () => {
