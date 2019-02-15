@@ -62,6 +62,7 @@ export const selectOrder = order_id => {
   };
 };
 export const fetchSingleShop = fetchShop;
+export const changeSelectedShop = Shop.patch;
 export const createShop = Shop.create;
 export const updateShop = Shop.update;
 

@@ -2,6 +2,7 @@ import types from "./actionTypes";
 
 import kidsnParty from "../apis/kidsnParty";
 import { history } from "../history";
+
 export const fetchShop = location_id => {
   return async function(dispatch) {
     const response = await kidsnParty.get(`/locations/${location_id}`);
@@ -25,9 +26,7 @@ const create = shop => {
 
 const update = formValues => {
   const { location_id, name, address, open } = formValues;
-  console.log("ok");
   return async function(dispatch) {
-    console.log("worked");
     const response = await kidsnParty.put(
       `/locations/${formValues.location_id}`,
       {
@@ -42,8 +41,16 @@ const update = formValues => {
   };
 };
 
+const patch = shop => {
+  return {
+    type: types.fetchSingleShop,
+    payload: shop
+  };
+};
+
 export default {
   fetchShop,
   create,
-  update
+  update,
+  patch
 };
