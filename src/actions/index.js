@@ -1,6 +1,6 @@
 import types from "./actionTypes";
 import { setCategory, setOptions } from "./newProduct";
-import { fetchShop, createNewShop } from "./shop";
+import { fetchShop } from "./shop";
 import { fetchSummary } from "./report";
 import Category from "./category";
 import kidsnParty from "../apis/kidsnParty";
