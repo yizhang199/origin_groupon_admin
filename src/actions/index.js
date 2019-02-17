@@ -7,6 +7,7 @@ import kidsnParty from "../apis/kidsnParty";
 import Product from "./product";
 import Option from "./option";
 import Shop from "./shop";
+import Order from "./Order";
 
 // produt actions
 export const getProducts = Product.index;
@@ -54,13 +55,8 @@ export const getOrders = () => {
   };
 };
 
-export const selectOrder = order_id => {
-  return async function(dispatch) {
-    const response = await kidsnParty.get(`/orders/${order_id}`);
-
-    dispatch({ type: types.selectOrder, payload: response.data.order });
-  };
-};
+export const selectOrder = Order.show;
+export const updateOrder = Order.update;
 export const fetchSingleShop = fetchShop;
 export const changeSelectedShop = Shop.patch;
 export const createShop = Shop.create;

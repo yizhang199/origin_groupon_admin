@@ -18,7 +18,8 @@ const actionTypes = {
   createNewOption: "CREATE_NEW_OPTION",
   updateOption: "UPDATE_OPTION",
   removeOption: "REMOVE_OPTION",
-  searchProductByName: "SEARCH_PRODUCT_BY_NAME"
+  searchProductByName: "SEARCH_PRODUCT_BY_NAME",
+  updateOrder: "UPDATE_ORDER"
 };
 
 export default actionTypes;

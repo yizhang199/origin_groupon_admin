@@ -11,6 +11,11 @@ class CustomerOrderCard extends React.Component {
       return value;
     }
   };
+  /**
+   * function: create different style css code according to order status
+   * @param {void}
+   * @return {css} css in-line style
+   */
   getStyle = () => {
     switch (this.props.order.order_status_id) {
       case 1:

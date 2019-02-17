@@ -35,6 +35,8 @@ const shopsReducer = (shops = [], action) => {
 const ordersReducer = (orders = [], action) => {
   if (action.type === actionTypes.getOrders) {
     return action.payload;
+  } else if (action.type === actionTypes.updateOrder) {
+    return action.payload.orders;
   }
   return orders;
 };
@@ -42,6 +44,8 @@ const ordersReducer = (orders = [], action) => {
 const selectedOrderReducer = (selectedOrder = { order_items: [] }, action) => {
   if (action.type === actionTypes.selectOrder) {
     return action.payload;
+  } else if (action.type === actionTypes.updateOrder) {
+    return action.payload.order;
   }
   return selectedOrder;
 };
