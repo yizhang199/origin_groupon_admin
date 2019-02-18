@@ -6,9 +6,10 @@ import CategoryForm from "./CategoryForm";
 
 import "../css/CreateCategory.css";
 class CreateCategory extends React.Component {
-  onSubmit = () => {
-    this.props.createNewCategory();
+  onSubmit = file => {
+    this.props.createNewCategory(file);
   };
+
   render() {
     return (
       <div className="component-create-category">

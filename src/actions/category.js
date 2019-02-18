@@ -1,9 +1,9 @@
 import types from "./actionTypes";
 import kidsnParty from "../apis/kidsnParty";
 
-const create = () => {
+const create = file => {
   return async function(dispatch, getState) {
-    const requestBody = getState().form.categoryForm.values;
+    const requestBody = { ...getState().form.categoryForm.values, file };
 
     const response = await kidsnParty.post("/categories", requestBody);
     dispatch({
