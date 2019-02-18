@@ -12,7 +12,10 @@ const CategoryGridItem = ({ category, setSelectedCategory }) => {
   };
   return (
     <div onClick={selectCategory} className="component-category-grid-item">
-      <span className="component-category-grid-item__name">
+      <span
+        className="component-category-grid-item__name"
+        style={{ backgroundImage: `url(${category.image})` }}
+      >
         {category ? category.name : null}
       </span>
       <span className="component-category-grid-item__number-of-products">

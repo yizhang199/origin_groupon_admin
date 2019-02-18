@@ -6,6 +6,17 @@ import { updateOrderStatus } from "../actions";
 
 import "../css/OrderDetail.css";
 class OrderDetail extends React.Component {
+  getTheadColor = () => {
+    switch (this.props.selectedOrder.status_id) {
+      case 1:
+        return `#ffba2d`;
+      case 2:
+        return `#f55747`;
+
+      default:
+        return `#a5a5a5`;
+    }
+  };
   /**
    *
    */
@@ -102,7 +113,7 @@ class OrderDetail extends React.Component {
         </div>
 
         <table>
-          <thead>
+          <thead style={{ backgroundColor: this.getTheadColor() }}>
             <tr>
               <td>名称</td>
               <td>单价</td>

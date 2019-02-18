@@ -10,6 +10,9 @@ const CategoryCard = props => {
     props.setNewProductCategory(props.category);
     props.toggleBody();
   };
+  if (!props.category) {
+    return <div className="component-category-card">loading...</div>;
+  }
   return (
     <div className="component-category-card" onClick={setCategory}>
       <span className="component-category-card__name">

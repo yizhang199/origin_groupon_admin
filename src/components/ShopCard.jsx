@@ -13,7 +13,10 @@ class ShopCard extends React.Component {
   renderOpenDates = () => {
     return this.props.shop.open.map(dateString => {
       return (
-        <span key={`dateString${this.props.shop.location_id}${dateString}`}>
+        <span
+          key={`dateString${this.props.shop.location_id}${dateString}`}
+          className="component-shop-card__date"
+        >
           {makeDate(dateString)}
         </span>
       );

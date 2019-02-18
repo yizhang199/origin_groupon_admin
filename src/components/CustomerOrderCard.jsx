@@ -18,16 +18,16 @@ class CustomerOrderCard extends React.Component {
    */
   getStyle = () => {
     switch (this.props.order.order_status_id) {
-      case 1:
+      case 2:
         return {
           orderCard_tab: {
-            backgroundColor: `#32be3f`,
-            borderColor: `#1c7d25`
+            backgroundColor: `#f55747`,
+            borderColor: `#93352c`
           },
-          orderCard_userName: { textShadow: `0px 0px 3px #32be3f` },
-          title: { borderColor: `#32be3f` }
+          orderCard_userName: { textShadow: `0px 0px 3px #f55747` },
+          title: { borderColor: `#f55747` }
         };
-      case 2:
+      case 1:
         return {
           orderCard_tab: {
             backgroundColor: `#ffba2d`,
@@ -39,11 +39,12 @@ class CustomerOrderCard extends React.Component {
       case 3:
         return {
           orderCard_tab: {
-            backgroundColor: `#a5a5a5`,
-            borderColor: `#5f5e5e`
+            backgroundColor: `#dfdede`,
+            borderColor: `#5f5e5e`,
+            color: `#a5a5a5`
           },
-          orderCard_userName: { textShadow: `0px 0px 3px #a5a5a5` },
-          title: { borderColor: `#a5a5a5` }
+          orderCard_userName: { textShadow: `0px 0px 3px #dfdede` },
+          title: { borderColor: `#dfdede` }
         };
       default:
         return {};

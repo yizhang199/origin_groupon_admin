@@ -30,6 +30,13 @@
 .component-shop-card__information div {
   margin-bottom: 10px;
 }
+.component-shop-card__date {
+  border: 1px solid #a5a5a5;
+  padding: 5px;
+  margin-right: 20px;
+  background-color: #0000008f;
+  border-radius: 5px;
+}
 .component-shop-card__button {
   background-color: #ffba2d;
   width: 100px;
