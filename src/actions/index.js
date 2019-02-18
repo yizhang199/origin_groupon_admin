@@ -57,6 +57,9 @@ export const getOrders = () => {
 
 export const selectOrder = Order.show;
 export const updateOrder = Order.update;
+
+export const updateOrderStatus = Order.patch;
+
 export const fetchSingleShop = fetchShop;
 export const changeSelectedShop = Shop.patch;
 export const createShop = Shop.create;

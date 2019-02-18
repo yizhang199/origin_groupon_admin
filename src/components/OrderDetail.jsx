@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { makeDate } from "../helpers";
+import { updateOrderStatus } from "../actions";
 
 import "../css/OrderDetail.css";
 class OrderDetail extends React.Component {
@@ -43,6 +44,16 @@ class OrderDetail extends React.Component {
     }
   };
   /**
+   * change order status - call action to change the status of order
+   * @param {Void}
+   * @return {Void}
+   *
+   */
+  handleSelectInputChange = e => {
+    const value = e.target[e.target.selectedIndex].value;
+    this.props.updateOrderStatus(value);
+  };
+  /**
    * conditionally render component if selectedOrder is not empty render full list and head, else render a text info only
    *
    */
@@ -53,47 +64,57 @@ class OrderDetail extends React.Component {
           {"Select an order to see details"}
         </div>
       );
-    } else {
-      return (
-        <div className="component-order-detail">
-          <div className="component-order-detail__header__field">
-            <span>下单日期</span>
-            <span>{makeDate(this.props.selectedOrder.create_date)}</span>
-          </div>
-          <div className="component-order-detail__header__field">
-            <span>取货日期</span>
-            <span>{makeDate(this.props.selectedOrder.picked_date)}</span>
-          </div>
-          <div className="component-order-detail__header__field">
-            <span>取货地点</span>
-            <span>{this.props.selectedOrder.store_name}</span>
-          </div>
-          <div className="component-order-detail__header__field">
-            <span>付款方式</span>
-            <span>{this.props.selectedOrder.payment_method}</span>
-          </div>
-          <div className="component-order-detail__header__field">
-            <span>订单状态</span>
-            <span style={{ textTransform: `uppercase` }}>
-              {this.props.selectedOrder.status}
-            </span>
-          </div>
-
-          <table>
-            <thead>
-              <tr>
-                <td>名称</td>
-                <td>单价</td>
-                <td>数量</td>
-                <td>小计</td>
-                <td>规格</td>
-              </tr>
-            </thead>
-            {this.renderList()}
-          </table>
-        </div>
-      );
     }
+    if (!this.props.selectedOrder.status) {
+      return <div className="component-order-detail">{"loading..."}</div>;
+    }
+    return (
+      <div className="component-order-detail">
+        <div className="component-order-detail__header__field">
+          <span>下单日期</span>
+          <span>{makeDate(this.props.selectedOrder.create_date)}</span>
+        </div>
+        <div className="component-order-detail__header__field">
+          <span>取货日期</span>
+          <span>{makeDate(this.props.selectedOrder.picked_date)}</span>
+        </div>
+        <div className="component-order-detail__header__field">
+          <span>取货地点</span>
+          <span>{this.props.selectedOrder.store_name}</span>
+        </div>
+        <div className="component-order-detail__header__field">
+          <span>付款方式</span>
+          <span>{this.props.selectedOrder.payment_method}</span>
+        </div>
+        <div className="component-order-detail__header__field">
+          <span>订单状态</span>
+          <select
+            value={this.props.selectedOrder.status_id}
+            style={{ textTransform: `uppercase` }}
+            onChange={this.handleSelectInputChange}
+          >
+            <option value="1">customer saved</option>
+            <option value="2">pending</option>
+            <option value="3">complete</option>
+            {/* <option value="customer_saved">refund</option>
+              <option value="customer_saved">cancel</option> */}
+          </select>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <td>名称</td>
+              <td>单价</td>
+              <td>数量</td>
+              <td>小计</td>
+              <td>规格</td>
+            </tr>
+          </thead>
+          {this.renderList()}
+        </table>
+      </div>
+    );
   };
   render() {
     return <React.Fragment>{this.renderComponent()}</React.Fragment>;
@@ -104,4 +125,7 @@ const mapStateToProps = ({ selectedOrder }) => {
   return { selectedOrder };
 };
 
-export default connect(mapStateToProps)(OrderDetail);
+export default connect(
+  mapStateToProps,
+  { updateOrderStatus }
+)(OrderDetail);
