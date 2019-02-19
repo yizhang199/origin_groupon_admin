@@ -8,7 +8,7 @@ class AddOptionToNewProductForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productOptionId: "",
+      productOptionId: "text_label",
       optionName: "",
       productOptionValues: [],
       newProductOptionValues: []
@@ -18,17 +18,25 @@ class AddOptionToNewProductForm extends React.Component {
     this.props.fetchOptions();
   }
   renderSelectInputOptions = () => {
-    return this.props.options.map(ele => {
-      return (
-        <option
-          value={ele.option_id}
-          data-option-name={ele.name}
-          key={`eleOption${ele.option_id}`}
-        >
-          {ele.name}
+    return (
+      <React.Fragment>
+        <option value="text_label" disabled>
+          --请选择--
         </option>
-      );
-    });
+        {this.props.options.map(ele => {
+          return (
+            <option
+              value={ele.option_id}
+              data-option-name={ele.name}
+              key={`eleOption${ele.option_id}`}
+            >
+              {ele.name}
+            </option>
+          );
+        })}
+        ;
+      </React.Fragment>
+    );
   };
 
   handleSelectChange = e => {
@@ -78,6 +86,7 @@ class AddOptionToNewProductForm extends React.Component {
         >
           {this.renderSelectInputOptions()}
         </select>
+
         <div className="component-add-option-to-new-product-form__body__option-values">
           {this.renderOptionValues()}
         </div>
