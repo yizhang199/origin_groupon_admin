@@ -4,7 +4,6 @@ import kidsnParty from "../apis/kidsnParty";
 const create = file => {
   return async function(dispatch, getState) {
     const requestBody = { ...getState().form.categoryForm.values, file };
-
     const response = await kidsnParty.post("/categories", requestBody);
     dispatch({
       type: types.fetchAvaliableCategories,
@@ -46,11 +45,22 @@ const update = category_id => {
   };
 };
 
+const remove = category_id => {
+  return async function(dispatch) {
+    const response = await kidsnParty.delete(`/categories/${category_id}`);
+    dispatch({
+      type: types.fetchAvaliableCategories,
+      payload: response.data
+    });
+  };
+};
+
 const Category = {
   create,
   index,
   select,
-  update
+  update,
+  remove
 };
 
 export default Category;

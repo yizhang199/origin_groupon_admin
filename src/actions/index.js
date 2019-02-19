@@ -25,6 +25,7 @@ export const setSelectedCategory = Category.select;
 export const createNewCategory = Category.create;
 export const updateCategory = Category.update;
 export const fetchAvaliableCategories = Category.index;
+export const deleteCategory = Category.remove;
 
 //options actions
 export const fetchOptions = Option.index;

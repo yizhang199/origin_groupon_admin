@@ -7,7 +7,8 @@ class CategoryForm extends React.Component {
     super(props);
     this.state = {
       image: "",
-      file: ""
+      file: "",
+      fileName: ""
     };
   }
   onSubmit = () => {
@@ -35,7 +36,11 @@ class CategoryForm extends React.Component {
   onChange = e => {
     let files = e.target.files || e.dataTransfer.files;
     if (!files.length) return;
-    this.setState({ file: URL.createObjectURL(e.target.files[0]) });
+
+    this.setState({
+      file: URL.createObjectURL(files[0]),
+      fileName: files[0].name
+    });
     this.createImage(files[0]);
   };
   createImage = file => {
@@ -48,6 +53,28 @@ class CategoryForm extends React.Component {
     reader.readAsDataURL(file);
   };
 
+  renderImage = () => {
+    if (this.state.file === "") {
+      return null;
+    }
+    return (
+      <div className="component-category-form__upload-image__img-container">
+        <img
+          src={this.state.file}
+          className="component-category-form__upload-image__img"
+          alt=""
+        />
+      </div>
+    );
+  };
+
+  getFileName = () => {
+    if (this.state.image === "") {
+      return <span>请选择图片</span>;
+    }
+    return <span>{this.state.fileName}</span>;
+  };
+
   render() {
     return (
       <div className="component-category-form">
@@ -55,18 +82,33 @@ class CategoryForm extends React.Component {
           className="component-category-form__form"
           onSubmit={this.props.handleSubmit(this.onSubmit)}
         >
-          <Field
-            name="chinese_name"
-            component={this.renderInput}
-            placeholder="请输入中文名"
-          />
-          <Field
-            name="english_name"
-            component={this.renderInput}
-            placeholder="请输入英文名"
-          />
-          <input type="file" onChange={this.onChange} />
-          <button className="component-category-form__button">Submit</button>
+          <div className="component-category-form__text-input__container">
+            <Field
+              name="chinese_name"
+              component={this.renderInput}
+              placeholder="请输入中文名"
+            />
+            <Field
+              name="english_name"
+              component={this.renderInput}
+              placeholder="请输入英文名"
+            />
+          </div>
+          <div className="component-category-form__upload-image_container">
+            <label className="component-category-form__upload-image_label">
+              <input
+                type="file"
+                onChange={this.onChange}
+                className="component-category-form__upload-image_input"
+              />
+              <i className="material-icons">attachment</i>
+              {this.getFileName()}
+            </label>
+            {this.renderImage()}
+            <button className="component-category-form__button">
+              确认保存
+            </button>
+          </div>
         </form>
       </div>
     );

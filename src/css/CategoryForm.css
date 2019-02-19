@@ -6,8 +6,7 @@
 
 .component-category-form__form {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   height: 100%;
 }
@@ -15,10 +14,9 @@
 .component-category-form__input {
   border-radius: 5px;
   height: 60px;
-  width: 60%;
+  width: 65%;
   border: 1px solid #a5a5a5;
   background-color: #fff;
-  margin-bottom: 20px;
   font-size: 20px;
   padding: 0px 10px;
   outline: none;
@@ -30,7 +28,7 @@
   margin-left: 10px;
 }
 .component-category-form__button {
-  width: 90px;
+  width: 120px;
   height: 40px;
   outline: none;
   border: 1px solid #a5a5a5;
@@ -40,4 +38,54 @@
   font-weight: bold;
   font-size: 14px;
   box-shadow: 0px 0px 2px #a5a5a5;
+}
+.component-category-form__upload-image_input {
+  position: absolute;
+  opacity: 0;
+}
+.component-category-form__upload-image_label {
+  background-color: #df474b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180px;
+  height: 40px;
+  padding: 7px;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #a5a5a5;
+
+  box-shadow: 0 0 5px #5a5a5a;
+}
+.component-category-form__upload-image_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 25vh;
+  width: 45vh;
+}
+.component-category-form__upload-image__img-container {
+  /* flex: 1; */
+  width: 180px;
+  height: calc(25vh - 100px);
+  padding: 3px;
+  background-color: #fff;
+  border: 1px solid #5a5a5a;
+  border-radius: 3px;
+}
+.component-category-form__upload-image__img {
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+}
+.component-category-form__text-input__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 45vw;
+  height: 25vh;
 }
