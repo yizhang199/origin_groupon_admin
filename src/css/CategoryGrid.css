@@ -9,4 +9,25 @@
   margin: 20px auto;
   padding: 20px 0px;
   border-bottom: 2px solid #a5a5a5;
+  position: relative;
+}
+.component-category-grid__add-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 45px;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: 2px solid #ffba2d;
+  background-color: #ffba2d;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #5a5a5a;
+  color: #fff;
+}
+
+.component-category-grid__add-button .material-icons {
+  font-size: 32px;
 }

@@ -126,8 +126,10 @@ const validate = formValues => {
   return errors;
 };
 
-const reduxFormWrapper = reduxForm({ form: "categoryForm", validate })(
-  CategoryForm
-);
+const reduxFormWrapper = reduxForm({
+  form: "categoryForm",
+  validate,
+  enableReinitialize: true
+})(CategoryForm);
 
 export default reduxFormWrapper;

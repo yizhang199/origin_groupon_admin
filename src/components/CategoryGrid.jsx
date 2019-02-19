@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import CategoryGridItem from "./CategoryGridItem";
 import { fetchAvaliableCategories } from "../actions";
@@ -28,6 +29,12 @@ class CategoryGrid extends React.Component {
     return (
       <div className="component-category-grid">
         {this.renderCategriesGrid()}
+        <Link
+          to={`/categories/create`}
+          className="component-category-grid__add-button"
+        >
+          <i className="material-icons">add</i>
+        </Link>
       </div>
     );
   }

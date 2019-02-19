@@ -21,7 +21,7 @@ const CatalogTopNav = () => {
         分类管理
       </Link>
       <Link className={getClassName("/options")} to="/options">
-        分类管理
+        规格管理
       </Link>
     </div>
   );

@@ -300,7 +300,7 @@ const validate = formValues => {
   return errors;
 };
 
-const mapStateToProps = ({ options, newProduct, product }) => {
+const mapStateToProps = ({ options, newProduct }) => {
   return {
     options,
     newProduct
