@@ -2,6 +2,8 @@ import { actionTypes } from "../actions";
 
 const newProductReducer = (newProduct = {}, action) => {
   switch (action.type) {
+    case actionTypes.getProduct:
+      return { ...newProduct, options: action.payload.options };
     case actionTypes.setNewProductCategory:
       return { ...newProduct, category: action.payload };
     case actionTypes.setNewProductOptions:

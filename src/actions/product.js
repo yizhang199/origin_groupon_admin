@@ -14,7 +14,7 @@ const index = product_status => {
 
 const show = id => {
   return async function(dispatch) {
-    const response = await kidsnParty.get(`/product/${id}`);
+    const response = await kidsnParty.get(`/products/${id}`);
 
     dispatch({ type: types.getProduct, payload: response.data });
     history.push(`/products/edit/${id}`);

@@ -49,75 +49,6 @@ class EditForm extends React.Component {
     }
   };
 
-  handleSelectChange = e => {
-    if (e.target.value === "new") {
-      this.setState({ isShowAddOptionForm: true });
-      return;
-    }
-
-    const i = parseInt(e.target.dataset.stateProductOptionIndex);
-    const option_id = parseInt(e.target.value);
-
-    const newArray = this.state.productOptions.map((option, index) => {
-      if (index === i) {
-        let newOption;
-        this.props.options.map(ele => {
-          if (ele.option_id === option_id) {
-            newOption = ele;
-            newOption.value = ele.option_id;
-          }
-          return ele;
-        });
-        return newOption;
-      }
-      return option;
-    });
-    this.setState({
-      productOptions: newArray
-    });
-  };
-
-  renderSelectInputOptions = () => {
-    return this.props.options.map(ele => {
-      return (
-        <option value={ele.option_id} key={`eleOption${ele.option_id}`}>
-          {ele.name}
-        </option>
-      );
-    });
-  };
-  handleProductOptionValueChange = e => {
-    const option_id = parseInt(e.target.dataset.optionId);
-
-    this.setState({
-      productOptions: this.state.productOptions.map(productOption => {
-        if (productOption.option_id === option_id) {
-          productOption.option_value = e.target.value;
-        }
-        return productOption;
-      })
-    });
-  };
-  renderOptionValues = (option, position) => {
-    if (option.values) {
-      return (
-        <select
-          value={this.state.productOptions[position].values[0].value}
-          onChange={this.handleProductOptionValueChange}
-          data-option-id={option.option_id}
-        >
-          {option.values.map((value, index) => {
-            return (
-              <option key={`values${index}`} value={value.option_value_id}>
-                {value.name}
-              </option>
-            );
-          })}
-        </select>
-      );
-    }
-  };
-
   removeProductOptions = e => {
     const option_id = e.target.dataset.optionId;
     this.props.removeOptionsFromNewProduct(option_id);
@@ -167,7 +98,6 @@ class EditForm extends React.Component {
     });
   };
 
-  handleCreateNewProductOption = e => {};
   toggleAddOptionToNewProductForm = () => {
     this.setState({ isShowAddOptionForm: !this.state.isShowAddOptionForm });
   };
