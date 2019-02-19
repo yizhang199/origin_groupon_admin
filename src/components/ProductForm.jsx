@@ -280,7 +280,7 @@ class EditForm extends React.Component {
           ) : null}
           <div className="component-edit-form__button-wrapper">
             <button className="component-edit-form__submit-button">
-              确认添加新产品
+              确认保存
             </button>
           </div>
         </form>

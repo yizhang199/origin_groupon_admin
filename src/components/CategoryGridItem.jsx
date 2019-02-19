@@ -17,7 +17,8 @@ const CategoryGridItem = ({
   const remove = () => {
     deleteCategory(category.category_id);
   };
-  const baseUrl = "http://kidsnparty.com.au/redpay/public/";
+  // const baseUrl = "http://kidsnparty.com.au/redpay/public/";
+  const baseUrl = "http://localhost/groupon_api/public";
   return (
     <div className="component-category-grid-item">
       <div className="component-category-grid-item__close" onClick={remove}>
