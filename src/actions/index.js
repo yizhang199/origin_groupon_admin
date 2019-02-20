@@ -49,17 +49,14 @@ export const getShops = () => {
   };
 };
 
-export const getOrders = () => {
-  return async function(dispatch) {
-    const response = await kidsnParty.get(`/allorders`);
-    dispatch({ type: types.getOrders, payload: response.data.orders });
-  };
-};
+// order actions
+export const getOrders = Order.index;
 
 export const selectOrder = Order.show;
 export const updateOrder = Order.update;
 
 export const updateOrderStatus = Order.patch;
+export const onCustomerOrderListPageChange = Order.onPageChange;
 
 export const fetchSingleShop = fetchShop;
 export const changeSelectedShop = Shop.patch;

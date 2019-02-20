@@ -25,11 +25,19 @@ const update = product_id => {
   return async function(dispatch, getState) {
     const product = getState().form.productForm.values;
     const { options, category } = getState().newProduct;
-    const response = await kidsnParty.put(`/products/${product_id}`, {
-      product,
-      category,
-      options
-    });
+    // How To:: add post headers for axios
+    const headers = { language_id: 2 };
+    const response = await kidsnParty.put(
+      `/products/${product_id}`,
+      {
+        product,
+        category,
+        options
+      },
+      {
+        headers
+      }
+    );
     dispatch({ type: types.getProducts, payload: response.data });
   };
 };

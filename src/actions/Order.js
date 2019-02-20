@@ -28,8 +28,28 @@ const patch = value => {
   };
 };
 
+const index = () => {
+  return async function(dispatch) {
+    const response = await kidsnParty.get(`/allorders`);
+    dispatch({ type: types.getOrders, payload: response.data.orders });
+  };
+};
+
+const onPageChange = pageNumber => {
+  return async function(dispatch) {
+    const response = await kidsnParty.get(`/allorders`, {
+      params: {
+        page: pageNumber
+      }
+    });
+
+    dispatch({ type: types.getOrders, payload: response.data.orders });
+  };
+};
 export default {
+  index,
   show,
   update,
-  patch
+  patch,
+  onPageChange
 };

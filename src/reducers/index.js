@@ -34,9 +34,9 @@ const shopsReducer = (shops = [], action) => {
 
 const ordersReducer = (orders = [], action) => {
   if (action.type === actionTypes.getOrders) {
-    return action.payload;
+    return action.payload.data;
   } else if (action.type === actionTypes.updateOrder) {
-    return action.payload.orders;
+    return action.payload.orders.data;
   }
   return orders;
 };
@@ -90,6 +90,15 @@ const selectedOptionReducer = (selectedOption = { values: [] }, action) => {
   return selectedOption;
 };
 
+const paginationParamsReducer = (paginationParams = {}, action) => {
+  if (action.type === actionTypes.getOrders) {
+    return action.payload;
+  } else if (action.type === actionTypes.updateOrder) {
+    return action.payload.orders;
+  }
+  return paginationParams;
+};
+
 export default combineReducers({
   products: productsReducer,
   form: formReducer,
@@ -104,5 +113,6 @@ export default combineReducers({
   selectedShop: selectedShopReducer,
   reportSummary: reportSummaryReducer,
   selectedCategory: selectedCategoryReducer,
-  selectedOption: selectedOptionReducer
+  selectedOption: selectedOptionReducer,
+  paginationParams: paginationParamsReducer
 });
