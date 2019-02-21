@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { createNewCategory } from "../actions";
+import { createNewCategory, setSelectCategoryImage } from "../actions";
 import CategoryForm from "./CategoryForm";
 
 import "../css/CreateCategory.css";
@@ -14,7 +14,10 @@ class CreateCategory extends React.Component {
     return (
       <div className="component-create-category">
         <div className="component-create-category__header">添加新产品分类</div>
-        <CategoryForm onSubmit={this.onSubmit} />
+        <CategoryForm
+          onSubmit={this.onSubmit}
+          setSelectCategoryImage={this.props.setSelectCategoryImage}
+        />
       </div>
     );
   }
@@ -22,5 +25,5 @@ class CreateCategory extends React.Component {
 
 export default connect(
   null,
-  { createNewCategory }
+  { createNewCategory, setSelectCategoryImage }
 )(CreateCategory);

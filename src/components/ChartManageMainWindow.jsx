@@ -57,9 +57,9 @@ class ChartManageMainWindow extends React.Component {
       return null;
     }
     let datasetsArray = [];
-
+    const colors = ["#ffba2d", "#f55747", "#00C800"];
     let labels = [];
-    this.props.reportSummary.sales_by_payment.map(ele => {
+    this.props.reportSummary.sales_by_payment.map((ele, index) => {
       const label = ele.payment_method;
       let dataArray = [];
       ele.data.map(element => {
@@ -69,7 +69,12 @@ class ChartManageMainWindow extends React.Component {
 
       datasetsArray = [
         ...datasetsArray,
-        { label, data: dataArray, fill: false }
+        {
+          label,
+          data: dataArray,
+          fill: false,
+          borderColor: colors[index]
+        }
       ];
     });
 
