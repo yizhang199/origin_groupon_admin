@@ -19,7 +19,8 @@ const actionTypes = {
   updateOption: "UPDATE_OPTION",
   removeOption: "REMOVE_OPTION",
   searchProductByName: "SEARCH_PRODUCT_BY_NAME",
-  updateOrder: "UPDATE_ORDER"
+  updateOrder: "UPDATE_ORDER",
+  setSelectedCategoryImage: "SET_SELECTED_CATEGORY_IMAGE"
 };
 
 export default actionTypes;

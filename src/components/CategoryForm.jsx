@@ -7,7 +7,6 @@ class CategoryForm extends React.Component {
     super(props);
     this.state = {
       image: "",
-      file: "",
       fileName: ""
     };
   }
@@ -37,8 +36,8 @@ class CategoryForm extends React.Component {
     let files = e.target.files || e.dataTransfer.files;
     if (!files.length) return;
 
+    this.props.setSelectCategoryImage(URL.createObjectURL(files[0]));
     this.setState({
-      file: URL.createObjectURL(files[0]),
       fileName: files[0].name
     });
     this.createImage(files[0]);
@@ -54,13 +53,13 @@ class CategoryForm extends React.Component {
   };
 
   renderImage = () => {
-    if (this.state.file === "") {
+    if (this.props.image === "") {
       return null;
     }
     return (
       <div className="component-category-form__upload-image__img-container">
         <img
-          src={this.state.file}
+          src={this.props.image}
           className="component-category-form__upload-image__img"
           alt=""
         />
@@ -68,6 +67,7 @@ class CategoryForm extends React.Component {
     );
   };
 
+  // How To:: Upload image / files in React.js
   getFileName = () => {
     if (this.state.image === "") {
       return <span>请选择图片</span>;

@@ -1,23 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { setSelectedCategory, deleteCategory } from "../actions";
+import { deleteCategory, fetchSingleCategory } from "../actions";
 import "../css/CategoryGridItem.css";
-import { history } from "../history";
 
 const CategoryGridItem = ({
   category,
-  setSelectedCategory,
-  deleteCategory
+  deleteCategory,
+  fetchSingleCategory
 }) => {
   const selectCategory = () => {
-    setSelectedCategory(category);
-    history.push("/categories/update");
+    fetchSingleCategory(category.category_id);
   };
   const remove = () => {
     deleteCategory(category.category_id);
   };
-  // const baseUrl = "http://kidsnparty.com.au/redpay/public/";
+
   const baseUrl = "http://localhost/groupon_api/public";
   return (
     <div className="component-category-grid-item">
@@ -40,5 +38,5 @@ const CategoryGridItem = ({
 
 export default connect(
   null,
-  { setSelectedCategory, deleteCategory }
+  { deleteCategory, fetchSingleCategory }
 )(CategoryGridItem);

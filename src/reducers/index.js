@@ -79,6 +79,8 @@ const reportSummaryReducer = (reportSummary = {}, action) => {
 const selectedCategoryReducer = (selectedCategory = {}, action) => {
   if (action.type === actionTypes.selectCategory) {
     return action.payload;
+  } else if (action.type === actionTypes.setSelectedCategoryImage) {
+    return { ...selectedCategory, image: action.payload };
   }
   return selectedCategory;
 };

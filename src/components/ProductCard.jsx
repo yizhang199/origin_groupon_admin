@@ -18,7 +18,6 @@ const ProductCard = ({ product, switchProductStatus, getProduct }) => {
 
   const editProduct = () => {
     getProduct(product.product_id);
-    // history.push(`/products/edit/${product.product_id}`);
   };
 
   const inactiveProduct = () => {

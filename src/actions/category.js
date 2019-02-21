@@ -1,5 +1,6 @@
 import types from "./actionTypes";
 import kidsnParty from "../apis/kidsnParty";
+import { history } from "../history";
 
 const create = file => {
   return async function(dispatch, getState) {
@@ -55,12 +56,32 @@ const remove = category_id => {
   };
 };
 
+const show = category_id => {
+  return async function(dispatch) {
+    const response = await kidsnParty.get(`/categories/${category_id}`);
+    dispatch({
+      type: types.selectCategory,
+      payload: response.data
+    });
+    history.push(`/categories/update/${category_id}`);
+  };
+};
+
+const setImage = value => {
+  return {
+    type: types.setSelectedCategoryImage,
+    payload: value
+  };
+};
+
 const Category = {
+  show,
   create,
   index,
   select,
   update,
-  remove
+  remove,
+  setImage
 };
 
 export default Category;

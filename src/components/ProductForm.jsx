@@ -150,6 +150,7 @@ class EditForm extends React.Component {
           <div className="component-edit-form__button-group">
             <label className="component-edit-form__button-group__wrapper">
               <Field
+                disable
                 name="sort_order"
                 component={this.renderInput}
                 className="component-edit-form__button-group__input"
@@ -188,6 +189,7 @@ class EditForm extends React.Component {
               placeholder="设置MaxNumber"
             />
           </div>
+          <hr />
           <div className="component-edit-form__subtitle">
             <span>添加产品规格.</span>
             <span style={{ color: "red" }}>可不填.</span>
@@ -226,6 +228,30 @@ const validate = formValues => {
   }
   if (!formValues.english_name) {
     errors.english_name = "你需要提供一个有效的英文名";
+  }
+  if (!formValues.price) {
+    errors.price = "你需要提供一个有效的价格";
+  }
+  if (isNaN(formValues.price)) {
+    errors.price = "价格必须为数字";
+  }
+  if (!formValues.quantity) {
+    errors.quantity = "请提供一个库存数量值";
+  } else if (
+    Number(formValues.quantity) === NaN ||
+    Number(formValues.quantity) < 0 ||
+    !Number.isInteger(Number(formValues.quantity))
+  ) {
+    errors.quantity = "库存数量必须为正整数";
+  }
+  if (!formValues.stock_status_id) {
+    errors.stock_status_id = "请提供一个库存数量值";
+  } else if (
+    Number(formValues.stock_status_id) === NaN ||
+    Number(formValues.stock_status_id) < 0 ||
+    !Number.isInteger(Number(formValues.stock_status_id))
+  ) {
+    errors.stock_status_id = "库存数量必须为正整数";
   }
   return errors;
 };

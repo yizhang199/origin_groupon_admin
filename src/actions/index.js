@@ -26,6 +26,8 @@ export const createNewCategory = Category.create;
 export const updateCategory = Category.update;
 export const fetchAvaliableCategories = Category.index;
 export const deleteCategory = Category.remove;
+export const fetchSingleCategory = Category.show;
+export const setSelectCategoryImage = Category.setImage;
 
 //options actions
 export const fetchOptions = Option.index;

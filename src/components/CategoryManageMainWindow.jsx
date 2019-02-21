@@ -16,7 +16,10 @@ const CategoryManageMainWindow = () => {
           <CategoryGird />
           <Switch>
             <Route path="/categories/create" component={CreateCategory} />
-            <Route path="/categories/update" component={UpdateCategory} />
+            <Route
+              path="/categories/update/:category_id"
+              component={UpdateCategory}
+            />
             <Route path="/categories" component={CreateCategory} />
           </Switch>
         </React.Fragment>
