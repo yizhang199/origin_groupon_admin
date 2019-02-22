@@ -22,5 +22,6 @@ body {
 }
 .main-window {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-content: center;
 }

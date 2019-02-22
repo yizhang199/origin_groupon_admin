@@ -1,0 +1,17 @@
+.product-order-list__table__tbody {
+  height: 60vh;
+  overflow: scroll;
+}
+.product-order-list__table__tbody__quantity {
+  border-left: none;
+  border-right: none;
+  text-align: right;
+}
+.product-order-list__table__tbody__name {
+  border-left: none;
+  border-right: none;
+  text-align: left;
+}
+.component-product-order-list {
+  width: 75%;
+}
