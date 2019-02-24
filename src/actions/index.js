@@ -58,7 +58,10 @@ export const selectOrder = Order.show;
 export const updateOrder = Order.update;
 
 export const updateOrderStatus = Order.patch;
+export const markingOrder = Order.marking;
 export const onCustomerOrderListPageChange = Order.onPageChange;
+
+// shop actions
 
 export const fetchSingleShop = fetchShop;
 export const changeSelectedShop = Shop.patch;

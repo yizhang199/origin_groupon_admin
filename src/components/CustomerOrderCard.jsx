@@ -1,9 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
-import { selectOrder } from "../actions";
+import { selectOrder, markingOrder } from "../actions";
 import "../css/CustomerOrderCard.css";
 class CustomerOrderCard extends React.Component {
-  componentDidMount() {}
+  constructor(props) {
+    super(props);
+
+    this.state = { checked: true };
+  }
+  componentDidMount() {
+    switch (this.props.order.order_status_id) {
+      case 2:
+        this.setState({ checked: false });
+        break;
+      case 3:
+        this.setState({ checked: true });
+      default:
+        break;
+    }
+  }
   getContent = value => {
     if (value === "") {
       return "用户尚未选择或填写";
@@ -84,6 +99,31 @@ class CustomerOrderCard extends React.Component {
     this.props.selectOrder(this.props.order.order_id);
     this.props.showDetails();
   };
+  getButton = () => {
+    if (this.props.order.order_status_id === 1) {
+      return null;
+    }
+    return (
+      <div className="component-customer-order-card__check-button">
+        <div className="roundedTwo">
+          <input
+            type="checkbox"
+            value="None"
+            id="roundedTwo"
+            name="check"
+            checked={this.state.checked}
+            onChange={this.handleOnChange}
+          />
+          <label htmlFor="roundedTwo" />
+        </div>
+      </div>
+    );
+  };
+  handleOnChange = e => {
+    const { checked } = e.target;
+    this.setState({ checked });
+    this.props.markingOrder(this.props.order.order_id, checked);
+  };
   render() {
     const myStyle = this.getStyle();
     const user = this.props.order.user ? this.props.order.user : {};
@@ -92,8 +132,12 @@ class CustomerOrderCard extends React.Component {
         <div
           className="component-customer-order-card__tab"
           style={myStyle.orderCard_tab}
+          onClick={e => e.stopPropagation()}
         >
-          {this.props.order.status_name}
+          <span className="component-customer-order-card__tab__status-name">
+            {this.props.order.status_name}
+          </span>
+          {this.getButton()}
         </div>
         <div
           className="component-customer-order-card__user-name"
@@ -159,5 +203,5 @@ class CustomerOrderCard extends React.Component {
 
 export default connect(
   null,
-  { selectOrder }
+  { selectOrder, markingOrder }
 )(CustomerOrderCard);

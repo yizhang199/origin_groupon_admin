@@ -27,6 +27,15 @@ const patch = value => {
     dispatch({ type: types.updateOrder, payload: response.data });
   };
 };
+const marking = (order_id, checked) => {
+  return async function(dispatch) {
+    const value = checked ? 3 : 2;
+    const requestBody = { order_status_id: value };
+    const response = await kidsnParty.patch(`/orders/${order_id}`, requestBody);
+
+    dispatch({ type: types.updateOrder, payload: response.data });
+  };
+};
 
 const index = () => {
   return async function(dispatch) {
@@ -46,10 +55,12 @@ const onPageChange = pageNumber => {
     dispatch({ type: types.getOrders, payload: response.data.orders });
   };
 };
+
 export default {
   index,
   show,
   update,
   patch,
+  marking,
   onPageChange
 };
