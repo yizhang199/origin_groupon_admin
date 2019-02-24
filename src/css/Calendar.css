@@ -1,4 +1,5 @@
-.calendar__day {
+.react-datepicker__input-container input {
+  display: none;
 }
 
 .react-datepicker__day--highlighted {

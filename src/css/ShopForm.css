@@ -12,10 +12,11 @@
   align-items: center;
 }
 .component-shop-form__tag-container {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   margin-top: 6px;
+  margin-right: 6px;
 }
 
 .component-shop-form__open-date-tags {
@@ -141,4 +142,26 @@
   width: 75px;
   border-radius: 5px;
   box-shadow: 0 0 5px #a5a5a5;
+}
+
+.component-shop-form__date-picker__label {
+  display: flex;
+  width: 100%;
+  padding: 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.component-shop-form__date-picker__title {
+  color: #5a5a5a;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.component-shop-form__open-dates__list {
+  height: 40vh;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow: scroll;
+  width: 40vw;
+  padding: 20px;
 }

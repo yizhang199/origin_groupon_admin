@@ -117,11 +117,17 @@ class ShopForm extends React.Component {
             dayClassName={this.getCalendarDayClass}
             onChange={this.handleDateChange}
             highlightDates={this.state.openDates}
-            shouldCloseOnSelect={true}
+            shouldCloseOnSelect={false}
+            withPortal
           />
+          <span className="component-shop-form__date-picker__title">
+            请选择可以取货的日期
+          </span>
           <i className="material-icons">date_range</i>
         </label>
-        {this.renderOpenDates()}
+        <div className="component-shop-form__open-dates__list">
+          {this.renderOpenDates()}
+        </div>
       </div>
     );
   }
