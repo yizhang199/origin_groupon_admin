@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import { makeDate } from "../helpers";
 import "react-datepicker/dist/react-datepicker.css";
 import "../css/ShopForm.css";
+import "../css/Calendar.css";
 
 class ShopForm extends React.Component {
   constructor(props) {
@@ -22,7 +23,28 @@ class ShopForm extends React.Component {
   };
   handleDateChange = e => {
     const newDate = new Date(e);
-    this.setState({ openDates: [...this.state.openDates, newDate] });
+
+    const isIncludes = this.checkOpenDates(newDate);
+    if (isIncludes) {
+      this.setState({
+        openDates: this.state.openDates.filter(
+          date => date.toLocaleDateString() !== newDate.toLocaleDateString()
+        )
+      });
+    } else {
+      this.setState({ openDates: [...this.state.openDates, newDate] });
+    }
+  };
+
+  checkOpenDates = newDate => {
+    let flag = false;
+    this.state.openDates.map(element => {
+      if (element.toLocaleDateString() === newDate.toLocaleDateString()) {
+        flag = true;
+        return;
+      }
+    });
+    return flag;
   };
   renderOpenDates = () => {
     if (!this.state.openDates) {
@@ -50,6 +72,10 @@ class ShopForm extends React.Component {
         </span>
       );
     });
+  };
+
+  getCalendarDayClass = () => {
+    return "calendar__day";
   };
 
   onSubmit = formValues => {
@@ -87,7 +113,12 @@ class ShopForm extends React.Component {
           </div>
         </form>
         <label className="component-shop-form__date-picker__label">
-          <DatePicker onChange={this.handleDateChange} />
+          <DatePicker
+            dayClassName={this.getCalendarDayClass}
+            onChange={this.handleDateChange}
+            highlightDates={this.state.openDates}
+            shouldCloseOnSelect={true}
+          />
           <i className="material-icons">date_range</i>
         </label>
         {this.renderOpenDates()}

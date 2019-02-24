@@ -1,0 +1,7 @@
+.calendar__day {
+}
+
+.react-datepicker__day--highlighted {
+  background-color: #ffba2d;
+  color: #fff;
+}
