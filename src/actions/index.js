@@ -1,7 +1,7 @@
 import types from "./actionTypes";
 import { setCategory, setOptions } from "./newProduct";
 import { fetchShop } from "./shop";
-import { fetchSummary } from "./report";
+import Report from "./report";
 import Category from "./category";
 import kidsnParty from "../apis/kidsnParty";
 import Product from "./product";
@@ -62,12 +62,14 @@ export const markingOrder = Order.marking;
 export const onCustomerOrderListPageChange = Order.onPageChange;
 
 // shop actions
-
 export const fetchSingleShop = fetchShop;
 export const changeSelectedShop = Shop.patch;
 export const createShop = Shop.create;
 export const updateShop = Shop.update;
 
-export const fetchReportsSummary = fetchSummary;
+// reports actions
+export const fetchReportsSummary = Report.fetchSummary;
+export const setStartDate = Report.setStartDate;
+export const setEndDate = Report.setEndDate;
 
 export const actionTypes = types;

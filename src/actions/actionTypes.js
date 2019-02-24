@@ -20,7 +20,9 @@ const actionTypes = {
   removeOption: "REMOVE_OPTION",
   searchProductByName: "SEARCH_PRODUCT_BY_NAME",
   updateOrder: "UPDATE_ORDER",
-  setSelectedCategoryImage: "SET_SELECTED_CATEGORY_IMAGE"
+  setSelectedCategoryImage: "SET_SELECTED_CATEGORY_IMAGE",
+  setStartDate: "SET_START_DATE",
+  setEndDate: "SET_END_DATE"
 };
 
 export default actionTypes;

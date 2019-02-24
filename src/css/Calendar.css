@@ -6,3 +6,6 @@
   background-color: #ffba2d;
   color: #fff;
 }
+.react-datepicker-wrapper {
+  opacity: 1;
+}

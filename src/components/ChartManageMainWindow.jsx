@@ -5,6 +5,8 @@ import { Bar, Line, Pie } from "react-chartjs-2";
 import { fetchReportsSummary } from "../actions";
 import { makeDate } from "../helpers";
 
+import DateRanger from "./shared/DateRanger";
+
 import "../css/ChartManageMainWindow.css";
 
 class ChartManageMainWindow extends React.Component {
@@ -190,6 +192,7 @@ class ChartManageMainWindow extends React.Component {
             {this.renderSalesByStore()}
           </div>
         </div>
+        <DateRanger />
       </div>
     );
   }

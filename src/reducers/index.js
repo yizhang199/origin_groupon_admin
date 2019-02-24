@@ -100,6 +100,18 @@ const paginationParamsReducer = (paginationParams = {}, action) => {
   }
   return paginationParams;
 };
+const startDateReducer = (startDate = new Date(), action) => {
+  if (action.type === actionTypes.setStartDate) {
+    return action.payload;
+  }
+  return startDate;
+};
+const endDateReducer = (endDate = new Date(), action) => {
+  if (action.type === actionTypes.setEndDate) {
+    return action.payload;
+  }
+  return endDate;
+};
 
 export default combineReducers({
   products: productsReducer,
@@ -116,5 +128,7 @@ export default combineReducers({
   reportSummary: reportSummaryReducer,
   selectedCategory: selectedCategoryReducer,
   selectedOption: selectedOptionReducer,
-  paginationParams: paginationParamsReducer
+  paginationParams: paginationParamsReducer,
+  startDate: startDateReducer,
+  endDate: endDateReducer
 });

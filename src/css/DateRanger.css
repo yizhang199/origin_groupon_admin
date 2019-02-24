@@ -1,0 +1,17 @@
+.component-date-ranger {
+}
+.component-date-ranger label {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.component-date-ranger .material-icons {
+  font-size: 32px;
+}
+
+.component-date-ranger__text {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
