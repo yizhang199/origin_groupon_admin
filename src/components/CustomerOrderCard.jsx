@@ -6,19 +6,9 @@ class CustomerOrderCard extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { checked: true };
+    this.state = { checked: this.props.order.order_status_id === 3 };
   }
-  componentDidMount() {
-    switch (this.props.order.order_status_id) {
-      case 2:
-        this.setState({ checked: false });
-        break;
-      case 3:
-        this.setState({ checked: true });
-      default:
-        break;
-    }
-  }
+
   getContent = value => {
     if (value === "") {
       return "用户尚未选择或填写";
@@ -111,13 +101,20 @@ class CustomerOrderCard extends React.Component {
             value="None"
             id="roundedTwo"
             name="check"
-            checked={this.state.checked}
+            checked={this.getCheckedValue()}
             onChange={this.handleOnChange}
           />
           <label htmlFor="roundedTwo" />
         </div>
       </div>
     );
+  };
+  getCheckedValue = () => {
+    if (this.props.order.order_status_id === 3) {
+      return true;
+    } else {
+      return false;
+    }
   };
   handleOnChange = e => {
     const { checked } = e.target;
