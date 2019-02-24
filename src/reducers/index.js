@@ -73,6 +73,11 @@ const selectedShopReducer = (selectedShop = {}, action) => {
 const reportSummaryReducer = (reportSummary = {}, action) => {
   if (action.type === actionTypes.fetchSummary) {
     return action.payload;
+  } else if (
+    action.type === actionTypes.setEndDate ||
+    action.type === actionTypes.setStartDate
+  ) {
+    return action.payload.reports;
   }
   return reportSummary;
 };
@@ -102,13 +107,13 @@ const paginationParamsReducer = (paginationParams = {}, action) => {
 };
 const startDateReducer = (startDate = new Date(), action) => {
   if (action.type === actionTypes.setStartDate) {
-    return action.payload;
+    return action.payload.date;
   }
   return startDate;
 };
 const endDateReducer = (endDate = new Date(), action) => {
   if (action.type === actionTypes.setEndDate) {
-    return action.payload;
+    return action.payload.date;
   }
   return endDate;
 };

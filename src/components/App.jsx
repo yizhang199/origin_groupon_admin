@@ -3,7 +3,6 @@ import { Route, Router, Switch } from "react-router-dom";
 import { history } from "../history";
 
 import LeftSideMenu from "./LeftSideMenu";
-import ProductManageMainWindow from "./ProductManageMainWindow";
 import OrderManageMainWindow from "./OrderManageMainWindow";
 import ChartManageMainWindow from "./ChartManageMainWindow";
 import ShopManageMainWindow from "./ShopManageMainWindow";
@@ -16,6 +15,7 @@ const App = () => {
       <Router history={history}>
         <React.Fragment>
           <LeftSideMenu />
+
           <Switch>
             <Route
               path="/products"

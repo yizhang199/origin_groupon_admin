@@ -16,17 +16,31 @@ const fetchSummary = () => {
   };
 };
 
-const setStartDate = dt => {
-  return {
-    type: types.setStartDate,
-    payload: dt
+const setStartDate = startDate => {
+  return async function(dispatch, getState) {
+    const { endDate } = getState();
+    const response = await kidsnParty.get(`/reports`, {
+      params: { startDate, endDate }
+    });
+
+    dispatch({
+      type: types.setStartDate,
+      payload: { date: startDate, reports: response.data.summary }
+    });
   };
 };
 
-const setEndDate = dt => {
-  return {
-    type: types.setEndDate,
-    payload: dt
+const setEndDate = endDate => {
+  return async function(dispatch, getState) {
+    const { startDate } = getState();
+    const response = await kidsnParty.get(`/reports`, {
+      params: { startDate, endDate }
+    });
+
+    dispatch({
+      type: types.setEndDate,
+      payload: { date: endDate, reports: response.data.summary }
+    });
   };
 };
 
