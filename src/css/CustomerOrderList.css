@@ -1,4 +1,4 @@
-.component-customer-order-list {
+.component-customer-order-list__with-details {
   width: 45vw;
   padding: 10px;
   background-color: #f5f6f8;
@@ -8,6 +8,19 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  transition: all 0.4s ease;
+}
+.component-customer-order-list__without-details {
+  width: 90vw;
+  padding: 10px;
+  background-color: #f5f6f8;
+  height: 90vh;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  transition: all 0.4s ease;
 }
 .component-customer-order-list__pagination__container {
   width: 100%;

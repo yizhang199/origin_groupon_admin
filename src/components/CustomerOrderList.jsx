@@ -8,19 +8,37 @@ import OrderDetail from "./OrderDetail";
 
 import "../css/CustomerOrderList.css";
 class CustomerOrderList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { showDetails: false };
+  }
   componentDidMount() {
     this.props.getOrders();
   }
   handlePageChange = pageNumber => {
     this.props.onCustomerOrderListPageChange(pageNumber);
   };
+  showDetails = () => {
+    this.setState({ showDetails: true });
+  };
+
+  hiddenDetails = () => {
+    this.setState({ showDetails: false });
+  };
+  getClass = () => {
+    if (this.state.showDetails) {
+      return "component-customer-order-list__with-details";
+    }
+    return "component-customer-order-list__without-details";
+  };
   render() {
     if (!this.props.paginationParams) {
-      return <div className="component-customer-order-list">loading...</div>;
+      return <div className={this.getClass()}>loading...</div>;
     }
     return (
       <React.Fragment>
-        <div className="component-customer-order-list">
+        <div className={this.getClass()}>
           <div className="component-customer-order-list__pagination__container">
             <Pagination
               activePage={this.props.paginationParams.current_page}
@@ -41,12 +59,18 @@ class CustomerOrderList extends React.Component {
           </div>
           {this.props.orders.map((order, index) => {
             return (
-              <CustomerOrderCard key={`customerOrder${index}`} order={order} />
+              <CustomerOrderCard
+                showDetails={this.showDetails}
+                key={`customerOrder${index}`}
+                order={order}
+              />
             );
           })}
         </div>
 
-        <OrderDetail />
+        {this.state.showDetails ? (
+          <OrderDetail hiddenDetails={this.hiddenDetails} />
+        ) : null}
       </React.Fragment>
     );
   }

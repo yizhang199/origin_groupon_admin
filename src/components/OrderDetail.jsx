@@ -81,6 +81,12 @@ class OrderDetail extends React.Component {
     }
     return (
       <div className="component-order-detail">
+        <div
+          onClick={this.props.hiddenDetails}
+          className="component-order-detail__close-button"
+        >
+          <i className="material-icons">close</i>
+        </div>
         <div className="component-order-detail__header__field">
           <span>下单日期</span>
           <span>{makeDate(this.props.selectedOrder.create_date)}</span>
@@ -107,8 +113,6 @@ class OrderDetail extends React.Component {
             <option value="1">customer saved</option>
             <option value="2">pending</option>
             <option value="3">complete</option>
-            {/* <option value="customer_saved">refund</option>
-              <option value="customer_saved">cancel</option> */}
           </select>
         </div>
 

@@ -82,6 +82,7 @@ class CustomerOrderCard extends React.Component {
    */
   selectOrder = () => {
     this.props.selectOrder(this.props.order.order_id);
+    this.props.showDetails();
   };
   render() {
     const myStyle = this.getStyle();
