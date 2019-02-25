@@ -22,7 +22,9 @@ const actionTypes = {
   updateOrder: "UPDATE_ORDER",
   setSelectedCategoryImage: "SET_SELECTED_CATEGORY_IMAGE",
   setStartDate: "SET_START_DATE",
-  setEndDate: "SET_END_DATE"
+  setEndDate: "SET_END_DATE",
+  fetchReportDetails: "FETCH_REPORT_DETAILS",
+  setReportCategory: "SET_REPORT_CATEGORY"
 };
 
 export default actionTypes;

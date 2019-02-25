@@ -1,0 +1,47 @@
+.component-detail-view-table {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: scroll;
+}
+.component-detail-view-table .tbl-content,
+.component-detail-view-table .tbl-header {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.component-detail-view-table table {
+  margin-top: 20px;
+  width: 80%;
+  border-spacing: 0;
+}
+
+.component-detail-view-table td.text,
+.component-detail-view-table th.text {
+  text-align: left;
+  padding-right: 15px;
+}
+.component-detail-view-table td.number,
+.component-detail-view-table th.number {
+  text-align: right;
+  padding-left: 15px;
+}
+.component-detail-view-table th.number {
+  justify-content: flex-end;
+}
+.component-detail-view-table th.text {
+  justify-content: flex-start;
+}
+.component-detail-view-table thead th span {
+  border-bottom: 3px solid #ffba2d;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+
+.component-detail-view-table tr {
+  height: 30px;
+}

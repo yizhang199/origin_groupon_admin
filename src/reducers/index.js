@@ -117,7 +117,23 @@ const endDateReducer = (endDate = new Date(), action) => {
   }
   return endDate;
 };
-
+const reportDetailsReducer = (reportDetails = [], action) => {
+  if (action.type === actionTypes.fetchReportDetails) {
+    return action.payload;
+  } else if (
+    action.type === actionTypes.setEndDate ||
+    action.type === actionTypes.setStartDate
+  ) {
+    return action.payload.report;
+  }
+  return reportDetails;
+};
+const reportCategoryReducer = (report_category = "", action) => {
+  if (action.type === actionTypes.setReportCategory) {
+    return action.payload;
+  }
+  return report_category;
+};
 export default combineReducers({
   products: productsReducer,
   form: formReducer,
@@ -135,5 +151,7 @@ export default combineReducers({
   selectedOption: selectedOptionReducer,
   paginationParams: paginationParamsReducer,
   startDate: startDateReducer,
-  endDate: endDateReducer
+  endDate: endDateReducer,
+  reportDetails: reportDetailsReducer,
+  report_category: reportCategoryReducer
 });

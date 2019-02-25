@@ -71,5 +71,8 @@ export const updateShop = Shop.update;
 export const fetchReportsSummary = Report.fetchSummary;
 export const setStartDate = Report.setStartDate;
 export const setEndDate = Report.setEndDate;
+export const fetchReportDetails = Report.show;
+export const setReportCategory = Report.setCategory;
+export const sortReportDetails = Report.sortDetails;
 
 export const actionTypes = types;
