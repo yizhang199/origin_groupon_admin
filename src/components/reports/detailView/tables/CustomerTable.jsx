@@ -95,12 +95,14 @@ class Customer extends React.Component {
     );
   };
   renderTbody = () => {
+    let index = 0;
     return (
       <tbody>
-        {this.props.reportDetails.map((element, index) => {
+        {this.props.reportDetails.map(element => {
+          index++;
           const { customer_id, username, total, quantity } = element;
           return (
-            <tr key={`orderByCategoryRow${index}`} style={getStyle()}>
+            <tr key={`orderByCategoryRow${index}`} style={getStyle(index)}>
               <td className="text">{customer_id}</td>
               <td className="text">{username}</td>
               <td className="number">{total}</td>

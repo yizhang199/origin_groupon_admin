@@ -71,12 +71,14 @@ class Category extends React.Component {
     );
   };
   renderTbody = () => {
+    let index = 0;
     return (
       <tbody>
-        {this.props.reportDetails.map((element, index) => {
+        {this.props.reportDetails.map(element => {
+          index++;
           const { category_name, total, quantity } = element;
           return (
-            <tr key={`orderByCategoryRow${index}`} style={getStyle()}>
+            <tr key={`orderByCategoryRow${index}`} style={getStyle(index)}>
               <td className="text">{category_name}</td>
               <td className="number">{total}</td>
               <td className="number">{quantity}</td>

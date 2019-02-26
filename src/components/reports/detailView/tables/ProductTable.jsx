@@ -1,12 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import { sortReportDetails } from "../../../../actions";
+import { getStyle } from "./helper";
+import "./style.css";
 class Product extends React.Component {
   constructor(props) {
     super(props);
     this.state = { product_name: 0, quantity: 0, total: 0 };
   }
-  sortByCategoryName = () => {
+  sortByProductName = () => {
     const sortOrder = this.getSortOrder("product_name");
     this.props.sortReportDetails(
       "product_name",
@@ -53,8 +56,8 @@ class Product extends React.Component {
     return (
       <thead>
         <tr>
-          <th onClick={this.sortByCategoryName} className="text">
-            <span>分类名称</span>
+          <th onClick={this.sortByProductName} className="text">
+            <span>产品名</span>
           </th>
           <th onClick={this.sortByTotal} className="number">
             <span>销售额</span>
@@ -67,13 +70,15 @@ class Product extends React.Component {
     );
   };
   renderTbody = () => {
+    let index = 0;
     return (
       <tbody>
-        {this.props.reportDetails.map((element, index) => {
-          const { category_name, total, quantity } = element;
+        {this.props.reportDetails.map(element => {
+          index++;
+          const { product_name, total, quantity } = element;
           return (
-            <tr key={`orderByCategoryRow${index}`} style={getStyle()}>
-              <td className="text">{category_name}</td>
+            <tr key={`orderByCategoryRow${index}`} style={getStyle(index)}>
+              <td className="text">{product_name}</td>
               <td className="number">{total}</td>
               <td className="number">{quantity}</td>
             </tr>
@@ -82,10 +87,24 @@ class Product extends React.Component {
       </tbody>
     );
   };
+  render() {
+    return (
+      <div className="component-detail-view-table">
+        <table>
+          {this.renderThead()}
+
+          {this.renderTbody()}
+        </table>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = ({ reportDetails }) => {
   return { reportDetails };
 };
 
-export default connect(mapStateToProps)(Product);
+export default connect(
+  mapStateToProps,
+  { sortReportDetails }
+)(Product);

@@ -176,7 +176,7 @@ class Summary extends React.Component {
           </div>
 
           <div className="component-summary__dashboard__sales-by-payment">
-            <i className="material-icons">remove_red_eye</i>
+            {/* <i className="material-icons">remove_red_eye</i> */}
             {this.renderSalesByPayment()}
           </div>
           <div className="component-summary__dashboard__sales-by-customer">
@@ -192,7 +192,14 @@ class Summary extends React.Component {
             {this.renderSalesByCustomer()}
           </div>
           <div className="component-summary__dashboard__sales-by-product">
-            <i className="material-icons">remove_red_eye</i>
+            <i
+              onClick={() => {
+                history.push("/charts/product");
+              }}
+              className="material-icons"
+            >
+              remove_red_eye
+            </i>
 
             {this.renderSalesByProduct()}
           </div>
@@ -209,7 +216,14 @@ class Summary extends React.Component {
             {this.renderSalesByDate()}
           </div>
           <div className="component-summary__dashboard__sales-by-store">
-            <i className="material-icons">remove_red_eye</i>
+            <i
+              onClick={() => {
+                history.push("/charts/store");
+              }}
+              className="material-icons"
+            >
+              remove_red_eye
+            </i>
 
             {this.renderSalesByStore()}
           </div>
