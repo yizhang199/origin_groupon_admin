@@ -5,19 +5,33 @@
   padding: 10px;
 }
 
-.component-summary__dashboard {
+.component-summary .component-summary__dashboard {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
-.component-summary__dashboard__sales {
+
+.component-summary .component-summary__dashboard__sales {
   height: 60px;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-left: 50px;
   font-size: 26px;
   font-weight: bold;
@@ -32,17 +46,27 @@
 .component-summary__dashboard__sales-by-product,
 .component-summary__dashboard__sales-by-store {
   padding: 10px;
-  box-shadow: 0 0 5px #a5a5a5;
+  -webkit-box-shadow: 0 0 5px #a5a5a5;
+          box-shadow: 0 0 5px #a5a5a5;
   margin: 10px;
 }
+
 .component-summary .material-icons {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   color: #a5a5a5;
+  -webkit-transition: all 400ms ease;
   transition: all 400ms ease;
 }
+
 .component-summary .material-icons:hover {
   color: #ffba2d;
+  -webkit-transition: all 400ms ease;
   transition: all 400ms ease;
 }
+/*# sourceMappingURL=style.css.map */

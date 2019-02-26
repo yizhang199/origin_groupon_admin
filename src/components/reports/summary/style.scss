@@ -1,0 +1,50 @@
+// Variables
+@import "../../shared/variables.scss";
+
+.component-summary {
+  width: 90vw;
+  height: 90vh;
+  overflow: scroll;
+  padding: 10px;
+  .component-summary__dashboard {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .component-summary__dashboard__sales {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 50px;
+    font-size: 26px;
+    font-weight: bold;
+    color: color(textPrimary);
+    text-shadow: 0 0 2px color(boxShadow);
+  }
+}
+
+.component-summary__dashboard__sales-by-payment,
+.component-summary__dashboard__sales-by-date,
+.component-summary__dashboard__sales-by-category,
+.component-summary__dashboard__sales-by-customer,
+.component-summary__dashboard__sales-by-product,
+.component-summary__dashboard__sales-by-store {
+  padding: 10px;
+  box-shadow: 0 0 5px color(boxShadow);
+  margin: 10px;
+}
+.component-summary .material-icons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  color: color(textSubtitle);
+  transition: animation(normal);
+}
+.component-summary .material-icons:hover {
+  color: color(main);
+  transition: animation(normal);
+}

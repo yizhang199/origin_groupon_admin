@@ -1,0 +1,18 @@
+$colors: (
+  textSubtitle: #a5a5a5,
+  textPrimary: #8c8c8c,
+  main: #ffba2d,
+  boxShadow: #a5a5a5
+);
+
+@function color($color_name) {
+  @return map-get($colors, $color_name);
+}
+
+$animations: (
+  normal: all 400ms ease
+);
+
+@function animation($animation_name) {
+  @return map-get($animations, $animation_name);
+}
