@@ -2,7 +2,9 @@
   width: 90vw;
   height: 90vh;
   overflow: scroll;
+  padding: 10px;
 }
+
 .component-summary__dashboard {
   width: 100%;
   display: flex;
@@ -22,7 +24,25 @@
   color: #8c8c8c;
   text-shadow: 0 0 2px #a5a5a5;
 }
-.component-summary__dashboard__sales-by-date {
-  flex: 1;
-  padding: 50px;
+
+.component-summary__dashboard__sales-by-payment,
+.component-summary__dashboard__sales-by-date,
+.component-summary__dashboard__sales-by-category,
+.component-summary__dashboard__sales-by-customer,
+.component-summary__dashboard__sales-by-product,
+.component-summary__dashboard__sales-by-store {
+  padding: 10px;
+  box-shadow: 0 0 5px #a5a5a5;
+  margin: 10px;
+}
+.component-summary .material-icons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  color: #a5a5a5;
+  transition: all 400ms ease;
+}
+.component-summary .material-icons:hover {
+  color: #ffba2d;
+  transition: all 400ms ease;
 }

@@ -4,6 +4,7 @@ import { Bar, Line, Pie } from "react-chartjs-2";
 
 import { fetchReportsSummary } from "../../../actions";
 import { makeDate } from "../../../helpers";
+import { history } from "../../../history";
 
 import "./style.css";
 
@@ -175,18 +176,41 @@ class Summary extends React.Component {
           </div>
 
           <div className="component-summary__dashboard__sales-by-payment">
+            <i className="material-icons">remove_red_eye</i>
             {this.renderSalesByPayment()}
           </div>
           <div className="component-summary__dashboard__sales-by-customer">
+            <i
+              onClick={() => {
+                history.push("/charts/customer");
+              }}
+              className="material-icons"
+            >
+              remove_red_eye
+            </i>
+
             {this.renderSalesByCustomer()}
           </div>
           <div className="component-summary__dashboard__sales-by-product">
+            <i className="material-icons">remove_red_eye</i>
+
             {this.renderSalesByProduct()}
           </div>
           <div className="component-summary__dashboard__sales-by-date">
+            <i
+              onClick={() => {
+                history.push("/charts/date");
+              }}
+              className="material-icons"
+            >
+              remove_red_eye
+            </i>
+
             {this.renderSalesByDate()}
           </div>
           <div className="component-summary__dashboard__sales-by-store">
+            <i className="material-icons">remove_red_eye</i>
+
             {this.renderSalesByStore()}
           </div>
         </div>

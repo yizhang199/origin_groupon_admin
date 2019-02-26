@@ -12,20 +12,14 @@ class DateTable extends React.Component {
     this.state = { date: 0, quantity: 0, total: 0 };
   }
   sortByDate = () => {
-    console.log("date");
-
     const sortOrder = this.getSortOrder("date");
     this.props.sortReportDetails("date", sortOrder, this.props.reportDetails);
   };
   sortByTotal = () => {
-    console.log("total");
-
     const sortOrder = this.getSortOrder("total");
     this.props.sortReportDetails("total", sortOrder, this.props.reportDetails);
   };
   sortByQuantity = () => {
-    console.log("quantity");
-
     const sortOrder = this.getSortOrder("quantity");
     this.props.sortReportDetails(
       "quantity",
