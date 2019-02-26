@@ -25,6 +25,9 @@ class OrderTopNav extends React.Component {
         >
           用户团购订单
         </Link>
+        <Link className={this.getClass("/orders/stores")} to="/orders/stores">
+          店面订单管理
+        </Link>
       </div>
     );
   }
