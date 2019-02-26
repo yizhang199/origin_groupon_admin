@@ -29,16 +29,20 @@
   text-align: right;
   padding-left: 15px;
 }
-.component-detail-view-table th.number {
-  justify-content: flex-end;
-}
-.component-detail-view-table th.text {
-  justify-content: flex-start;
-}
-.component-detail-view-table thead th span {
+
+.component-detail-view-table thead th.number span {
   border-bottom: 3px solid #ffba2d;
   width: 100%;
   display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.component-detail-view-table thead th.text span {
+  border-bottom: 3px solid #ffba2d;
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-start;
   align-items: center;
 }
 
