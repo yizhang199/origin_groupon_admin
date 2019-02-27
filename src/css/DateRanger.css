@@ -1,6 +1,6 @@
 .component-date-ranger {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   height: 10vh;
   border-bottom: 3px solid #a5a5a5;

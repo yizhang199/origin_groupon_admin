@@ -1,10 +1,11 @@
 .component-store-order-list {
   width: 90vw;
-  height: 90vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  overflow: scroll;
 }
 .component-store-order-list__store {
   width: 90%;

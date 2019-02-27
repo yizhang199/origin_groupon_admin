@@ -9,6 +9,7 @@ import ProductOrderList from "./ProductOrderList";
 import CustomerOrderList from "./CustomerOrderList";
 import StoreOrderList from "./StoreOrderList";
 import OrderTopNav from "./OrderTopNav";
+import { DateRanger } from "./shared/";
 
 import "../css/OrderManageMainWindow.css";
 
@@ -20,6 +21,8 @@ class OrderManageMainWindow extends React.Component {
   render() {
     return (
       <div className="component-order-manange-main-window">
+        <DateRanger />
+
         <Router history={history}>
           <React.Fragment>
             <OrderTopNav {...this.props} />
