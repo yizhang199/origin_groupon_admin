@@ -33,9 +33,11 @@ class Category extends React.Component {
   getSortOrder = value => {
     let sortOrder = 0;
     if (this.state[value] === 1) {
+      this.setState({ category_name: 0, quantity: 0, total: 0 });
       this.setState({ [value]: -1 });
       sortOrder = -1;
     } else {
+      this.setState({ category_name: 0, quantity: 0, total: 0 });
       this.setState({ [value]: 1 });
       sortOrder = 1;
     }

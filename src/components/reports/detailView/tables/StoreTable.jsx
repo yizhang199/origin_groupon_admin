@@ -32,9 +32,12 @@ class StoreTable extends React.Component {
   getSortOrder = value => {
     let sortOrder = 0;
     if (this.state[value] === 1) {
+      this.setState({ store_name: 0, quantity: 0, total: 0 });
       this.setState({ [value]: -1 });
       sortOrder = -1;
     } else {
+      this.setState({ store_name: 0, quantity: 0, total: 0 });
+
       this.setState({ [value]: 1 });
       sortOrder = 1;
     }
@@ -57,13 +60,21 @@ class StoreTable extends React.Component {
       <thead>
         <tr>
           <th onClick={this.sortByStoreName} className="text">
-            <span>店铺名</span>
+            <span>
+              店铺名
+              <i className="material-icons">{this.getIcon("store_name")}</i>
+            </span>
           </th>
           <th onClick={this.sortByTotal} className="number">
-            <span>销售额</span>
+            <span>
+              销售额<i className="material-icons">{this.getIcon("total")}</i>
+            </span>
           </th>
           <th onClick={this.sortByQuantity} className="number">
-            <span>销售数量</span>
+            <span>
+              销售数量
+              <i className="material-icons">{this.getIcon("quantity")}</i>
+            </span>
           </th>
         </tr>
       </thead>

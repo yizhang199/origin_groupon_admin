@@ -42,9 +42,12 @@ class Customer extends React.Component {
   getSortOrder = value => {
     let sortOrder = 0;
     if (this.state[value] === 1) {
+      this.setState({ customer_id: 0, username: 0, quantity: 0, total: 0 });
       this.setState({ [value]: -1 });
       sortOrder = -1;
     } else {
+      this.setState({ customer_id: 0, username: 0, quantity: 0, total: 0 });
+
       this.setState({ [value]: 1 });
       sortOrder = 1;
     }

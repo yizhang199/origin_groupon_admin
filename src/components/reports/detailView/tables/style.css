@@ -7,10 +7,17 @@
   align-items: center;
   overflow: scroll;
 }
+.component-detail-view-table .material-icons {
+  transition: all 600ms ease;
+}
 .component-detail-view-table .tbl-content,
 .component-detail-view-table .tbl-header {
   width: 100%;
   table-layout: fixed;
+}
+.component-detail-view-table .material-icons {
+  animation-name: fade;
+  animation-duration: 2s;
 }
 
 .component-detail-view-table table {
@@ -48,4 +55,13 @@
 
 .component-detail-view-table tr {
   height: 30px;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
