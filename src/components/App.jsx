@@ -18,27 +18,27 @@ const App = () => {
 
           <Switch>
             <Route
-              path="/products"
+              path={`${process.env.PUBLIC_URL}/products`}
               render={props => <CatalogManageMainWindow {...props} />}
             />
             <Route path="/categories" component={CatalogManageMainWindow} />
             <Route path="/options" component={CatalogManageMainWindow} />
             <Route
-              path="/orders"
+              path={`${process.env.PUBLIC_URL}/orders`}
               render={props => <OrderManageMainWindow {...props} />}
             />
             <Route
-              path="/shops"
+              path={`${process.env.PUBLIC_URL}/shops`}
               render={props => <ShopManageMainWindow {...props} />}
             />
             <Route
-              path="/charts"
+              path={`${process.env.PUBLIC_URL}/charts`}
               render={props => <ChartManageMainWindow {...props} />}
             />
             <Route exact path="/example" name="roben" component={Example} />
             <Route
               exact
-              path="/"
+              path={`${process.env.PUBLIC_URL}/`}
               render={props => <CatalogManageMainWindow {...props} />}
             />
           </Switch>

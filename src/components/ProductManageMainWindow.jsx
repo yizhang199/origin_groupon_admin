@@ -76,7 +76,7 @@ class ProductManageMainWindow extends React.Component {
               <div className="button-container">
                 <button
                   onClick={() => {
-                    history.push("/products/create");
+                    history.push(`${process.env.PUBLIC_URL}/products/create`);
                   }}
                 >
                   新建商品
@@ -88,10 +88,13 @@ class ProductManageMainWindow extends React.Component {
               <Switch>
                 <Route
                   exact
-                  path="/products/edit/:product_id"
+                  path={`${process.env.PUBLIC_URL}/products/edit/:product_id`}
                   component={EditProduct}
                 />
-                <Route path="/products/create" component={CreateProduct} />
+                <Route
+                  path={`${process.env.PUBLIC_URL}/products/create`}
+                  component={CreateProduct}
+                />
               </Switch>
             </div>
           </React.Fragment>

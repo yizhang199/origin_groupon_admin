@@ -14,10 +14,16 @@ class ShopTopNav extends React.Component {
   render() {
     return (
       <div className="component-shop-top-nav">
-        <Link to="/shops/create" className={this.getClassName("/shops/create")}>
+        <Link
+          to={`${process.env.PUBLIC_URL}/shops/create`}
+          className={this.getClassName("/shops/create")}
+        >
           创建新店面
         </Link>
-        <Link to="/shops/update" className={this.getClassName("/shops/update")}>
+        <Link
+          to={`${process.env.PUBLIC_URL}/shops/update`}
+          className={this.getClassName("/shops/update")}
+        >
           编辑店面信息
         </Link>
       </div>

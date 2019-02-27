@@ -12,8 +12,16 @@ const ChartManageMainWindow = () => {
       <DateRanger />
       <Router history={history}>
         <>
-          <Route exact path="/charts" component={Summary} />
-          <Route exact path="/charts/:report_category" component={DetailView} />
+          <Route
+            exact
+            path={`${process.env.PUBLIC_URL}/charts`}
+            component={Summary}
+          />
+          <Route
+            exact
+            path={`${process.env.PUBLIC_URL}/charts/:report_category`}
+            component={DetailView}
+          />
         </>
       </Router>
     </div>

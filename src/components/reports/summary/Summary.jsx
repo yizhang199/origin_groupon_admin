@@ -208,7 +208,7 @@ class Summary extends React.Component {
           <div className="component-summary__dashboard__sales-by-customer">
             <i
               onClick={() => {
-                history.push("/charts/customer");
+                history.push(`${process.env.PUBLIC_URL}/charts/customer`);
               }}
               className="material-icons"
             >
@@ -220,7 +220,7 @@ class Summary extends React.Component {
           <div className="component-summary__dashboard__sales-by-product">
             <i
               onClick={() => {
-                history.push("/charts/product");
+                history.push(`${process.env.PUBLIC_URL}/charts/product`);
               }}
               className="material-icons"
             >
@@ -232,7 +232,7 @@ class Summary extends React.Component {
           <div className="component-summary__dashboard__sales-by-date">
             <i
               onClick={() => {
-                history.push("/charts/date");
+                history.push(`${process.env.PUBLIC_URL}/charts/date`);
               }}
               className="material-icons"
             >
@@ -244,7 +244,7 @@ class Summary extends React.Component {
           <div className="component-summary__dashboard__sales-by-store">
             <i
               onClick={() => {
-                history.push("/charts/store");
+                history.push(`${process.env.PUBLIC_URL}/charts/store`);
               }}
               className="material-icons"
             >

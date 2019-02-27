@@ -28,10 +28,23 @@ class OrderManageMainWindow extends React.Component {
             <OrderTopNav {...this.props} />
             <div className="main-window">
               <Switch>
-                <Route path="/orders/products" component={ProductOrderList} />
-                <Route path="/orders/customers" component={CustomerOrderList} />
-                <Route path="/orders/stores" component={StoreOrderList} />
-                <Route exact path="/orders/" component={ProductOrderList} />
+                <Route
+                  path={`${process.env.PUBLIC_URL}/orders/products`}
+                  component={ProductOrderList}
+                />
+                <Route
+                  path={`${process.env.PUBLIC_URL}/orders/customers`}
+                  component={CustomerOrderList}
+                />
+                <Route
+                  path={`${process.env.PUBLIC_URL}/orders/stores`}
+                  component={StoreOrderList}
+                />
+                <Route
+                  exact
+                  path={`${process.env.PUBLIC_URL}/orders/`}
+                  component={ProductOrderList}
+                />
               </Switch>
             </div>
           </React.Fragment>

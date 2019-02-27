@@ -17,7 +17,7 @@ const show = id => {
     const response = await kidsnParty.get(`/products/${id}`);
 
     dispatch({ type: types.getProduct, payload: response.data });
-    history.push(`/products/edit/${id}`);
+    history.push(`${process.env.PUBLIC_URL}/products/edit/${id}`);
   };
 };
 
@@ -62,7 +62,7 @@ const create = () => {
     });
 
     dispatch({ type: types.getProducts, payload: response.data.products });
-    history.push("/");
+    history.push(`${process.env.PUBLIC_URL}/`);
   };
 };
 

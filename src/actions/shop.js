@@ -10,7 +10,7 @@ export const fetchShop = location_id => {
       type: types.fetchSingleShop,
       payload: response.data.shop
     });
-    history.push(`/shops/update/${location_id}`);
+    history.push(`${process.env.PUBLIC_URL}/shops/update/${location_id}`);
   };
 };
 

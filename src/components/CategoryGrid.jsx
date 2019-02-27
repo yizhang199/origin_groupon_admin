@@ -30,7 +30,7 @@ class CategoryGrid extends React.Component {
       <div className="component-category-grid">
         {this.renderCategriesGrid()}
         <Link
-          to={`/categories/create`}
+          to={`${process.env.PUBLIC_URL}/categories/create`}
           className="component-category-grid__add-button"
         >
           <i className="material-icons">add</i>

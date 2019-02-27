@@ -107,7 +107,7 @@ const show = report_category => {
       type: types.fetchReportDetails,
       payload: response.data
     });
-    history.push(`/charts/${report_category}`);
+    history.push(`${process.env.PUBLIC_URL}/charts/${report_category}`);
   };
 };
 const setCategory = payload => {

@@ -19,19 +19,31 @@ const LeftSideMenu = () => {
         <img src="favicon.ico" alt="" />
       </div>
       <div className="component-left-side-menu__menu">
-        <Link to={`/orders`} className={getClass("/orders")}>
+        <Link
+          to={`${process.env.PUBLIC_URL}/orders`}
+          className={getClass("/orders")}
+        >
           <i className="material-icons">assignment</i>
           订单管理
         </Link>
-        <Link to={`/products`} className={getClass("/products")}>
+        <Link
+          to={`${process.env.PUBLIC_URL}/products`}
+          className={getClass("/products")}
+        >
           <i className="material-icons">fastfood</i>
           商品管理
         </Link>
-        <Link to={`/shops`} className={getClass("/shops")}>
+        <Link
+          to={`${process.env.PUBLIC_URL}/shops`}
+          className={getClass("/shops")}
+        >
           <i className="material-icons">store_mall_directory</i>
           店面管理
         </Link>
-        <Link to={`/charts`} className={getClass("/charts")}>
+        <Link
+          to={`${process.env.PUBLIC_URL}/charts`}
+          className={getClass("/charts")}
+        >
           <i className="material-icons">insert_chart_outlined</i>
           经营分析
         </Link>

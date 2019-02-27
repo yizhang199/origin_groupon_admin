@@ -19,11 +19,19 @@ class ShopManageMainWindow extends React.Component {
             <Switch>
               <Route
                 exact
-                path={`/shops/update/:location_id`}
+                path={`${process.env.PUBLIC_URL}/shops/update/:location_id`}
                 component={EditShopForm}
               />
-              <Route exact patch={`/shops/create`} component={CreateShopForm} />
-              <Route exact path={`/shops`} component={CreateShopForm} />
+              <Route
+                exact
+                patch={`${process.env.PUBLIC_URL}/shops/create`}
+                component={CreateShopForm}
+              />
+              <Route
+                exact
+                path={`${process.env.PUBLIC_URL}/shops`}
+                component={CreateShopForm}
+              />
             </Switch>
           </Router>
         </div>

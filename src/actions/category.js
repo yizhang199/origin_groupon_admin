@@ -63,7 +63,7 @@ const show = category_id => {
       type: types.selectCategory,
       payload: response.data
     });
-    history.push(`/categories/update/${category_id}`);
+    history.push(`${process.env.PUBLIC_URL}/categories/update/${category_id}`);
   };
 };
 

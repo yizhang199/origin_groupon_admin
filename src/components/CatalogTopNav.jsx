@@ -14,13 +14,22 @@ const CatalogTopNav = () => {
   };
   return (
     <div className="component-catalog-top-menu">
-      <Link className={getClassName("/products")} to="/products">
+      <Link
+        className={getClassName("/products")}
+        to={`${process.env.PUBLIC_URL}/products`}
+      >
         商品管理
       </Link>
-      <Link className={getClassName("/categories")} to="/categories">
+      <Link
+        className={getClassName("/categories")}
+        to={`${process.env.PUBLIC_URL}/categories`}
+      >
         分类管理
       </Link>
-      <Link className={getClassName("/options")} to="/options">
+      <Link
+        className={getClassName("/options")}
+        to={`${process.env.PUBLIC_URL}/options`}
+      >
         规格管理
       </Link>
     </div>
