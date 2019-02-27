@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { deleteCategory, fetchSingleCategory } from "../actions";
+import { baseUrl } from "../apis/kidsnParty";
 import "../css/CategoryGridItem.css";
 
 const CategoryGridItem = ({
@@ -16,7 +17,7 @@ const CategoryGridItem = ({
     deleteCategory(category.category_id);
   };
 
-  const baseUrl = "http://localhost/groupon_api/public";
+  // const baseUrl = "http://localhost/groupon_api/public";
   return (
     <div className="component-category-grid-item">
       <div className="component-category-grid-item__close" onClick={remove}>
