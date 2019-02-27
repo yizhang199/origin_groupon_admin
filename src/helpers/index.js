@@ -33,3 +33,8 @@ export const makeType = value => {
       return "";
   }
 };
+export const getStyle = value => {
+  if (value % 2 !== 0) {
+    return { backgroundColor: "#f7dba185" };
+  }
+};

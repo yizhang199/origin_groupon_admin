@@ -5,6 +5,7 @@ import { Bar, Line, Pie } from "react-chartjs-2";
 import { fetchReportsSummary } from "../../../actions";
 import { makeDate } from "../../../helpers";
 import { history } from "../../../history";
+import { getStyle } from "../detailView/tables/helper";
 
 import "./style.css";
 
@@ -84,18 +85,37 @@ class Summary extends React.Component {
     return <Line data={data} width={600} height={300} />;
   };
   renderSalesByCustomer = () => {
-    const data = this.props.reportSummary.sales_by_custmer;
+    const data = this.props.reportSummary.sales_by_customer;
     if (!data) {
       return null;
     }
+    let index = 0;
     return (
       <table>
+        <thead>
+          <tr>
+            <th className="text">
+              <span>用户</span>
+            </th>
+            <th className="number">
+              <span>消费总额</span>
+            </th>
+            <th className="number">
+              <span>订单总数</span>
+            </th>
+          </tr>
+        </thead>
         <tbody>
           {data.map(element => {
+            index++;
             return (
-              <tr key={`customer${element.customer_id}`}>
-                <td>{element.customer_id}</td>
-                <td>{element.total}</td>
+              <tr
+                key={`customer${element.customer_id}`}
+                style={getStyle(index)}
+              >
+                <td className="text">{element.username}</td>
+                <td className="number">{element.total}</td>
+                <td className="number">{element.quantity}</td>
               </tr>
             );
           })}
@@ -146,20 +166,26 @@ class Summary extends React.Component {
     if (!data) {
       return null;
     }
+    let index = 0;
     return (
       <table>
         <thead>
           <tr>
-            <td>日期</td>
-            <td>销售额</td>
+            <th className="text">
+              <span>日期</span>
+            </th>
+            <th className="number">
+              <span>销售额</span>
+            </th>
           </tr>
         </thead>
         <tbody>
           {data.map(element => {
+            index++;
             return (
-              <tr key={`store${element.date}`}>
-                <td>{makeDate(element.date)}</td>
-                <td>{element.total}</td>
+              <tr key={`store${element.date}`} style={getStyle(index)}>
+                <td className="text">{makeDate(element.date)}</td>
+                <td className="number">{element.total}</td>
               </tr>
             );
           })}

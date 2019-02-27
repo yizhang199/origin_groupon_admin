@@ -134,6 +134,13 @@ const reportCategoryReducer = (report_category = "", action) => {
   }
   return report_category;
 };
+const ordersByStoreReducer = (ordersByStore = [], action) => {
+  if (action.type === actionTypes.fetchOrdersByStore) {
+    return action.payload;
+  }
+
+  return ordersByStore;
+};
 export default combineReducers({
   products: productsReducer,
   form: formReducer,
@@ -153,5 +160,6 @@ export default combineReducers({
   startDate: startDateReducer,
   endDate: endDateReducer,
   reportDetails: reportDetailsReducer,
-  report_category: reportCategoryReducer
+  report_category: reportCategoryReducer,
+  ordersByStore: ordersByStoreReducer
 });
