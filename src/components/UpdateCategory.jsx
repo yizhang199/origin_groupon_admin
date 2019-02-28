@@ -17,8 +17,8 @@ class UpdateCategory extends React.Component {
     }
   }
 
-  onSubmit = () => {
-    this.props.updateCategory(this.props.selectedCategory.category_id);
+  onSubmit = file => {
+    this.props.updateCategory(this.props.selectedCategory.category_id, file);
   };
   render() {
     if (!this.props.selectedCategory.image) {

@@ -14,6 +14,9 @@ const productReducer = (product = {}, action) => {
   if (action.type === actionTypes.getProduct) {
     return action.payload;
   }
+  if (action.type === actionTypes.setProductImage) {
+    return { ...product, image: action.payload };
+  }
   return product;
 };
 

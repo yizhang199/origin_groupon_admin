@@ -21,7 +21,7 @@ const show = id => {
   };
 };
 
-const update = product_id => {
+const update = (product_id, file) => {
   return async function(dispatch, getState) {
     const product = getState().form.productForm.values;
     const { options, category } = getState().newProduct;
@@ -32,7 +32,8 @@ const update = product_id => {
       {
         product,
         category,
-        options
+        options,
+        file
       },
       {
         headers
@@ -51,14 +52,15 @@ const switchProductStatus = product => {
   };
 };
 
-const create = () => {
+const create = file => {
   return async function(dispatch, getState) {
     const product = getState().form.productForm.values;
     const { options, category } = getState().newProduct;
     const response = await kidsnParty.post("/products", {
       product,
       category,
-      options
+      options,
+      file
     });
 
     dispatch({ type: types.getProducts, payload: response.data.products });
@@ -79,10 +81,18 @@ const search = (value, product_status) => {
     dispatch({ type: types.getProducts, payload: response.data });
   };
 };
+
+const setImage = value => {
+  return {
+    type: types.setProductImage,
+    payload: value
+  };
+};
 export default {
   index,
   show,
   update,
+  setImage,
   switchProductStatus,
   create,
   removeOption,

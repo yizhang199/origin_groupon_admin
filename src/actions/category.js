@@ -31,9 +31,9 @@ export const select = category => {
   };
 };
 
-const update = category_id => {
+const update = (category_id, file) => {
   return async function(dispatch, getState) {
-    const requestBody = getState().form.categoryForm.values;
+    const requestBody = { ...getState().form.categoryForm.values, file };
     const response = await kidsnParty.put(
       `/categories/${category_id}`,
       requestBody

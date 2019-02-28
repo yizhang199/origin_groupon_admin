@@ -14,9 +14,54 @@ class EditForm extends React.Component {
     this.state = {
       productOptions: [],
       isShowAddOptionForm: false,
-      isShowAddCategoryForm: false
+      isShowAddCategoryForm: false,
+      image: "",
+      fileName: ""
     };
   }
+
+  onChange = e => {
+    let files = e.target.files || e.dataTransfer.files;
+    if (!files.length) return;
+
+    this.props.setSelectProductImage(URL.createObjectURL(files[0]));
+    this.setState({
+      fileName: files[0].name
+    });
+    this.createImage(files[0]);
+  };
+  createImage = file => {
+    let reader = new FileReader();
+    reader.onload = e => {
+      this.setState({
+        image: e.target.result
+      });
+    };
+    reader.readAsDataURL(file);
+  };
+
+  renderImage = () => {
+    if (this.props.image === "") {
+      return null;
+    }
+    return (
+      <div className="component-category-form__upload-image__img-container">
+        <img
+          src={this.props.image}
+          className="component-category-form__upload-image__img"
+          alt=""
+        />
+      </div>
+    );
+  };
+
+  // How To:: Upload image / files in React.js
+  getFileName = () => {
+    if (this.state.image === "") {
+      return <span>请选择图片</span>;
+    }
+    return <span>{this.state.fileName}</span>;
+  };
   componentDidMount() {
     this.props.fetchOptions();
   }
@@ -97,7 +142,9 @@ class EditForm extends React.Component {
       );
     });
   };
-
+  onSubmit = () => {
+    this.props.onSubmit(this.state.image);
+  };
   toggleAddOptionToNewProductForm = () => {
     this.setState({ isShowAddOptionForm: !this.state.isShowAddOptionForm });
   };
@@ -108,7 +155,7 @@ class EditForm extends React.Component {
           <ProductFormCategorySelector />
         </div>
         <form
-          onSubmit={this.props.handleSubmit(this.props.onSubmit)}
+          onSubmit={this.props.handleSubmit(this.onSubmit)}
           className="edit-form"
         >
           <div className="component-edit-form__subtitle">
@@ -188,6 +235,18 @@ class EditForm extends React.Component {
               component={this.renderInput}
               placeholder="设置MaxNumber"
             />
+          </div>
+          <div className="component-edit-form__upload-image_container">
+            <label className="component-edit-form__upload-image_label">
+              <input
+                type="file"
+                onChange={this.onChange}
+                className="component-edit-form__upload-image_input"
+              />
+              <i className="material-icons">attachment</i>
+              {this.getFileName()}
+            </label>
+            {this.renderImage()}
           </div>
           <hr />
           <div className="component-edit-form__subtitle">

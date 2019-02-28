@@ -15,6 +15,7 @@ export const getProduct = Product.show;
 export const updateProduct = Product.update;
 export const switchProductStatus = Product.switchProductStatus;
 export const createNewProduct = Product.create;
+export const setProductImage = Product.setImage; //support upload image
 export const setNewProductCategory = setCategory; //support create product
 export const setNewProductOptions = setOptions; //support create product
 export const removeOptionsFromNewProduct = Product.removeOption; //support create product

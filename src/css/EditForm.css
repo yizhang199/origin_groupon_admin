@@ -126,3 +126,44 @@
 .component-edit-form__options_remove-button .material-icons {
   font-size: 20px;
 }
+
+.component-edit-form__upload-image_input {
+  position: absolute;
+  opacity: 0;
+}
+.component-edit-form__upload-image_label {
+  background-color: #df474b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180px;
+  height: 40px;
+  padding: 7px;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #a5a5a5;
+
+  box-shadow: 0 0 5px #5a5a5a;
+}
+.component-edit-form__upload-image_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.component-edit-form__upload-image__img-container {
+  /* flex: 1; */
+  width: 180px;
+  height: calc(25vh - 100px);
+  padding: 3px;
+  background-color: #fff;
+  border: 1px solid #5a5a5a;
+  border-radius: 3px;
+}
+.component-edit-form__upload-image__img {
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+}

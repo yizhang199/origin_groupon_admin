@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { switchProductStatus, getProduct } from "../actions";
+import { baseUrl } from "../apis/kidsnParty";
 
 const ProductCard = ({ product, switchProductStatus, getProduct }) => {
   const renderChangeStatusButton = ({ status }) => {
@@ -27,7 +28,7 @@ const ProductCard = ({ product, switchProductStatus, getProduct }) => {
     <div className="product-card" data-test="component-product-card">
       <div className="product-card-header">
         <div className="product-image-container">
-          <img src={`${process.env.PUBLIC_URL}${product.image}`} alt="" />
+          <img src={`${baseUrl}${product.image}`} alt="" />
         </div>
         <div className="product-info">
           <div className="product-name" data-test="product-name">

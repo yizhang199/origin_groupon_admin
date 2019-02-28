@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getProduct, updateProduct } from "../actions";
+import { getProduct, updateProduct, setProductImage } from "../actions";
 import ProductForm from "./ProductForm";
 
 import "../css/UpdateProduct.css";
@@ -14,9 +14,9 @@ class EditProduct extends React.Component {
     }
   }
 
-  onSubmit = () => {
+  onSubmit = file => {
     const id = parseInt(this.props.match.params.product_id);
-    this.props.updateProduct(id);
+    this.props.updateProduct(id, file);
   };
 
   render() {
@@ -35,6 +35,8 @@ class EditProduct extends React.Component {
             quantity: this.props.product.product.quantity
           }}
           onSubmit={this.onSubmit}
+          setSelectProductImage={this.props.setProductImage}
+          image={this.props.product.image}
         />
       </div>
     );
@@ -47,5 +49,5 @@ const mapStateToProps = ({ product }) => {
 
 export default connect(
   mapStateToProps,
-  { getProduct, updateProduct }
+  { getProduct, updateProduct, setProductImage }
 )(EditProduct);
