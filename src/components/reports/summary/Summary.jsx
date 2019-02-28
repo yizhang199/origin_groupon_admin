@@ -193,6 +193,45 @@ class Summary extends React.Component {
       </table>
     );
   };
+  renderSalesByCategory = () => {
+    const orignalData = this.props.reportSummary.sales_by_category;
+    if (!orignalData) {
+      return null;
+    }
+
+    let labels = [];
+    let dataArray = [];
+    orignalData.map(ele => {
+      labels = [...labels, ele.category_name];
+      dataArray = [...dataArray, ele.total];
+    });
+
+    const data = {
+      labels,
+      datasets: [
+        {
+          data: dataArray,
+          backgroundColor: ["#ffba2d", "#ff3939", "#9CD919"]
+        }
+      ]
+    };
+
+    const options = {
+      title: {
+        display: true,
+        text: "产品分类销售报告",
+        fontSize: 20
+      },
+      legend: {
+        position: "right",
+        labels: {
+          fontColor: "#a5a5a5"
+        }
+      }
+    };
+
+    return <Pie width={450} height={225} data={data} options={options} />;
+  };
   render() {
     return (
       <div className="component-summary">
@@ -240,6 +279,17 @@ class Summary extends React.Component {
             </i>
 
             {this.renderSalesByDate()}
+          </div>
+          <div className="component-summary__dashboard__sales-by-category">
+            <i
+              onClick={() => {
+                history.push(`${process.env.PUBLIC_URL}/charts/category`);
+              }}
+              className="material-icons"
+            >
+              remove_red_eye
+            </i>
+            {this.renderSalesByCategory()}
           </div>
           <div className="component-summary__dashboard__sales-by-store">
             <i
