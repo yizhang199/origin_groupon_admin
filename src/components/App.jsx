@@ -21,8 +21,14 @@ const App = () => {
               path={`${process.env.PUBLIC_URL}/products`}
               render={props => <CatalogManageMainWindow {...props} />}
             />
-            <Route path="/categories" component={CatalogManageMainWindow} />
-            <Route path="/options" component={CatalogManageMainWindow} />
+            <Route
+              path={`${process.env.PUBLIC_URL}/categories`}
+              component={CatalogManageMainWindow}
+            />
+            <Route
+              path={`${process.env.PUBLIC_URL}/options`}
+              component={CatalogManageMainWindow}
+            />
             <Route
               path={`${process.env.PUBLIC_URL}/orders`}
               render={props => <OrderManageMainWindow {...props} />}
@@ -35,7 +41,12 @@ const App = () => {
               path={`${process.env.PUBLIC_URL}/charts`}
               render={props => <ChartManageMainWindow {...props} />}
             />
-            <Route exact path="/example" name="roben" component={Example} />
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/example`}
+              name="roben"
+              component={Example}
+            />
             <Route
               exact
               path={`${process.env.PUBLIC_URL}/`}

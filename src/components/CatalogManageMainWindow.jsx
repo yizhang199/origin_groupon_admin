@@ -15,10 +15,23 @@ class CatalogManageMainWindow extends React.Component {
         <CatalogTopNav />
         <Router history={history}>
           <Switch>
-            <Route component={ProductManageMainWindow} path="/products" />
-            <Route component={CategoryManageMainWindow} path="/categories" />
-            <Route component={OptionManageMainWindow} path="/options" />
-            <Route exact component={ProductManageMainWindow} path="/" />
+            <Route
+              component={ProductManageMainWindow}
+              path={`${process.env.PUBLIC_URL}/products`}
+            />
+            <Route
+              component={CategoryManageMainWindow}
+              path={`${process.env.PUBLIC_URL}/categories`}
+            />
+            <Route
+              component={OptionManageMainWindow}
+              path={`${process.env.PUBLIC_URL}/options`}
+            />
+            <Route
+              exact
+              component={ProductManageMainWindow}
+              path={`${process.env.PUBLIC_URL}/`}
+            />
           </Switch>
         </Router>
       </div>

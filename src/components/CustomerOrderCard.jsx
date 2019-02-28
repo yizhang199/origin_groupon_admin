@@ -22,7 +22,7 @@ class CustomerOrderCard extends React.Component {
    * @return {css} css in-line style
    */
   getStyle = () => {
-    switch (this.props.order.order_status_id) {
+    switch (parseInt(this.props.order.order_status_id)) {
       case 2:
         return {
           orderCard_tab: {
@@ -90,7 +90,7 @@ class CustomerOrderCard extends React.Component {
     this.props.showDetails();
   };
   getButton = () => {
-    if (this.props.order.order_status_id === 1) {
+    if (parseInt(this.props.order.order_status_id) === 1) {
       return null;
     }
     return (
@@ -110,7 +110,7 @@ class CustomerOrderCard extends React.Component {
     );
   };
   getCheckedValue = () => {
-    if (this.props.order.order_status_id === 3) {
+    if (parseInt(this.props.order.order_status_id) === 3) {
       return true;
     } else {
       return false;

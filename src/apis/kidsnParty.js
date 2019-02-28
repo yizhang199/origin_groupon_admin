@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: `http://localhost:8000/api`
+  baseURL: `http://kidsnparty.com.au/roben_api/groupon/public/api`
 });
 
-export const baseUrl = "http://localhost/groupon_api/public";
+export const baseUrl = "http://kidsnparty.com.au/roben_api/groupon/public";
