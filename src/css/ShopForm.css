@@ -146,8 +146,6 @@
 
 .component-shop-form__date-picker__label {
   display: flex;
-  width: 100%;
-  padding: 2rem;
   justify-content: space-between;
   align-items: center;
 }
