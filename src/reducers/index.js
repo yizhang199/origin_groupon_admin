@@ -144,6 +144,16 @@ const ordersByStoreReducer = (ordersByStore = [], action) => {
 
   return ordersByStore;
 };
+
+const toggleModalReducer = (modalStatus = false, action) => {
+  if (action.type === actionTypes.hideModal) {
+    return false;
+  } else if (action.type === actionTypes.showModal) {
+    return true;
+  }
+
+  return modalStatus;
+};
 export default combineReducers({
   products: productsReducer,
   form: formReducer,
@@ -164,5 +174,6 @@ export default combineReducers({
   endDate: endDateReducer,
   reportDetails: reportDetailsReducer,
   report_category: reportCategoryReducer,
-  ordersByStore: ordersByStoreReducer
+  ordersByStore: ordersByStoreReducer,
+  modalStatus: toggleModalReducer
 });
