@@ -48,9 +48,17 @@ const patch = shop => {
   };
 };
 
+const handleDateChange = newDate => {
+  return {
+    type: types.shopOpenDateChange,
+    payload: newDate
+  };
+};
+
 export default {
   fetchShop,
   create,
   update,
-  patch
+  patch,
+  handleDateChange
 };

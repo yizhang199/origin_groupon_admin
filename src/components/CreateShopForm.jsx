@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { createShop } from "../actions";
+import { createShop, handleDateChange } from "../actions";
 import ShopForm from "./ShopForm";
 class CreateShopForm extends React.Component {
   componentDidMount() {}
@@ -13,7 +13,11 @@ class CreateShopForm extends React.Component {
     return (
       <div>
         创建新店面
-        <ShopForm onSubmit={this.onSubmit} button_label={`确认添加`} />
+        <ShopForm
+          onSubmit={this.onSubmit}
+          handleDateChange={this.props.handleDateChange}
+          button_label={`确认添加`}
+        />
       </div>
     );
   }
@@ -21,5 +25,5 @@ class CreateShopForm extends React.Component {
 
 export default connect(
   null,
-  { createShop }
+  { createShop, handleDateChange }
 )(CreateShopForm);

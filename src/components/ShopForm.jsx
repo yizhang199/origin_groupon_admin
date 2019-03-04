@@ -10,12 +10,6 @@ import "../css/Calendar.css";
 class ShopForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { avaliableDates: [], openDates: [] };
-  }
-  componentDidMount() {
-    if (this.props.shop) {
-      this.setState({ openDates: this.props.shop.open });
-    }
   }
 
   renderInput = ({ input, placeholder }) => {
@@ -24,33 +18,18 @@ class ShopForm extends React.Component {
   handleDateChange = e => {
     const newDate = new Date(e);
 
-    const isIncludes = this.checkOpenDates(newDate);
-    if (isIncludes) {
-      this.setState({
-        openDates: this.state.openDates.filter(
-          date => date.toLocaleDateString() !== newDate.toLocaleDateString()
-        )
-      });
-    } else {
-      this.setState({ openDates: [...this.state.openDates, newDate] });
-    }
+    this.props.handleDateChange(newDate);
+    this.setState({ openDates: this.props.shop.open });
   };
 
-  checkOpenDates = newDate => {
-    let flag = false;
-    this.state.openDates.map(element => {
-      if (element.toLocaleDateString() === newDate.toLocaleDateString()) {
-        flag = true;
-        return;
-      }
-    });
-    return flag;
-  };
   renderOpenDates = () => {
-    if (!this.state.openDates) {
+    if (!this.props.shop) {
       return null;
     }
-    return this.state.openDates.map((openDate, index) => {
+    if (this.props.shop.open.length <= 0) {
+      return null;
+    }
+    return this.props.shop.open.map((openDate, index) => {
       return (
         <span
           key={`openDate${index}`}
@@ -61,11 +40,9 @@ class ShopForm extends React.Component {
           </span>
           <span
             className="component-shop-form__tag-dismiss"
-            onClick={() =>
-              this.setState({
-                openDates: this.state.openDates.filter(ele => ele !== openDate)
-              })
-            }
+            onClick={() => {
+              this.props.handleDateChange(new Date(openDate));
+            }}
           >
             <i className="material-icons">clear</i>
           </span>
@@ -82,6 +59,10 @@ class ShopForm extends React.Component {
     this.props.onSubmit({ ...formValues, open: this.state.openDates });
   };
   render() {
+    const highlightDates = this.props.shop.open.map(element => {
+      return new Date(element);
+    });
+
     return (
       <div className="component-shop-form">
         <form
@@ -116,7 +97,7 @@ class ShopForm extends React.Component {
           <DatePicker
             dayClassName={this.getCalendarDayClass}
             onChange={this.handleDateChange}
-            highlightDates={this.state.openDates}
+            highlightDates={highlightDates}
             shouldCloseOnSelect={false}
             withPortal
           />

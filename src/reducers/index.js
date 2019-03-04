@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { actionTypes } from "../actions";
 import { reducer as formReducer } from "redux-form";
 import newProductReducer from "./newProductReducer";
+import selectedShopReducer from "./selectedShopReducer";
 
 const productsReducer = (products = [], action) => {
   if (action.type === actionTypes.getProducts) {
@@ -64,13 +65,6 @@ const avaliableCategoriesReducer = (avaliableCategories = [], action) => {
     return action.payload;
   }
   return avaliableCategories;
-};
-
-const selectedShopReducer = (selectedShop = {}, action) => {
-  if (action.type === actionTypes.fetchSingleShop) {
-    return action.payload;
-  }
-  return selectedShop;
 };
 
 const reportSummaryReducer = (reportSummary = {}, action) => {
@@ -154,6 +148,7 @@ const toggleModalReducer = (modalStatus = false, action) => {
 
   return modalStatus;
 };
+
 export default combineReducers({
   products: productsReducer,
   form: formReducer,

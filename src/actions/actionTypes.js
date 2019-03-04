@@ -26,7 +26,8 @@ const actionTypes = {
   fetchReportDetails: "FETCH_REPORT_DETAILS",
   setReportCategory: "SET_REPORT_CATEGORY",
   fetchOrdersByStore: "FETCH_ORDERS_BY_STORE",
-  setProductImage: "SET_PRODUCT_IMAGE"
+  setProductImage: "SET_PRODUCT_IMAGE",
+  shopOpenDateChange: "SHOP_OPEN_DATE_CHANGE"
 };
 
 export default actionTypes;

@@ -1,7 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchSingleShop, updateShop, changeSelectedShop } from "../actions";
+import {
+  fetchSingleShop,
+  updateShop,
+  changeSelectedShop,
+  handleDateChange
+} from "../actions";
 import ShopForm from "./ShopForm";
 
 class EditShopForm extends React.Component {
@@ -26,6 +31,7 @@ class EditShopForm extends React.Component {
         <ShopForm
           shop={this.props.selectedShop}
           initialValues={this.props.selectedShop}
+          handleDateChange={this.props.handleDateChange}
           onSubmit={this.onSubmit}
           button_label={`确认保存`}
         />
@@ -40,5 +46,5 @@ const mapStateToProps = ({ selectedShop }) => {
 
 export default connect(
   mapStateToProps,
-  { fetchSingleShop, changeSelectedShop, updateShop }
+  { fetchSingleShop, changeSelectedShop, updateShop, handleDateChange }
 )(EditShopForm);
