@@ -1,0 +1,58 @@
+.component-table {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: scroll;
+  .material-icons {
+    transition: all 600ms ease;
+  }
+  .tbl-content,
+  .tbl-header {
+    width: 100%;
+    table-layout: fixed;
+  }
+  table {
+    margin-top: 20px;
+    width: 80%;
+    border-spacing: 0;
+    tr {
+      height: 30px;
+    }
+  }
+  td,
+  th {
+    &.text {
+      text-align: left;
+      padding-right: 15px;
+    }
+    &.number {
+      text-align: right;
+      padding-left: 15px;
+    }
+  }
+  thead {
+    th {
+      &.number {
+        span {
+          border-bottom: 3px solid #ffba2d;
+          width: 100%;
+          display: inline-flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+      }
+      &.text {
+        span {
+          border-bottom: 3px solid #ffba2d;
+          width: 100%;
+          display: inline-flex;
+          justify-content: flex-start;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

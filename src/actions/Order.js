@@ -74,6 +74,19 @@ const search = search_string => {
     dispatch({ type: types.getOrders, payload: response.data.orders });
   };
 };
+
+const fetchbyProducts = () => {
+  return async function(dispatch, getState) {
+    const { startDate, endDate } = getState();
+    const response = await kidsnParty.get(`/report`, {
+      params: { startDate, endDate, report_category: "product" }
+    });
+    dispatch({
+      type: types.fetchReportDetails,
+      payload: response.data
+    });
+  };
+};
 export default {
   index,
   show,
@@ -81,6 +94,7 @@ export default {
   patch,
   marking,
   search,
+  fetchbyProducts,
   onPageChange,
   fetchByStore
 };

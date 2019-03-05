@@ -16,8 +16,8 @@ class Page extends React.Component {
     this.props.getProducts();
   }
   renderIconText = () => {
-    if (this.tableView) {
-      return "list";
+    if (this.state.tableView) {
+      return "view_list";
     }
     return "table_chart";
   };

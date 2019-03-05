@@ -61,6 +61,7 @@ export const markingOrder = Order.marking;
 export const fetchOrdersByStore = Order.fetchByStore;
 export const onCustomerOrderListPageChange = Order.onPageChange;
 export const searchingOrders = Order.search;
+export const fetchProductOrderDetails = Order.fetchbyProducts;
 
 // shop actions
 export const fetchSingleShop = fetchShop;

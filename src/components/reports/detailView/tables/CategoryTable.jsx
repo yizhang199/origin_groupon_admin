@@ -95,7 +95,6 @@ class Category extends React.Component {
       <div className="component-detail-view-table">
         <table>
           {this.renderThead()}
-
           {this.renderTbody()}
         </table>
       </div>
