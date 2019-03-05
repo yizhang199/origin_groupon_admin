@@ -1,0 +1,16 @@
+.component-productorders__Bar-view {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  height: 90vw;
+  overflow: scroll;
+  .product-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 30px 30px 30px;
+    align-items: baseline;
+    border-bottom: 0.7px solid #d4d4d4;
+  }
+}

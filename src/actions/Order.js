@@ -51,7 +51,6 @@ const onPageChange = pageNumber => {
         page: pageNumber
       }
     });
-
     dispatch({ type: types.getOrders, payload: response.data.orders });
   };
 };
@@ -65,12 +64,23 @@ const fetchByStore = () => {
     dispatch({ type: types.fetchOrdersByStore, payload: response.data.orders });
   };
 };
+const search = search_string => {
+  return async function(dispatch) {
+    const response = await kidsnParty.get(`/allorders`, {
+      params: {
+        search_string
+      }
+    });
+    dispatch({ type: types.getOrders, payload: response.data.orders });
+  };
+};
 export default {
   index,
   show,
   update,
   patch,
   marking,
+  search,
   onPageChange,
   fetchByStore
 };

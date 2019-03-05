@@ -59,6 +59,9 @@ class ShopForm extends React.Component {
     this.props.onSubmit({ ...formValues, open: this.state.openDates });
   };
   render() {
+    if (!this.props.shop) {
+      return <div className="component-shop-form">loading...</div>;
+    }
     const highlightDates = this.props.shop.open.map(element => {
       return new Date(element);
     });

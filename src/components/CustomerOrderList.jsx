@@ -2,7 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import Pagination from "react-js-pagination";
 
-import { getOrders, onCustomerOrderListPageChange } from "../actions";
+import {
+  getOrders,
+  onCustomerOrderListPageChange,
+  searchingOrders
+} from "../actions";
 import CustomerOrderCard from "./CustomerOrderCard";
 import OrderDetail from "./OrderDetail";
 
@@ -40,6 +44,13 @@ class CustomerOrderList extends React.Component {
       <React.Fragment>
         <div className={this.getClass()}>
           <div className="component-customer-order-list__pagination__container">
+            <input
+              type="text"
+              onChange={e => {
+                searchingOrders(e.target.value);
+              }}
+              placeholder={"按姓氏,电话号码,invoice No.搜索"}
+            />
             <Pagination
               activePage={this.props.paginationParams.current_page}
               itemsCountPerPage={this.props.paginationParams.per_page}
@@ -82,5 +93,5 @@ const mapStateToProps = ({ orders, paginationParams }) => {
 
 export default connect(
   mapStateToProps,
-  { getOrders, onCustomerOrderListPageChange }
+  { getOrders, onCustomerOrderListPageChange, searchingOrders }
 )(CustomerOrderList);

@@ -38,7 +38,11 @@ const shopsReducer = (shops = [], action) => {
 
 const ordersReducer = (orders = [], action) => {
   if (action.type === actionTypes.getOrders) {
-    return action.payload.data;
+    if (action.payload.data) {
+      return action.payload.data;
+    }
+
+    return action.payload;
   } else if (action.type === actionTypes.updateOrder) {
     return action.payload.orders.data;
   }

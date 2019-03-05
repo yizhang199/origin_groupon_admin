@@ -54,14 +54,13 @@ export const getShops = () => {
 
 // order actions
 export const getOrders = Order.index;
-
 export const selectOrder = Order.show;
 export const updateOrder = Order.update;
-
 export const updateOrderStatus = Order.patch;
 export const markingOrder = Order.marking;
 export const fetchOrdersByStore = Order.fetchByStore;
 export const onCustomerOrderListPageChange = Order.onPageChange;
+export const searchingOrders = Order.search;
 
 // shop actions
 export const fetchSingleShop = fetchShop;

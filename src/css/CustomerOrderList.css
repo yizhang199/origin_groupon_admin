@@ -25,10 +25,20 @@
 .component-customer-order-list__pagination__container {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 60px;
+  padding: 0 24px;
 }
+.component-customer-order-list__pagination__container input {
+  font-size: 14px;
+  width: 30%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #d8d8d8;
+  padding: 0px 10px;
+}
+
 .pagination {
   list-style: none;
   margin: 0;

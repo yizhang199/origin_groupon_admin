@@ -5,7 +5,7 @@ import { history } from "../history.js";
 
 import { getProducts } from "../actions";
 
-import ProductOrderList from "./ProductOrderList";
+import { ProductOrderList } from "./orders/";
 import CustomerOrderList from "./CustomerOrderList";
 import StoreOrderList from "./StoreOrderList";
 import OrderTopNav from "./OrderTopNav";
