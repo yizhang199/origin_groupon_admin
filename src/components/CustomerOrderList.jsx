@@ -47,7 +47,7 @@ class CustomerOrderList extends React.Component {
             <input
               type="text"
               onChange={e => {
-                searchingOrders(e.target.value);
+                this.props.searchingOrders(e.target.value);
               }}
               placeholder={"按姓氏,电话号码,invoice No.搜索"}
             />
