@@ -8,6 +8,9 @@ import ChartManageMainWindow from "./ChartManageMainWindow";
 import ShopManageMainWindow from "./ShopManageMainWindow";
 import Example from "./demo/propsFunctionalComponent";
 import CatalogManageMainWindow from "./CatalogManageMainWindow";
+import { UserManage } from "./user";
+
+import "./App.css";
 
 const App = () => {
   return (
@@ -46,6 +49,14 @@ const App = () => {
               path={`${process.env.PUBLIC_URL}/example`}
               name="roben"
               component={Example}
+            />
+            <Route
+              path={`${process.env.PUBLIC_URL}/customer`}
+              component={UserManage}
+            />
+            <Route
+              path={`${process.env.PUBLIC_URL}/staff`}
+              component={UserManage}
             />
             <Route
               exact

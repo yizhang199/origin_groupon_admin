@@ -1,0 +1,11 @@
+@import "../shared/variables.scss";
+
+.component-customer-manage {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: scroll;
+  padding: 0 10px;
+}

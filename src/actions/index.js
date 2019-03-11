@@ -8,6 +8,9 @@ import Product from "./product";
 import Option from "./option";
 import Shop from "./shop";
 import Order from "./Order";
+import User from "./User";
+import Customer from "./Customer";
+import Staff from "./Staff";
 
 // produt actions
 export const getProducts = Product.index;
@@ -77,5 +80,14 @@ export const setEndDate = Report.setEndDate;
 export const fetchReportDetails = Report.show;
 export const setReportCategory = Report.setCategory;
 export const sortReportDetails = Report.sortDetails;
+
+// user acitons
+export const fetchUsers = User.index;
+
+// customer actions
+export const fetchCustomers = Customer.index;
+export const sortCustomerDetails = Customer.sortDetails;
+// staff actions
+export const fetchStaffs = Staff.index;
 
 export const actionTypes = types;

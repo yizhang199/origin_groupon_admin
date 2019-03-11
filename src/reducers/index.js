@@ -152,8 +152,15 @@ const toggleModalReducer = (modalStatus = false, action) => {
 
   return modalStatus;
 };
+const userListReducer = (userList = [], action) => {
+  if (action.type === actionTypes.fetchUsers) {
+    return action.payload;
+  }
+  return userList;
+};
 
 export default combineReducers({
+  userList: userListReducer,
   products: productsReducer,
   form: formReducer,
   product: productReducer,

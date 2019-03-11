@@ -1,0 +1,61 @@
+.component-table {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: scroll;
+}
+.component-table .material-icons {
+  transition: all 600ms ease;
+}
+.component-table .tbl-content,
+.component-table .tbl-header {
+  width: 100%;
+  table-layout: fixed;
+}
+.component-table table {
+  margin-top: 20px;
+  width: 80%;
+  border-spacing: 0;
+}
+.component-table table tr {
+  height: 30px;
+}
+.component-table td.text,
+.component-table th.text {
+  text-align: left;
+  padding-right: 15px;
+}
+.component-table td.number,
+.component-table th.number {
+  text-align: right;
+  padding-left: 15px;
+}
+.component-table thead th.number span {
+  border-bottom: 3px solid #ffba2d;
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.component-table thead th.text span {
+  border-bottom: 3px solid #ffba2d;
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.component-customer-manage {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: scroll;
+  padding: 0 10px;
+}
+
+/*# sourceMappingURL=App.css.map */
