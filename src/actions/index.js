@@ -89,5 +89,6 @@ export const fetchCustomers = Customer.index;
 export const sortCustomerDetails = Customer.sortDetails;
 // staff actions
 export const fetchStaffs = Staff.index;
+export const sortStaffDetails = Staff.sortDetails;
 
 export const actionTypes = types;

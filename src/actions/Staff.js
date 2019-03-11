@@ -16,6 +16,22 @@ const index = () => {
   };
 };
 
+const sortDetails = (property, sortOrder, objects) => {
+  const sortedList = objects.sort(dynamicSort(property, sortOrder));
+  return {
+    type: types.fetchUsers,
+    payload: sortedList
+  };
+};
+export const dynamicSort = (property, sortOrder) => {
+  return function(a, b) {
+    var result =
+      a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+    return result * sortOrder;
+  };
+};
+
 export default {
-  index
+  index,
+  sortDetails
 };
