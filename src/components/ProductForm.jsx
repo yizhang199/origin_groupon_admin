@@ -6,6 +6,7 @@ import { Field, reduxForm } from "redux-form";
 import "../css/EditForm.css";
 import { fetchOptions, removeOptionsFromNewProduct } from "../actions";
 import ProductFormCategorySelector from "./ProductFormCategorySelector";
+import { baseUrl } from "../apis/kidsnParty";
 // import AddOptionToNewProductForm from "./AddOptionToNewProductForm";
 class EditForm extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class EditForm extends React.Component {
   onChange = e => {
     let files = e.target.files || e.dataTransfer.files;
     if (!files.length) return;
+    console.log(URL.createObjectURL(files[0]));
 
     this.props.setSelectProductImage(URL.createObjectURL(files[0]));
     this.setState({
@@ -45,11 +47,12 @@ class EditForm extends React.Component {
     if (this.props.image === "") {
       return null;
     }
+
     return (
-      <div className="component-category-form__upload-image__img-container">
+      <div className="component-edit-form__upload-image__img-container">
         <img
-          src={this.props.image}
-          className="component-category-form__upload-image__img"
+          src={`${baseUrl}${this.props.image}`}
+          className="component-edit-form__upload-image__img"
           alt=""
         />
       </div>

@@ -93,6 +93,11 @@ class CategoryForm extends React.Component {
               component={this.renderInput}
               placeholder="请输入英文名"
             />
+            <Field
+              name="sort_order"
+              component={this.renderInput}
+              placeholder="输入显示优先级，越大越靠前"
+            />
           </div>
           <div className="component-category-form__upload-image_container">
             <label className="component-category-form__upload-image_label">

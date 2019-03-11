@@ -137,14 +137,14 @@
   justify-content: space-between;
   align-items: center;
   width: 180px;
-  height: 40px;
+  height: 15px;
   padding: 7px;
   border-radius: 3px;
   color: #fff;
   font-weight: bold;
   font-size: 14px;
   border: 1px solid #a5a5a5;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   box-shadow: 0 0 5px #5a5a5a;
 }
 .component-edit-form__upload-image_container {
@@ -156,7 +156,8 @@
 .component-edit-form__upload-image__img-container {
   /* flex: 1; */
   width: 180px;
-  height: calc(25vh - 100px);
+  height: 128px;
+
   padding: 3px;
   background-color: #fff;
   border: 1px solid #5a5a5a;

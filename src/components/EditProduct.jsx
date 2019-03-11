@@ -37,7 +37,7 @@ class EditProduct extends React.Component {
           }}
           onSubmit={this.onSubmit}
           setSelectProductImage={this.props.setProductImage}
-          image={this.props.product.image}
+          image={this.props.product.product.image}
         />
       </div>
     );

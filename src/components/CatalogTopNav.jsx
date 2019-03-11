@@ -26,12 +26,12 @@ const CatalogTopNav = () => {
       >
         分类管理
       </Link>
-      <Link
+      {/* <Link
         className={getClassName("/options")}
         to={`${process.env.PUBLIC_URL}/options`}
       >
         规格管理
-      </Link>
+      </Link> */}
     </div>
   );
 };
