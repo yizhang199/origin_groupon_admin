@@ -52,12 +52,13 @@ const switchProductStatus = product => {
   };
 };
 
-const create = file => {
+const create = (file, isGroupon) => {
   return async function(dispatch, getState) {
     const product = getState().form.productForm.values;
     const { options, category } = getState().newProduct;
     const response = await kidsnParty.post("/products", {
       product,
+      isGroupon,
       category,
       options,
       file

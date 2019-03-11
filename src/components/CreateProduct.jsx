@@ -16,7 +16,7 @@ class CreateProduct extends React.Component {
         <ProductForm
           onSubmit={this.onSubmit}
           setSelectProductImage={this.props.setProductImage}
-          // image={this.props.Product.image}
+          image={this.props.product.image}
         />
       </div>
     );

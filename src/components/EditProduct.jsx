@@ -31,6 +31,7 @@ class EditProduct extends React.Component {
             chinese_name: this.props.product.descriptions[1].name,
             english_name: this.props.product.descriptions[0].name,
             price: this.props.product.product.price,
+            sort_order: this.props.product.product.sort_order,
             stock_status_id: this.props.product.product.stock_status_id,
             quantity: this.props.product.product.quantity
           }}

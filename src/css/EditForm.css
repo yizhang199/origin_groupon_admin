@@ -1,6 +1,6 @@
 .component-edit-form {
   background-color: #f5f6f8;
-  height: 87vh;
+  height: calc(87vh - 60px);
   overflow: scroll;
 }
 .component-edit-form__header {
@@ -144,7 +144,7 @@
   font-weight: bold;
   font-size: 14px;
   border: 1px solid #a5a5a5;
-
+  margin-bottom: 10px;
   box-shadow: 0 0 5px #5a5a5a;
 }
 .component-edit-form__upload-image_container {
@@ -166,4 +166,32 @@
   height: 100%;
   width: 100%;
   border-radius: 3px;
+}
+
+.component-edit-form__big-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.groupon-switch__on,
+.groupon-switch__off {
+  width: 80%;
+
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: bold;
+  box-shadow: 0 0 3px #a5a5a5;
+  border-radius: 3px;
+  margin: auto;
+}
+.groupon-switch__on {
+  color: #8c8c8c;
+  background-color: #74ef74;
+}
+.groupon-switch__off {
+  color: #000;
+  background-color: #df474b;
 }
