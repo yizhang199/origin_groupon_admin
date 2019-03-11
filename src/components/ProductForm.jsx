@@ -25,7 +25,6 @@ class EditForm extends React.Component {
   onChange = e => {
     let files = e.target.files || e.dataTransfer.files;
     if (!files.length) return;
-    console.log(URL.createObjectURL(files[0]));
 
     this.props.setSelectProductImage(URL.createObjectURL(files[0]));
     this.setState({
@@ -51,7 +50,7 @@ class EditForm extends React.Component {
     return (
       <div className="component-edit-form__upload-image__img-container">
         <img
-          src={`${baseUrl}${this.props.image}`}
+          src={`${this.props.image}`}
           className="component-edit-form__upload-image__img"
           alt=""
         />

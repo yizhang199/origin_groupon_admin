@@ -28,7 +28,7 @@ const ProductCard = ({ product, switchProductStatus, getProduct }) => {
     <div className="product-card" data-test="component-product-card">
       <div className="product-card-header">
         <div className="product-image-container">
-          <img src={`${baseUrl}${product.image}`} alt="" />
+          <img src={`${product.image}`} alt="" />
         </div>
         <div className="product-info">
           <div className="product-name" data-test="product-name">
