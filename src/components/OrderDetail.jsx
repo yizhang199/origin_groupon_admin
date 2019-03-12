@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { makeDate } from "../helpers";
 import { updateOrderStatus } from "../actions";
 
-import "../css/OrderDetail.css";
 class OrderDetail extends React.Component {
   getTheadColor = () => {
     switch (this.props.selectedOrder.status_id) {

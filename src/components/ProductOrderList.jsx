@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { getProducts } from "../actions";
 import ProductOrderCard from "./ProductOrderCard";
 
-import "../css/ProductOrderList.css";
 class ProductOrderList extends React.Component {
   componentDidMount() {
     this.props.getProducts();

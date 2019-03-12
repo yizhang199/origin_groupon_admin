@@ -7,7 +7,6 @@ import {
   activeCategory
 } from "../actions";
 import { baseUrl } from "../apis/kidsnParty";
-import "../css/CategoryGridItem.css";
 
 const CategoryGridItem = ({
   category,

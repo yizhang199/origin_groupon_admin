@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { history } from "../history";
-import "../css/CatalogTopNav.css";
 
 const CatalogTopNav = () => {
   const getClassName = value => {

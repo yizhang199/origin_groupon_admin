@@ -11,8 +11,6 @@ import StoreOrderList from "./StoreOrderList";
 import OrderTopNav from "./OrderTopNav";
 import { DateRanger } from "./shared/";
 
-import "../css/OrderManageMainWindow.css";
-
 class OrderManageMainWindow extends React.Component {
   componentDidMount() {
     this.props.getProducts();

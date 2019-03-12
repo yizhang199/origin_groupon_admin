@@ -8,7 +8,6 @@ import {
 } from "../actions";
 import CategoryForm from "./CategoryForm";
 
-import "../css/UpdateCategory.css";
 class UpdateCategory extends React.Component {
   componentDidMount() {
     if (this.props.selectedCategory.category_id) {

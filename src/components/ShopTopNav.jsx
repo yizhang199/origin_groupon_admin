@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../css/ShopTopNav.css";
 class ShopTopNav extends React.Component {
   getClassName = pathName => {
     const path = this.props.location.pathname;

@@ -8,8 +8,6 @@ import { history } from "../history";
 import { connect } from "react-redux";
 import { getProducts, searchByName } from "../actions";
 
-import "../css/ProductManageMainWindow.css";
-
 class ProductManageMainWindow extends React.Component {
   constructor(props) {
     super(props);

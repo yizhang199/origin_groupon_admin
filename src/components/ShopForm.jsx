@@ -4,8 +4,6 @@ import DatePicker from "react-datepicker";
 
 import { makeDate } from "../helpers";
 import "react-datepicker/dist/react-datepicker.css";
-import "../css/ShopForm.css";
-import "../css/Calendar.css";
 
 class ShopForm extends React.Component {
   constructor(props) {

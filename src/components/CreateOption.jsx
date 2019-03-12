@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import OptionForm from "./OptionForm";
 import { createNewOption } from "../actions";
 
-import "../css/CreateOption.css";
-
 class CreateOption extends React.Component {
   onSubmit = input => {
     this.props.createNewOption(input);

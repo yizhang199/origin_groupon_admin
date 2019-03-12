@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../css/OrderTopNav.css";
-
 const OrderTopNav = ({ location }) => {
   const getClass = value => {
     const path = location.pathname;

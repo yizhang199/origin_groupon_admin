@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { getProduct, createNewProduct, setProductImage } from "../actions";
 import ProductForm from "./ProductForm";
-import "../css/CreateProduct.css";
 
 class CreateProduct extends React.Component {
   onSubmit = (file, isGroupon) => {

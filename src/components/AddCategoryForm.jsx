@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { createNewCategory, fetchAvaliableCategories } from "../actions";
 import CategoryForm from "./CategoryForm";
-import "../css/AddCategoryForm.css";
+
 class AddCategoryForm extends React.Component {
   onSubmit = () => {
     this.props.createNewCategory();

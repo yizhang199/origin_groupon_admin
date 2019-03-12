@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 import { history } from "../history";
 
-import "../css/LeftSideMenu.css";
-
 const LeftSideMenu = () => {
   const getClass = path => {
     if (path === history.location.pathname) {

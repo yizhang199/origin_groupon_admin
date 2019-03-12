@@ -1,7 +1,5 @@
 import React from "react";
 
-import "../css/ProductOrderCard.css";
-
 const ProductOrderCard = ({ product }) => {
   const productRemaining = product.stock_status_id - product.quantity;
   const cardStyle = {

@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { getProducts } from "../actions";
 
-import "../css/ProductOrderList.css";
 class ProductOrderList extends React.Component {
   componentDidMount() {
     this.props.getProducts();

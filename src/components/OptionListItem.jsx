@@ -5,8 +5,6 @@ import { selectOption } from "../actions";
 import OptionValue from "./OptionValue";
 import { makeType } from "../helpers";
 
-import "../css/OptionListItem.css";
-
 const OptionListItem = ({ option, selectOption }) => {
   const { name, type, values } = option;
 

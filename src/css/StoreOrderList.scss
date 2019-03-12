@@ -2,13 +2,13 @@
   width: 90vw;
   height: 80vh;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   overflow: scroll;
 }
 .component-store-order-list__store {
-  width: 90%;
+  width: 260px;
   border-radius: 5px;
   box-shadow: 0 0 3px #a5a5a5;
   padding: 10px 15px;

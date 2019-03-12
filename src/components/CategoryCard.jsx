@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 
 import { setNewProductCategory } from "../actions";
 
-import "../css/CategoryCard.css";
-
 const CategoryCard = props => {
   const setCategory = () => {
     props.setNewProductCategory(props.category);

@@ -1,8 +1,6 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 
-import "../css/OptionForm.css";
-
 class OptionForm extends React.Component {
   constructor(props) {
     super(props);

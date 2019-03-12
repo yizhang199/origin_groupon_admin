@@ -3,10 +3,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 
-import "../css/EditForm.css";
 import { fetchOptions, removeOptionsFromNewProduct } from "../actions";
 import ProductFormCategorySelector from "./ProductFormCategorySelector";
-import { baseUrl } from "../apis/kidsnParty";
+
 // import AddOptionToNewProductForm from "./AddOptionToNewProductForm";
 class EditForm extends React.Component {
   constructor(props) {

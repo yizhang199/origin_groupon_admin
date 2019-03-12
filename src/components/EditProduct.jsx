@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import { getProduct, updateProduct, setProductImage } from "../actions";
 import ProductForm from "./ProductForm";
 
-import "../css/UpdateProduct.css";
-
 class EditProduct extends React.Component {
   componentDidMount() {
     if (!this.props.product.product_id) {

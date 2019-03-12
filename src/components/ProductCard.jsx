@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { switchProductStatus, getProduct } from "../actions";
-import { baseUrl } from "../apis/kidsnParty";
 
 const ProductCard = ({ product, switchProductStatus, getProduct }) => {
   const renderChangeStatusButton = ({ status }) => {

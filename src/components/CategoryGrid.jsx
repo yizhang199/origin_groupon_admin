@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 import CategoryGridItem from "./CategoryGridItem";
 import { fetchAvaliableCategories } from "../actions";
-import "../css/CategoryGrid.css";
 
 class CategoryGrid extends React.Component {
   componentDidMount() {

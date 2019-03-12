@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { createNewCategory, setSelectCategoryImage } from "../actions";
 import CategoryForm from "./CategoryForm";
 
-import "../css/CreateCategory.css";
 class CreateCategory extends React.Component {
   onSubmit = file => {
     this.props.createNewCategory(file);

@@ -1,7 +1,6 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 
-import "../css/CategoryForm.css";
 class CategoryForm extends React.Component {
   constructor(props) {
     super(props);

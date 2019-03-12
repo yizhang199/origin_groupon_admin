@@ -6,8 +6,6 @@ import CreateCategory from "./CreateCategory";
 import UpdateCategory from "./UpdateCategory";
 import { history } from "../history";
 
-import "../css/CategoryManageMainWindow.css";
-
 const CategoryManageMainWindow = () => {
   return (
     <div className="component-category-manage-main-window">

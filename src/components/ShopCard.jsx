@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 
 import { makeDate } from "../helpers";
 import { fetchSingleShop } from "../actions";
-import "../css/ShopCard.css";
-import { baseUrl } from "../apis/kidsnParty";
 
 class ShopCard extends React.Component {
   componentDidMount() {}
@@ -26,12 +24,7 @@ class ShopCard extends React.Component {
   render() {
     return (
       <div className="component-shop-card">
-        <div
-          className="component-shop-card__information"
-          style={{
-            backgroundImage: `url("${baseUrl}/images/${this.props.shop.image}")`
-          }}
-        >
+        <div className="component-shop-card__information">
           <div>{this.props.shop.name}</div>
           <div>{this.props.shop.address}</div>
           <div>{this.props.shop.telephone}</div>

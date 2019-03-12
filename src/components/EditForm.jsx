@@ -1,8 +1,6 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 
-import "../css/EditForm.css";
-
 class EditForm extends React.Component {
   renderInput = ({ input, placeholder, meta }) => {
     return (

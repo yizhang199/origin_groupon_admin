@@ -6,7 +6,6 @@ import CreateShopForm from "./CreateShopForm";
 import ShopList from "./ShopList";
 import ShopTopNav from "./ShopTopNav";
 import { history } from "../history";
-import "../css/ShopManageMainWindow.css";
 
 class ShopManageMainWindow extends React.Component {
   render() {

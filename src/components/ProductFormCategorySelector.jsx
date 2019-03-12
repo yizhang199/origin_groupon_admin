@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { fetchAvaliableCategories } from "../actions";
 import CategoryCard from "./CategoryCard";
 import AddCategoryForm from "./AddCategoryForm";
-import "../css/ProductFormCategorySelector.css";
+
 class ProductFormCategorySelector extends React.Component {
   constructor(props) {
     super(props);

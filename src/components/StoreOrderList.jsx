@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { fetchOrdersByStore } from "../actions";
 
-import "../css/StoreOrderList.css";
 import { getStyle } from "../helpers";
 class StoreOrderList extends React.Component {
   componentDidMount() {
@@ -34,11 +33,22 @@ class StoreOrderList extends React.Component {
           className="component-store-order-list__store__product-list__product-card"
           key={`storeOrderProduct${productArray[0].product_name}`}
         >
-          <p>{productArray[0].product_name}</p>
-          {this.renderProductItems(productArray)}
+          <p>
+            {productArray[0].product_name}x
+            {this.calculateTotalQuantity(productArray)}
+          </p>
+          {/* {this.renderProductItems(productArray)} */}
         </div>
       );
     });
+  };
+  calculateTotalQuantity = list => {
+    let sum = 0;
+    list.map(item => {
+      const { quantity } = item;
+      sum += parseInt(quantity);
+    });
+    return sum;
   };
   renderProductItems = list => {
     if (list.length === 0) {

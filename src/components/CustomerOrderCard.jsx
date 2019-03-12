@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { selectOrder, markingOrder } from "../actions";
-import "../css/CustomerOrderCard.css";
+
 class CustomerOrderCard extends React.Component {
   constructor(props) {
     super(props);
