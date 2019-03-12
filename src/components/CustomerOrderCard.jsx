@@ -6,7 +6,9 @@ class CustomerOrderCard extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { checked: this.props.order.order_status_id === 3 };
+    this.state = {
+      checked: this.props.order.order_status_id === 3
+    };
   }
 
   getContent = value => {
@@ -99,12 +101,12 @@ class CustomerOrderCard extends React.Component {
           <input
             type="checkbox"
             value="None"
-            id="roundedTwo"
+            id={`roundTwo${this.props.order.order_id}`}
             name="check"
             checked={this.getCheckedValue()}
             onChange={this.handleOnChange}
           />
-          <label htmlFor="roundedTwo" />
+          <label htmlFor={`roundTwo${this.props.order.order_id}`} />
         </div>
       </div>
     );
@@ -119,6 +121,8 @@ class CustomerOrderCard extends React.Component {
   handleOnChange = e => {
     const { checked } = e.target;
     this.setState({ checked });
+    console.log({ order_id: this.props.order.order_id });
+
     this.props.markingOrder(this.props.order.order_id, checked);
   };
   render() {

@@ -65,6 +65,12 @@ class Product extends React.Component {
               <i className="material-icons">{this.getIcon("product_name")}</i>
             </span>
           </th>
+          <th onClick={this.stortByPrice} className="number">
+            <span>
+              产品单价
+              <i className="material-icons">{this.getIcon("price")}</i>
+            </span>
+          </th>
           <th onClick={this.sortByTotal} className="number">
             <span>
               销售额<i className="material-icons">{this.getIcon("total")}</i>
@@ -86,10 +92,11 @@ class Product extends React.Component {
       <tbody>
         {this.props.reportDetails.map(element => {
           index++;
-          const { product_name, total, quantity } = element;
+          const { product_name, total, quantity, price } = element;
           return (
             <tr key={`orderByCategoryRow${index}`} style={getStyle(index)}>
               <td className="text">{product_name}</td>
+              <td className="number">{price}</td>
               <td className="number">{total}</td>
               <td className="number">{quantity}</td>
             </tr>
