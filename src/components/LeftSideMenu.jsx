@@ -32,11 +32,11 @@ const LeftSideMenu = () => {
           商品管理
         </Link>
         <Link
-          to={`${process.env.PUBLIC_URL}/shops`}
-          className={getClass("/shops")}
+          to={`${process.env.PUBLIC_URL}/groupon`}
+          className={getClass("/groupon")}
         >
           <i className="material-icons">store_mall_directory</i>
-          店面管理
+          团购管理
         </Link>
         <Link
           to={`${process.env.PUBLIC_URL}/charts`}

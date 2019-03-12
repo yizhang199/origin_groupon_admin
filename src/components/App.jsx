@@ -8,6 +8,7 @@ import ChartManageMainWindow from "./ChartManageMainWindow";
 import ShopManageMainWindow from "./ShopManageMainWindow";
 import Example from "./demo/propsFunctionalComponent";
 import CatalogManageMainWindow from "./CatalogManageMainWindow";
+import { Groupon } from "./groupon";
 import { UserManage } from "./user";
 
 import "./App.css";
@@ -57,6 +58,10 @@ const App = () => {
             <Route
               path={`${process.env.PUBLIC_URL}/staff`}
               component={UserManage}
+            />
+            <Route
+              path={`${process.env.PUBLIC_URL}/groupon`}
+              component={Groupon}
             />
             <Route
               exact

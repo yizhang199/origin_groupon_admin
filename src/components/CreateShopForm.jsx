@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { createShop, handleDateChange } from "../actions";
 
+import ShopForm from "./ShopForm";
 class CreateShopForm extends React.Component {
   componentDidMount() {}
 

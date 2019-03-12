@@ -10,7 +10,6 @@ import {
 import CustomerOrderCard from "./CustomerOrderCard";
 import OrderDetail from "./OrderDetail";
 
-import "../css/CustomerOrderList.css";
 class CustomerOrderList extends React.Component {
   constructor(props) {
     super(props);

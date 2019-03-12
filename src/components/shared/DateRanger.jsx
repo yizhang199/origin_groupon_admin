@@ -5,9 +5,6 @@ import DatePicker from "react-datepicker";
 import { setEndDate, setStartDate } from "../../actions";
 import { makeDate } from "../../helpers";
 
-import "../../css/Calendar.css";
-import "../../css/DateRanger.css";
-
 const DateRanger = ({ startDate, endDate, setStartDate, setEndDate }) => {
   const handleChangeEnd = e => {
     const newDate = new Date(e);
