@@ -21,7 +21,7 @@ const show = id => {
   };
 };
 
-const update = (product_id, file) => {
+const update = (product_id, file, isGroupon) => {
   return async function(dispatch, getState) {
     const product = getState().form.productForm.values;
     const { options, category } = getState().newProduct;
@@ -33,7 +33,8 @@ const update = (product_id, file) => {
         product,
         category,
         options,
-        file
+        file,
+        isGroupon
       },
       {
         headers

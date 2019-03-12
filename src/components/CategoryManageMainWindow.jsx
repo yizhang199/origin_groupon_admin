@@ -15,12 +15,18 @@ const CategoryManageMainWindow = () => {
         <React.Fragment>
           <CategoryGird />
           <Switch>
-            <Route path="/categories/create" component={CreateCategory} />
             <Route
-              path="/categories/update/:category_id"
+              path={`${process.env.PUBLIC_URL}/categories/create`}
+              component={CreateCategory}
+            />
+            <Route
+              path={`${process.env.PUBLIC_URL}/categories/update/:category_id`}
               component={UpdateCategory}
             />
-            <Route path="/categories" component={CreateCategory} />
+            <Route
+              path={`${process.env.PUBLIC_URL}/categories`}
+              component={CreateCategory}
+            />
           </Switch>
         </React.Fragment>
       </Router>

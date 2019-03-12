@@ -1,14 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { deleteCategory, fetchSingleCategory } from "../actions";
+import {
+  deleteCategory,
+  fetchSingleCategory,
+  activeCategory
+} from "../actions";
 import { baseUrl } from "../apis/kidsnParty";
 import "../css/CategoryGridItem.css";
 
 const CategoryGridItem = ({
   category,
   deleteCategory,
-  fetchSingleCategory
+  fetchSingleCategory,
+  activeCategory
 }) => {
   const selectCategory = () => {
     fetchSingleCategory(category.category_id);
@@ -16,13 +21,31 @@ const CategoryGridItem = ({
   const remove = () => {
     deleteCategory(category.category_id);
   };
+  const active = () => {
+    activeCategory(category.category_id);
+  };
+  const renderControlButton = () => {
+    const { status } = category;
+
+    if (parseInt(status) === 0) {
+      return (
+        <div className="component-category-grid-item__close" onClick={remove}>
+          <i className="material-icons">clear</i>
+        </div>
+      );
+    } else if (parseInt(status) === 1) {
+      return (
+        <div className="component-category-grid-item__active" onClick={active}>
+          <i className="material-icons">done</i>
+        </div>
+      );
+    }
+  };
 
   // const baseUrl = "http://localhost/groupon_api/public";
   return (
     <div className="component-category-grid-item">
-      <div className="component-category-grid-item__close" onClick={remove}>
-        <i className="material-icons">clear</i>
-      </div>
+      {renderControlButton()}
       <span
         onClick={selectCategory}
         className="component-category-grid-item__name"
@@ -39,5 +62,5 @@ const CategoryGridItem = ({
 
 export default connect(
   null,
-  { deleteCategory, fetchSingleCategory }
+  { deleteCategory, fetchSingleCategory, activeCategory }
 )(CategoryGridItem);

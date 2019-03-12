@@ -73,6 +73,15 @@ const setImage = value => {
     payload: value
   };
 };
+const active = category_id => {
+  return async function(dispatch) {
+    const response = await kidsnParty.patch(`/categories/${category_id}`);
+    dispatch({
+      type: types.fetchAvaliableCategories,
+      payload: response.data
+    });
+  };
+};
 
 const Category = {
   show,
@@ -81,6 +90,7 @@ const Category = {
   select,
   update,
   remove,
+  active,
   setImage
 };
 

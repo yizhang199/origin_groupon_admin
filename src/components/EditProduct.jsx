@@ -14,9 +14,9 @@ class EditProduct extends React.Component {
     }
   }
 
-  onSubmit = file => {
+  onSubmit = (file, isGroupon) => {
     const id = parseInt(this.props.match.params.product_id);
-    this.props.updateProduct(id, file);
+    this.props.updateProduct(id, file, isGroupon);
   };
 
   render() {

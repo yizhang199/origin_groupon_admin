@@ -6,8 +6,8 @@ import ProductForm from "./ProductForm";
 import "../css/CreateProduct.css";
 
 class CreateProduct extends React.Component {
-  onSubmit = file => {
-    this.props.createNewProduct(file);
+  onSubmit = (file, isGroupon) => {
+    this.props.createNewProduct(file, isGroupon);
   };
   render() {
     return (

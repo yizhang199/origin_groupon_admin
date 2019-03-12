@@ -32,6 +32,7 @@ export const fetchAvaliableCategories = Category.index;
 export const deleteCategory = Category.remove;
 export const fetchSingleCategory = Category.show;
 export const setSelectCategoryImage = Category.setImage;
+export const activeCategory = Category.active;
 
 //options actions
 export const fetchOptions = Option.index;
