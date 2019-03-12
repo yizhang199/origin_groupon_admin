@@ -20,7 +20,7 @@ class UpdateCategory extends React.Component {
     this.props.updateCategory(this.props.selectedCategory.category_id, file);
   };
   render() {
-    if (!this.props.selectedCategory.image) {
+    if (!this.props.selectedCategory.category_id) {
       return <div className="component-update-category">loading...</div>;
     }
     return (
@@ -29,7 +29,8 @@ class UpdateCategory extends React.Component {
         <CategoryForm
           initialValues={{
             chinese_name: this.props.selectedCategory.name,
-            english_name: this.props.selectedCategory.other_name
+            english_name: this.props.selectedCategory.other_name,
+            sort_order: this.props.selectedCategory.sort_order
           }}
           image={this.props.selectedCategory.image}
           setSelectCategoryImage={this.props.setSelectCategoryImage}

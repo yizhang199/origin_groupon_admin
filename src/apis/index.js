@@ -1,3 +1,3 @@
-import { kidsnparty } from "./kidsnParty";
+import kidsnparty from "./kidsnParty";
 
-export { kidsnParty };
+export { kidsnparty };
