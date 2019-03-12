@@ -11,6 +11,7 @@ import Order from "./Order";
 import User from "./User";
 import Customer from "./Customer";
 import Staff from "./Staff";
+import SalesGroup from "./SalesGroup";
 
 // produt actions
 export const getProducts = Product.index;
@@ -92,4 +93,11 @@ export const sortCustomerDetails = Customer.sortDetails;
 export const fetchStaffs = Staff.index;
 export const sortStaffDetails = Staff.sortDetails;
 
+// sales group actions
+export const fetchSalesGroups = SalesGroup.index;
+export const fetchSalesGroup = SalesGroup.show;
+export const createSalesGroup = SalesGroup.store;
+export const updateSalesGroup = SalesGroup.update;
+
+// export action types
 export const actionTypes = types;
