@@ -1,24 +1,39 @@
 import React from "react";
 import StoreCard from "./StoreCard";
+import { connect } from "react-redux";
+import { getShops, fetchSingleShop } from "../../actions";
 class StoreList extends React.Component {
+  componentDidMount() {
+    this.props.getShops();
+  }
   render() {
     return (
-      <div className="store-list">
-        <h2>提货地点</h2>
-        <ul>
-          <li>
-            <StoreCard />
-          </li>
-          <li>
-            <StoreCard />
-          </li>
-          <li>
-            <StoreCard />
-          </li>
-        </ul>
+      <div className="component-shop-list">
+        {this.props.shops.map((shop, index) => {
+          return (
+            <StoreCard
+              setMode={this.props.setMode}
+              key={`shop${index}`}
+              shop={shop}
+            />
+          );
+        })}
+        <div
+          onClick={() => {
+            this.props.setMode("create");
+          }}
+          className="add-button"
+        >
+          +
+        </div>
       </div>
     );
   }
 }
-
-export default StoreList;
+const mapStateToProps = ({ shops }) => {
+  return { shops };
+};
+export default connect(
+  mapStateToProps,
+  { getShops, fetchSingleShop }
+)(StoreList);

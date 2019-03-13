@@ -4,6 +4,9 @@ import { makeDate } from "../helpers";
 const selectedShopReducer = (selectedShop = { open: [] }, action) => {
   const checkOpenDates = newDate => {
     let flag = false;
+    if (!selectedShop || !selectedShop.open) {
+      return false;
+    }
     selectedShop.open.map(element => {
       if (makeDate(element) === makeDate(newDate)) {
         flag = true;

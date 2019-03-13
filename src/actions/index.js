@@ -50,13 +50,6 @@ export const initApp = () => {
   };
 };
 
-export const getShops = () => {
-  return async function(dispatch) {
-    const response = await kidsnParty.get(`/locations`);
-    dispatch({ type: types.getShops, payload: response.data.locations });
-  };
-};
-
 // order actions
 export const getOrders = Order.index;
 export const selectOrder = Order.show;
@@ -74,6 +67,7 @@ export const changeSelectedShop = Shop.patch;
 export const createShop = Shop.create;
 export const updateShop = Shop.update;
 export const handleDateChange = Shop.handleDateChange;
+export const getShops = Shop.index;
 
 // reports actions
 export const fetchReportsSummary = Report.fetchSummary;

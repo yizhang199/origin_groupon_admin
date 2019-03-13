@@ -1,8 +1,13 @@
 import types from "./actionTypes";
 
 import kidsnParty from "../apis/kidsnParty";
-import { history } from "../history";
 
+export const index = () => {
+  return async function(dispatch) {
+    const response = await kidsnParty.get(`/locations`);
+    dispatch({ type: types.getShops, payload: response.data.locations });
+  };
+};
 export const fetchShop = location_id => {
   return async function(dispatch) {
     const response = await kidsnParty.get(`/locations/${location_id}`);
@@ -10,16 +15,21 @@ export const fetchShop = location_id => {
       type: types.fetchSingleShop,
       payload: response.data.shop
     });
-    history.push(`${process.env.PUBLIC_URL}/shops/update/${location_id}`);
+    // history.push(`${process.env.PUBLIC_URL}/shops/update/${location_id}`);
   };
 };
 
 const create = shop => {
-  return async function(dispatch) {
-    const response = await kidsnParty.post(`/locations`, shop);
+  return async function(dispatch, getState) {
+    const requestBody = {
+      ...getState().form.shopForm.values,
+      open: getState().selectedShop.open
+    };
+    const response = await kidsnParty.post(`/locations`, requestBody);
 
     dispatch({
-      type: "abc"
+      type: types.getShops,
+      payload: response.data.locations
     });
   };
 };
@@ -56,6 +66,7 @@ const handleDateChange = newDate => {
 };
 
 export default {
+  index,
   fetchShop,
   create,
   update,
