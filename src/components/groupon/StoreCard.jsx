@@ -4,17 +4,15 @@ import { fetchSingleShop } from "../../actions";
 import { makeDate } from "../../helpers";
 
 const StoreCard = ({ setMode, shop, fetchSingleShop }) => {
+  const { name, open, address, telephone, status, location_id } = shop;
   const selectShop = () => {
     setMode("update");
-    fetchSingleShop(shop.location_id);
+    fetchSingleShop(location_id);
   };
   const renderOpenDates = () => {
-    return shop.open.map(dateString => {
+    return open.map(dateString => {
       return (
-        <span
-          key={`dateString${shop.location_id}${dateString}`}
-          className="component-shop-card__date"
-        >
+        <span key={`dateString${location_id}${dateString}`} className="date">
           {makeDate(dateString)}
         </span>
       );
@@ -22,16 +20,30 @@ const StoreCard = ({ setMode, shop, fetchSingleShop }) => {
   };
   return (
     <div className="store-card">
-      <div className="component-shop-card__information">
-        <div>{shop.name}</div>
-        <div>{shop.address}</div>
-        <div>{shop.telephone}</div>
-        <div>{renderOpenDates()}</div>
+      <div className="information">
+        <div className="text">
+          {`店名：`}
+          {name}
+        </div>
+        <div className="text">
+          {`地址：`}
+          {address}
+        </div>
+        <div className="text">
+          {`电话：`}
+          {telephone}
+        </div>
       </div>
+      <div className="date-list">{renderOpenDates()}</div>
 
-      <button className="component-shop-card__button" onClick={selectShop}>
-        编辑
-      </button>
+      <div className="control-panel">
+        <i className="material-icons" onClick={selectShop}>
+          {parseInt(status) === 1 ? `done` : `clear`}
+        </i>
+        <i className="material-icons" onClick={selectShop}>
+          edit
+        </i>
+      </div>
     </div>
   );
 };

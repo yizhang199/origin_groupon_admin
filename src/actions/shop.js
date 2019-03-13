@@ -19,7 +19,7 @@ export const fetchShop = location_id => {
   };
 };
 
-const create = shop => {
+const create = () => {
   return async function(dispatch, getState) {
     const requestBody = {
       ...getState().form.shopForm.values,
@@ -34,17 +34,16 @@ const create = shop => {
   };
 };
 
-const update = formValues => {
-  const { location_id, name, address, open } = formValues;
-  return async function(dispatch) {
+const update = () => {
+  return async function(dispatch, getState) {
+    const requestBody = {
+      ...getState().form.shopForm.values,
+      open: getState().selectedShop.open
+    };
+    const { location_id } = getState().selectedShop;
     const response = await kidsnParty.put(
-      `/locations/${formValues.location_id}`,
-      {
-        location_id,
-        name,
-        address,
-        open
-      }
+      `/locations/${location_id}`,
+      requestBody
     );
 
     dispatch({ type: types.getShops, payload: response.data.locations });

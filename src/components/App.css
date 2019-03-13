@@ -157,6 +157,63 @@
   color: #fff;
   box-shadow: 0 0 5px #a5a5a5;
 }
+.screen-groupon .store {
+  width: 90%;
+  height: 45%;
+  box-shadow: 0 2px 5px #a5a5a5;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 20px;
+}
+.screen-groupon .store .store-list {
+  height: 100%;
+  padding-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.screen-groupon .store .store-list .store-card {
+  width: 100%;
+  margin-left: 15px;
+  position: relative;
+  padding: 10px;
+  box-shadow: 0 1px 3px #a5a5a5;
+  display: flex;
+  justify-content: space-between;
+  overflow: scroll;
+}
+.screen-groupon .store .store-list .store-card .information {
+  flex: 2;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.screen-groupon .store .store-list .store-card .information .text {
+  margin-bottom: 5px;
+}
+.screen-groupon .store .store-list .store-card .date-list {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.screen-groupon .store .store-list .store-card .control-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.screen-groupon .store .store-list .store-card .control-panel .material-icons {
+  color: #ffba2d;
+}
 
 .component-add-category-form {
   height: 100vh;

@@ -8,7 +8,7 @@ class StoreList extends React.Component {
   }
   render() {
     return (
-      <div className="store-list">
+      <div className="store-list" style={this.props.style}>
         {this.props.shops.map((shop, index) => {
           return (
             <StoreCard

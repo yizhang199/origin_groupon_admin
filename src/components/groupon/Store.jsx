@@ -26,7 +26,12 @@ class Store extends React.Component {
   render() {
     return (
       <div className="store">
-        <StoreList setMode={this.setMode} />
+        <StoreList
+          setMode={this.setMode}
+          style={
+            this.state.mode === "none" ? { width: `100%` } : { width: `50%` }
+          }
+        />
         {this.renderForm()}
       </div>
     );

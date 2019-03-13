@@ -17,7 +17,6 @@ class ShopForm extends React.Component {
     const newDate = new Date(e);
 
     this.props.handleDateChange(newDate);
-    this.setState({ openDates: this.props.shop.open });
   };
 
   renderOpenDates = () => {
@@ -53,8 +52,8 @@ class ShopForm extends React.Component {
     return "calendar__day";
   };
 
-  onSubmit = formValues => {
-    this.props.onSubmit({ ...formValues, open: this.state.openDates });
+  onSubmit = () => {
+    this.props.onSubmit();
   };
   render() {
     // if (!this.props.shop) {
@@ -67,34 +66,25 @@ class ShopForm extends React.Component {
       : [];
 
     return (
-      <div className="component-shop-form">
-        <form
-          className="component-shop-form__form"
-          onSubmit={this.props.handleSubmit(this.onSubmit)}
-        >
+      <div className="shop-form">
+        <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
           <Field
             name="name"
-            className="component-shop-form__input"
             component={this.renderInput}
             placeholder="请输入商店名称"
           />
           <Field
             name="address"
-            className="component-shop-form__input"
             component={this.renderInput}
             placeholder="请输入商店地址"
           />
           <Field
             name="telephone"
-            className="component-shop-form__input"
             component={this.renderInput}
             placeholder="请输入联系电话"
           />
-          <div className="component-shop-form__button-container">
-            <button className="component-shop-form__button-submit">
-              {this.props.button_label}
-            </button>
-          </div>
+
+          <button>{this.props.button_label}</button>
         </form>
         <label className="component-shop-form__date-picker__label">
           <DatePicker
