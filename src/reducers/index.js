@@ -159,6 +159,18 @@ const userListReducer = (userList = [], action) => {
   }
   return userList;
 };
+const salesGroupReducer = (salesGroup = {}, action) => {
+  if (action.type === actionTypes.fetchSalesGroup) {
+    return action.payload;
+  }
+  return salesGroup;
+};
+const salesGroupsListReducer = (salesGroupsList = [], action) => {
+  if (action.type === actionTypes.fetchSalesGroups) {
+    return action.payload;
+  }
+  return salesGroupsList;
+};
 
 export default combineReducers({
   userList: userListReducer,
@@ -182,5 +194,7 @@ export default combineReducers({
   reportDetails: reportDetailsReducer,
   report_category: reportCategoryReducer,
   ordersByStore: ordersByStoreReducer,
-  modalStatus: toggleModalReducer
+  modalStatus: toggleModalReducer,
+  salesGroupsList: salesGroupsListReducer,
+  salesGroup: salesGroupReducer
 });

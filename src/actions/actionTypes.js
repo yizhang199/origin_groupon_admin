@@ -28,7 +28,9 @@ const actionTypes = {
   fetchOrdersByStore: "FETCH_ORDERS_BY_STORE",
   setProductImage: "SET_PRODUCT_IMAGE",
   shopOpenDateChange: "SHOP_OPEN_DATE_CHANGE",
-  fetchUsers: "FETCH_USERS"
+  fetchUsers: "FETCH_USERS",
+  fetchSalesGroups: "FETCH_SALES_GROUPS",
+  fetchSalesGroup: "FETCH_SALES_GROUP"
 };
 
 export default actionTypes;

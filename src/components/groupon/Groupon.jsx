@@ -1,12 +1,15 @@
 import React from "react";
+import { Router, Route } from "react-router-dom";
 
-import SaleGroup from "./SaleGroup";
+import SalesGroup from "./SalesGroup";
 import StoreList from "./StoreList";
+
+import { history } from "../../history";
 
 const Groupon = () => {
   return (
     <div className="screen-groupon">
-      <SaleGroup />
+      <SalesGroup />
       <StoreList />
     </div>
   );
