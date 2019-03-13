@@ -44,7 +44,7 @@ class UpdateSalesGruop extends React.Component {
   };
   render() {
     return (
-      <div className="update-sales-group">
+      <div className="sale-group">
         <select
           value={this.state.salesGroupId}
           onChange={this.handleSelectChange}

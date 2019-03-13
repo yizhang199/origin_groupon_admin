@@ -5,36 +5,47 @@ class SalesGroupForm extends React.Component {
   onSubmit = () => {
     this.props.onSubmit();
   };
-  renderInput = ({ input, type, placeholder }) => {
-    return <input {...input} type={type} placeholder={placeholder} />;
+  renderInput = ({ label, input, type, placeholder }) => {
+    return (
+      <label>
+        <span>{label}</span>
+        <input {...input} type={type} placeholder={placeholder} />
+      </label>
+    );
   };
   render() {
     return (
-      <div className="sales-group-form">
-        <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-          <div className="form-filed">
-            <Field
-              name="name"
-              component={this.renderInput}
-              type="text"
-              placeholder={`请填写本次打折团的名称`}
-            />
-            <Field
-              name="start_date"
-              type="date"
-              component={this.renderInput}
-              placeholder="请输入起始日期"
-            />
-            <Field
-              name="end_date"
-              type="date"
-              component={this.renderInput}
-              placeholder="请输入截止日期"
-            />
-          </div>
-          <button>确认保存</button>
-        </form>
-      </div>
+      <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+        <div className="form-field">
+          <Field
+            name="name"
+            component={this.renderInput}
+            type="text"
+            label={`团名`}
+            placeholder={`请填写本次打折团的名称`}
+          />
+        </div>
+        <div className="form-field">
+          <Field
+            name="start_date"
+            type="date"
+            label={`起始日期`}
+            component={this.renderInput}
+            placeholder="请输入起始日期"
+          />
+        </div>
+        <div className="form-field">
+          <Field
+            name="end_date"
+            type="date"
+            label={`截止日期`}
+            component={this.renderInput}
+            placeholder="请输入截止日期"
+          />
+        </div>
+
+        <button>确认保存</button>
+      </form>
     );
   }
 }

@@ -21,7 +21,7 @@ const StoreCard = ({ setMode, shop, fetchSingleShop }) => {
     });
   };
   return (
-    <div className="component-shop-card">
+    <div className="store-card">
       <div className="component-shop-card__information">
         <div>{shop.name}</div>
         <div>{shop.address}</div>

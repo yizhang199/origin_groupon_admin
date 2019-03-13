@@ -24,6 +24,7 @@ class SalesGroup extends React.Component {
             onClick={() => {
               this.setState({ mode: "create" });
             }}
+            className={this.state.mode === "create" ? `active` : ""}
           >
             创建新团
           </span>
@@ -31,6 +32,7 @@ class SalesGroup extends React.Component {
             onClick={() => {
               this.setState({ mode: "update" });
             }}
+            className={this.state.mode === "update" ? `active` : ""}
           >
             修改已建团
           </span>
