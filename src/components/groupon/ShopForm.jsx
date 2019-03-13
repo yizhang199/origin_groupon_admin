@@ -10,8 +10,15 @@ class ShopForm extends React.Component {
     super(props);
   }
 
-  renderInput = ({ input, placeholder }) => {
-    return <input {...input} type="text" placeholder={placeholder} />;
+  renderInput = ({ label, input, placeholder }) => {
+    return (
+      <div className="form-field">
+        <label>
+          <span>{label}</span>
+          <input {...input} type="text" placeholder={placeholder} />
+        </label>
+      </div>
+    );
   };
   handleDateChange = e => {
     const newDate = new Date(e);
@@ -28,15 +35,10 @@ class ShopForm extends React.Component {
     }
     return this.props.shop.open.map((openDate, index) => {
       return (
-        <span
-          key={`openDate${index}`}
-          className="component-shop-form__tag-container"
-        >
-          <span className="component-shop-form__open-date-tags">
-            {makeDate(openDate)}
-          </span>
+        <span key={`openDate${index}`} className="tag-container">
+          <span className="open-date-tags">{makeDate(openDate)}</span>
           <span
-            className="component-shop-form__tag-dismiss"
+            className="tag-dismiss"
             onClick={() => {
               this.props.handleDateChange(new Date(openDate));
             }}
@@ -70,16 +72,19 @@ class ShopForm extends React.Component {
         <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
           <Field
             name="name"
+            label={`店面名`}
             component={this.renderInput}
             placeholder="请输入商店名称"
           />
           <Field
             name="address"
+            label={`地址`}
             component={this.renderInput}
             placeholder="请输入商店地址"
           />
           <Field
             name="telephone"
+            label={`联系电话`}
             component={this.renderInput}
             placeholder="请输入联系电话"
           />
@@ -99,9 +104,7 @@ class ShopForm extends React.Component {
           </span>
           <i className="material-icons">date_range</i>
         </label>
-        <div className="component-shop-form__open-dates__list">
-          {this.renderOpenDates()}
-        </div>
+        <div className="open-dates__list">{this.renderOpenDates()}</div>
       </div>
     );
   }

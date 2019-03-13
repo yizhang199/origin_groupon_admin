@@ -108,15 +108,35 @@
     justify-content: space-around;
     padding-bottom: 20px;
     .store-list {
+      position: relative;
       height: 100%;
       padding-top: 20px;
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
       flex-wrap: wrap;
+      .add-button {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        display: flex;
+        height: 45px;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        border: 2px solid #ffba2d;
+        background-color: #ffba2d;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #5a5a5a;
+        color: #fff;
+        .material-icons {
+          font-size: 32px;
+        }
+      }
       .store-card {
         width: 100%;
-        margin-left: 15px;
+        margin: 0 15px;
         position: relative;
         padding: 10px;
         box-shadow: 0 1px 3px color("boxShadow");
@@ -149,6 +169,121 @@
           height: 100%;
           .material-icons {
             color: color("main");
+          }
+        }
+      }
+    }
+
+    .update-store,
+    .create-store {
+      height: 100%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      overflow: scroll;
+      width: 50%;
+      .sub-title {
+        margin: 0 auto;
+        margin-bottom: 10px;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+          font-size: 18px;
+          color: color("textPrimary");
+          font-weight: bold;
+        }
+        .material-icons {
+          color: color("main");
+        }
+      }
+      .shop-form {
+        width: 100%;
+        form {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          height: 180px;
+
+          .form-field {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            label {
+              width: 90%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              input {
+                height: 35px;
+                width: 80%;
+                border: 1px solid #a5a5a5;
+                border-radius: 3px;
+                padding-left: 10px;
+                outline: none;
+              }
+              input::placeholder {
+                font-weight: bold;
+                color: #a5a5a5;
+              }
+              span {
+                color: #8c8c8c;
+                font-size: 14px;
+              }
+            }
+          }
+          button {
+            height: height("button");
+            width: width("button");
+            font-size: 16px;
+            font-weight: bold;
+            background-color: color("main");
+            border-radius: 3px;
+            border: 1px solid color("main");
+            color: color("textButton");
+            box-shadow: 0 0 5px color("boxShadow");
+          }
+        }
+        .open-dates__list {
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          overflow: scroll;
+          width: 100%;
+          padding: 5px;
+          .tag-container {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 6px;
+            margin-right: 6px;
+            .open-date-tags {
+              padding: 5px 10px;
+              font-size: 12px;
+              background-color: #ffba2d;
+              color: white;
+              font-weight: bold;
+              border-top-left-radius: 5px;
+              border-bottom-left-radius: 5px;
+            }
+            .tag-dismiss {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: #5a5a5a;
+              color: #ffba2d;
+              border-top-right-radius: 5px;
+              border-bottom-right-radius: 5px;
+              .material-icons {
+                font-size: 16px;
+                padding: 4px;
+              }
+            }
           }
         }
       }

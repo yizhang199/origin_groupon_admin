@@ -24,7 +24,7 @@ class StoreList extends React.Component {
           }}
           className="add-button"
         >
-          +
+          <i className="material-icons">add</i>
         </div>
       </div>
     );

@@ -14,12 +14,22 @@ class UpdateStore extends React.Component {
   };
   render() {
     if (!this.props.selectedShop.name) {
-      return <div className="component-edit-shop-form">"loading..."</div>;
+      return <div className="update-store">"loading..."</div>;
     }
 
     return (
-      <div className="component-edit-shop-form">
-        编辑店面信息
+      <div className="update-store">
+        <div className="sub-title">
+          <span>编辑店面信息</span>
+          <i
+            className="material-icons"
+            onClick={() => {
+              this.props.setMode("none");
+            }}
+          >
+            clear
+          </i>
+        </div>
         <ShopForm
           shop={this.props.selectedShop}
           initialValues={this.props.selectedShop}

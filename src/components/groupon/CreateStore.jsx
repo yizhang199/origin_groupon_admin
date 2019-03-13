@@ -3,14 +3,29 @@ import { connect } from "react-redux";
 import { createShop, handleDateChange } from "../../actions";
 import ShopForm from "./ShopForm";
 
-const CreateStore = ({ selectedShop, createShop, handleDateChange }) => {
+const CreateStore = ({
+  setMode,
+  selectedShop,
+  createShop,
+  handleDateChange
+}) => {
   const onSubmit = () => {
     createShop();
   };
 
   return (
     <div className="create-store">
-      <h2>创建新取货地点</h2>
+      <div className="sub-title">
+        <span>创建新取货点</span>
+        <i
+          className="material-icons"
+          onClick={() => {
+            setMode("none");
+          }}
+        >
+          clear
+        </i>
+      </div>
       <ShopForm
         onSubmit={onSubmit}
         handleDateChange={handleDateChange}

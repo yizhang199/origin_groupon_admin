@@ -18,9 +18,9 @@ class Store extends React.Component {
       case "none":
         return null;
       case "create":
-        return <CreateStore />;
+        return <CreateStore setMode={this.setMode} />;
       case "update":
-        return <UpdateStore />;
+        return <UpdateStore setMode={this.setMode} />;
     }
   };
   render() {

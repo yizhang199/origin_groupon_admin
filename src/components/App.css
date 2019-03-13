@@ -169,6 +169,7 @@
   padding-bottom: 20px;
 }
 .screen-groupon .store .store-list {
+  position: relative;
   height: 100%;
   padding-top: 20px;
   display: flex;
@@ -176,9 +177,28 @@
   align-items: flex-start;
   flex-wrap: wrap;
 }
+.screen-groupon .store .store-list .add-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 45px;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: 2px solid #ffba2d;
+  background-color: #ffba2d;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #5a5a5a;
+  color: #fff;
+}
+.screen-groupon .store .store-list .add-button .material-icons {
+  font-size: 32px;
+}
 .screen-groupon .store .store-list .store-card {
   width: 100%;
-  margin-left: 15px;
+  margin: 0 15px;
   position: relative;
   padding: 10px;
   box-shadow: 0 1px 3px #a5a5a5;
@@ -213,6 +233,134 @@
 }
 .screen-groupon .store .store-list .store-card .control-panel .material-icons {
   color: #ffba2d;
+}
+.screen-groupon .store .update-store,
+.screen-groupon .store .create-store {
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: scroll;
+  width: 50%;
+}
+.screen-groupon .store .update-store .sub-title,
+.screen-groupon .store .create-store .sub-title {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.screen-groupon .store .update-store .sub-title span,
+.screen-groupon .store .create-store .sub-title span {
+  font-size: 18px;
+  color: #8c8c8c;
+  font-weight: bold;
+}
+.screen-groupon .store .update-store .sub-title .material-icons,
+.screen-groupon .store .create-store .sub-title .material-icons {
+  color: #ffba2d;
+}
+.screen-groupon .store .update-store .shop-form,
+.screen-groupon .store .create-store .shop-form {
+  width: 100%;
+}
+.screen-groupon .store .update-store .shop-form form,
+.screen-groupon .store .create-store .shop-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 180px;
+}
+.screen-groupon .store .update-store .shop-form form .form-field,
+.screen-groupon .store .create-store .shop-form form .form-field {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.screen-groupon .store .update-store .shop-form form .form-field label,
+.screen-groupon .store .create-store .shop-form form .form-field label {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.screen-groupon .store .update-store .shop-form form .form-field label input,
+.screen-groupon .store .create-store .shop-form form .form-field label input {
+  height: 35px;
+  width: 80%;
+  border: 1px solid #a5a5a5;
+  border-radius: 3px;
+  padding-left: 10px;
+  outline: none;
+}
+.screen-groupon .store .update-store .shop-form form .form-field label input::placeholder,
+.screen-groupon .store .create-store .shop-form form .form-field label input::placeholder {
+  font-weight: bold;
+  color: #a5a5a5;
+}
+.screen-groupon .store .update-store .shop-form form .form-field label span,
+.screen-groupon .store .create-store .shop-form form .form-field label span {
+  color: #8c8c8c;
+  font-size: 14px;
+}
+.screen-groupon .store .update-store .shop-form form button,
+.screen-groupon .store .create-store .shop-form form button {
+  height: 35px;
+  width: 150px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ffba2d;
+  border-radius: 3px;
+  border: 1px solid #ffba2d;
+  color: #fff;
+  box-shadow: 0 0 5px #a5a5a5;
+}
+.screen-groupon .store .update-store .shop-form .open-dates__list,
+.screen-groupon .store .create-store .shop-form .open-dates__list {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow: scroll;
+  width: 100%;
+  padding: 5px;
+}
+.screen-groupon .store .update-store .shop-form .open-dates__list .tag-container,
+.screen-groupon .store .create-store .shop-form .open-dates__list .tag-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6px;
+  margin-right: 6px;
+}
+.screen-groupon .store .update-store .shop-form .open-dates__list .tag-container .open-date-tags,
+.screen-groupon .store .create-store .shop-form .open-dates__list .tag-container .open-date-tags {
+  padding: 5px 10px;
+  font-size: 12px;
+  background-color: #ffba2d;
+  color: white;
+  font-weight: bold;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.screen-groupon .store .update-store .shop-form .open-dates__list .tag-container .tag-dismiss,
+.screen-groupon .store .create-store .shop-form .open-dates__list .tag-container .tag-dismiss {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5a5a5a;
+  color: #ffba2d;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.screen-groupon .store .update-store .shop-form .open-dates__list .tag-container .tag-dismiss .material-icons,
+.screen-groupon .store .create-store .shop-form .open-dates__list .tag-container .tag-dismiss .material-icons {
+  font-size: 16px;
+  padding: 4px;
 }
 
 .component-add-category-form {
