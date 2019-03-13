@@ -68,6 +68,8 @@ export const createShop = Shop.create;
 export const updateShop = Shop.update;
 export const handleDateChange = Shop.handleDateChange;
 export const getShops = Shop.index;
+export const inactiveShop = Shop.remove;
+export const activeShop = Shop.active;
 
 // reports actions
 export const fetchReportsSummary = Report.fetchSummary;

@@ -1,9 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchSingleShop } from "../../actions";
+import { fetchSingleShop, inactiveShop, activeShop } from "../../actions";
 import { makeDate } from "../../helpers";
 
-const StoreCard = ({ setMode, shop, fetchSingleShop }) => {
+const StoreCard = ({
+  setMode,
+  shop,
+  fetchSingleShop,
+  activeShop,
+  inactiveShop
+}) => {
   const { name, open, address, telephone, status, location_id } = shop;
   const selectShop = () => {
     setMode("update");
@@ -17,6 +23,13 @@ const StoreCard = ({ setMode, shop, fetchSingleShop }) => {
         </span>
       );
     });
+  };
+  const switchShopStatus = () => {
+    if (parseInt(status) === 1) {
+      activeShop(location_id);
+    } else {
+      inactiveShop(location_id);
+    }
   };
   return (
     <div className="store-card">
@@ -37,7 +50,7 @@ const StoreCard = ({ setMode, shop, fetchSingleShop }) => {
       <div className="date-list">{renderOpenDates()}</div>
 
       <div className="control-panel">
-        <i className="material-icons" onClick={selectShop}>
+        <i className="material-icons" onClick={switchShopStatus}>
           {parseInt(status) === 1 ? `done` : `clear`}
         </i>
         <i className="material-icons" onClick={selectShop}>
@@ -50,5 +63,5 @@ const StoreCard = ({ setMode, shop, fetchSingleShop }) => {
 
 export default connect(
   null,
-  { fetchSingleShop }
+  { fetchSingleShop, inactiveShop, activeShop }
 )(StoreCard);

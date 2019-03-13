@@ -64,8 +64,24 @@ const handleDateChange = newDate => {
   };
 };
 
+const remove = location_id => {
+  return async function(dispatch) {
+    const response = await kidsnParty.delete(`/locations/${location_id}`);
+    dispatch({ type: types.getShops, payload: response.data.locations });
+  };
+};
+
+const active = location_id => {
+  return async function(dispatch) {
+    const response = await kidsnParty.patch(`/locations/${location_id}`);
+    dispatch({ type: types.getShops, payload: response.data.locations });
+  };
+};
+
 export default {
   index,
+  active,
+  remove,
   fetchShop,
   create,
   update,
