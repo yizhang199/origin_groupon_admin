@@ -56,6 +56,7 @@ class CustomerOrderList extends React.Component {
               onChange={e => {
                 this.props.advSearchingOrders(e.target.value);
               }}
+              placeholder={"按订单中的商品名搜索,速度慢,慎用"}
             />
             <Pagination
               activePage={this.props.paginationParams.current_page}
