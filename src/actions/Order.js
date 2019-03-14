@@ -89,6 +89,22 @@ const search = search_string => {
     dispatch({ type: types.getOrders, payload: response.data.orders });
   };
 };
+const advSearch = search_string => {
+  return async function(dispatch, getState) {
+    const { startDate, endDate } = getState();
+    const start_date = startDate;
+    const end_date = endDate;
+    const response = await kidsnParty.get(`/allorders`, {
+      params: {
+        method: "adv",
+        search_string,
+        start_date,
+        end_date
+      }
+    });
+    dispatch({ type: types.getOrders, payload: response.data.orders });
+  };
+};
 
 const fetchbyProducts = () => {
   return async function(dispatch, getState) {
@@ -102,6 +118,7 @@ const fetchbyProducts = () => {
     });
   };
 };
+
 export default {
   index,
   show,
@@ -109,6 +126,7 @@ export default {
   patch,
   marking,
   search,
+  advSearch,
   fetchbyProducts,
   onPageChange,
   fetchByStore

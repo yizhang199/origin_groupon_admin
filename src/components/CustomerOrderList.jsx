@@ -5,7 +5,8 @@ import Pagination from "react-js-pagination";
 import {
   getOrders,
   onCustomerOrderListPageChange,
-  searchingOrders
+  searchingOrders,
+  advSearchingOrders
 } from "../actions";
 import CustomerOrderCard from "./CustomerOrderCard";
 import OrderDetail from "./OrderDetail";
@@ -50,6 +51,12 @@ class CustomerOrderList extends React.Component {
               }}
               placeholder={"按姓氏,电话号码,invoice No.搜索"}
             />
+            <input
+              type="text"
+              onChange={e => {
+                this.props.advSearchingOrders(e.target.value);
+              }}
+            />
             <Pagination
               activePage={this.props.paginationParams.current_page}
               itemsCountPerPage={this.props.paginationParams.per_page}
@@ -92,5 +99,10 @@ const mapStateToProps = ({ orders, paginationParams }) => {
 
 export default connect(
   mapStateToProps,
-  { getOrders, onCustomerOrderListPageChange, searchingOrders }
+  {
+    getOrders,
+    onCustomerOrderListPageChange,
+    searchingOrders,
+    advSearchingOrders
+  }
 )(CustomerOrderList);
