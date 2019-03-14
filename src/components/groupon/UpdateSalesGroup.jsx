@@ -25,7 +25,7 @@ class UpdateSalesGruop extends React.Component {
     }
     return (
       <>
-        <option value="text_label" disabled>
+        <option value="text_label" disabled={true}>
           --请选择--
         </option>
         {this.props.salesGroupsList.map(element => {

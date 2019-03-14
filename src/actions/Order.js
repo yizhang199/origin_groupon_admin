@@ -45,30 +45,45 @@ const index = () => {
 };
 
 const onPageChange = pageNumber => {
-  return async function(dispatch) {
+  return async function(dispatch, getState) {
+    const { startDate, endDate } = getState();
+    const start_date = startDate;
+    const end_date = endDate;
     const response = await kidsnParty.get(`/allorders`, {
       params: {
-        page: pageNumber
+        page: pageNumber,
+        start_date,
+        end_date
       }
     });
     dispatch({ type: types.getOrders, payload: response.data.orders });
   };
 };
 const fetchByStore = () => {
-  return async function(dispatch) {
+  return async function(dispatch, getState) {
+    const { startDate, endDate } = getState();
+    const start_date = startDate;
+    const end_date = endDate;
     const response = await kidsnParty.get(`/allorders`, {
       params: {
-        method: "byStore"
+        method: "byStore",
+        start_date,
+        end_date
       }
     });
     dispatch({ type: types.fetchOrdersByStore, payload: response.data.orders });
   };
 };
 const search = search_string => {
-  return async function(dispatch) {
+  return async function(dispatch, getState) {
+    const { startDate, endDate } = getState();
+    const start_date = startDate;
+    const end_date = endDate;
     const response = await kidsnParty.get(`/allorders`, {
       params: {
-        search_string
+        search_string,
+        start_date,
+        end_date
       }
     });
     dispatch({ type: types.getOrders, payload: response.data.orders });

@@ -1,3 +1,3 @@
 import DateRanger from "./DateRanger";
-
-export { DateRanger };
+import SalesGroupSelector from "./SalesGroupSelector";
+export { DateRanger, SalesGroupSelector };

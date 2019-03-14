@@ -2,14 +2,14 @@ import React from "react";
 import { Route, Router } from "react-router-dom";
 
 import { Summary, DetailView } from "../components/reports/";
-import { DateRanger } from "./shared/";
+import { SalesGroupSelector } from "./shared/";
 
 import { history } from "../history";
 
 const ChartManageMainWindow = () => {
   return (
     <div className="component-chart-manage-main-window">
-      <DateRanger />
+      <SalesGroupSelector />
       <Router history={history}>
         <>
           <Route

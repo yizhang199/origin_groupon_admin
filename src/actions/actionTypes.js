@@ -30,7 +30,8 @@ const actionTypes = {
   shopOpenDateChange: "SHOP_OPEN_DATE_CHANGE",
   fetchUsers: "FETCH_USERS",
   fetchSalesGroups: "FETCH_SALES_GROUPS",
-  fetchSalesGroup: "FETCH_SALES_GROUP"
+  fetchSalesGroup: "FETCH_SALES_GROUP",
+  setPeriod: "SET_PERIOD"
 };
 
 export default actionTypes;

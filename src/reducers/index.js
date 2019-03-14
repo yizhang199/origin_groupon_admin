@@ -80,6 +80,8 @@ const reportSummaryReducer = (reportSummary = {}, action) => {
     action.type === actionTypes.setStartDate
   ) {
     return action.payload.reports;
+  } else if (action.type === actionTypes.setPeriod) {
+    return action.payload.reports;
   }
   return reportSummary;
 };
@@ -110,12 +112,16 @@ const paginationParamsReducer = (paginationParams = {}, action) => {
 const startDateReducer = (startDate = new Date(), action) => {
   if (action.type === actionTypes.setStartDate) {
     return action.payload.date;
+  } else if (action.type === actionTypes.setPeriod) {
+    return action.payload.startDate;
   }
   return startDate;
 };
 const endDateReducer = (endDate = new Date(), action) => {
   if (action.type === actionTypes.setEndDate) {
     return action.payload.date;
+  } else if (action.type === actionTypes.setPeriod) {
+    return action.payload.endDate;
   }
   return endDate;
 };
@@ -126,6 +132,8 @@ const reportDetailsReducer = (reportDetails = [], action) => {
     action.type === actionTypes.setEndDate ||
     action.type === actionTypes.setStartDate
   ) {
+    return action.payload.report;
+  } else if (action.type === actionTypes.setPeriod) {
     return action.payload.report;
   }
   return reportDetails;

@@ -12,6 +12,7 @@ import User from "./User";
 import Customer from "./Customer";
 import Staff from "./Staff";
 import SalesGroup from "./SalesGroup";
+import App from "./App.js";
 
 // produt actions
 export const getProducts = Product.index;
@@ -94,6 +95,9 @@ export const fetchSalesGroups = SalesGroup.index;
 export const fetchSalesGroup = SalesGroup.show;
 export const createSalesGroup = SalesGroup.store;
 export const updateSalesGroup = SalesGroup.update;
+
+// app actions
+export const setPeriod = App.setPeriod;
 
 // export action types
 export const actionTypes = types;
