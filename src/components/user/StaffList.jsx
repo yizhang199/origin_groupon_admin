@@ -3,15 +3,19 @@ import { connect } from "react-redux";
 import { getStyle } from "../../helpers";
 
 import { fetchStaffs, sortStaffDetails } from "../../actions";
-
+import StaffRow from "./StaffRow";
 class StaffList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: 0,
-      telephone: 0,
+      phone: 0,
       email: 0,
-      user_group_id: 0,
+      accessOrders: 0,
+      accessProducts: 0,
+      accessSalesGroups: 0,
+      accessReports: 0,
+      accessAccounts: 0,
       status: 0
     };
   }
@@ -31,7 +35,11 @@ class StaffList extends React.Component {
         username: 0,
         telephone: 0,
         email: 0,
-        user_group_id: 0,
+        accessOrders: 0,
+        accessProducts: 0,
+        accessSalesGroups: 0,
+        accessReports: 0,
+        accessAccounts: 0,
         status: 0
       });
       this.setState({ [value]: -1 });
@@ -41,7 +49,11 @@ class StaffList extends React.Component {
         username: 0,
         telephone: 0,
         email: 0,
-        user_group_id: 0,
+        accessOrders: 0,
+        accessProducts: 0,
+        accessSalesGroups: 0,
+        accessReports: 0,
+        accessAccounts: 0,
         status: 0
       });
       this.setState({ [value]: 1 });
@@ -72,17 +84,18 @@ class StaffList extends React.Component {
             className="text"
           >
             <span>
-              用户名<i className="material-icons">{this.getIcon("username")}</i>
+              用户名
+              <i className="material-icons">{this.getIcon("username")}</i>
             </span>
           </th>
           <th
             onClick={() => {
-              this.sortDetails("telephone");
+              this.sortDetails("phone");
             }}
             className="text"
           >
             <span>
-              电话<i className="material-icons">{this.getIcon("telephone")}</i>
+              电话<i className="material-icons">{this.getIcon("phone")}</i>
             </span>
           </th>
           <th
@@ -92,18 +105,65 @@ class StaffList extends React.Component {
             className="text"
           >
             <span>
-              电子邮箱<i className="material-icons">{this.getIcon("email")}</i>
+              电子邮箱
+              <i className="material-icons">{this.getIcon("email")}</i>
             </span>
           </th>
           <th
             onClick={() => {
-              this.sortDetails("user_group_id");
+              this.sortDetails("accessOrders");
             }}
             className="text"
           >
             <span>
-              是否显示团购报价
-              <i className="material-icons">{this.getIcon("user_group_id")}</i>
+              订单管理
+              <i className="material-icons">{this.getIcon("accessOrders")}</i>
+            </span>
+          </th>
+          <th
+            onClick={() => {
+              this.sortDetails("accessProducts");
+            }}
+            className="text"
+          >
+            <span>
+              产品管理
+              <i className="material-icons">{this.getIcon("accessProducts")}</i>
+            </span>
+          </th>
+          <th
+            onClick={() => {
+              this.sortDetails("accessSalesGroups");
+            }}
+            className="text"
+          >
+            <span>
+              团购管理
+              <i className="material-icons">
+                {this.getIcon("accessSalesGroups")}
+              </i>
+            </span>
+          </th>
+          <th
+            onClick={() => {
+              this.sortDetails("accessReports");
+            }}
+            className="text"
+          >
+            <span>
+              报表管理
+              <i className="material-icons">{this.getIcon("accessReports")}</i>
+            </span>
+          </th>
+          <th
+            onClick={() => {
+              this.sortDetails("accessAccounts");
+            }}
+            className="text"
+          >
+            <span>
+              人员管理
+              <i className="material-icons">{this.getIcon("accessAccounts")}</i>
             </span>
           </th>
           <th
@@ -113,7 +173,8 @@ class StaffList extends React.Component {
             className="text"
           >
             <span>
-              用户状态<i className="material-icons">{this.getIcon("status")}</i>
+              用户状态
+              <i className="material-icons">{this.getIcon("status")}</i>
             </span>
           </th>
         </tr>
@@ -125,17 +186,11 @@ class StaffList extends React.Component {
     return this.props.userList.map(user => {
       index++;
       return (
-        <tr className={`userRow${user.user_id}`} style={getStyle(index)}>
-          <td className="text">{user.username}</td>
-          <td className="text" />
-          <td className="text">{user.email}</td>
-          <td className="text">
-            {parseInt(user.user_group_id) === 1 ? "是" : "否"}
-          </td>
-          <td className="text">
-            {parseInt(user.status) === 0 ? "active" : "inactive"}
-          </td>
-        </tr>
+        <StaffRow
+          user={user}
+          key={`userRow${user.user_id}`}
+          style={getStyle(index)}
+        />
       );
     });
   };
@@ -148,7 +203,7 @@ class StaffList extends React.Component {
       <div className="component-table">
         <table className="user-list">
           {this.renderThead()}
-          {this.renderTbody()}
+          <tbody>{this.renderTbody()}</tbody>
         </table>
       </div>
     );
