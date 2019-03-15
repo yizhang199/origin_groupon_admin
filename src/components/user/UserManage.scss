@@ -1,7 +1,7 @@
 @import "../shared/variables.scss";
 
 .component-customer-manage {
-  width: 90vw;
+  width: calc(90vw - 20px);
   height: 90vh;
   display: flex;
   justify-content: flex-start;
@@ -9,6 +9,12 @@
   overflow: scroll;
   padding: 0 10px;
   flex-direction: column;
+  .component-table {
+    align-items: flex-start;
+    .user-list {
+      width: max-content;
+    }
+  }
   td {
     .material-icons {
       color: color("main");

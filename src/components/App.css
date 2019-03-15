@@ -88,7 +88,7 @@
 }
 
 .component-customer-manage {
-  width: 90vw;
+  width: calc(90vw - 20px);
   height: 90vh;
   display: flex;
   justify-content: flex-start;
@@ -96,6 +96,12 @@
   overflow: scroll;
   padding: 0 10px;
   flex-direction: column;
+}
+.component-customer-manage .component-table {
+  align-items: flex-start;
+}
+.component-customer-manage .component-table .user-list {
+  width: max-content;
 }
 .component-customer-manage td .material-icons {
   color: #ffba2d;
