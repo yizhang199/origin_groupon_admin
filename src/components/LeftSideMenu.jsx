@@ -45,6 +45,13 @@ const LeftSideMenu = () => {
           <i className="material-icons">insert_chart_outlined</i>
           经营分析
         </Link>
+        <Link
+          to={`${process.env.PUBLIC_URL}/customer`}
+          className={getClass("/customer")}
+        >
+          <i className="material-icons">supervisor_account</i>
+          人员管理
+        </Link>
       </div>
     </div>
   );

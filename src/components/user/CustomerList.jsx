@@ -2,22 +2,47 @@ import React from "react";
 import { connect } from "react-redux";
 import { getStyle } from "../../helpers";
 
-import { fetchCustomers, sortCustomerDetails } from "../../actions";
+import UpdateCustomer from "./UpdateCustomer";
+import CreateCustomer from "./CreateCustomer";
+
+import {
+  fetchCustomers,
+  sortCustomerDetails,
+  fetchCustomer
+} from "../../actions";
 
 class CustomerList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      user_id: 0,
       username: 0,
-      telephone: 0,
+      phone: 0,
       email: 0,
       user_group_id: 0,
-      status: 0
+      status: 0,
+      showEditForm: false,
+      showCreateForm: false
     };
   }
   componentDidMount() {
     this.props.fetchCustomers();
   }
+
+  updateCustomer = () => {};
+  renderEditForm = () => {
+    if (!this.state.showEditForm) {
+      return null;
+    }
+    return (
+      <UpdateCustomer
+        close={() => {
+          this.setState({ showEditForm: false });
+        }}
+        customer_id={this.state.user_id}
+      />
+    );
+  };
 
   sortDetails = value => {
     const sortOrder = this.getSortOrder(value);
@@ -29,7 +54,7 @@ class CustomerList extends React.Component {
     if (this.state[value] === 1) {
       this.setState({
         username: 0,
-        telephone: 0,
+        phone: 0,
         email: 0,
         user_group_id: 0,
         status: 0
@@ -39,7 +64,7 @@ class CustomerList extends React.Component {
     } else {
       this.setState({
         username: 0,
-        telephone: 0,
+        phone: 0,
         email: 0,
         user_group_id: 0,
         status: 0
@@ -61,6 +86,10 @@ class CustomerList extends React.Component {
         return null;
     }
   };
+  selectUser = user_id => {
+    this.props.fetchCustomer(user_id);
+    this.setState({ showEditForm: true });
+  };
   renderThead = () => {
     return (
       <thead>
@@ -77,12 +106,12 @@ class CustomerList extends React.Component {
           </th>
           <th
             onClick={() => {
-              this.sortDetails("telephone");
+              this.sortDetails("phone");
             }}
             className="text"
           >
             <span>
-              电话<i className="material-icons">{this.getIcon("telephone")}</i>
+              电话<i className="material-icons">{this.getIcon("phone")}</i>
             </span>
           </th>
           <th
@@ -116,6 +145,9 @@ class CustomerList extends React.Component {
               用户状态<i className="material-icons">{this.getIcon("status")}</i>
             </span>
           </th>
+          <th className="text">
+            <span>编辑</span>
+          </th>
         </tr>
       </thead>
     );
@@ -125,9 +157,13 @@ class CustomerList extends React.Component {
     return this.props.userList.map(user => {
       index++;
       return (
-        <tr className={`userRow${user.user_id}`} style={getStyle(index)}>
+        <tr
+          key={`customerListRow${index}`}
+          className={`userRow${user.user_id}`}
+          style={getStyle(index)}
+        >
           <td className="text">{user.username}</td>
-          <td className="text" />
+          <td className="text">{user.phone}</td>
           <td className="text">{user.email}</td>
           <td className="text">
             {parseInt(user.user_group_id) === 1 ? "是" : "否"}
@@ -135,21 +171,57 @@ class CustomerList extends React.Component {
           <td className="text">
             {parseInt(user.status) === 0 ? "active" : "inactive"}
           </td>
+          <td>
+            <i
+              className="material-icons"
+              onClick={() => {
+                this.selectUser(user.user_id);
+              }}
+            >
+              edit
+            </i>
+          </td>
         </tr>
       );
     });
   };
-
+  renderCreateForm = () => {
+    if (!this.state.showCreateForm) {
+      return null;
+    }
+    return (
+      <CreateCustomer
+        close={() => {
+          this.setState({ showEditForm: false, showCreateForm: false });
+        }}
+      />
+    );
+  };
+  renderAddButton = () => {
+    return (
+      <div
+        onClick={() => {
+          this.setState({ showEditForm: false, showCreateForm: true });
+        }}
+        className="add-button"
+      >
+        <i className="material-icons">add</i>
+      </div>
+    );
+  };
   render() {
     if (this.props.userList.length === 0) {
       return <div className="component-table">loading...</div>;
     }
     return (
       <div className="component-table">
+        {this.renderEditForm()}
+        {this.renderCreateForm()}
         <table className="user-list">
           {this.renderThead()}
-          {this.renderTbody()}
+          <tbody>{this.renderTbody()}</tbody>
         </table>
+        {this.renderAddButton()}
       </div>
     );
   }
@@ -159,5 +231,5 @@ const mapStateToProps = ({ userList }) => {
 };
 export default connect(
   mapStateToProps,
-  { fetchCustomers, sortCustomerDetails }
+  { fetchCustomers, sortCustomerDetails, fetchCustomer }
 )(CustomerList);

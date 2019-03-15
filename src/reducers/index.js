@@ -179,8 +179,15 @@ const salesGroupsListReducer = (salesGroupsList = [], action) => {
   }
   return salesGroupsList;
 };
+const selectedCustomerReducer = (selectedCustomer = {}, action) => {
+  if (action.type === actionTypes.fetchCustomer) {
+    return action.payload;
+  }
+  return selectedCustomer;
+};
 
 export default combineReducers({
+  selectedCustomer: selectedCustomerReducer,
   userList: userListReducer,
   products: productsReducer,
   form: formReducer,

@@ -86,6 +86,9 @@ export const fetchUsers = User.index;
 
 // customer actions
 export const fetchCustomers = Customer.index;
+export const fetchCustomer = Customer.show;
+export const createCustomer = Customer.create;
+export const updateCustomer = Customer.update;
 export const sortCustomerDetails = Customer.sortDetails;
 // staff actions
 export const fetchStaffs = Staff.index;
