@@ -185,6 +185,12 @@ const selectedCustomerReducer = (selectedCustomer = {}, action) => {
   }
   return selectedCustomer;
 };
+const loginUserReducer = (loginUser = {}, action) => {
+  if (action.type === actionTypes.userLogin) {
+    return action.payload;
+  }
+  return loginUser;
+};
 
 export default combineReducers({
   selectedCustomer: selectedCustomerReducer,
@@ -211,5 +217,6 @@ export default combineReducers({
   ordersByStore: ordersByStoreReducer,
   modalStatus: toggleModalReducer,
   salesGroupsList: salesGroupsListReducer,
-  salesGroup: salesGroupReducer
+  salesGroup: salesGroupReducer,
+  loginUser: loginUserReducer
 });

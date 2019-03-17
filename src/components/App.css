@@ -87,6 +87,21 @@
   font-size: 1.2rem;
 }
 
+.reject {
+  height: 100vh;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.reject img {
+  border-radius: 3px;
+}
+.reject h3 {
+  color: #8c8c8c;
+}
+
 .component-customer-manage {
   width: calc(90vw - 20px);
   height: 90vh;
@@ -2588,6 +2603,76 @@ body {
   color: #8c8c8c;
   font-weight: bold;
   font-size: 22px;
+}
+
+.login-page {
+  position: fixed;
+  z-index: 5000;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+}
+.login-page .header {
+  width: 100%;
+  height: 10vh;
+  color: #fff;
+  background-color: #ffba2d;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.login-page form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 180px;
+  width: 60%;
+  margin: auto;
+  margin-top: 5rem;
+}
+.login-page form .form-field {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-page form .form-field label {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-page form .form-field label input {
+  height: 35px;
+  width: 80%;
+  border: 1px solid #a5a5a5;
+  border-radius: 3px;
+  padding-left: 10px;
+  outline: none;
+}
+.login-page form .form-field label input::placeholder {
+  font-weight: bold;
+  color: #a5a5a5;
+}
+.login-page form .form-field label span {
+  color: #8c8c8c;
+  font-size: 14px;
+}
+.login-page form button {
+  height: 35px;
+  width: 150px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ffba2d;
+  border-radius: 3px;
+  border: 1px solid #ffba2d;
+  color: #fff;
+  box-shadow: 0 0 5px #a5a5a5;
 }
 
 /*# sourceMappingURL=App.css.map */

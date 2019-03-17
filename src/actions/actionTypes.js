@@ -32,7 +32,8 @@ const actionTypes = {
   fetchSalesGroups: "FETCH_SALES_GROUPS",
   fetchSalesGroup: "FETCH_SALES_GROUP",
   setPeriod: "SET_PERIOD",
-  fetchCustomer: "FETCH_CUSTOMER"
+  fetchCustomer: "FETCH_CUSTOMER",
+  userLogin: "USER_LOGIN"
 };
 
 export default actionTypes;
