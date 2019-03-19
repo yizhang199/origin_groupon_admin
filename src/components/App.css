@@ -112,7 +112,7 @@
   padding: 0 10px;
   flex-direction: column;
 }
-.component-customer-manage .component-table {
+.component-customer-manage .component-table.user {
   align-items: flex-start;
 }
 .component-customer-manage .component-table .user-list {
@@ -145,7 +145,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  height: 100vh;
   width: 90vw;
   top: 0;
   left: 10vw;

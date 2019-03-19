@@ -53,9 +53,14 @@ const create = () => {
   return async function(dispatch, getState) {
     const requestBody = getState().form.customerForm.values;
 
-    const response = await kidsnparty.post("user", requestBody);
+    const response = await kidsnparty.post("user/register", requestBody);
 
-    dispatch({ type: types.fetchUsers, payload: response.data.users });
+    const response2 = await kidsnparty.get("users", {
+      params: {
+        user_group: "customer"
+      }
+    });
+    dispatch({ type: types.fetchUsers, payload: response2.data.users });
   };
 };
 export default {

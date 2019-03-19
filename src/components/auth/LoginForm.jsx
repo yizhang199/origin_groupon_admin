@@ -19,7 +19,7 @@ const LoginForm = ({ handleSubmit, onSubmit }) => {
         type="text"
         component={renderInput}
         label={`电话号码`}
-        placeholder={`请输入电话号码`}
+        placeholder={`请输入电话号码或邮箱地址`}
       />
       <Field
         name="password"

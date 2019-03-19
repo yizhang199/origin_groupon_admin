@@ -7,6 +7,7 @@ import CustomerForm from "./CustomerForm";
 const CreateCustomer = ({ createCustomer, close }) => {
   const onSubmit = () => {
     createCustomer();
+    close();
   };
 
   return (

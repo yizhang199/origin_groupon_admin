@@ -29,7 +29,6 @@ class CustomerList extends React.Component {
     this.props.fetchCustomers();
   }
 
-  updateCustomer = () => {};
   renderEditForm = () => {
     if (!this.state.showEditForm) {
       return null;

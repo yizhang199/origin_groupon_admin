@@ -38,8 +38,15 @@ const marking = (order_id, checked) => {
 };
 
 const index = () => {
-  return async function(dispatch) {
-    const response = await kidsnParty.get(`/allorders`);
+  return async function(dispatch, getState) {
+    const { startDate, endDate } = getState();
+
+    const response = await kidsnParty.get(`/allorders`, {
+      params: {
+        start_date: startDate,
+        end_date: endDate
+      }
+    });
     dispatch({ type: types.getOrders, payload: response.data.orders });
   };
 };

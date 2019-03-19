@@ -57,6 +57,13 @@ const CustomerForm = ({ onSubmit, handleSubmit }) => {
         placeholder="请输入用户电子邮箱"
       />
       <Field
+        name="password"
+        type="password"
+        label="新密码"
+        component={renderInput}
+        placeholder="请输入新密码"
+      />
+      <Field
         name="status"
         type="select"
         label={`用户状态`}

@@ -200,7 +200,7 @@ class StaffList extends React.Component {
       return <div className="component-table">loading...</div>;
     }
     return (
-      <div className="component-table">
+      <div className="component-table user">
         <table className="user-list">
           {this.renderThead()}
           <tbody>{this.renderTbody()}</tbody>

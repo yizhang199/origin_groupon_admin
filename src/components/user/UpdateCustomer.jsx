@@ -8,6 +8,7 @@ class UpdateCustomer extends React.Component {
   }
   onSubmit = () => {
     this.props.updateCustomer();
+    this.props.close();
   };
   componentDidMount() {
     // this.props.fetchCustomer(this.props.customer_id);
