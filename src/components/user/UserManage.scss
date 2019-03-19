@@ -42,7 +42,9 @@
   }
 }
 .update-customer,
-.create-customer {
+.create-customer,
+.update-staff,
+.create-staff {
   display: flex;
   align-items: center;
   justify-content: center;

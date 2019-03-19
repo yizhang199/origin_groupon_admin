@@ -1,6 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+import { fetchStaff } from "../../actions";
 
-const StaffRow = ({ user, style }) => {
+const StaffRow = ({ user, style, open, fetchStaff }) => {
   const {
     username,
     phone,
@@ -23,8 +25,22 @@ const StaffRow = ({ user, style }) => {
       <td className="text">{accessReports ? `是` : `否`}</td>
       <td className="text">{accessAccounts ? `是` : `否`}</td>
       <td className="text">{parseInt(status) === 0 ? "active" : "inactive"}</td>
+      <td>
+        <i
+          className="material-icons"
+          onClick={() => {
+            fetchStaff(user.user_id);
+            open();
+          }}
+        >
+          edit
+        </i>
+      </td>
     </tr>
   );
 };
 
-export default StaffRow;
+export default connect(
+  null,
+  { fetchStaff }
+)(StaffRow);

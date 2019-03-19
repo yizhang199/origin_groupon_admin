@@ -191,8 +191,15 @@ const loginUserReducer = (loginUser = {}, action) => {
   }
   return loginUser;
 };
+const selectedStaffReducer = (selectedStaff = {}, action) => {
+  if (action.type === actionTypes.fetchStaff) {
+    return action.payload;
+  }
+  return selectedStaff;
+};
 
 export default combineReducers({
+  selectedStaff: selectedStaffReducer,
   selectedCustomer: selectedCustomerReducer,
   userList: userListReducer,
   products: productsReducer,

@@ -141,7 +141,9 @@
 }
 
 .update-customer,
-.create-customer {
+.create-customer,
+.update-staff,
+.create-staff {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,7 +155,9 @@
   background-color: #c7c7c7a5;
 }
 .update-customer form,
-.create-customer form {
+.create-customer form,
+.update-staff form,
+.create-staff form {
   width: 60%;
   padding: 20px;
   display: flex;
@@ -165,7 +169,9 @@
   border-radius: 5px;
 }
 .update-customer form .form-field,
-.create-customer form .form-field {
+.create-customer form .form-field,
+.update-staff form .form-field,
+.create-staff form .form-field {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -173,19 +179,25 @@
   margin-bottom: 20px;
 }
 .update-customer form .form-field select,
-.create-customer form .form-field select {
+.create-customer form .form-field select,
+.update-staff form .form-field select,
+.create-staff form .form-field select {
   width: 80%;
   height: 35px;
 }
 .update-customer form .form-field label,
-.create-customer form .form-field label {
+.create-customer form .form-field label,
+.update-staff form .form-field label,
+.create-staff form .form-field label {
   width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .update-customer form .form-field label input,
-.create-customer form .form-field label input {
+.create-customer form .form-field label input,
+.update-staff form .form-field label input,
+.create-staff form .form-field label input {
   height: 35px;
   width: 80%;
   border: 1px solid #a5a5a5;
@@ -194,17 +206,23 @@
   outline: none;
 }
 .update-customer form .form-field label input::placeholder,
-.create-customer form .form-field label input::placeholder {
+.create-customer form .form-field label input::placeholder,
+.update-staff form .form-field label input::placeholder,
+.create-staff form .form-field label input::placeholder {
   font-weight: bold;
   color: #a5a5a5;
 }
 .update-customer form .form-field label span,
-.create-customer form .form-field label span {
+.create-customer form .form-field label span,
+.update-staff form .form-field label span,
+.create-staff form .form-field label span {
   color: #8c8c8c;
   font-size: 14px;
 }
 .update-customer form button,
-.create-customer form button {
+.create-customer form button,
+.update-staff form button,
+.create-staff form button {
   height: 35px;
   width: 150px;
   font-size: 16px;

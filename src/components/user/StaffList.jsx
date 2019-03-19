@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { getStyle } from "../../helpers";
 
 import { fetchStaffs, sortStaffDetails } from "../../actions";
+import CreateStaff from "./CreateStaff";
+import UpdateStaff from "./UpdateStaff";
 import StaffRow from "./StaffRow";
 class StaffList extends React.Component {
   constructor(props) {
@@ -16,7 +18,9 @@ class StaffList extends React.Component {
       accessSalesGroups: 0,
       accessReports: 0,
       accessAccounts: 0,
-      status: 0
+      status: 0,
+      showUpdateComponent: false,
+      showCreateComponent: false
     };
   }
   componentDidMount() {
@@ -177,10 +181,14 @@ class StaffList extends React.Component {
               <i className="material-icons">{this.getIcon("status")}</i>
             </span>
           </th>
+          <th className="text">
+            <span>编辑</span>
+          </th>
         </tr>
       </thead>
     );
   };
+
   renderTbody = () => {
     let index = 0;
     return this.props.userList.map(user => {
@@ -190,9 +198,54 @@ class StaffList extends React.Component {
           user={user}
           key={`userRow${user.user_id}`}
           style={getStyle(index)}
+          open={() => {
+            this.setState({ showUpdateComponent: true });
+          }}
         />
       );
     });
+  };
+
+  renderUpdate = () => {
+    if (!this.state.showUpdateComponent) {
+      return null;
+    }
+    return (
+      <UpdateStaff
+        close={() => {
+          this.setState({ showUpdateComponent: false });
+        }}
+      />
+    );
+  };
+
+  renderCreate = () => {
+    if (!this.state.showCreateComponent) {
+      return null;
+    }
+    return (
+      <CreateStaff
+        close={() => {
+          this.setState({ showCreateComponent: false });
+        }}
+      />
+    );
+  };
+
+  renderAddButton = () => {
+    return (
+      <div
+        onClick={() => {
+          this.setState({
+            showUpdateComponent: false,
+            showCreateComponent: true
+          });
+        }}
+        className="add-button"
+      >
+        <i className="material-icons">add</i>
+      </div>
+    );
   };
 
   render() {
@@ -201,10 +254,13 @@ class StaffList extends React.Component {
     }
     return (
       <div className="component-table user">
+        {this.renderUpdate()}
+        {this.renderCreate()}
         <table className="user-list">
           {this.renderThead()}
           <tbody>{this.renderTbody()}</tbody>
         </table>
+        {this.renderAddButton()}
       </div>
     );
   }

@@ -93,6 +93,9 @@ export const updateCustomer = Customer.update;
 export const sortCustomerDetails = Customer.sortDetails;
 // staff actions
 export const fetchStaffs = Staff.index;
+export const fetchStaff = Staff.show;
+export const createStaff = Staff.create;
+export const updateStaff = Staff.update;
 export const sortStaffDetails = Staff.sortDetails;
 
 // sales group actions
