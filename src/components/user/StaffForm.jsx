@@ -3,12 +3,15 @@ import { Field, reduxForm } from "redux-form";
 
 const StaffForm = ({ onSubmit, handleSubmit }) => {
   const renderInput = ({ input, type, label, placeholder }) => {
-    if (type === "checkbox") {
+    if (type === "select") {
       return (
         <div className="form-field">
           <label>
             <span>{label}</span>
-            <input {...input} type={type} placeholder={placeholder} />
+            <select {...input}>
+              <option value={0}>active</option>
+              <option value={1}>inactive</option>
+            </select>
           </label>
         </div>
       );

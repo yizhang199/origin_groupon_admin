@@ -5,7 +5,7 @@ import { createStaff } from "../../actions";
 
 import StaffForm from "./StaffForm";
 
-const CreateStaff = ({ close }) => {
+const CreateStaff = ({ close, createStaff }) => {
   const onSubmit = () => {
     createStaff();
   };
