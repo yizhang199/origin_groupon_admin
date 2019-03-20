@@ -66,7 +66,7 @@ const create = (file, isGroupon) => {
     });
 
     dispatch({ type: types.getProducts, payload: response.data.products });
-    history.push(`${process.env.PUBLIC_URL}/`);
+    history.push(`${process.env.PUBLIC_URL}/products`);
   };
 };
 
