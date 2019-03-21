@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchSingleShop, inactiveShop, activeShop } from "../../actions";
-import { makeDate } from "../../helpers";
+import { makeDate, makeShopOpenDate } from "../../helpers";
 
 const StoreCard = ({
   setMode,
@@ -23,6 +23,23 @@ const StoreCard = ({
         </span>
       );
     });
+  };
+  const renderOpenDateTime = () => {
+    const { open_date, open_time, close_time } = open;
+    if (!open_date) {
+      return (
+        <div>
+          <span>尚未设置时间</span>
+        </div>
+      );
+    }
+    return (
+      <div>
+        <span>
+          {makeShopOpenDate(open_date)}: {open_time}--{close_time}
+        </span>
+      </div>
+    );
   };
   const switchShopStatus = () => {
     if (parseInt(status) === 1) {
@@ -47,7 +64,7 @@ const StoreCard = ({
           {telephone}
         </div>
       </div>
-      <div className="date-list">{renderOpenDates()}</div>
+      <div className="date-list">{renderOpenDateTime()}</div>
 
       <div className="control-panel">
         <i className="material-icons" onClick={switchShopStatus}>

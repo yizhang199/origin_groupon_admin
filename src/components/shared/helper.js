@@ -17,10 +17,11 @@ export const makeDate = value => {
   const day = dt.getDate();
   const month = dt.getMonth();
   const year = dt.getFullYear();
+
   const formatDay = day > 9 ? day : `0${day}`;
   const formatMonth = months[month];
 
-  return `${formatDay} ${formatMonth}, ${year}`;
+  return `123 ${formatDay} ${formatMonth}, ${year}`;
 };
 
 export const makeType = value => {
