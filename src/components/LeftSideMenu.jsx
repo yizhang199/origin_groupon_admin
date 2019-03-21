@@ -5,7 +5,13 @@ import { history } from "../history";
 
 const LeftSideMenu = () => {
   const getClass = path => {
-    if (path === history.location.pathname) {
+    const historyPath = history.location.pathname;
+    const positionOfSecondSlash = historyPath.indexOf("/", 2);
+    const compareString =
+      positionOfSecondSlash === -1
+        ? historyPath
+        : historyPath.substring(0, positionOfSecondSlash);
+    if (path === compareString) {
       return "component-left-side-menu__item active";
     } else {
       return "component-left-side-menu__item";

@@ -8,7 +8,7 @@
   overflow: scroll;
 }
 .component-store-order-list__store {
-  width: 260px;
+  width: 40vw;
   border-radius: 5px;
   box-shadow: 0 0 3px #a5a5a5;
   padding: 10px 15px;
@@ -16,8 +16,8 @@
 }
 .component-store-order-list__store__header {
   border-bottom: 1px solid #a5a5a55e;
+  padding: 10px 0px;
   margin-bottom: 10px;
-  height: 27px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -30,6 +30,9 @@
   font-weight: bold;
   color: #ffba2d;
   margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
 }
 .component-store-order-list__store__product-list table {
   width: 100%;

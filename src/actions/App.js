@@ -13,7 +13,13 @@ const setPeriod = sales_group_id => {
     const endDate = end_date;
     const startDate = start_date;
 
-    const { report_category, reportDetails, reportSummary } = getState();
+    const {
+      report_category,
+      reportDetails,
+      reportSummary,
+      orders,
+      ordersByStore
+    } = getState();
 
     const { pathname } = history.location;
 
@@ -28,7 +34,61 @@ const setPeriod = sales_group_id => {
           startDate: startDate,
           endDate: endDate,
           reports: response.data.summary,
-          report: reportDetails
+          report: reportDetails,
+          orders,
+          ordersByStore
+        }
+      });
+    } else if (pathname === "/orders" || pathname === "/orders/products") {
+      const response = await kidsnparty.get(`/report`, {
+        params: { startDate, endDate, report_category: "product" }
+      });
+      dispatch({
+        type: types.setPeriod,
+        payload: {
+          startDate: startDate,
+          endDate: endDate,
+          reports: reportSummary,
+          report: response.data,
+          orders,
+          ordersByStore
+        }
+      });
+    } else if (pathname === "/orders/customers") {
+      const response = await kidsnparty.get(`/allorders`, {
+        params: {
+          start_date,
+          end_date
+        }
+      });
+      dispatch({
+        type: types.setPeriod,
+        payload: {
+          startDate,
+          endDate,
+          reports: reportSummary,
+          report: reportDetails,
+          orders: response.data.orders.data,
+          ordersByStore
+        }
+      });
+    } else if (pathname === "/orders/stores") {
+      const response = await kidsnparty.get(`/allorders`, {
+        params: {
+          method: "byStore",
+          start_date,
+          end_date
+        }
+      });
+      dispatch({
+        type: types.setPeriod,
+        payload: {
+          startDate,
+          endDate,
+          orders,
+          ordersByStore: response.data.orders,
+          report: reportDetails,
+          reports: reportSummary
         }
       });
     } else {
@@ -41,7 +101,9 @@ const setPeriod = sales_group_id => {
           startDate: startDate,
           endDate: endDate,
           reports: reportSummary,
-          report: response.data
+          report: response.data,
+          orders,
+          ordersByStore
         }
       });
     }

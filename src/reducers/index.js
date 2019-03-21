@@ -46,6 +46,8 @@ const ordersReducer = (orders = [], action) => {
     return action.payload;
   } else if (action.type === actionTypes.updateOrder) {
     return action.payload.orders.data;
+  } else if (action.type === actionTypes.setPeriod) {
+    return action.payload.orders;
   }
   return orders;
 };
@@ -147,6 +149,8 @@ const reportCategoryReducer = (report_category = "", action) => {
 const ordersByStoreReducer = (ordersByStore = [], action) => {
   if (action.type === actionTypes.fetchOrdersByStore) {
     return action.payload;
+  } else if (action.type === actionTypes.setPeriod) {
+    return action.payload.ordersByStore;
   }
 
   return ordersByStore;

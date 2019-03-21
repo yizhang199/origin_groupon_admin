@@ -34,8 +34,11 @@ class StoreOrderList extends React.Component {
           key={`storeOrderProduct${productArray[0].product_name}`}
         >
           <p>
-            {productArray[0].product_name}x
-            {this.calculateTotalQuantity(productArray)}
+            <span className="name">{productArray[0].product_name}</span>
+
+            <span className="quantity">
+              x{this.calculateTotalQuantity(productArray)}
+            </span>
           </p>
           {/* {this.renderProductItems(productArray)} */}
         </div>

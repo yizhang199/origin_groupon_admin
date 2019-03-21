@@ -24,14 +24,14 @@ class Page extends React.Component {
   render() {
     return (
       <div className="component-productorders">
-        <div
+        {/* <div
           className="control-button-group"
           onClick={() => {
             this.setState({ tableView: !this.state.tableView });
           }}
         >
           <i className="material-icons">{this.renderIconText()}</i>
-        </div>
+        </div> */}
         {this.state.tableView ? <TableView /> : <BarView />}
       </div>
     );

@@ -97,8 +97,10 @@ class ShopForm extends React.Component {
             onChange={this.handleDateChange}
             highlightDates={highlightDates}
             shouldCloseOnSelect={false}
+            showTimeSelect
             withPortal
           />
+
           <span className="component-shop-form__date-picker__title">
             请选择可以取货的日期
           </span>
