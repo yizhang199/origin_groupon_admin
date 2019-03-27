@@ -6,15 +6,20 @@ const login = () => async (dispatch, getState) => {
 
   const response = await kidsnparty.post("user/login", requestBody);
 
-  if (response.data.success) {
+  if (
+    response.data.success &&
+    parseInt(response.data.data.user_group_id) === 3
+  ) {
     localStorage.setItem(
       "beautifulfruit_admin_user",
       JSON.stringify(response.data.data)
     );
     dispatch({ type: types.userLogin, payload: response.data.data });
     history.push(`${process.env.PUBLIC_URL}/products`);
-  } else {
+  } else if (!response.data.success) {
     alert("login fail, password or phone No. incorrect.");
+  } else {
+    alert("login fail, you are not authorized user.");
   }
 };
 
