@@ -1,6 +1,9 @@
 import types from "./actionTypes";
 import { kidsnparty } from "../apis";
 import { history } from "../history";
+
+const check = () => {};
+
 const login = () => async (dispatch, getState) => {
   const requestBody = getState().form.loginForm.values;
 
@@ -11,7 +14,7 @@ const login = () => async (dispatch, getState) => {
     parseInt(response.data.data.user_group_id) === 3
   ) {
     localStorage.setItem(
-      "beautifulfruit_admin_user",
+      "guoli_groupon_user",
       JSON.stringify(response.data.data)
     );
     dispatch({ type: types.userLogin, payload: response.data.data });
@@ -23,4 +26,4 @@ const login = () => async (dispatch, getState) => {
   }
 };
 
-export default { login };
+export default { login, check };

@@ -5,9 +5,7 @@ const PrivateRoute = ({ component: Component, role: role, ...rest }) => (
   <Route
     {...rest}
     render={props => {
-      const currentUser = JSON.parse(
-        localStorage.getItem("beautifulfruit_admin_user")
-      );
+      const currentUser = JSON.parse(localStorage.getItem("guoli_group_on"));
       if (!currentUser) {
         return (
           <Redirect
