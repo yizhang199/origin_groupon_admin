@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { checkLogin } from "../actions";
 import { Route, Router, Switch } from "react-router-dom";
 import { history } from "../history";
 
@@ -15,78 +17,85 @@ import { Login } from "./auth";
 
 import "./App.css";
 
-const App = () => {
-  return (
-    <div className="app">
-      <Router history={history}>
-        <React.Fragment>
-          <LeftSideMenu />
+class App extends React.Component {
+  componentDidMount() {
+    this.props.checkLogin();
+  }
+  render() {
+    return (
+      <div className="app">
+        <Router history={history}>
+          <React.Fragment>
+            <LeftSideMenu />
+            <Switch>
+              <PrivateRoute
+                path={`${process.env.PUBLIC_URL}/products`}
+                role={`accessProducts`}
+                component={CatalogManageMainWindow}
+              />
+              <PrivateRoute
+                path={`${process.env.PUBLIC_URL}/categories`}
+                role={`accessProducts`}
+                component={CatalogManageMainWindow}
+              />
+              <PrivateRoute
+                path={`${process.env.PUBLIC_URL}/options`}
+                role={`accessProducts`}
+                component={CatalogManageMainWindow}
+              />
+              <PrivateRoute
+                path={`${process.env.PUBLIC_URL}/orders`}
+                role={`accessOrders`}
+                component={OrderManageMainWindow}
+              />
+              <PrivateRoute
+                path={`${process.env.PUBLIC_URL}/shops`}
+                component={ShopManageMainWindow}
+                role={`accessSalesGroups`}
+              />
+              <PrivateRoute
+                path={`${process.env.PUBLIC_URL}/charts`}
+                role={`accessReports`}
+                component={ChartManageMainWindow}
+              />
+              <Route
+                path={`${process.env.PUBLIC_URL}/example`}
+                name="roben"
+                component={Example}
+              />
+              <PrivateRoute
+                path={`${process.env.PUBLIC_URL}/customer`}
+                role={`accessAccounts`}
+                component={UserManage}
+              />
+              <PrivateRoute
+                path={`${process.env.PUBLIC_URL}/staff`}
+                role={`accessAccounts`}
+                component={UserManage}
+              />
+              <PrivateRoute
+                path={`${process.env.PUBLIC_URL}/groupon`}
+                component={Groupon}
+                role={`accessSalesGroups`}
+              />
+              <Route
+                exact
+                path={`${process.env.PUBLIC_URL}/login`}
+                component={Login}
+              />
+              <Route
+                path={`${process.env.PUBLIC_URL}/reject`}
+                component={Reject}
+              />
+            </Switch>
+          </React.Fragment>
+        </Router>
+      </div>
+    );
+  }
+}
 
-          <Switch>
-            <PrivateRoute
-              path={`${process.env.PUBLIC_URL}/products`}
-              role={`accessProducts`}
-              component={CatalogManageMainWindow}
-            />
-            <PrivateRoute
-              path={`${process.env.PUBLIC_URL}/categories`}
-              role={`accessProducts`}
-              component={CatalogManageMainWindow}
-            />
-            <PrivateRoute
-              path={`${process.env.PUBLIC_URL}/options`}
-              role={`accessProducts`}
-              component={CatalogManageMainWindow}
-            />
-            <PrivateRoute
-              path={`${process.env.PUBLIC_URL}/orders`}
-              role={`accessOrders`}
-              component={OrderManageMainWindow}
-            />
-            <PrivateRoute
-              path={`${process.env.PUBLIC_URL}/shops`}
-              component={ShopManageMainWindow}
-              role={`accessSalesGroups`}
-            />
-            <PrivateRoute
-              path={`${process.env.PUBLIC_URL}/charts`}
-              role={`accessReports`}
-              component={ChartManageMainWindow}
-            />
-            <Route
-              path={`${process.env.PUBLIC_URL}/example`}
-              name="roben"
-              component={Example}
-            />
-            <PrivateRoute
-              path={`${process.env.PUBLIC_URL}/customer`}
-              role={`accessAccounts`}
-              component={UserManage}
-            />
-            <PrivateRoute
-              path={`${process.env.PUBLIC_URL}/staff`}
-              role={`accessAccounts`}
-              component={UserManage}
-            />
-            <PrivateRoute
-              path={`${process.env.PUBLIC_URL}/groupon`}
-              component={Groupon}
-              role={`accessSalesGroups`}
-            />
-            <Route
-              exact
-              path={`${process.env.PUBLIC_URL}/`}
-              component={Login}
-            />
-            <Route
-              path={`${process.env.PUBLIC_URL}/reject`}
-              component={Reject}
-            />
-          </Switch>
-        </React.Fragment>
-      </Router>
-    </div>
-  );
-};
-
-export default App;
+export default connect(
+  null,
+  { checkLogin }
+)(App);

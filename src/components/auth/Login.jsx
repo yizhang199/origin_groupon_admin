@@ -3,9 +3,6 @@ import { connect } from "react-redux";
 import { userLogin, checkLogin } from "../../actions";
 import LoginForm from "./LoginForm";
 class Login extends React.Component {
-  componentDidMount() {
-    this.props.checkLogin();
-  }
   onSubmit = () => {
     this.props.userLogin();
   };
