@@ -135,6 +135,16 @@
   padding: 0 10px;
   flex-direction: column;
 }
+@media (max-width: 450px) {
+  .component-customer-manage {
+    width: 100vw;
+  }
+}
+@media (max-width: 450px) {
+  .component-customer-manage .component-table {
+    width: 100vw;
+  }
+}
 .component-customer-manage .component-table.user {
   align-items: flex-start;
 }
@@ -151,6 +161,11 @@
   justify-content: center;
   align-items: flex-end;
   border-bottom: 3px solid #d8d8d8;
+}
+@media (max-width: 450px) {
+  .component-customer-manage .top-nav {
+    width: 100vw;
+  }
 }
 .component-customer-manage .top-nav a {
   text-decoration: none;
@@ -177,6 +192,15 @@
   position: fixed;
   background-color: #c7c7c7a5;
 }
+@media (max-width: 450px) {
+  .update-customer,
+.create-customer,
+.update-staff,
+.create-staff {
+    width: 100vw;
+    left: 0;
+  }
+}
 .update-customer form,
 .create-customer form,
 .update-staff form,
@@ -190,6 +214,17 @@
   border: 1px solid #a5a5a5;
   background-color: #fff;
   border-radius: 5px;
+  overflow: scroll;
+}
+@media (max-width: 450px) {
+  .update-customer form,
+.create-customer form,
+.update-staff form,
+.create-staff form {
+    width: 95%;
+    height: 85%;
+    padding: 5px;
+  }
 }
 .update-customer form .form-field,
 .create-customer form .form-field,
@@ -266,6 +301,11 @@
   justify-content: space-around;
   align-items: center;
 }
+@media (max-width: 450px) {
+  .screen-groupon {
+    width: 100vw;
+  }
+}
 .screen-groupon .sales-group {
   width: 90%;
   height: 45%;
@@ -276,6 +316,13 @@
   align-items: center;
   justify-content: space-around;
   padding-bottom: 20px;
+}
+@media (max-width: 450px) {
+  .screen-groupon .sales-group {
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
 }
 .screen-groupon .sales-group .tab {
   flex: 1;
@@ -296,6 +343,11 @@
   flex: 4;
   flex-direction: column;
 }
+@media (max-width: 450px) {
+  .screen-groupon .sales-group .sale-group {
+    flex: none;
+  }
+}
 .screen-groupon .sales-group .sale-group h2 {
   width: 100%;
   height: 30px;
@@ -310,12 +362,25 @@
   margin-bottom: 20px;
   height: 35px;
 }
+@media (max-width: 450px) {
+  .screen-groupon .sales-group .sale-group select {
+    width: 90%;
+    height: 25px;
+    margin-top: 5px;
+  }
+}
 .screen-groupon .sales-group .sale-group form {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
   flex: 1;
+}
+@media (max-width: 450px) {
+  .screen-groupon .sales-group .sale-group form {
+    width: 100%;
+    flex: none;
+  }
 }
 .screen-groupon .sales-group .sale-group form .form-field {
   width: 100%;
@@ -328,6 +393,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media (max-width: 450px) {
+  .screen-groupon .sales-group .sale-group form .form-field label {
+    width: 90%;
+    margin-bottom: 3px;
+  }
 }
 .screen-groupon .sales-group .sale-group form .form-field label input {
   height: 35px;
@@ -356,6 +427,11 @@
   color: #fff;
   box-shadow: 0 0 5px #a5a5a5;
 }
+@media (max-width: 450px) {
+  .screen-groupon .sales-group .sale-group form button {
+    margin-top: 5px;
+  }
+}
 .screen-groupon .store {
   width: 90%;
   height: 45%;
@@ -366,9 +442,9 @@
   align-items: center;
   justify-content: space-around;
   padding-bottom: 20px;
+  position: relative;
 }
 .screen-groupon .store .store-list {
-  position: relative;
   height: 100%;
   padding-top: 20px;
   display: flex;
@@ -376,6 +452,11 @@
   align-items: flex-start;
   flex-wrap: wrap;
   overflow: scroll;
+}
+@media (max-width: 450px) {
+  .screen-groupon .store .store-list {
+    display: none;
+  }
 }
 .screen-groupon .store .store-list .add-button {
   position: absolute;
@@ -444,6 +525,12 @@
   align-items: flex-start;
   overflow: scroll;
   width: 50%;
+}
+@media (max-width: 450px) {
+  .screen-groupon .store .update-store,
+.screen-groupon .store .create-store {
+    width: 100%;
+  }
 }
 .screen-groupon .store .update-store .sub-title,
 .screen-groupon .store .create-store .sub-title {
