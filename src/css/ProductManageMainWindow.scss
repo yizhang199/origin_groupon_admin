@@ -2,6 +2,10 @@
   height: 100vh;
   width: 90vw;
   overflow: scroll;
+  @include mobile {
+    width: 100vw;
+    height: 85vh;
+  }
 }
 .product-manage-main-window .sub-menu .link-container span {
   text-decoration: none;

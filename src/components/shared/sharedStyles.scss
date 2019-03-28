@@ -38,22 +38,28 @@
     margin-top: 20px;
     width: 80%;
     border-spacing: 0;
+    @include mobile {
+      width: 100%;
+    }
     tr {
       height: 30px;
     }
   }
   td,
   th {
+    padding-right: 15px;
     &.text {
       text-align: left;
-      padding-right: 15px;
+
       .material-icons {
         color: color("main");
       }
     }
     &.number {
       text-align: right;
-      padding-left: 15px;
+    }
+    @include mobile {
+      padding-right: 5px;
     }
   }
   thead {

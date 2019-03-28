@@ -9,6 +9,9 @@
   justify-content: flex-start;
   align-items: center;
   transition: all 0.4s ease;
+  @include mobile {
+    display: none;
+  }
 }
 .component-customer-order-list__without-details {
   width: 90vw;
@@ -21,6 +24,9 @@
   justify-content: flex-start;
   align-items: center;
   transition: all 0.4s ease;
+  @include mobile {
+    width: 100vw;
+  }
 }
 .component-customer-order-list__pagination__container {
   width: 100%;

@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { fetchReportDetails, setReportCategory } from "../../../actions";
-import "./styles.css";
 
 import CategoryTable from "./tables/CategoryTable";
 import ProductTable from "./tables/ProductTable";

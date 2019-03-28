@@ -39,13 +39,21 @@
   width: 80%;
   border-spacing: 0;
 }
+@media (max-width: 450px) {
+  .component-table table {
+    width: 100%;
+  }
+}
 .component-table table tr {
   height: 30px;
+}
+.component-table td,
+.component-table th {
+  padding-right: 15px;
 }
 .component-table td.text,
 .component-table th.text {
   text-align: left;
-  padding-right: 15px;
 }
 .component-table td.text .material-icons,
 .component-table th.text .material-icons {
@@ -54,7 +62,12 @@
 .component-table td.number,
 .component-table th.number {
   text-align: right;
-  padding-left: 15px;
+}
+@media (max-width: 450px) {
+  .component-table td,
+.component-table th {
+    padding-right: 5px;
+  }
 }
 .component-table thead th.number span {
   border-bottom: 3px solid #ffba2d;
@@ -85,6 +98,16 @@
   border-radius: 3px;
   color: #8c8c8c;
   font-size: 1.2rem;
+}
+@media (max-width: 450px) {
+  .component-sales-group-selector select {
+    font-size: 12px;
+  }
+}
+@media (max-width: 450px) {
+  .component-sales-group-selector {
+    height: 5vh;
+  }
 }
 
 .reject {
@@ -1257,6 +1280,11 @@
   align-items: center;
   transition: all 0.4s ease;
 }
+@media (max-width: 450px) {
+  .component-customer-order-list__with-details {
+    display: none;
+  }
+}
 
 .component-customer-order-list__without-details {
   width: 90vw;
@@ -1269,6 +1297,11 @@
   justify-content: flex-start;
   align-items: center;
   transition: all 0.4s ease;
+}
+@media (max-width: 450px) {
+  .component-customer-order-list__without-details {
+    width: 100vw;
+  }
 }
 
 .component-customer-order-list__pagination__container {
@@ -1807,6 +1840,11 @@
   width: 45vw;
   padding: 10px;
 }
+@media (max-width: 450px) {
+  .component-order-detail {
+    width: 100%;
+  }
+}
 
 .component-order-detail table td {
   border: 1px solid #a5a5a5;
@@ -1861,6 +1899,12 @@ body {
   display: flex;
   justify-content: flex-start;
 }
+@media (max-width: 450px) {
+  .main-window {
+    height: 75vh;
+    width: 100vw;
+  }
+}
 
 .component-order-top-nav {
   height: 10vh;
@@ -1870,17 +1914,21 @@ body {
   align-items: flex-end;
   border-bottom: 3px solid #d8d8d8;
 }
-
 .component-order-top-nav a {
   text-decoration: none;
   color: #030303;
   font-weight: bold;
   margin: 1px 5px;
 }
-
 .component-order-top-nav a.active {
   margin: -3px 5px;
   border-bottom: 3px solid #ffba2d;
+}
+@media (max-width: 450px) {
+  .component-order-top-nav {
+    height: 5vh;
+    width: 100vw;
+  }
 }
 
 .component-product-form-category-selector {
@@ -1948,6 +1996,12 @@ body {
   height: 100vh;
   width: 90vw;
   overflow: scroll;
+}
+@media (max-width: 450px) {
+  .component-order-manange-main-window {
+    width: 100vw;
+    height: 85vh;
+  }
 }
 
 .product-manage-main-window .sub-menu .link-container span {
@@ -2680,6 +2734,12 @@ body {
   align-items: flex-start;
   overflow: scroll;
 }
+@media (max-width: 450px) {
+  .component-store-order-list {
+    height: 75vh;
+    width: 100vw;
+  }
+}
 
 .component-store-order-list__store {
   width: 40vw;
@@ -2892,6 +2952,87 @@ body {
   box-shadow: 0 0 5px #a5a5a5;
 }
 
+.component-detail-view-table {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: scroll;
+}
+@media (max-width: 450px) {
+  .component-detail-view-table {
+    height: auto;
+  }
+}
+
+.component-detail-view-table .material-icons {
+  transition: all 600ms ease;
+}
+
+.component-detail-view-table .tbl-content,
+.component-detail-view-table .tbl-header {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.component-detail-view-table .material-icons {
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+.component-detail-view-table table {
+  margin-top: 20px;
+  width: 80%;
+  border-spacing: 0;
+}
+@media (max-width: 450px) {
+  .component-detail-view-table table {
+    width: 100%;
+  }
+}
+
+.component-detail-view-table td.text,
+.component-detail-view-table th.text {
+  text-align: left;
+  padding-right: 15px;
+}
+
+.component-detail-view-table td.number,
+.component-detail-view-table th.number {
+  text-align: right;
+  padding-left: 15px;
+}
+
+.component-detail-view-table thead th.number span {
+  border-bottom: 3px solid #ffba2d;
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.component-detail-view-table thead th.text span {
+  border-bottom: 3px solid #ffba2d;
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.component-detail-view-table tr {
+  height: 30px;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .app {
   display: flex;
   width: 100vw;
@@ -2900,6 +3041,7 @@ body {
 @media (max-width: 450px) {
   .app {
     flex-direction: column;
+    font-size: 14px;
   }
 }
 

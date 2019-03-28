@@ -3,6 +3,7 @@
 @import "./groupon/index.scss";
 @import "../css/index.scss";
 @import "./auth/index.scss";
+@import "./reports/index.scss";
 
 .app {
   display: flex;
@@ -10,5 +11,6 @@
   height: 100vh;
   @include mobile {
     flex-direction: column;
+    font-size: 14px;
   }
 }
