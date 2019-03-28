@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import { sortReportDetails, fetchProductOrderDetails } from "../../../actions";
 import { getStyle } from "../../shared/helper";
 
-import "../../shared/sharedStyles.css";
-
 class TableView extends React.Component {
   constructor(props) {
     super(props);

@@ -3,3 +3,12 @@
 @import "./groupon/index.scss";
 @import "../css/index.scss";
 @import "./auth/index.scss";
+
+.app {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  @include mobile {
+    flex-direction: column;
+  }
+}
