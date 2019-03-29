@@ -2,8 +2,9 @@
 @import "./user/UserManage.scss";
 @import "./groupon/index.scss";
 @import "../css/index.scss";
-@import "./auth/index.scss";
+@import "./auth/sass/index.scss";
 @import "./reports/index.scss";
+@import "./catalog/sass/index.scss";
 
 .app {
   display: flex;
