@@ -118,11 +118,22 @@
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 450px) {
+  .reject {
+    width: 100vw;
+    height: 85vh;
+  }
+}
 .reject img {
   border-radius: 3px;
 }
 .reject h3 {
   color: #8c8c8c;
+}
+@media (max-width: 450px) {
+  .reject h3 {
+    text-align: center;
+  }
 }
 
 .component-customer-manage {
@@ -1399,6 +1410,11 @@
   height: 60px;
   padding: 0 24px;
 }
+@media (max-width: 450px) {
+  .component-customer-order-list__pagination__container {
+    justify-content: center;
+  }
+}
 
 .component-customer-order-list__pagination__container input {
   font-size: 14px;
@@ -1407,6 +1423,11 @@
   border-radius: 5px;
   border: 1px solid #d8d8d8;
   padding: 0px 10px;
+}
+@media (max-width: 450px) {
+  .component-customer-order-list__pagination__container input {
+    display: none;
+  }
 }
 
 .pagination {
@@ -1421,6 +1442,12 @@
   box-shadow: 0px 0px 5px #a5a5a5;
   width: 200px;
   height: 40px;
+}
+@media (max-width: 450px) {
+  .pagination {
+    height: 30px;
+    border-radius: 3px;
+  }
 }
 
 .link-item {
@@ -1728,6 +1755,41 @@
     width: 100vw;
     height: 15vh;
   }
+}
+.component-left-side-menu .control-pannel {
+  background-color: #fff;
+  width: 9vw;
+  height: 15vh;
+  position: absolute;
+  top: 10vh;
+  left: 5vw;
+  border-radius: 5px;
+  box-shadow: 0 0 6px #a5a5a5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (max-width: 450px) {
+  .component-left-side-menu .control-pannel {
+    width: 30vw;
+  }
+}
+.component-left-side-menu .control-pannel button {
+  background-color: #ffba2d;
+  height: 35px;
+  border: 1px solid #fff;
+  width: 90%;
+  box-shadow: 0 0 3px #ffba2d;
+  border-radius: 5px;
+}
+@media (max-width: 450px) {
+  .component-left-side-menu .control-pannel button {
+    border-radius: 3px;
+  }
+}
+.component-left-side-menu .control-pannel button.logout {
+  background-color: #f55747;
 }
 
 .component-left-side-menu__icon {
@@ -3051,6 +3113,7 @@ body {
 @media (max-width: 450px) {
   .component-detail-view-table {
     height: auto;
+    align-items: flex-start;
   }
 }
 
@@ -3076,7 +3139,7 @@ body {
 }
 @media (max-width: 450px) {
   .component-detail-view-table table {
-    width: 100%;
+    width: max-content;
   }
 }
 

@@ -10,6 +10,37 @@
     width: 100vw;
     height: 15vh;
   }
+  .control-pannel {
+    background-color: color("bodyBackground");
+    width: 9vw;
+    height: 15vh;
+    position: absolute;
+    top: 10vh;
+    left: 5vw;
+    border-radius: 5px;
+    box-shadow: 0 0 6px color("border");
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    @include mobile {
+      width: 30vw;
+    }
+    button {
+      background-color: color("main");
+      height: 35px;
+      border: 1px solid color("bodyBackground");
+      width: 90%;
+      box-shadow: 0 0 3px color("main");
+      border-radius: 5px;
+      @include mobile {
+        border-radius: 3px;
+      }
+      &.logout {
+        background-color: color("secondary");
+      }
+    }
+  }
 }
 .component-left-side-menu__icon {
   display: flex;

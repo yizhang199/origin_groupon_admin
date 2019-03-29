@@ -1,0 +1,52 @@
+.component-customer-order-list__without-details {
+  .component-detail-view-table {
+    table {
+      tbody {
+        tr {
+          height: 35px;
+          td {
+            color: #000;
+            font-size: 14px;
+            .component-customer-order-card__check-button {
+              margin-right: 10px;
+            }
+            span {
+              display: inline-block;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.component-customer-order-list__with-details {
+  .component-detail-view-table {
+    width: 45vw;
+    overflow: scroll;
+    display: block;
+    @include mobile {
+      display: none;
+    }
+    table {
+      width: max-content;
+
+      tbody {
+        tr {
+          height: 35px;
+          td {
+            color: #000;
+            font-size: 14px;
+            .component-customer-order-card__check-button {
+              display: none;
+            }
+            span {
+              display: inline-block;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+  }
+}

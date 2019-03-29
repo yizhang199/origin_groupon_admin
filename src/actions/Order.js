@@ -28,9 +28,14 @@ const patch = value => {
   };
 };
 const marking = (order_id, checked) => {
-  return async function(dispatch) {
+  return async function(dispatch, getState) {
+    const { startDate, endDate } = getState();
     const value = checked ? 3 : 2;
-    const requestBody = { order_status_id: value };
+    const requestBody = {
+      order_status_id: value,
+      start_date: startDate,
+      end_date: endDate
+    };
     const response = await kidsnParty.patch(`/orders/${order_id}`, requestBody);
 
     dispatch({ type: types.updateOrder, payload: response.data });

@@ -8,6 +8,7 @@
   overflow: scroll;
   @include mobile {
     height: auto;
+    align-items: flex-start;
   }
 }
 .component-detail-view-table .material-icons {
@@ -28,7 +29,7 @@
   width: 80%;
   border-spacing: 0;
   @include mobile {
-    width: 100%;
+    width: max-content;
   }
 }
 
