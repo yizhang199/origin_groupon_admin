@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import SalesGroupForm from "./SalesGroupForm";
 
-import { fetchSalesGroup, updateSalesGroup } from "../../actions";
+import { fetchSalesGroup, updateSalesGroup } from "../../_actions";
 
 class UpdateSalesGruop extends React.Component {
   constructor(props) {

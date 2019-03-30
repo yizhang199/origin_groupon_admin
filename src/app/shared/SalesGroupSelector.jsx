@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchSalesGroups, setPeriod } from "../../actions";
+import { fetchSalesGroups, setPeriod } from "../../_actions";
 class SalesGroupSelector extends React.Component {
   constructor(props) {
     super(props);

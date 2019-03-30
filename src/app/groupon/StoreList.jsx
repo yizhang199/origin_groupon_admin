@@ -1,7 +1,7 @@
 import React from "react";
 import StoreCard from "./StoreCard";
 import { connect } from "react-redux";
-import { getShops, fetchSingleShop } from "../../actions";
+import { getShops, fetchSingleShop } from "../../_actions";
 class StoreList extends React.Component {
   componentDidMount() {
     this.props.getShops();

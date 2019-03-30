@@ -2,7 +2,7 @@ import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 
 import OptionList from "./OptionList";
-import { history } from "../history";
+import { history } from "../../../../_helpers";
 import CreateOption from "./CreateOption";
 import UpdateOption from "./UpdateOption";
 

@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { makeDate } from "../helpers";
-import { fetchSingleShop } from "../actions";
+import { makeDate } from "../../_helpers";
+import { fetchSingleShop } from "../../_actions";
 
 class ShopCard extends React.Component {
   componentDidMount() {}

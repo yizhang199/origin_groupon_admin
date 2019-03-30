@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { selectOrder, markingOrder } from "../../../actions";
-import { getStyle as getClass, makeOrderListTotal } from "../../../helpers";
+import { selectOrder, markingOrder } from "../../../_actions";
+import { getStyle as getClass, makeOrderListTotal } from "../../../_helpers";
 
 class CustomerOrderCard extends React.Component {
   state = {

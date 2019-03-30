@@ -1,10 +1,11 @@
 import React from "react";
 import { Route, Router } from "react-router-dom";
 
-import { Summary, DetailView } from "../components/reports/";
-import { SalesGroupSelector } from "./shared/";
+import { DetailView } from "./detailView";
+import { Summary } from "./summary";
+import { SalesGroupSelector } from "../shared";
 
-import { history } from "../history";
+import { history } from "../../_helpers";
 
 const ChartManageMainWindow = () => {
   return (

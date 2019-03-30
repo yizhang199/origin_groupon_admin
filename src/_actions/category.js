@@ -1,11 +1,11 @@
 import types from "./actionTypes";
-import kidsnParty from "../apis/kidsnParty";
-import { history } from "../history";
+import { kidsnparty } from "../_apis";
+import { history } from "../_helpers";
 
 const create = file => {
   return async function(dispatch, getState) {
     const requestBody = { ...getState().form.categoryForm.values, file };
-    const response = await kidsnParty.post("/categories", requestBody);
+    const response = await kidsnparty.post("/categories", requestBody);
     dispatch({
       type: types.fetchAvaliableCategories,
       payload: response.data
@@ -14,7 +14,7 @@ const create = file => {
 };
 export const index = () => {
   return async function(dispatch) {
-    const response = await kidsnParty.get("/categories", {
+    const response = await kidsnparty.get("/categories", {
       params: { language_id: 2 }
     });
     dispatch({
@@ -34,7 +34,7 @@ export const select = category => {
 const update = (category_id, file) => {
   return async function(dispatch, getState) {
     const requestBody = { ...getState().form.categoryForm.values, file };
-    const response = await kidsnParty.put(
+    const response = await kidsnparty.put(
       `/categories/${category_id}`,
       requestBody
     );
@@ -48,7 +48,7 @@ const update = (category_id, file) => {
 
 const remove = category_id => {
   return async function(dispatch) {
-    const response = await kidsnParty.delete(`/categories/${category_id}`);
+    const response = await kidsnparty.delete(`/categories/${category_id}`);
     dispatch({
       type: types.fetchAvaliableCategories,
       payload: response.data
@@ -58,7 +58,7 @@ const remove = category_id => {
 
 const show = category_id => {
   return async function(dispatch) {
-    const response = await kidsnParty.get(`/categories/${category_id}`);
+    const response = await kidsnparty.get(`/categories/${category_id}`);
     dispatch({
       type: types.selectCategory,
       payload: response.data
@@ -75,7 +75,7 @@ const setImage = value => {
 };
 const active = category_id => {
   return async function(dispatch) {
-    const response = await kidsnParty.patch(`/categories/${category_id}`);
+    const response = await kidsnparty.patch(`/categories/${category_id}`);
     dispatch({
       type: types.fetchAvaliableCategories,
       payload: response.data

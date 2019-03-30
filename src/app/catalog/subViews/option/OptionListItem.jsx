@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { selectOption } from "../actions";
+import { selectOption } from "../../../../_actions";
 import OptionValue from "./OptionValue";
-import { makeType } from "../helpers";
+import { makeType } from "../../../../_helpers";
 
 const OptionListItem = ({ option, selectOption }) => {
   const { name, type, values } = option;

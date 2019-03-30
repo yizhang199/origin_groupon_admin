@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createShop, handleDateChange } from "../../actions";
+import { createShop, handleDateChange } from "../../_actions";
 import ShopForm from "./ShopForm";
 
 const CreateStore = ({

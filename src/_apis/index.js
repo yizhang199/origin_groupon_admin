@@ -1,3 +1,3 @@
-import kidsnparty from "./kidsnParty";
+import kidsnparty, { baseUrl } from "./kidsnParty";
 
-export { kidsnparty };
+export { kidsnparty, baseUrl };

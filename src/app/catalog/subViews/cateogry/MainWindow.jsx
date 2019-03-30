@@ -4,7 +4,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import CategoryGird from "./CategoryGrid";
 import CreateCategory from "./CreateCategory";
 import UpdateCategory from "./UpdateCategory";
-import { history } from "../history";
+import { history } from "../../../../_helpers";
 
 const CategoryManageMainWindow = () => {
   return (

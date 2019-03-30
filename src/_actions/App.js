@@ -1,6 +1,6 @@
 import types from "./actionTypes";
-import { kidsnparty } from "../apis";
-import { history } from "../history";
+import { kidsnparty } from "../_apis";
+import { history } from "../_helpers";
 
 const setPeriod = sales_group_id => {
   return async function(dispatch, getState) {

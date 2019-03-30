@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 
 import BarOrderCard from "./BarOrderCard";
 
-import "./sass/BarView.css";
-
 const BarView = ({ products }) => {
   const renderProducts = () => {
     return products.map(productGroup => {

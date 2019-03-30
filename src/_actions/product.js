@@ -1,10 +1,10 @@
 import types from "./actionTypes";
-import kidsnParty from "../apis/kidsnParty";
-import { history } from "../history";
+import { kidsnparty } from "../_apis";
+import { history } from "../_helpers";
 
 const index = product_status => {
   return async function(dispatch) {
-    const response = await kidsnParty.get("/products", {
+    const response = await kidsnparty.get("/products", {
       params: { language_id: 2, product_status }
     });
 
@@ -14,7 +14,7 @@ const index = product_status => {
 
 const show = id => {
   return async function(dispatch) {
-    const response = await kidsnParty.get(`/products/${id}`);
+    const response = await kidsnparty.get(`/products/${id}`);
 
     dispatch({ type: types.getProduct, payload: response.data });
     history.push(`${process.env.PUBLIC_URL}/products/edit/${id}`);
@@ -27,7 +27,7 @@ const update = (product_id, file, isGroupon) => {
     const { options, category } = getState().newProduct;
     // How To:: add post headers for axios
     const headers = { language_id: 2 };
-    const response = await kidsnParty.put(
+    const response = await kidsnparty.put(
       `/products/${product_id}`,
       {
         product,
@@ -45,7 +45,7 @@ const update = (product_id, file, isGroupon) => {
 };
 const switchProductStatus = product => {
   return async function(dispatch) {
-    const response = await kidsnParty.patch(`/products/${product.product_id}`, {
+    const response = await kidsnparty.patch(`/products/${product.product_id}`, {
       product
     });
 
@@ -57,7 +57,7 @@ const create = (file, isGroupon) => {
   return async function(dispatch, getState) {
     const product = getState().form.productForm.values;
     const { options, category } = getState().newProduct;
-    const response = await kidsnParty.post("/products", {
+    const response = await kidsnparty.post("/products", {
       product,
       isGroupon,
       category,
@@ -76,7 +76,7 @@ const removeOption = option_id => {
 
 const search = (value, product_status) => {
   return async function(dispatch) {
-    const response = await kidsnParty.get("products", {
+    const response = await kidsnparty.get("products", {
       params: { language_id: 2, product_status, search_string: value }
     });
 

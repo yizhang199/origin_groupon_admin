@@ -1,4 +1,4 @@
-import { actionTypes } from "../actions";
+import { actionTypes } from "../_actions";
 
 const newProductReducer = (newProduct = {}, action) => {
   switch (action.type) {

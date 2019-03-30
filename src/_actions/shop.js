@@ -1,16 +1,16 @@
 import types from "./actionTypes";
 
-import kidsnParty from "../apis/kidsnParty";
+import { kidsnparty } from "../_apis";
 
 export const index = () => {
   return async function(dispatch) {
-    const response = await kidsnParty.get(`/locations`);
+    const response = await kidsnparty.get(`/locations`);
     dispatch({ type: types.getShops, payload: response.data.locations });
   };
 };
 export const fetchShop = location_id => {
   return async function(dispatch) {
-    const response = await kidsnParty.get(`/locations/${location_id}`);
+    const response = await kidsnparty.get(`/locations/${location_id}`);
     dispatch({
       type: types.fetchSingleShop,
       payload: response.data.shop
@@ -25,7 +25,7 @@ const create = () => {
       ...getState().form.shopForm.values,
       open: getState().selectedShop.open
     };
-    const response = await kidsnParty.post(`/locations`, requestBody);
+    const response = await kidsnparty.post(`/locations`, requestBody);
 
     dispatch({
       type: types.getShops,
@@ -41,7 +41,7 @@ const update = () => {
       open: getState().selectedShop.open
     };
     const { location_id } = getState().selectedShop;
-    const response = await kidsnParty.put(
+    const response = await kidsnparty.put(
       `/locations/${location_id}`,
       requestBody
     );
@@ -66,14 +66,14 @@ const handleDateChange = newDate => {
 
 const remove = location_id => {
   return async function(dispatch) {
-    const response = await kidsnParty.delete(`/locations/${location_id}`);
+    const response = await kidsnparty.delete(`/locations/${location_id}`);
     dispatch({ type: types.getShops, payload: response.data.locations });
   };
 };
 
 const active = location_id => {
   return async function(dispatch) {
-    const response = await kidsnParty.patch(`/locations/${location_id}`);
+    const response = await kidsnparty.patch(`/locations/${location_id}`);
     dispatch({ type: types.getShops, payload: response.data.locations });
   };
 };

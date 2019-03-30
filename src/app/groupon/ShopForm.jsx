@@ -3,7 +3,7 @@ import { Field, reduxForm } from "redux-form";
 // import DatePicker from "react-datepicker";
 import SetTimeForm from "./SetTimeForm";
 
-import { makeDate } from "../../helpers";
+import { makeDate } from "../../_helpers";
 import "react-datepicker/dist/react-datepicker.css";
 
 class ShopForm extends React.Component {

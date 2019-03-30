@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchStaff } from "../../actions";
+import { fetchStaff } from "../../_actions";
 
 const StaffRow = ({ user, style, open, fetchStaff }) => {
   const {

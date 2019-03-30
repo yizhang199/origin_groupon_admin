@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchOptions, setNewProductOptions } from "../actions";
+import { fetchOptions, setNewProductOptions } from "../../../../../_actions";
 
 class AddOptionToNewProductForm extends React.Component {
   constructor(props) {

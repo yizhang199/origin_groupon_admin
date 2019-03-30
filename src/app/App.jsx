@@ -1,15 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { checkLogin } from "../actions";
+import { checkLogin } from "../_actions";
 import { Route, Router, Switch } from "react-router-dom";
-import { history } from "../history";
+import { history } from "../_helpers";
 
-import LeftSideMenu from "./LeftSideMenu";
-import OrderManageMainWindow from "./OrderManageMainWindow";
-import ChartManageMainWindow from "./ChartManageMainWindow";
-import ShopManageMainWindow from "./ShopManageMainWindow";
-import Example from "./demo/propsFunctionalComponent";
-import CatalogManageMainWindow from "./CatalogManageMainWindow";
+import { LeftSideMenu } from "./shared";
+import { OrderManageMainWindow } from "./orders";
+import { ChartManageMainWindow } from "./reports";
+import { ShopManageMainWindow } from "./shops";
+import { CatalogMainWindow } from "./catalog";
 import { Groupon } from "./groupon";
 import { UserManage } from "./user";
 import { PrivateRoute, Reject } from "./shared";
@@ -31,17 +30,17 @@ class App extends React.Component {
               <PrivateRoute
                 path={`${process.env.PUBLIC_URL}/products`}
                 role={`accessProducts`}
-                component={CatalogManageMainWindow}
+                component={CatalogMainWindow}
               />
               <PrivateRoute
                 path={`${process.env.PUBLIC_URL}/categories`}
                 role={`accessProducts`}
-                component={CatalogManageMainWindow}
+                component={CatalogMainWindow}
               />
               <PrivateRoute
                 path={`${process.env.PUBLIC_URL}/options`}
                 role={`accessProducts`}
-                component={CatalogManageMainWindow}
+                component={CatalogMainWindow}
               />
               <PrivateRoute
                 path={`${process.env.PUBLIC_URL}/orders`}
@@ -58,11 +57,7 @@ class App extends React.Component {
                 role={`accessReports`}
                 component={ChartManageMainWindow}
               />
-              <Route
-                path={`${process.env.PUBLIC_URL}/example`}
-                name="roben"
-                component={Example}
-              />
+
               <PrivateRoute
                 path={`${process.env.PUBLIC_URL}/customer`}
                 role={`accessAccounts`}

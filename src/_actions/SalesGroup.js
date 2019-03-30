@@ -1,5 +1,5 @@
 import types from "./actionTypes";
-import { kidsnparty } from "../apis";
+import { kidsnparty } from "../_apis";
 const index = () => {
   return async function(dispatch) {
     const response = await kidsnparty.get("/salesgroups");

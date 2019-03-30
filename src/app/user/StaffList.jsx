@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getStyle } from "../../helpers";
+import { getStyle } from "../../_helpers";
 
-import { fetchStaffs, sortStaffDetails } from "../../actions";
+import { fetchStaffs, sortStaffDetails } from "../../_actions";
 import CreateStaff from "./CreateStaff";
 import UpdateStaff from "./UpdateStaff";
 import StaffRow from "./StaffRow";

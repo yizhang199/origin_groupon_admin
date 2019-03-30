@@ -6,7 +6,7 @@ import {
   updateShop,
   changeSelectedShop,
   handleDateChange
-} from "../actions";
+} from "../../../_actions";
 import ShopForm from "./ShopForm";
 
 class EditShopForm extends React.Component {

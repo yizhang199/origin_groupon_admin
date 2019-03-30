@@ -1,15 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Route, Router, Switch } from "react-router-dom";
-import { history } from "../history.js";
+import { history } from "../../_helpers";
 
-import { getProducts } from "../actions";
+import { getProducts } from "../../_actions";
 
-import { ProductOrderList } from "./orders/";
-import { CustomerOrderList } from "./orders/customers";
+import { ProductOrderList } from "./products/";
+import { CustomerOrderList } from "./customers";
 import StoreOrderList from "./StoreOrderList";
 import OrderTopNav from "./OrderTopNav";
-import { SalesGroupSelector } from "./shared/";
+import { SalesGroupSelector } from "../shared/";
 
 class OrderManageMainWindow extends React.Component {
   componentDidMount() {

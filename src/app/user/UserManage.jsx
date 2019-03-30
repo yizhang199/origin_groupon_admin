@@ -3,7 +3,7 @@ import { Route, Router } from "react-router-dom";
 import CustomerList from "./CustomerList";
 import StaffList from "./StaffList";
 import TopNav from "./TopNav";
-import { history } from "../../history";
+import { history } from "../../_helpers";
 
 const CustomerManage = props => {
   return (

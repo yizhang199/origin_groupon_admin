@@ -1,3 +1,13 @@
 import CatalogMainWindow from "./MainWindow";
+import {
+  ProductManageMainWindow,
+  CategoryManageMainWindow,
+  OptionManageMainWindow
+} from "./subViews";
 
-export { CatalogMainWindow };
+export {
+  CatalogMainWindow,
+  ProductManageMainWindow,
+  CategoryManageMainWindow,
+  OptionManageMainWindow
+};

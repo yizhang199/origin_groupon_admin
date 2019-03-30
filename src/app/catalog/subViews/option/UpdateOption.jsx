@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import OptionForm from "./OptionForm";
-import { updateOption } from "../actions";
+import { updateOption } from "../../../../_actions";
 
 class CreateOption extends React.Component {
   onSubmit = () => {

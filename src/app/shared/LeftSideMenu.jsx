@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { history } from "../history";
+import { history } from "../../_helpers";
 
 class LeftSideMenu extends React.Component {
   state = { showControl: false };

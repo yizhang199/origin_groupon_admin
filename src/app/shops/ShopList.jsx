@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import ShopCard from "./ShopCard";
-import { getShops } from "../actions";
+import { getShops } from "../../_actions";
 
 class ShopList extends React.Component {
   componentDidMount() {

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getStyle } from "../../helpers";
+import { getStyle } from "../../_helpers";
 
 import UpdateCustomer from "./UpdateCustomer";
 import CreateCustomer from "./CreateCustomer";
@@ -9,7 +9,7 @@ import {
   fetchCustomers,
   sortCustomerDetails,
   fetchCustomer
-} from "../../actions";
+} from "../../_actions";
 
 class CustomerList extends React.Component {
   constructor(props) {

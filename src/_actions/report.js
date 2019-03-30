@@ -1,13 +1,13 @@
 import types from "./actionTypes";
-import kidsnParty from "../apis/kidsnParty";
+import { kidsnparty } from "../_apis";
 
-import { history } from "../history";
+import { history } from "../_helpers";
 import actionTypes from "./actionTypes";
 
 const fetchSummary = () => {
   return async function(dispatch, getState) {
     const { startDate, endDate } = getState();
-    const response = await kidsnParty.get(`/reports`, {
+    const response = await kidsnparty.get(`/reports`, {
       params: {
         startDate,
         endDate
@@ -31,7 +31,7 @@ const setStartDate = startDate => {
     const { pathname } = history.location;
 
     if (pathname === "/charts") {
-      const response = await kidsnParty.get(`/reports`, {
+      const response = await kidsnparty.get(`/reports`, {
         params: { startDate, endDate }
       });
 
@@ -44,7 +44,7 @@ const setStartDate = startDate => {
         }
       });
     } else {
-      const response = await kidsnParty.get(`/report`, {
+      const response = await kidsnparty.get(`/report`, {
         params: { startDate, endDate, report_category }
       });
       dispatch({
@@ -69,7 +69,7 @@ const setEndDate = endDate => {
     } = getState();
     const { pathname } = history.location;
     if (pathname === "/charts") {
-      const response = await kidsnParty.get(`/reports`, {
+      const response = await kidsnparty.get(`/reports`, {
         params: { startDate, endDate }
       });
 
@@ -82,7 +82,7 @@ const setEndDate = endDate => {
         }
       });
     } else {
-      const response = await kidsnParty.get(`/report`, {
+      const response = await kidsnparty.get(`/report`, {
         params: { startDate, endDate, report_category }
       });
       dispatch({
@@ -100,7 +100,7 @@ const setEndDate = endDate => {
 const show = report_category => {
   return async function(dispatch, getState) {
     const { startDate, endDate } = getState();
-    const response = await kidsnParty.get(`/report`, {
+    const response = await kidsnparty.get(`/report`, {
       params: { startDate, endDate, report_category }
     });
     dispatch({

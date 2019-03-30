@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchAvaliableCategories } from "../actions";
+import { fetchAvaliableCategories } from "../../../../../_actions";
 import CategoryCard from "./CategoryCard";
 import AddCategoryForm from "./AddCategoryForm";
 

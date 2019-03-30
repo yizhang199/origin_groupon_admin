@@ -3,7 +3,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 
-import { fetchOptions, removeOptionsFromNewProduct } from "../actions";
+import {
+  fetchOptions,
+  removeOptionsFromNewProduct
+} from "../../../../../_actions";
 import ProductFormCategorySelector from "./ProductFormCategorySelector";
 
 // import AddOptionToNewProductForm from "./AddOptionToNewProductForm";

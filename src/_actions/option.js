@@ -1,9 +1,9 @@
 import types from "./actionTypes";
-import kidsnParty from "../apis/kidsnParty";
+import { kidsnparty } from "../_apis";
 
 const index = () => {
   return async function(dispatch) {
-    const response = await kidsnParty.get("/options");
+    const response = await kidsnparty.get("/options");
     dispatch({ type: types.fetchOptions, payload: response.data.options });
   };
 };
@@ -18,7 +18,7 @@ const create = ({ type, option_values }) => {
 
     const option_description = { chinese_name, english_name };
     const requestBody = { type, option_values, option_description };
-    const response = await kidsnParty.post("/options", requestBody);
+    const response = await kidsnparty.post("/options", requestBody);
     dispatch({ type: types.fetchOptions, payload: response.data.options });
   };
 };
@@ -29,7 +29,7 @@ const update = ({ type, option_values }) => {
     const option_description = { chinese_name, english_name };
     const requestBody = { type, option_values, option_description };
 
-    const response = await kidsnParty.put(`/options/${option_id}`, requestBody);
+    const response = await kidsnparty.put(`/options/${option_id}`, requestBody);
 
     dispatch({ type: types.fetchOptions, payload: response.data.options });
   };

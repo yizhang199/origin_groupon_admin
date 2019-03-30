@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchOptions } from "../actions";
+import { fetchOptions } from "../../../../_actions";
 import OptionListItem from "./OptionListItem";
 class OptionList extends React.Component {
   componentDidMount() {

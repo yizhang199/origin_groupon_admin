@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { sortReportDetails } from "../../../../actions";
+import { sortReportDetails } from "../../../../_actions";
 import { getStyle } from "./helper";
 
-import { makeDate } from "../../../../helpers";
+import { makeDate } from "../../../../_helpers";
 
 class DateTable extends React.Component {
   constructor(props) {

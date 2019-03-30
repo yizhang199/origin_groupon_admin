@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { userLogin, checkLogin } from "../../actions";
+import { userLogin, checkLogin } from "../../_actions";
 import LoginForm from "./LoginForm";
 class Login extends React.Component {
   onSubmit = () => {

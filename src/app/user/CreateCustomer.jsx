@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { createCustomer } from "../../actions";
+import { createCustomer } from "../../_actions";
 import CustomerForm from "./CustomerForm";
 
 const CreateCustomer = ({ createCustomer, close }) => {

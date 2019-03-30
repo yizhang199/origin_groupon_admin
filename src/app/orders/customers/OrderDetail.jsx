@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { makeDate } from "../../../helpers";
-import { updateOrderStatus } from "../../../actions";
+import { makeDate } from "../../../_helpers";
+import { updateOrderStatus } from "../../../_actions";
 
 class OrderDetail extends React.Component {
   getTheadColor = () => {

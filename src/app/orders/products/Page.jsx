@@ -1,11 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getProducts } from "../../../actions";
+import { getProducts } from "../../../_actions";
 import TableView from "./TableView";
 import BarView from "./BarView";
 
-import "./sass/Page.css";
 class Page extends React.Component {
   constructor(props) {
     super(props);

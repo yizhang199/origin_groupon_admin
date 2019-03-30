@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import CategoryGridItem from "./CategoryGridItem";
-import { fetchAvaliableCategories } from "../actions";
+import { fetchAvaliableCategories } from "../../../../_actions";
 
 class CategoryGrid extends React.Component {
   componentDidMount() {

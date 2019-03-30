@@ -5,8 +5,8 @@ import {
   deleteCategory,
   fetchSingleCategory,
   activeCategory
-} from "../actions";
-import { baseUrl } from "../apis/kidsnParty";
+} from "../../../../_actions";
+import { baseUrl } from "../../../../_apis/";
 
 const CategoryGridItem = ({
   category,

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getProducts } from "../actions";
+import { getProducts } from "../../../../../_actions";
 import ProductOrderCard from "./ProductOrderCard";
 
 class ProductOrderList extends React.Component {

@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./sass/BarOrderCard.css";
-
 const BarOrderCard = ({ product }) => {
   const productRemaining = product.stock_status_id - product.quantity;
   const cardStyle = {

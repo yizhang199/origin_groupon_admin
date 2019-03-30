@@ -3,7 +3,7 @@ import { setCategory, setOptions } from "./newProduct";
 import { fetchShop } from "./shop";
 import Report from "./report";
 import Category from "./category";
-import kidsnParty from "../apis/kidsnParty";
+import { kidsnparty } from "../_apis/";
 import Product from "./product";
 import Option from "./option";
 import Shop from "./shop";
@@ -12,8 +12,8 @@ import User from "./User";
 import Customer from "./Customer";
 import Staff from "./Staff";
 import SalesGroup from "./SalesGroup";
-import App from "./App.js";
-import Auth from "./Auth.js";
+import App from "./App";
+import Auth from "./Auth";
 
 // produt actions
 export const getProducts = Product.index;
@@ -46,7 +46,7 @@ export const updateOption = Option.update;
 export const initApp = () => {
   return async function(dispatch) {
     const language_id = localStorage.getItem("Aupos_language_id");
-    const response = await kidsnParty.get(`/init/${language_id}`);
+    const response = await kidsnparty.get(`/init/${language_id}`);
 
     dispatch({ type: types.initApp, payload: response.data });
   };

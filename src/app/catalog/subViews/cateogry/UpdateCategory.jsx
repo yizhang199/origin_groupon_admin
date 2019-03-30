@@ -5,7 +5,7 @@ import {
   updateCategory,
   fetchSingleCategory,
   setSelectCategoryImage
-} from "../actions";
+} from "../../../../_actions";
 import CategoryForm from "./CategoryForm";
 
 class UpdateCategory extends React.Component {

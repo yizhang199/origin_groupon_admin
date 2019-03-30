@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { actionTypes } from "../actions";
+import { actionTypes } from "../_actions";
 import { reducer as formReducer } from "redux-form";
 import newProductReducer from "./newProductReducer";
 import selectedShopReducer from "./selectedShopReducer";

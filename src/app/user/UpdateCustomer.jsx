@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchCustomer, updateCustomer } from "../../actions";
+import { fetchCustomer, updateCustomer } from "../../_actions";
 import CustomerForm from "./CustomerForm";
 class UpdateCustomer extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import types from "./actionTypes";
-import { kidsnparty } from "../apis";
-import { history } from "../history";
+import { kidsnparty } from "../_apis";
+import { history } from "../_helpers";
 
 const check = () => {
   const user = JSON.parse(localStorage.getItem("guoli_groupon_user"));

@@ -1,11 +1,11 @@
 import React from "react";
 import { Route, Router, Switch } from "react-router-dom";
 
-import EditShopForm from "./EditShopForm";
-import CreateShopForm from "./CreateShopForm";
+import EditShopForm from "./form/EditShopForm";
+import CreateShopForm from "./form/CreateShopForm";
 import ShopList from "./ShopList";
 import ShopTopNav from "./ShopTopNav";
-import { history } from "../history";
+import { history } from "../../_helpers";
 
 class ShopManageMainWindow extends React.Component {
   render() {

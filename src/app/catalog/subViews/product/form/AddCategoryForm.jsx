@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { createNewCategory, fetchAvaliableCategories } from "../actions";
+import {
+  createNewCategory,
+  fetchAvaliableCategories
+} from "../../../../../_actions";
 import CategoryForm from "./CategoryForm";
 
 class AddCategoryForm extends React.Component {

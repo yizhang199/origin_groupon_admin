@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { sortReportDetails, fetchProductOrderDetails } from "../../../actions";
+import { sortReportDetails, fetchProductOrderDetails } from "../../../_actions";
 import { getStyle } from "../../shared/helper";
 
 class TableView extends React.Component {

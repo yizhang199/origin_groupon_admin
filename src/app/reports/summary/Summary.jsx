@@ -2,12 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { Bar, Line, Pie } from "react-chartjs-2";
 
-import { fetchReportsSummary } from "../../../actions";
-import { makeDate } from "../../../helpers";
-import { history } from "../../../history";
-import { getStyle } from "../detailView/tables/helper";
-
-import "./style.css";
+import { fetchReportsSummary } from "../../../_actions";
+import { makeDate, history, getStyle } from "../../../_helpers";
 
 class Summary extends React.Component {
   componentDidMount() {

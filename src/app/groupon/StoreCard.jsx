@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchSingleShop, inactiveShop, activeShop } from "../../actions";
-import { makeDate, makeShopOpenDate } from "../../helpers";
+import { fetchSingleShop, inactiveShop, activeShop } from "../../_actions";
+import { makeDate, makeShopOpenDate } from "../../_helpers";
 
 const StoreCard = ({
   setMode,

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import StaffForm from "./StaffForm";
 
-import { updateStaff } from "../../actions";
+import { updateStaff } from "../../_actions";
 
 const UpdateStaff = ({ updateStaff, selectedStaff, close }) => {
   const onSubmit = () => {

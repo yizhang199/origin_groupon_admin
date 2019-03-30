@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { sortReportDetails } from "../../../../actions";
-import { getStyle } from "./helper";
+import { sortReportDetails } from "../../../../_actions";
+import { getStyle } from "../../../../_helpers";
 
 class StoreTable extends React.Component {
   constructor(props) {

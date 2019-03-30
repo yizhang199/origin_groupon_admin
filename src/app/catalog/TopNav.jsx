@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { history } from "../history";
+import { history } from "../../_helpers";
 
 const CatalogTopNav = () => {
   const getClassName = value => {

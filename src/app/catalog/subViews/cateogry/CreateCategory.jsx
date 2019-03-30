@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { createNewCategory, setSelectCategoryImage } from "../actions";
+import {
+  createNewCategory,
+  setSelectCategoryImage
+} from "../../../../_actions";
 import CategoryForm from "./CategoryForm";
 
 class CreateCategory extends React.Component {

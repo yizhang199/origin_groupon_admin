@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchOrdersByStore } from "../actions";
+import { fetchOrdersByStore } from "../../_actions";
 
-import { getStyle } from "../helpers";
+import { getStyle } from "../../_helpers";
 class StoreOrderList extends React.Component {
   componentDidMount() {
     this.props.fetchOrdersByStore();

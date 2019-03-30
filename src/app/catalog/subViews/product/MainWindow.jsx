@@ -1,12 +1,12 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 
-import ProductList from "./ProductsList";
-import EditProduct from "./EditProduct";
-import CreateProduct from "./CreateProduct";
-import { history } from "../history";
+import ProductList from "./form/ProductsList";
+import EditProduct from "./form/EditProduct";
+import CreateProduct from "./form/CreateProduct";
+import { history } from "../../../../_helpers";
 import { connect } from "react-redux";
-import { getProducts, searchByName } from "../actions";
+import { getProducts, searchByName } from "../../../../_actions";
 
 class ProductManageMainWindow extends React.Component {
   constructor(props) {

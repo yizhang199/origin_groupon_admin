@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { setNewProductCategory } from "../actions";
+import { setNewProductCategory } from "../../../../../_actions";
 
 const CategoryCard = props => {
   const setCategory = () => {

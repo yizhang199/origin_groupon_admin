@@ -1,5 +1,5 @@
 import types from "./actionTypes";
-import kidsnparty from "../apis/kidsnParty";
+import { kidsnparty } from "../_apis";
 
 const index = () => {
   // const headers = makeHeader;

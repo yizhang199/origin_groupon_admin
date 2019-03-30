@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import SalesGroupForm from "./SalesGroupForm";
 
-import { createSalesGroup } from "../../actions";
+import { createSalesGroup } from "../../_actions";
 
 const CreateSalesGroup = ({ createSalesGroup }) => {
   const onSubmit = () => {

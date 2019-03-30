@@ -3,10 +3,10 @@ import {
   ProductManageMainWindow,
   CategoryManageMainWindow,
   OptionManageMainWindow
-} from "./SubViews/";
+} from "./subViews/";
 import { Router, Route, Switch } from "react-router-dom";
 
-import { history } from "../../history";
+import { history } from "../../_helpers";
 
 const Routes = () => {
   return (

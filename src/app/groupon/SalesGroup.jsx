@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchSalesGroups } from "../../actions";
+import { fetchSalesGroups } from "../../_actions";
 import CreateSalesGroup from "./CreateSalesGroup";
 import UpdateSalesGroup from "./UpdateSalesGroup";
 

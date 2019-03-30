@@ -2,8 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import DatePicker from "react-datepicker";
 
-import { setEndDate, setStartDate } from "../../actions";
-import { makeDate } from "../../helpers";
+import { setEndDate, setStartDate } from "../../_actions";
+import { makeDate } from "../../_helpers";
 
 const DateRanger = ({ startDate, endDate, setStartDate, setEndDate }) => {
   const handleChangeEnd = e => {

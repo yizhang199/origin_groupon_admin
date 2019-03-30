@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { sortReportDetails } from "../../../../actions";
+import { sortReportDetails } from "../../../../_actions";
 import { getStyle } from "./helper";
 
 class Product extends React.Component {
