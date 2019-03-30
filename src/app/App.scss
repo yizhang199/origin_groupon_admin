@@ -1,10 +1,11 @@
-@import "./shared/index.scss";
-@import "./user/UserManage.scss";
-@import "./groupon/index.scss";
-@import "../css/index.scss";
+@import "./shared/sass/index.scss";
+@import "./user/sass/index.scss";
+@import "./groupon/sass/index.scss";
 @import "./auth/sass/index.scss";
-@import "./reports/index.scss";
+@import "./reports/sass/index.scss";
 @import "./catalog/sass/index.scss";
+@import "./orders/sass/index.scss";
+@import "./shops/sass/index.scss";
 
 .app {
   display: flex;
