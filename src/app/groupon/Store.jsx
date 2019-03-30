@@ -21,6 +21,8 @@ class Store extends React.Component {
         return <CreateStore setMode={this.setMode} />;
       case "update":
         return <UpdateStore setMode={this.setMode} />;
+      default:
+        return null;
     }
   };
   render() {

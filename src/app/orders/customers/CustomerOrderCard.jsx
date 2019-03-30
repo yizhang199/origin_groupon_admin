@@ -45,54 +45,7 @@ class CustomerOrderCard extends React.Component {
       </div>
     );
   };
-  /**
-   * function: create different style css code according to order status
-   * @param {void}
-   * @return {css} css in-line style
-   */
-  getStyle = () => {
-    switch (parseInt(this.props.order.order_status_id)) {
-      case 2:
-        return {
-          orderCard_tab: {
-            backgroundColor: `#f55747`,
-            borderColor: `#93352c`
-          },
-          orderCard_userName: { textShadow: `0px 0px 3px #f55747` },
-          title: { borderColor: `#f55747` }
-        };
-      case 1:
-        return {
-          orderCard_tab: {
-            backgroundColor: `#ffba2d`,
-            borderColor: `#946b19`
-          },
-          orderCard_userName: { textShadow: `0px 0px 3px #ffba2d` },
-          title: { borderColor: `#ffba2d` }
-        };
-      case 3:
-        return {
-          orderCard_tab: {
-            backgroundColor: `#dfdede`,
-            borderColor: `#5f5e5e`,
-            color: `#a5a5a5`
-          },
-          orderCard_userName: { textShadow: `0px 0px 3px #dfdede` },
-          title: { borderColor: `#dfdede` }
-        };
-      case 6:
-        return {
-          orderCard_tab: {
-            backgroundColor: `#f55747`,
-            borderColor: `#93352c`
-          },
-          orderCard_userName: { textShadow: `0px 0px 3px #f55747` },
-          title: { borderColor: `#f55747` }
-        };
-      default:
-        return {};
-    }
-  };
+
   /**
    * nav to select order detail
    *
@@ -139,12 +92,12 @@ class CustomerOrderCard extends React.Component {
     this.props.markingOrder(this.props.order.order_id, checked);
   };
   render() {
-    const myStyle = this.getStyle();
+    // const myStyle = this.getStyle();
     const user = this.props.order.user ? this.props.order.user : {};
     const { invoice_no, fax, status_name, order_items } = this.props.order;
-    const { sum, total, detailString } = makeOrderListTotal(order_items);
+    const { sum, detailString } = makeOrderListTotal(order_items);
     return (
-      <tr className={getClass(this.props.index)} onClick={this.selectOrder}>
+      <tr style={getClass(this.props.index)} onClick={this.selectOrder}>
         <td>{this.renderCheckBox()}</td>
         <td>{invoice_no}</td>
         <td>{user.username}</td>
@@ -232,3 +185,52 @@ export default connect(
     </div>
   </div> */
 }
+
+/**
+ * function: create different style css code according to order status
+ * @param {void}
+ * @return {css} css in-line style
+ */
+// getStyle = () => {
+//   switch (parseInt(this.props.order.order_status_id)) {
+//     case 2:
+//       return {
+//         orderCard_tab: {
+//           backgroundColor: `#f55747`,
+//           borderColor: `#93352c`
+//         },
+//         orderCard_userName: { textShadow: `0px 0px 3px #f55747` },
+//         title: { borderColor: `#f55747` }
+//       };
+//     case 1:
+//       return {
+//         orderCard_tab: {
+//           backgroundColor: `#ffba2d`,
+//           borderColor: `#946b19`
+//         },
+//         orderCard_userName: { textShadow: `0px 0px 3px #ffba2d` },
+//         title: { borderColor: `#ffba2d` }
+//       };
+//     case 3:
+//       return {
+//         orderCard_tab: {
+//           backgroundColor: `#dfdede`,
+//           borderColor: `#5f5e5e`,
+//           color: `#a5a5a5`
+//         },
+//         orderCard_userName: { textShadow: `0px 0px 3px #dfdede` },
+//         title: { borderColor: `#dfdede` }
+//       };
+//     case 6:
+//       return {
+//         orderCard_tab: {
+//           backgroundColor: `#f55747`,
+//           borderColor: `#93352c`
+//         },
+//         orderCard_userName: { textShadow: `0px 0px 3px #f55747` },
+//         title: { borderColor: `#f55747` }
+//       };
+//     default:
+//       return {};
+//   }
+// };

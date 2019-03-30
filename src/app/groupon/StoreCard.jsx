@@ -15,15 +15,7 @@ const StoreCard = ({
     setMode("update");
     fetchSingleShop(location_id);
   };
-  const renderOpenDates = () => {
-    return open.map(dateString => {
-      return (
-        <span key={`dateString${location_id}${dateString}`} className="date">
-          {makeDate(dateString)}
-        </span>
-      );
-    });
-  };
+
   const renderOpenDateTime = () => {
     const { open_date, open_time, close_time } = open;
     if (!open_date) {
@@ -82,3 +74,13 @@ export default connect(
   null,
   { fetchSingleShop, inactiveShop, activeShop }
 )(StoreCard);
+
+// const renderOpenDates = () => {
+//   return open.map(dateString => {
+//     return (
+//       <span key={`dateString${location_id}${dateString}`} className="date">
+//         {makeDate(dateString)}
+//       </span>
+//     );
+//   });
+// };
