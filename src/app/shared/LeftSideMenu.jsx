@@ -1,15 +1,10 @@
 import React, { useContext, useState } from "react";
-import UserContext from "../../_context/user_context";
-import ShopContext from "../../_context/shop_context";
+
 import { Link } from "react-router-dom";
 
 import { history } from "../../_helpers";
 
 const LeftSideMenu = () => {
-  const userContext = useContext(UserContext);
-  const shopContex = useContext(ShopContext);
-  console.log({ userContext, shopContex });
-
   const [showControlPanel, setShowControlPanel] = useState(false);
 
   const getClass = path => {

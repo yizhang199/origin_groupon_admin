@@ -1,40 +1,39 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import UserContext from "./user_context";
-import ShopContext from "./shop_context";
+import ProductContext from "./product_context";
+
+import {
+  userReducer,
+  productReducer,
+  USER_LOGIN,
+  GET_PRORDUCTS
+} from "./reducers";
 
 const GlobalState = props => {
-  const [products] = useState([
-    { id: "p1", title: "Gaming Mouse", price: 29.99 },
-    { id: "p2", title: "Harry Potter 3", price: 9.99 },
-    { id: "p3", title: "Used plastic bottle", price: 0.99 },
-    { id: "p4", title: "Half-dried plant", price: 2.99 }
-  ]);
+  //*user context
+  const [userState, userDispatch] = useReducer(userReducer, {});
 
-  const [cart, setCart] = useState([]);
-  //   const [cartState, dispatch] = useReducer(shopReducer, { cart: [] });
-  const [user, setUserState] = useState({});
-  //   const addProductToCart = product => {
-  //     dispatch({ type: addProduct, product });
-  //   };
-  //   const removeProductFromCart = productId => {
-  //     dispatch({ type: removeProduct, productId });
-  //   };
-  const setUser = user => {
-    setUserState(user);
+  const login = user => {
+    userDispatch({ type: USER_LOGIN, user });
   };
+
+  //*product context
+  const [productState, productDispatch] = useReducer(productReducer, {});
+  const getProducts = products => {
+    productDispatch({ type: GET_PRORDUCTS, products });
+  };
+
   return (
-    <ShopContext.Provider
-      value={{
-        products,
-        cart: cart
-        // addProductToCart,
-        // removeProductFromCart
-      }}
-    >
-      <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user: userState.user, login }}>
+      <ProductContext.Provider
+        value={{
+          products: productState.products,
+          getProducts
+        }}
+      >
         {props.children}
-      </UserContext.Provider>
-    </ShopContext.Provider>
+      </ProductContext.Provider>
+    </UserContext.Provider>
   );
 };
 

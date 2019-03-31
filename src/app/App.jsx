@@ -6,7 +6,6 @@ import "./App.css";
 
 const App = () => {
   useEffect(checkLogin, []);
-
   return (
     <div className="app">
       <Routes />

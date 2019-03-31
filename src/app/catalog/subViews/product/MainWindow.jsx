@@ -1,108 +1,49 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { Router, Route, Switch } from "react-router-dom";
 
 import ProductList from "./form/ProductsList";
 import EditProduct from "./form/EditProduct";
 import CreateProduct from "./form/CreateProduct";
 import { history } from "../../../../_helpers";
-import { connect } from "react-redux";
-import { getProducts, searchByName } from "../../../../_actions";
+import SubMenu from "./SubMenu";
+import { ProductContext } from "../../../../_context";
+import { getProducts } from "../../hooks";
 
-class ProductManageMainWindow extends React.Component {
-  constructor(props) {
-    super(props);
+const ProductManageMainWindow = () => {
+  const context = useContext(ProductContext);
 
-    this.state = {
-      product_status: 0,
-      className: { activeProduct: "active", inactiveProduct: "" }
-    };
-  }
-  componentDidMount() {
-    this.props.getProducts(this.state.product_status);
-  }
-  changeProductStatus = e => {
-    const content = e.target.innerText;
-    if (content === "已上架商品") {
-      this.props.getProducts(0);
-      this.setState({
-        className: { activeProduct: "active", inactiveProduct: "" }
-      });
-    } else {
-      this.props.getProducts(1);
-      this.setState({
-        className: { activeProduct: "", inactiveProduct: "active" }
-      });
-    }
-  };
+  useEffect(() => {
+    getProducts({}, context.getProducts);
+  }, []);
 
-  getLinkClassName = value => {
-    return value === this.state.product_status ? "active" : "";
-  };
+  // const handleInputChange = e => {
+  //   const value = e.target.value;
+  //   this.props.searchByName(value, this.state.product_status);
+  // };
 
-  handleInputChange = e => {
-    const value = e.target.value;
-    this.props.searchByName(value, this.state.product_status);
-  };
+  return (
+    <div className="product-manage-main-window">
+      <Router history={history}>
+        <React.Fragment>
+          <SubMenu />
+          <div style={{ display: `flex` }}>
+            <ProductList />
+            <Switch>
+              <Route
+                exact
+                path={`${process.env.PUBLIC_URL}/products/edit/:product_id`}
+                component={EditProduct}
+              />
+              <Route
+                path={`${process.env.PUBLIC_URL}/products/create`}
+                component={CreateProduct}
+              />
+            </Switch>
+          </div>
+        </React.Fragment>
+      </Router>
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div className="product-manage-main-window">
-        <Router history={history}>
-          <React.Fragment>
-            <div className="sub-menu">
-              <div className="input-container">
-                <input
-                  type="text"
-                  onChange={this.handleInputChange}
-                  placeholder="按商品名搜索"
-                />
-              </div>
-              <div className="link-container">
-                <span
-                  onClick={this.changeProductStatus}
-                  className={this.state.className.activeProduct}
-                >
-                  已上架商品
-                </span>
-                <span
-                  onClick={this.changeProductStatus}
-                  className={this.state.className.inactiveProduct}
-                >
-                  未上架商品
-                </span>
-              </div>
-              <div className="button-container">
-                <button
-                  onClick={() => {
-                    history.push(`${process.env.PUBLIC_URL}/products/create`);
-                  }}
-                >
-                  新建商品
-                </button>
-              </div>
-            </div>
-            <div style={{ display: `flex` }}>
-              <ProductList />
-              <Switch>
-                <Route
-                  exact
-                  path={`${process.env.PUBLIC_URL}/products/edit/:product_id`}
-                  component={EditProduct}
-                />
-                <Route
-                  path={`${process.env.PUBLIC_URL}/products/create`}
-                  component={CreateProduct}
-                />
-              </Switch>
-            </div>
-          </React.Fragment>
-        </Router>
-      </div>
-    );
-  }
-}
-
-export default connect(
-  null,
-  { getProducts, searchByName }
-)(ProductManageMainWindow);
+export default ProductManageMainWindow;

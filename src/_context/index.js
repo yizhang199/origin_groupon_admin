@@ -1,5 +1,5 @@
 import GlobalState from "./GlobalState";
-import ShopContext from "./shop_context";
 import UserContext from "./user_context";
+import ProductContext from "./product_context";
 
-export { GlobalState, ShopContext, UserContext };
+export { GlobalState, UserContext, ProductContext };

@@ -868,7 +868,7 @@
 }
 @media (max-width: 450px) {
   .login-page form {
-    width: 80%;
+    width: 95%;
   }
 }
 .login-page form .form-field {
