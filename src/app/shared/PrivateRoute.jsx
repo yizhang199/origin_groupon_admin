@@ -1,7 +1,11 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-const PrivateRoute = ({ component: Component, role: role, ...rest }) => (
+const PrivateRoute = ({
+  component: Component,
+  userRole: userRole,
+  ...rest
+}) => (
   <Route
     {...rest}
     render={props => {
@@ -17,7 +21,7 @@ const PrivateRoute = ({ component: Component, role: role, ...rest }) => (
             }}
           />
         );
-      } else if (!currentUser[role]) {
+      } else if (!currentUser[userRole]) {
         return (
           <Redirect
             to={{
