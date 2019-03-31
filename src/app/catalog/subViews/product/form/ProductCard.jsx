@@ -1,9 +1,9 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useContext } from "react";
+import { ProductContext } from "../_context";
+import { switchProductStatus, getProduct } from "../../../hooks";
+const ProductCard = ({ product }) => {
+  const context = useContext(ProductContext);
 
-import { switchProductStatus, getProduct } from "../../../../../_actions";
-
-const ProductCard = ({ product, switchProductStatus, getProduct }) => {
   const renderChangeStatusButton = ({ status }) => {
     if (status === 1) {
       return <button onClick={activeProduct}>上架</button>;
@@ -15,14 +15,14 @@ const ProductCard = ({ product, switchProductStatus, getProduct }) => {
   const activeProduct = () => {
     switchProductStatus({ ...product, status: 0 });
   };
-
-  const editProduct = () => {
-    getProduct(product.product_id);
-  };
-
   const inactiveProduct = () => {
     switchProductStatus({ ...product, status: 1 });
   };
+
+  const editProduct = () => {
+    getProduct(product.product_id, context.getProduct);
+  };
+
   return (
     <div className="product-card" data-test="component-product-card">
       <div className="product-card-header">
@@ -47,7 +47,4 @@ const ProductCard = ({ product, switchProductStatus, getProduct }) => {
   );
 };
 
-export default connect(
-  null,
-  { switchProductStatus, getProduct }
-)(ProductCard);
+export default ProductCard;

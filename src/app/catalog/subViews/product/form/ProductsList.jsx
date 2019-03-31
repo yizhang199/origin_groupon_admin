@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, Element } from "react-scroll";
-import { ProductContext } from "../../../../../_context";
+import { ProductContext } from "../_context";
 import ProductCard from "./ProductCard";
 
 const ProductList = () => {

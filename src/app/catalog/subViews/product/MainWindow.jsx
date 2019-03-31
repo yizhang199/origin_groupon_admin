@@ -6,7 +6,7 @@ import EditProduct from "./form/EditProduct";
 import CreateProduct from "./form/CreateProduct";
 import { history } from "../../../../_helpers";
 import SubMenu from "./SubMenu";
-import { ProductContext } from "../../../../_context";
+import { ProductContext } from "./_context";
 import { getProducts } from "../../hooks";
 
 const ProductManageMainWindow = () => {

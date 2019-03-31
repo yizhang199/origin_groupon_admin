@@ -1,30 +1,63 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { ProductContext } from "../_context";
 
-import { connect } from "react-redux";
-import { Field, reduxForm } from "redux-form";
-
-import {
-  fetchOptions,
-  removeOptionsFromNewProduct
-} from "../../../../../_actions";
 import ProductFormCategorySelector from "./ProductFormCategorySelector";
 
 // import AddOptionToNewProductForm from "./AddOptionToNewProductForm";
-class EditForm extends React.Component {
-  constructor(props) {
-    super(props);
+const ProductForm = () => {
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      productOptions: [],
-      isShowAddOptionForm: false,
-      isShowAddCategoryForm: false,
-      image: "",
-      fileName: "",
-      isGroupon: false
-    };
-  }
+  //   this.state = {
+  //     productOptions: [],
+  //     isShowAddOptionForm: false,
+  //     isShowAddCategoryForm: false,
+  //     image: "",
+  //     fileName: "",
+  //     isGroupon: false
+  //   };
+  // }
 
-  onChange = e => {
+  //   initialValues = {{
+  //     chinese_name: product.descriptions[1].name,
+  //       english_name: product.descriptions[0].name,
+  //         price: product.product.price,
+  //           sort_order: product.product.sort_order,
+  //             stock_status_id: product.product.stock_status_id,
+  //               quantity: product.product.quantity
+  //   }
+  // }
+  const context = useContext(ProductContext);
+
+  const { product, descriptions } = context.selectedProduct;
+
+  const { price, sort_order, stock_status_id, quantity } = product
+    ? product
+    : {};
+
+  const [en_desc, cn_desc] = descriptions ? descriptions : [];
+
+  const [formValues, setFormValues] = useState({
+    price: "",
+    sort_order: "",
+    stock_status_id: "",
+    quantity: "",
+    english_name: {},
+    chinese_name: {}
+  });
+
+  useEffect(() => {
+    setFormValues({
+      price,
+      sort_order,
+      stock_status_id,
+      quantity,
+      english_name: en_desc.name,
+      chinese_name: cn_desc.name
+    });
+  }, [context]);
+
+  const onChange = e => {
     let files = e.target.files || e.dataTransfer.files;
     if (!files.length) return;
 
@@ -34,7 +67,7 @@ class EditForm extends React.Component {
     });
     this.createImage(files[0]);
   };
-  createImage = file => {
+  const createImage = file => {
     let reader = new FileReader();
     reader.onload = e => {
       this.setState({
@@ -44,7 +77,7 @@ class EditForm extends React.Component {
     reader.readAsDataURL(file);
   };
 
-  renderImage = () => {
+  const renderImage = () => {
     if (this.props.image === "") {
       return null;
     }
@@ -61,113 +94,44 @@ class EditForm extends React.Component {
   };
 
   // How To:: Upload image / files in React.js
-  getFileName = () => {
+  const getFileName = () => {
     if (this.state.image === "") {
       return <span>请选择图片</span>;
     }
     return <span>{this.state.fileName}</span>;
   };
-  componentDidMount() {
-    this.props.fetchOptions();
-    if (this.props.product) {
-      this.setState({ isGroupon: this.props.product.isDiscount });
-    }
-  }
+  // componentDidMount() {
+  //   this.props.fetchOptions();
+  //   if (this.props.product) {
+  //     this.setState({ isGroupon: this.props.product.isDiscount });
+  //   }
+  // }
   /**
    * render input JSX from redux form field
    * @param {Object} {input,placeholder,meta}
    * @returns {JSX}
    */
-  renderInput = ({ input, placeholder, meta }) => {
+  const renderInput = ({ placeholder, name, className }) => {
     return (
       <div className="form-field">
         <input
           type="text"
-          {...input}
-          className="form-input"
+          className={className}
           placeholder={placeholder}
+          value={formValues[name]}
+          onChange={e => {
+            setFormValues({ ...formValues, [name]: e.target.value });
+          }}
         />
-        {this.renderError(meta)}
       </div>
     );
   };
 
-  /**
-   * render form validation errors
-   *
-   */
-  renderError = ({ error, touched }) => {
-    if (touched && error) {
-      return <div className="form-error-message">{error}</div>;
-    }
+  const onSubmit = () => {
+    // onSubmit(this.state.image, this.state.isGroupon);
   };
 
-  /**
-   * function - remove group set of product options
-   *
-   * @param {Event} e
-   * @return {Void}
-   */
-  removeProductOptions = e => {
-    const option_id = e.target.dataset.optionId;
-    this.props.removeOptionsFromNewProduct(option_id);
-  };
-
-  /**
-   * function - create JSX for product options
-   * @param {Void}
-   * @return {JSX}
-   */
-  renderOptionsJSX = () => {
-    if (this.props.newProduct.options) {
-      return this.props.newProduct.options.map(option => {
-        return (
-          <div
-            key={`newProductOption${option.option_id}`}
-            className="component-edit-form__options"
-          >
-            <div>
-              <span className="component-edit-form__options__name">
-                {option.option_name}:{" "}
-              </span>
-              {this.renderOptionValues(option)}
-            </div>
-            <div
-              onClick={this.removeProductOptions}
-              data-option-id={option.option_id}
-              className="component-edit-form__options_remove-button"
-            >
-              <i data-option-id={option.option_id} className="material-icons">
-                remove_circle_outline
-              </i>
-            </div>
-          </div>
-        );
-      });
-    } else {
-      return null;
-    }
-  };
-
-  renderOptionValues = option => {
-    return option.values.map(value => {
-      return (
-        <span
-          className="component-edit-form__options__value-name"
-          key={`newProductOptionValue${value.option_value_id}`}
-        >
-          {value.option_value_name}
-        </span>
-      );
-    });
-  };
-  onSubmit = () => {
-    this.props.onSubmit(this.state.image, this.state.isGroupon);
-  };
-  toggleAddOptionToNewProductForm = () => {
-    this.setState({ isShowAddOptionForm: !this.state.isShowAddOptionForm });
-  };
-  renderGrouponControl = () => {
+  const renderGrouponControl = () => {
     if (!this.state.isGroupon) {
       return null;
     }
@@ -180,12 +144,11 @@ class EditForm extends React.Component {
           </div>
           <div className="component-edit-form__button-group">
             <label className="component-edit-form__button-group__wrapper">
-              <Field
-                name="discountPrice"
-                component={this.renderInput}
-                className="component-edit-form__button-group__input"
-                placeholder="产品团购价格,例如: 10.00"
-              />
+              {renderInput({
+                name: "discountPrice",
+                className: "component-edit-form__button-group__input",
+                placeholder: "产品团购价格,例如: 10.00"
+              })}
             </label>
           </div>
         </div>
@@ -196,18 +159,18 @@ class EditForm extends React.Component {
           </div>
           <div className="component-edit-form__button-group">
             <label className="component-edit-form__button-group__wrapper">
-              <Field
-                name="stock_status_id"
-                component={this.renderInput}
-                placeholder="团购上限,例如:20"
-              />
+              {renderInput({
+                name: "stock_status_id",
+                placeholder: "团购上限,例如:20",
+                className: "form-input"
+              })}
             </label>
           </div>
         </div>
       </div>
     );
   };
-  renderGrouponSwitch = () => {
+  const renderGrouponSwitch = () => {
     if (!this.state.isGroupon) {
       return (
         <div
@@ -231,127 +194,87 @@ class EditForm extends React.Component {
       </div>
     );
   };
-  render() {
-    return (
-      <div className="component-edit-form">
-        <div className="component-edit-form__header">
-          <ProductFormCategorySelector />
-        </div>
-        <form
-          onSubmit={this.props.handleSubmit(this.onSubmit)}
-          className="edit-form"
-        >
-          <div className="component-edit-form__subtitle">
-            商品名称请分别填写中英文
-          </div>
-          <Field
-            name="chinese_name"
-            component={this.renderInput}
-            placeholder="中文名"
-          />
-          <Field
-            name="english_name"
-            component={this.renderInput}
-            placeholder="英文名"
-          />
-          <div className="component-edit-form__big-container">
-            <div className="component-edit-form__left">
-              <div className="component-edit-form__form-field-group">
-                <div className="component-edit-form__subtitle">
-                  商品单价保留小数点后2位.
-                  {/* <span style={{ color: "red" }}>
-                    当配置规格后该商品价格只起展示作用
-                  </span> */}
-                </div>
-                <div className="component-edit-form__button-group">
-                  <label className="component-edit-form__button-group__wrapper">
-                    <Field
-                      name="price"
-                      component={this.renderInput}
-                      placeholder="单价,例如 12.80"
-                      className="component-edit-form__button-group__input"
-                    />
-                    {/* <span className="component-edit-form__button-group__label">
-                      澳元
-                    </span> */}
-                  </label>
-                </div>
-              </div>
-              <div className="component-edit-form__form-field-group">
-                <div className="component-edit-form__subtitle">
-                  商品排序.
-                  <span style={{ color: "red" }}>必须为整数</span>
-                </div>
-                <div className="component-edit-form__button-group">
-                  <label className="component-edit-form__button-group__wrapper">
-                    <Field
-                      disable
-                      name="sort_order"
-                      component={this.renderInput}
-                      className="component-edit-form__button-group__input"
-                      placeholder="数字越大产品显示越靠前"
-                    />
-                    {/* <span className="component-edit-form__button-group__extra-label">
-                      <i className="material-icons">add</i>
-                    </span>
-                    <span className="component-edit-form__button-group__label">
-                      <i className="material-icons">remove</i>
-                    </span> */}
-                  </label>
-                </div>
-              </div>
-            </div>
 
-            <div className="component-edit-form__right">
-              <div className="component-edit-form__upload-image_container">
-                <label className="component-edit-form__upload-image_label">
-                  <input
-                    type="file"
-                    onChange={this.onChange}
-                    className="component-edit-form__upload-image_input"
-                  />
-                  <i className="material-icons">attachment</i>
-                  {this.getFileName()}
-                </label>
-
-                {this.renderImage()}
-              </div>
-            </div>
-          </div>
-          {this.renderGrouponSwitch()}
-          {this.renderGrouponControl()}
-
-          {/* <hr />
-          <div className="component-edit-form__subtitle">
-            <span>添加产品规格.</span>
-            <span style={{ color: "red" }}>可不填.</span>
-            <div
-              onClick={this.toggleAddOptionToNewProductForm}
-              className="component-eidt-form__subtitle__button"
-            >
-              <span>添加新规格</span>
-            </div>
-          </div>
-          <div className="component-edit-form__button-group">
-            {this.renderOptionsJSX()}
-          </div>
-          {this.state.isShowAddOptionForm ? (
-            <AddOptionToNewProductForm
-              toggleAddOptionToNewProductForm={
-                this.toggleAddOptionToNewProductForm
-              }
-            />
-          ) : null} */}
-          <div className="component-edit-form__button-wrapper">
-            <button className="component-edit-form__submit-button">
-              确认保存
-            </button>
-          </div>
-        </form>
+  return (
+    <div className="component-edit-form">
+      <div className="component-edit-form__header">
+        <ProductFormCategorySelector />
       </div>
-    );
-  }
-}
+      <form onSubmit={onSubmit} className="edit-form">
+        <div className="component-edit-form__subtitle">
+          商品名称请分别填写中英文
+        </div>
+        {renderInput({
+          name: `chinese_name`,
+          placeholder: "中文名",
+          className: "form-input"
+        })}
+        {renderInput({
+          name: `english_name`,
+          placeholder: "英文名",
+          className: "form-input"
+        })}
+
+        <div className="component-edit-form__big-container">
+          <div className="component-edit-form__left">
+            <div className="component-edit-form__form-field-group">
+              <div className="component-edit-form__subtitle">
+                商品单价保留小数点后2位.
+              </div>
+              <div className="component-edit-form__button-group">
+                <label className="component-edit-form__button-group__wrapper">
+                  {renderInput({
+                    name: `price`,
+                    placeholder: "单价,例如 12.80",
+                    className: "component-edit-form__button-group__input"
+                  })}
+                </label>
+              </div>
+            </div>
+            <div className="component-edit-form__form-field-group">
+              <div className="component-edit-form__subtitle">
+                商品排序.
+                <span style={{ color: "red" }}>必须为整数</span>
+              </div>
+              <div className="component-edit-form__button-group">
+                <label className="component-edit-form__button-group__wrapper">
+                  {renderInput({
+                    name: "sort_order",
+                    className: "component-edit-form__button-group__input",
+                    placeholder: "数字越大产品显示越靠前"
+                  })}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div className="component-edit-form__right">
+            <div className="component-edit-form__upload-image_container">
+              <label className="component-edit-form__upload-image_label">
+                <input
+                  type="file"
+                  onChange={onChange}
+                  className="component-edit-form__upload-image_input"
+                />
+                <i className="material-icons">attachment</i>
+                {/* {getFileName()} */}
+              </label>
+
+              {/* {renderImage()} */}
+            </div>
+          </div>
+        </div>
+        {/* {renderGrouponSwitch()} */}
+        {/* {renderGrouponControl()} */}
+        <div className="component-edit-form__button-wrapper">
+          <button className="component-edit-form__submit-button">
+            确认保存
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
 
 const validate = formValues => {
   const errors = {};
@@ -388,20 +311,4 @@ const validate = formValues => {
   return errors;
 };
 
-const mapStateToProps = ({ options, newProduct }) => {
-  return {
-    options,
-    newProduct
-  };
-};
-
-const formWrapper = reduxForm({
-  form: "productForm",
-  validate,
-  enableReinitialize: true
-})(EditForm);
-
-export default connect(
-  mapStateToProps,
-  { fetchOptions, removeOptionsFromNewProduct }
-)(formWrapper);
+export default ProductForm;

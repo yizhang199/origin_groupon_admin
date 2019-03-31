@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { ProductContext } from "../../../../_context";
+import { ProductContext } from "./_context";
 import { history } from "../../../../_helpers";
 import { getProducts } from "../../hooks";
 
@@ -8,6 +8,8 @@ const SubMenu = () => {
     activeProduct: "active",
     inactiveProduct: ""
   });
+
+  const [searchString, setSearchString] = useState("");
 
   const context = useContext(ProductContext);
 
@@ -26,7 +28,10 @@ const SubMenu = () => {
     }
   };
 
-  const handleInputChange = () => {};
+  const handleInputChange = e => {
+    setSearchString(e.target.value);
+    getProducts({ search_string: searchString }, context.getProducts);
+  };
 
   return (
     <div className="sub-menu">
@@ -35,6 +40,7 @@ const SubMenu = () => {
           type="text"
           onChange={handleInputChange}
           placeholder="按商品名搜索"
+          value={searchString}
         />
       </div>
       <div className="link-container">
