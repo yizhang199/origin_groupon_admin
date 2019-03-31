@@ -3,35 +3,12 @@ import { ProductContext } from "../_context";
 
 import ProductFormCategorySelector from "./ProductFormCategorySelector";
 
-// import AddOptionToNewProductForm from "./AddOptionToNewProductForm";
-const ProductForm = () => {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //     productOptions: [],
-  //     isShowAddOptionForm: false,
-  //     isShowAddCategoryForm: false,
-  //     image: "",
-  //     fileName: "",
-  //     isGroupon: false
-  //   };
-  // }
-
-  //   initialValues = {{
-  //     chinese_name: product.descriptions[1].name,
-  //       english_name: product.descriptions[0].name,
-  //         price: product.product.price,
-  //           sort_order: product.product.sort_order,
-  //             stock_status_id: product.product.stock_status_id,
-  //               quantity: product.product.quantity
-  //   }
-  // }
+const ProductForm = ({ onSubmit }) => {
   const context = useContext(ProductContext);
 
   const { product, descriptions } = context.selectedProduct;
 
-  const { price, sort_order, stock_status_id, quantity } = product
+  const { price, sort_order, stock_status_id, quantity, image } = product
     ? product
     : {};
 
@@ -46,46 +23,45 @@ const ProductForm = () => {
     chinese_name: {}
   });
 
+  const [imageState, setImageState] = useState(image);
+  const [fileName, setFileName] = useState("");
+  const [isGroupon, setIsGroupon] = useState(false);
   useEffect(() => {
     setFormValues({
       price,
       sort_order,
       stock_status_id,
       quantity,
-      english_name: en_desc.name,
-      chinese_name: cn_desc.name
+      english_name: en_desc ? en_desc.name : "",
+      chinese_name: cn_desc ? cn_desc.name : ""
     });
-  }, [context]);
+  }, [context.selectedProduct]);
 
   const onChange = e => {
     let files = e.target.files || e.dataTransfer.files;
     if (!files.length) return;
 
-    this.props.setSelectProductImage(URL.createObjectURL(files[0]));
-    this.setState({
-      fileName: files[0].name
-    });
-    this.createImage(files[0]);
+    setFileName(files[0].name);
+    createImage(files[0]);
   };
+
   const createImage = file => {
     let reader = new FileReader();
     reader.onload = e => {
-      this.setState({
-        image: e.target.result
-      });
+      setImageState(e.target.result);
     };
     reader.readAsDataURL(file);
   };
 
   const renderImage = () => {
-    if (this.props.image === "") {
+    if (imageState === "") {
       return null;
     }
 
     return (
       <div className="component-edit-form__upload-image__img-container">
         <img
-          src={`${this.props.image}`}
+          src={`${imageState}`}
           className="component-edit-form__upload-image__img"
           alt=""
         />
@@ -93,19 +69,13 @@ const ProductForm = () => {
     );
   };
 
-  // How To:: Upload image / files in React.js
   const getFileName = () => {
-    if (this.state.image === "") {
+    if (imageState === "") {
       return <span>请选择图片</span>;
     }
-    return <span>{this.state.fileName}</span>;
+    return <span>{fileName}</span>;
   };
-  // componentDidMount() {
-  //   this.props.fetchOptions();
-  //   if (this.props.product) {
-  //     this.setState({ isGroupon: this.props.product.isDiscount });
-  //   }
-  // }
+
   /**
    * render input JSX from redux form field
    * @param {Object} {input,placeholder,meta}
@@ -127,12 +97,8 @@ const ProductForm = () => {
     );
   };
 
-  const onSubmit = () => {
-    // onSubmit(this.state.image, this.state.isGroupon);
-  };
-
   const renderGrouponControl = () => {
-    if (!this.state.isGroupon) {
+    if (!isGroupon) {
       return null;
     }
     return (
@@ -171,26 +137,14 @@ const ProductForm = () => {
     );
   };
   const renderGrouponSwitch = () => {
-    if (!this.state.isGroupon) {
-      return (
-        <div
-          onClick={() => {
-            this.setState({ isGroupon: !this.state.isGroupon });
-          }}
-          className="groupon-switch__on"
-        >
-          开启团购
-        </div>
-      );
-    }
     return (
       <div
         onClick={() => {
-          this.setState({ isGroupon: !this.state.isGroupon });
+          setIsGroupon(!isGroupon);
         }}
-        className="groupon-switch__off"
+        className={isGroupon ? "groupon-switch__on" : "groupon-switch__off"}
       >
-        关闭团购
+        {isGroupon ? `开启团购` : `关闭团购`}
       </div>
     );
   };
@@ -200,7 +154,13 @@ const ProductForm = () => {
       <div className="component-edit-form__header">
         <ProductFormCategorySelector />
       </div>
-      <form onSubmit={onSubmit} className="edit-form">
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          onSubmit(imageState, formValues, isGroupon);
+        }}
+        className="edit-form"
+      >
         <div className="component-edit-form__subtitle">
           商品名称请分别填写中英文
         </div>
@@ -257,15 +217,15 @@ const ProductForm = () => {
                   className="component-edit-form__upload-image_input"
                 />
                 <i className="material-icons">attachment</i>
-                {/* {getFileName()} */}
+                {getFileName()}
               </label>
 
-              {/* {renderImage()} */}
+              {renderImage()}
             </div>
           </div>
         </div>
-        {/* {renderGrouponSwitch()} */}
-        {/* {renderGrouponControl()} */}
+        {renderGrouponSwitch()}
+        {renderGrouponControl()}
         <div className="component-edit-form__button-wrapper">
           <button className="component-edit-form__submit-button">
             确认保存

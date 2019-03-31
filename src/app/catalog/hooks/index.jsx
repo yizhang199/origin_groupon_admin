@@ -21,3 +21,28 @@ export const getProduct = async (id, getProduct) => {
   getProduct(response.data);
   history.push(`${process.env.PUBLIC_URL}/products/edit/${id}`);
 };
+
+export const updateProduct = async (
+  id,
+  file,
+  formValues,
+  isGroupon,
+  getProducts
+) => {
+  const product = formValues;
+  const headers = { language_id: 2 };
+  const response = await kidsnparty.put(
+    `/products/${id}`,
+    {
+      product,
+      // category,
+      options: [],
+      file,
+      isGroupon
+    },
+    {
+      headers
+    }
+  );
+  getProducts(response.data);
+};

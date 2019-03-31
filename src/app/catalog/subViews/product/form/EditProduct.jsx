@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { getProduct } from "../../../hooks";
+import { getProduct, updateProduct } from "../../../hooks";
 import { ProductContext } from "../_context";
 import ProductForm from "./ProductForm";
 
@@ -11,10 +11,11 @@ const EditProduct = ({ match }) => {
     if (!product.descriptions) {
       getProduct(id, context.getProduct);
     }
-  }, []);
-  const onSubmit = (file, isGroupon) => {
+  }, [context.products]);
+
+  const onSubmit = (file, formValues, isGroupon) => {
     const id = parseInt(match.params.product_id);
-    // context.updateProduct(id, file, isGroupon);
+    updateProduct(id, file, formValues, isGroupon, context.getProducts);
   };
 
   if (!product.descriptions) {

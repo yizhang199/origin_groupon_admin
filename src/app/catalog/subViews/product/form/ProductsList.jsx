@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, Element } from "react-scroll";
 import { ProductContext } from "../_context";
 import ProductCard from "./ProductCard";
@@ -6,7 +6,11 @@ import ProductCard from "./ProductCard";
 const ProductList = () => {
   const context = useContext(ProductContext);
 
-  const { products } = context;
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    setProducts(context.products);
+  }, [context.products]);
 
   if (!products) {
     return <div className="product-list">Loading...</div>;
